@@ -1,0 +1,29 @@
+{
+  "last_updated": "2026-06-05T00:00:00Z",
+  "election_date": "2026-10-26",
+  "nomination_open": "2026-05-01",
+  "nomination_close": "2026-08-21",
+  "dc_bylaw": {
+    "number": "2026-20",
+    "passed": "2026-05-21",
+    "fiscal_pressure_billions": 1.4,
+    "notes": "York Region passed DC Bylaw No. 2026-20 on May 21, 2026, cutting DC rates for the first time in 55 years, creating an estimated $1.4B fiscal pressure on regional infrastructure funding."
+  },
+  "total_municipalities": 9,
+  "municipalities": [
+    "Aurora",
+    "East Gwillimbury",
+    "Georgina",
+    "King",
+    "Markham",
+    "Newmarket",
+    "Richmond Hill",
+    "Vaughan",
+    "Whitchurch-Stouffville"
+  ],
+  "regional_chair": {
+    "name": "Eric Jolliffe",
+    "note": "Provincially appointed — not on ballot"
+  },
+  "scraper_version": "1.0.0"
+}
