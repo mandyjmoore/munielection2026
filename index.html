@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>York Region 2026 Municipal Election Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0f172a;
+      --bg-card:    #1e293b;
+      --bg-card2:   #0f1e35;
+      --border:     #334155;
+      --border-subtle: #1e3a5f;
+      --text:       #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim:   #64748b;
+      --accent:     #3b82f6;
+      --accent-hover: #2563eb;
+
+      --green:      #22c55e;
+      --green-dim:  #15803d;
+      --green-bg:   #052e16;
+      --lime:       #84cc16;
+      --lime-bg:    #1a2e05;
+      --yellow:     #eab308;
+      --yellow-bg:  #2d2500;
+      --orange:     #f97316;
+      --orange-bg:  #2d1500;
+      --red:        #ef4444;
+      --red-bg:     #2d0a0a;
+
+      --radius:     8px;
+      --radius-lg:  12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .site-header {
+      background: linear-gradient(135deg, #0f172a 0%, #0c1f3a 50%, #0f172a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .header-title h1 {
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 800;
+      color: #f1f5f9;
+      letter-spacing: -0.5px;
+    }
+
+    .header-title .subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    .countdown-box .days {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .countdown-box .label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .last-updated {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: right;
+    }
+
+    .last-updated strong {
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       ALERT BANNER
+    ============================================================ */
+    .alert-banner {
+      background: linear-gradient(90deg, #1c2d1c, #0f3f1f);
+      border: 1px solid var(--green-dim);
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .alert-banner .alert-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .alert-banner.hidden { display: none; }
+
+    /* ============================================================
+       MAIN CONTENT AREA
+    ============================================================ */
+    .main-content {
+      padding: 16px 0 48px;
+    }
+
+    /* ============================================================
+       STAT CARDS
+    ============================================================ */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent-color, var(--accent));
+    }
+
+    .stat-card.green::before { background: var(--green); }
+    .stat-card.yellow::before { background: var(--yellow); }
+    .stat-card.orange::before { background: var(--orange); }
+    .stat-card.blue::before { background: var(--accent); }
+
+    .stat-card .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-card .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .stat-card .stat-sub {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* ============================================================
+       DC TRACKER
+    ============================================================ */
+    .dc-tracker {
+      background: linear-gradient(135deg, #1a0f0a, #2d1400);
+      border: 1px solid #7c2d12;
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+
+    .dc-tracker h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dc-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .dc-fact {
+      background: rgba(0,0,0,0.3);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+    }
+
+    .dc-fact .dc-fact-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .dc-fact .dc-fact-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .dc-context {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .dc-context strong { color: var(--orange); }
+
+    /* ============================================================
+       FISCAL ALIGNMENT OVERVIEW
+    ============================================================ */
+    .alignment-overview {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title .badge {
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--accent);
+      color: white;
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+
+    .alignment-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .alignment-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .alignment-bar-label {
+      width: 130px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .alignment-bar-track {
+      flex: 1;
+      background: var(--border);
+      border-radius: 99px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .alignment-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+
+    .alignment-bar-count {
+      width: 28px;
+      text-align: right;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chart-container {
+      max-width: 340px;
+      margin: 0 auto;
+      height: 200px;
+    }
+
+    .alignment-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    /* ============================================================
+       MUNICIPALITIES SECTION
+    ============================================================ */
+    .municipalities-section {
+      margin-bottom: 20px;
+    }
+
+    .muni-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .muni-tab {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 99px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    .muni-tab:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .muni-tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+
+    .muni-panel {
+      display: none;
+    }
+
+    .muni-panel.active {
+      display: block;
+    }
+
+    .race-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .race-header {
+      background: var(--bg-card2);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .race-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .race-count {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .candidate-list {
+      padding: 8px 0;
+    }
+
+    .candidate-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      gap: 12px;
+      transition: background 0.1s;
+      border-bottom: 1px solid rgba(51,65,85,0.3);
+    }
+
+    .candidate-row:last-child { border-bottom: none; }
+    .candidate-row:hover { background: rgba(255,255,255,0.02); }
+
+    .alignment-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .candidate-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f1f5f9;
+      flex: 1;
+    }
+
+    .candidate-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+
+    .badge-incumbent { background: #1e3a5f; color: #60a5fa; }
+    .badge-challenger { background: #1a2e1a; color: #86efac; }
+    .badge-unknown { background: #1e1e1e; color: #64748b; }
+
+    .score-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .score-strongly_aligned    { background: #052e16; color: var(--green); border: 1px solid var(--green-dim); }
+    .score-aligned             { background: #1a2e05; color: var(--lime); border: 1px solid #365314; }
+    .score-neutral             { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #713f12; }
+    .score-misaligned          { background: var(--orange-bg); color: var(--orange); border: 1px solid #7c2d12; }
+    .score-strongly_misaligned { background: var(--red-bg); color: var(--red); border: 1px solid #7f1d1d; }
+
+    .news-count {
+      font-size: 10px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .news-count.has-news { color: var(--accent); }
+
+    /* ============================================================
+       NEWS SECTION
+    ============================================================ */
+    .news-section {
+      margin-bottom: 20px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .news-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      transition: border-color 0.15s;
+    }
+
+    .news-item:hover { border-color: var(--accent); }
+
+    .news-item.dc-story {
+      border-left: 3px solid var(--orange);
+    }
+
+    .news-item-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .news-item-title {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.4;
+    }
+
+    .news-item-title a { color: inherit; }
+    .news-item-title a:hover { color: var(--accent); text-decoration: none; }
+
+    .news-item-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .news-date {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .news-muni-tags {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .muni-tag {
+      font-size: 10px;
+      background: var(--border-subtle);
+      color: var(--text-muted);
+      padding: 1px 6px;
+      border-radius: 99px;
+    }
+
+    .dc-tag {
+      font-size: 10px;
+      background: rgba(249,115,22,0.1);
+      color: var(--orange);
+      border: 1px solid rgba(249,115,22,0.3);
+      padding: 1px 6px;
+      border-radius: 99px;
+    }
+
+    /* ============================================================
+       NOMINATION STATUS
+    ============================================================ */
+    .nomination-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nom-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nom-item .nom-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .nom-item .nom-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nom-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+    }
+
+    .nom-progress-wrap {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .nom-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nom-progress-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .nom-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* ============================================================
+       LOADING / EMPTY STATES
+    ============================================================ */
+    .loading-spinner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      color: var(--text-dim);
+      font-size: 13px;
+      gap: 10px;
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .empty-state {
+      padding: 32px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 768px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .header-meta { width: 100%; justify-content: space-between; }
+      .alignment-grid { grid-template-columns: 1fr; }
+      .chart-container { display: none; }
+      .dc-facts { grid-template-columns: 1fr 1fr; }
+      .candidate-badges { gap: 4px; }
+    }
+
+    @media (max-width: 480px) {
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .dc-facts { grid-template-columns: 1fr; }
+      .muni-tabs { gap: 4px; }
+      .muni-tab { font-size: 11px; padding: 5px 10px; }
+    }
+
+    /* ============================================================
+       TOOLTIP
+    ============================================================ */
+    [title] { cursor: help; }
+
+    /* Section spacing */
+    .section + .section { margin-top: 24px; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1>&#127968; York Region 2026 Election Dashboard</h1>
+        <div class="subtitle">Tracking 9 municipalities &bull; October 26, 2026 &bull; Fiscal alignment monitor</div>
+      </div>
+      <div class="header-meta">
+        <div class="countdown-box">
+          <div class="days" id="countdown-days">—</div>
+          <div class="label">Days to Election</div>
+        </div>
+        <div class="last-updated">
+          <div><strong>Last Updated</strong></div>
+          <div id="last-updated-time">Loading…</div>
+          <div id="next-refresh" style="margin-top:2px;font-size:10px;color:var(--text-dim)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Banner -->
+    <div class="alert-banner hidden" id="alert-banner">
+      <span class="alert-icon">&#128276;</span>
+      <span id="alert-text">New candidate registrations detected in the last 24 hours.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     MAIN
+============================================================ -->
+<main class="main-content">
+  <div class="container">
+
+    <!-- Nomination Period Status -->
+    <div class="nomination-banner">
+      <div class="nom-item">
+        <span class="nom-value">May 1</span>
+        <span class="nom-label">Noms Open</span>
+      </div>
+      <div class="nom-divider"></div>
+      <div class="nom-item">
+        <span class="nom-value">Aug 21</span>
+        <span class="nom-label">Noms Close</span>
+      </div>
+      <div class="nom-divider"></div>
+      <div class="nom-item">
+        <span class="nom-value">Oct 26</span>
+        <span class="nom-label">Election Day</span>
+      </div>
+      <div class="nom-divider"></div>
+      <div class="nom-progress-wrap">
+        <div class="nom-progress-label">
+          <span>Nomination Window Progress</span>
+          <span id="nom-pct">—%</span>
+        </div>
+        <div class="nom-progress-track">
+          <div class="nom-progress-fill" id="nom-progress-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="stat-grid" id="stat-grid">
+      <div class="stat-card blue">
+        <div class="stat-value" id="stat-total-candidates">—</div>
+        <div class="stat-label">Total Candidates</div>
+        <div class="stat-sub">All registered nominees</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-value" id="stat-races-contested">—</div>
+        <div class="stat-label">Contested Races</div>
+        <div class="stat-sub">Races with 2+ candidates</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-value" id="stat-strongly-aligned">—</div>
+        <div class="stat-label">Strongly Aligned</div>
+        <div class="stat-sub">Score 8+ (green on fiscal)</div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="stat-value" id="stat-news-7d">—</div>
+        <div class="stat-label">News (7 Days)</div>
+        <div class="stat-sub">Articles this week</div>
+      </div>
+    </div>
+
+    <!-- DC Tracker -->
+    <div class="dc-tracker">
+      <h2>&#9888;&#65039; DC Bylaw 2026-20 Tracker</h2>
+      <div class="dc-facts">
+        <div class="dc-fact">
+          <div class="dc-fact-value">$1.4B</div>
+          <div class="dc-fact-label">Fiscal pressure created</div>
+        </div>
+        <div class="dc-fact">
+          <div class="dc-fact-value">May 21</div>
+          <div class="dc-fact-label">Bylaw passed (2026)</div>
+        </div>
+        <div class="dc-fact">
+          <div class="dc-fact-value">55 yrs</div>
+          <div class="dc-fact-label">First DC rate cut ever</div>
+        </div>
+        <div class="dc-fact">
+          <div class="dc-fact-value" id="stat-dc-news">—</div>
+          <div class="dc-fact-label">DC-related news articles</div>
+        </div>
+      </div>
+      <p class="dc-context">
+        York Region passed <strong>DC Bylaw No. 2026-20</strong> on May 21, 2026 — cutting development charge rates
+        for the first time in 55 years, creating an estimated <strong>$1.4B fiscal pressure</strong> on regional
+        infrastructure. The dashboard tracks which candidates support the <strong>"growth pays for growth"</strong>
+        philosophy (maintaining DC funding to cover infrastructure costs of new development) versus those
+        advocating housing-affordability-driven DC reductions. Candidates scoring 8–10 (green) are most aligned
+        with preserving infrastructure funding; those scoring 0–3 (red/orange) favour further cuts.
+      </p>
+    </div>
+
+    <!-- Fiscal Alignment Overview -->
+    <div class="alignment-overview">
+      <div class="section-title">
+        Fiscal Alignment Overview
+        <span class="badge" id="alignment-total-badge">0 candidates</span>
+      </div>
+      <div class="alignment-grid">
+        <div class="alignment-bars" id="alignment-bars">
+          <div class="loading-spinner"><div class="spinner"></div> Loading alignment data…</div>
+        </div>
+        <div class="chart-container">
+          <canvas id="alignment-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Municipality Tabs -->
+    <div class="municipalities-section">
+      <div class="section-title" style="margin-bottom:10px">
+        Candidates by Municipality
+      </div>
+      <div class="muni-tabs" id="muni-tabs">
+        <!-- tabs injected by JS -->
+      </div>
+      <div id="muni-panels">
+        <!-- panels injected by JS -->
+      </div>
+    </div>
+
+    <!-- News Feed -->
+    <div class="news-section">
+      <div class="section-title">
+        Latest News
+        <span class="badge" id="news-total-badge">0 articles</span>
+      </div>
+      <div class="news-grid" id="news-grid">
+        <div class="loading-spinner"><div class="spinner"></div> Loading news…</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    York Region 2026 Municipal Election Dashboard &bull; Data auto-refreshed every 2 hours via GitHub Actions &bull;
+    Election: October 26, 2026 &bull; Regional Chair Eric Jolliffe is provincially appointed (not on ballot)
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  // ============================================================
+  // CONSTANTS
+  // ============================================================
+  const ELECTION_DATE = new Date('2026-10-26T00:00:00-05:00');
+  const NOM_OPEN      = new Date('2026-05-01T00:00:00-05:00');
+  const NOM_CLOSE     = new Date('2026-08-21T23:59:59-05:00');
+  const REFRESH_MS    = 30 * 60 * 1000; // 30 minutes
+
+  const MUNICIPALITIES = [
+    'Aurora', 'East Gwillimbury', 'Georgina', 'King', 'Markham',
+    'Newmarket', 'Richmond Hill', 'Vaughan', 'Whitchurch-Stouffville', 'York Region'
+  ];
+
+  const ALIGN_COLORS = {
+    strongly_aligned:    '#22c55e',
+    aligned:             '#84cc16',
+    neutral:             '#eab308',
+    misaligned:          '#f97316',
+    strongly_misaligned: '#ef4444',
+  };
+
+  const ALIGN_LABELS = {
+    strongly_aligned:    'Strongly Aligned',
+    aligned:             'Aligned',
+    neutral:             'Neutral',
+    misaligned:          'Misaligned',
+    strongly_misaligned: 'Strongly Misaligned',
+  };
+
+  // ============================================================
+  // STATE
+  // ============================================================
+  let state = {
+    candidates: [],
+    news: [],
+    metadata: {},
+    activeMuni: MUNICIPALITIES[0],
+    chartInstance: null,
+  };
+
+  // ============================================================
+  // DATA LOADING
+  // ============================================================
+  async function fetchJSON(url) {
+    try {
+      const resp = await fetch(url + '?t=' + Date.now());
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      return await resp.json();
+    } catch (err) {
+      console.warn('Failed to fetch', url, err);
+      return null;
+    }
+  }
+
+  async function loadData() {
+    const [candidates, news, metadata] = await Promise.all([
+      fetchJSON('data/candidates.json'),
+      fetchJSON('data/news.json'),
+      fetchJSON('data/metadata.json'),
+    ]);
+
+    state.candidates = candidates || [];
+    state.news       = Array.isArray(news) ? news : [];
+    state.metadata   = metadata || {};
+
+    render();
+  }
+
+  // ============================================================
+  // UTILITIES
+  // ============================================================
+  function daysUntil(date) {
+    const now = Date.now();
+    return Math.ceil((date - now) / 86400000);
+  }
+
+  function formatDate(isoStr) {
+    if (!isoStr) return '—';
+    try {
+      const d = new Date(isoStr);
+      return d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    } catch { return isoStr.slice(0, 16).replace('T', ' '); }
+  }
+
+  function formatShortDate(isoStr) {
+    if (!isoStr) return '—';
+    try {
+      const d = new Date(isoStr);
+      return d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' });
+    } catch { return isoStr.slice(0, 10); }
+  }
+
+  function escapeHtml(str) {
+    return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function groupBy(arr, key) {
+    return arr.reduce((acc, item) => {
+      const k = item[key] || 'Unknown';
+      if (!acc[k]) acc[k] = [];
+      acc[k].push(item);
+      return acc;
+    }, {});
+  }
+
+  function nominationProgress() {
+    const now = Date.now();
+    const total = NOM_CLOSE - NOM_OPEN;
+    const elapsed = Math.min(Math.max(now - NOM_OPEN, 0), total);
+    return total > 0 ? (elapsed / total) * 100 : 0;
+  }
+
+  // ============================================================
+  // RENDER: HEADER / COUNTDOWN
+  // ============================================================
+  function renderHeader() {
+    const days = daysUntil(ELECTION_DATE);
+    const el = document.getElementById('countdown-days');
+    if (el) el.textContent = days > 0 ? days : 0;
+
+    const lu = state.metadata.last_updated;
+    const luEl = document.getElementById('last-updated-time');
+    if (luEl) luEl.textContent = lu ? formatDate(lu) : 'Not yet updated';
+
+    const nrEl = document.getElementById('next-refresh');
+    if (nrEl) nrEl.textContent = 'Auto-refresh in 30 min';
+  }
+
+  // ============================================================
+  // RENDER: NOMINATION PROGRESS
+  // ============================================================
+  function renderNomProgress() {
+    const pct = nominationProgress();
+    const bar = document.getElementById('nom-progress-bar');
+    const label = document.getElementById('nom-pct');
+    if (bar) bar.style.width = pct.toFixed(1) + '%';
+    if (label) label.textContent = pct.toFixed(0) + '%';
+  }
+
+  // ============================================================
+  // RENDER: ALERT BANNER
+  // ============================================================
+  function renderAlert() {
+    const newCount = state.metadata.new_registrations_24h || 0;
+    const banner = document.getElementById('alert-banner');
+    const text   = document.getElementById('alert-text');
+    if (!banner) return;
+    if (newCount > 0) {
+      banner.classList.remove('hidden');
+      if (text) text.textContent = `${newCount} new candidate registration${newCount > 1 ? 's' : ''} detected in the last 24 hours. Scroll down to review.`;
+    } else {
+      banner.classList.add('hidden');
+    }
+  }
+
+  // ============================================================
+  // RENDER: STAT CARDS
+  // ============================================================
+  function renderStats() {
+    const candidates = state.candidates;
+    const news = state.news;
+
+    // Total candidates
+    const total = candidates.length;
+    setText('stat-total-candidates', total);
+
+    // Contested races: group by municipality+office+ward, count those with 2+
+    const raceKey = c => `${c.municipality}|${c.office}|${c.ward || ''}`;
+    const raceCounts = {};
+    for (const c of candidates) {
+      const k = raceKey(c);
+      raceCounts[k] = (raceCounts[k] || 0) + 1;
+    }
+    const contested = Object.values(raceCounts).filter(n => n >= 2).length;
+    setText('stat-races-contested', contested);
+
+    // Strongly aligned (score >= 8)
+    const stronglyAligned = candidates.filter(c => (c.fiscal_alignment_score || 5) >= 8).length;
+    setText('stat-strongly-aligned', stronglyAligned);
+
+    // News in last 7 days
+    const cutoff7d = new Date(Date.now() - 7 * 86400000).toISOString();
+    const recent = news.filter(a => a.published_at && a.published_at > cutoff7d).length;
+    setText('stat-news-7d', recent);
+
+    // DC-related news count
+    const dcCount = news.filter(a => a.dc_related).length;
+    setText('stat-dc-news', dcCount);
+  }
+
+  function setText(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+
+  // ============================================================
+  // RENDER: ALIGNMENT OVERVIEW
+  // ============================================================
+  function renderAlignmentOverview() {
+    const candidates = state.candidates;
+    const counts = {
+      strongly_aligned: 0,
+      aligned: 0,
+      neutral: 0,
+      misaligned: 0,
+      strongly_misaligned: 0,
+    };
+
+    for (const c of candidates) {
+      const label = c.fiscal_alignment_label || 'neutral';
+      if (label in counts) counts[label]++;
+      else counts.neutral++;
+    }
+
+    const total = candidates.length || 1;
+    const badge = document.getElementById('alignment-total-badge');
+    if (badge) badge.textContent = `${candidates.length} candidate${candidates.length !== 1 ? 's' : ''}`;
+
+    const container = document.getElementById('alignment-bars');
+    if (!container) return;
+
+    const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned'];
+    container.innerHTML = order.map(key => {
+      const count = counts[key];
+      const pct = ((count / total) * 100).toFixed(1);
+      const color = ALIGN_COLORS[key];
+      const label = ALIGN_LABELS[key];
+      return `
+        <div class="alignment-bar-row" title="${label}: ${count} candidate${count !== 1 ? 's' : ''} (${pct}%)">
+          <div class="alignment-bar-label">${label}</div>
+          <div class="alignment-bar-track">
+            <div class="alignment-bar-fill" style="width:${pct}%;background:${color}"></div>
+          </div>
+          <div class="alignment-bar-count" style="color:${color}">${count}</div>
+        </div>
+      `;
+    }).join('');
+
+    // Chart.js doughnut
+    renderAlignmentChart(counts);
+  }
+
+  function renderAlignmentChart(counts) {
+    const ctx = document.getElementById('alignment-chart');
+    if (!ctx) return;
+
+    const labels = Object.keys(ALIGN_LABELS).map(k => ALIGN_LABELS[k]);
+    const data   = Object.keys(ALIGN_LABELS).map(k => counts[k] || 0);
+    const colors = Object.keys(ALIGN_LABELS).map(k => ALIGN_COLORS[k]);
+
+    if (state.chartInstance) {
+      state.chartInstance.data.datasets[0].data = data;
+      state.chartInstance.update();
+      return;
+    }
+
+    state.chartInstance = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          backgroundColor: colors,
+          borderColor: '#0f172a',
+          borderWidth: 2,
+          hoverOffset: 6,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '60%',
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.label}: ${ctx.raw} candidate${ctx.raw !== 1 ? 's' : ''}`,
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // ============================================================
+  // RENDER: MUNICIPALITY TABS
+  // ============================================================
+  function renderMuniTabs() {
+    const tabsEl   = document.getElementById('muni-tabs');
+    const panelsEl = document.getElementById('muni-panels');
+    if (!tabsEl || !panelsEl) return;
+
+    // Group candidates by municipality
+    const byMuni = groupBy(state.candidates, 'municipality');
+
+    tabsEl.innerHTML = MUNICIPALITIES.map(muni => {
+      const count = (byMuni[muni] || []).length;
+      const active = muni === state.activeMuni ? ' active' : '';
+      return `<button class="muni-tab${active}" data-muni="${escapeHtml(muni)}">${escapeHtml(muni)} <span style="opacity:0.6">(${count})</span></button>`;
+    }).join('');
+
+    panelsEl.innerHTML = MUNICIPALITIES.map(muni => {
+      const active = muni === state.activeMuni ? ' active' : '';
+      return `<div class="muni-panel${active}" id="panel-${slugify(muni)}" data-muni="${escapeHtml(muni)}">
+        ${renderMuniPanel(muni, byMuni[muni] || [])}
+      </div>`;
+    }).join('');
+
+    // Tab click events
+    tabsEl.querySelectorAll('.muni-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.activeMuni = btn.dataset.muni;
+        tabsEl.querySelectorAll('.muni-tab').forEach(b => b.classList.remove('active'));
+        panelsEl.querySelectorAll('.muni-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = document.getElementById('panel-' + slugify(btn.dataset.muni));
+        if (panel) panel.classList.add('active');
+      });
+    });
+  }
+
+  function renderMuniPanel(muni, candidates) {
+    if (!candidates.length) {
+      return `<div class="empty-state">No candidates on file for ${escapeHtml(muni)} yet. Data updates every 2 hours.</div>`;
+    }
+
+    // Group by office + ward
+    const byOffice = groupBy(candidates, 'office');
+    const officeOrder = ['Mayor', 'Regional Councillor', 'Councillor', 'Unknown'];
+
+    const sortedOffices = Object.keys(byOffice).sort((a, b) => {
+      const ai = officeOrder.indexOf(a) >= 0 ? officeOrder.indexOf(a) : 99;
+      const bi = officeOrder.indexOf(b) >= 0 ? officeOrder.indexOf(b) : 99;
+      return ai - bi || a.localeCompare(b);
+    });
+
+    return sortedOffices.map(office => {
+      const group = byOffice[office];
+      return `
+        <div class="race-group">
+          <div class="race-header">
+            <span class="race-title">${escapeHtml(office)}</span>
+            <span class="race-count">${group.length} candidate${group.length !== 1 ? 's' : ''}</span>
+          </div>
+          <div class="candidate-list">
+            ${group.map(renderCandidateRow).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderCandidateRow(c) {
+    const score  = c.fiscal_alignment_score ?? 5;
+    const label  = c.fiscal_alignment_label || 'neutral';
+    const color  = ALIGN_COLORS[label] || ALIGN_COLORS.neutral;
+    const status = c.status || 'unknown';
+    const mentions = c.news_mentions || 0;
+
+    const statusBadge = status === 'incumbent'
+      ? `<span class="badge badge-incumbent">Incumbent</span>`
+      : status === 'challenger'
+      ? `<span class="badge badge-challenger">Challenger</span>`
+      : `<span class="badge badge-unknown">Unknown</span>`;
+
+    const wardText = c.ward ? ` — Ward ${escapeHtml(c.ward)}` : '';
+    const title = escapeHtml(c.fiscal_notes || `Score: ${score}/10 — ${ALIGN_LABELS[label]}`);
+    const newsHtml = mentions > 0
+      ? `<span class="news-count has-news" title="News mentions">&#128240; ${mentions}</span>`
+      : `<span class="news-count">0 mentions</span>`;
+
+    return `
+      <div class="candidate-row" title="${title}">
+        <div class="alignment-dot" style="background:${color};box-shadow:0 0 6px ${color}40" title="${ALIGN_LABELS[label]}"></div>
+        <div class="candidate-name">${escapeHtml(c.name)}${wardText ? `<span style="font-weight:400;color:var(--text-muted);font-size:11px">${escapeHtml(wardText)}</span>` : ''}</div>
+        <div class="candidate-badges">
+          ${statusBadge}
+          <span class="score-pill score-${label}" title="Fiscal alignment score">${score}/10</span>
+          ${newsHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  // ============================================================
+  // RENDER: NEWS FEED
+  // ============================================================
+  function renderNews() {
+    const container = document.getElementById('news-grid');
+    const badge = document.getElementById('news-total-badge');
+    if (!container) return;
+
+    const articles = state.news.slice(0, 20); // show latest 20
+    if (badge) badge.textContent = `${state.news.length} article${state.news.length !== 1 ? 's' : ''}`;
+
+    if (!articles.length) {
+      container.innerHTML = `<div class="empty-state">No news articles yet. Data updates every 2 hours via GitHub Actions.</div>`;
+      return;
+    }
+
+    container.innerHTML = articles.map(a => {
+      const dcClass = a.dc_related ? ' dc-story' : '';
+      const munis = (a.municipalities || []).slice(0, 3);
+      const muniTags = munis.map(m => `<span class="muni-tag">${escapeHtml(m)}</span>`).join('');
+      const dcTag = a.dc_related ? `<span class="dc-tag">DC / Bylaw</span>` : '';
+      const date = formatShortDate(a.published_at);
+      const titleHtml = a.url
+        ? `<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.title)}</a>`
+        : escapeHtml(a.title);
+
+      return `
+        <div class="news-item${dcClass}">
+          <div class="news-item-header">
+            <div class="news-item-title">${titleHtml}</div>
+          </div>
+          <div class="news-item-meta">
+            <span class="news-date">${date}</span>
+            <div class="news-muni-tags">${muniTags}${dcTag}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ============================================================
+  // HELPERS
+  // ============================================================
+  function slugify(str) {
+    return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  // ============================================================
+  // MAIN RENDER
+  // ============================================================
+  function render() {
+    renderHeader();
+    renderNomProgress();
+    renderAlert();
+    renderStats();
+    renderAlignmentOverview();
+    renderMuniTabs();
+    renderNews();
+  }
+
+  // ============================================================
+  // INIT
+  // ============================================================
+  function init() {
+    // Initial countdown tick
+    const days = daysUntil(ELECTION_DATE);
+    const el = document.getElementById('countdown-days');
+    if (el) el.textContent = days > 0 ? days : '0';
+
+    // Load data
+    loadData();
+
+    // Auto-refresh every 30 minutes
+    let refreshTimer = setInterval(loadData, REFRESH_MS);
+
+    // Countdown timer (updates daily)
+    setInterval(() => {
+      const d = daysUntil(ELECTION_DATE);
+      const el = document.getElementById('countdown-days');
+      if (el) el.textContent = d > 0 ? d : '0';
+    }, 60000);
+
+    // Next refresh countdown display
+    let secondsUntilRefresh = REFRESH_MS / 1000;
+    setInterval(() => {
+      secondsUntilRefresh -= 60;
+      if (secondsUntilRefresh <= 0) secondsUntilRefresh = REFRESH_MS / 1000;
+      const mins = Math.round(secondsUntilRefresh / 60);
+      const el = document.getElementById('next-refresh');
+      if (el) el.textContent = `Data refresh in ~${mins} min`;
+    }, 60000);
+  }
+
+  // Start
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+</body>
+</html>
