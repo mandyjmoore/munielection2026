@@ -826,6 +826,19 @@
     "fetched_at": "2026-06-05T21:41:11.727827+00:00"
   },
   {
+    "id": "e15238a9b29ff616",
+    "title": "Toronto Votes 2026: Three candidates already registered to run in Beaches-East York for open council seat - Beach Metro Community News",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPUzJNcFUwVEtIOTlzNl9yWFJER004ZWxiX3pSSkRYMkJYZFRlRzAxV3JncDBQMW13dmMxTEsza0xucVk2NEV3aHhWYXFPSmRQd1dTV2ZHOTRTSHpRVF9nV3NsT2FoamEwWE5NbWhHNGpERTU1X1FHQlY0RlNXQ0kzOEZmNDVaRS1qcGxJb1JZdkNqVFNibnBZNThFeVpVbDEtZUFWb3RFR3hrNFlGdHA1eGFWcnJLUXlhRzhvZFNadjlVTVltSnNBdUQxZGdrV2pPVDFVUUtn?oc=5",
+    "summary": "Toronto Votes 2026: Three candidates already registered to run in Beaches-East York for open council seat&nbsp;&nbsp;Beach Metro Community News",
+    "published_at": "2026-05-04T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Whitchurch-Stouffville"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-06T17:18:26.747165+00:00"
+  },
+  {
     "id": "41c9b936adabf14a",
     "title": "Burlington’s 2026 Mayoral Race: A Voter’s Guide to Cutting Through the Rhetoric - bayobserver.ca",
     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOYkdDdnRwYmZIMGY4M1hQRGhiRzFFX1pjTnQ3cnVyTjY4eE1yMk96WURjSXZkMHR4Y0xYc2hwZE4xaHRiZmNJak82WWg0RXpDWnA4dXpKcDFjY3Q4Z2xMVE5BSHRHVDFIWHIxa3oxVGZWbU5XU2hpaVkzZ3d5TDVNcWUxRHVHTm1sbEFzX0VyRDNsMTBxVmZJeWNlNEVxMmkwZEE?oc=5",
@@ -967,6 +980,32 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-06T03:50:33.651410+00:00"
+  },
+  {
+    "id": "433e3e8e3021a11e",
+    "title": "Will GTA municipalities follow Vaughan's lead on slashing development charges? - mpamag.com",
+    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPa3lSN01nS0dqcFpLZW80YlFVSWI3dGZUSHc1aEFPSXpGdWtueU9tME5rdGpuVUtONDN3WEJjOHBkY3AtZG9oaFIxaGNLTEtxNDhVdjNpcndvV28yWEJUbWtmN2I4OEgtdkpESTRZZHFzT2M0dU5RYlIxaVNoRWF1bkxCbklYT3F1VWRaT1drOU1PeWtXV05qT1pNcnJMaTd4cThTMG9MdnQ5RERGZFRKY0ZCSF9zTXBTUHJLbjJIak9XcXRmeDdpYWFHQ0hiYnhHM1ZvdGViblB0a3M?oc=5",
+    "summary": "Will GTA municipalities follow Vaughan's lead on slashing development charges?&nbsp;&nbsp;mpamag.com",
+    "published_at": "2026-05-01T07:00:00+00:00",
+    "category": "development_charges",
+    "municipalities": [
+      "Vaughan"
+    ],
+    "dc_related": true,
+    "fetched_at": "2026-06-06T17:18:22.680547+00:00"
+  },
+  {
+    "id": "416dda0b1ec1ce2b",
+    "title": "Hamilton’s election campaign is underway: here’s what you need to know - The Spec",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNVUQ4cktRd3NKb3AzVU01NHNhaHZDN0EyWTZBdVdTM3VlWHF4SGVmcVJVUzlKcnBvLVc0UUstWW1DSVZpV1hiSzBELThvNld0b3dNNGNya0FXMjZiaXBDa1NYS0hXWnZKdk9hMFBxbnl1WlVlS1ZWYnJtSzlSd2tzNXBfY09XX1A1eWpFaGR6azUwNjg1RENmSU82Z1FidFpEOTFVcFFxaGlkX25HNDVCbEF0ZlN3WnJLNlV2TjBGN3RsTUtEb0t4WGRVOTB5QjZWOFYxLVFn?oc=5",
+    "summary": "Hamilton’s election campaign is underway: here’s what you need to know&nbsp;&nbsp;The Spec",
+    "published_at": "2026-05-01T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-06T17:18:24.607812+00:00"
   },
   {
     "id": "c86427b03572adbf",
