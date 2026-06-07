@@ -235,6 +235,19 @@
     "fetched_at": "2026-06-05T23:13:16.623555+00:00"
   },
   {
+    "id": "20f5f54be6983d0e",
+    "title": "Municipal Election 2026 - Huntsville Doppler",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1QanFDRjlFWXl3SWNBNkpOUlk1WHBiZXpHYndnQVhVNTB4VFFndzE2WVpZZ1VaYU42dnREcHh3UVh6aGEySU9uYzkxVWJwOTViNGtBczhHcnlFMDNaYkxBUEFpaC1ZYkhoMGVzNw?oc=5",
+    "summary": "Municipal Election 2026&nbsp;&nbsp;Huntsville Doppler",
+    "published_at": "2026-05-31T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-07T04:16:14.583748+00:00"
+  },
+  {
     "id": "006cdc14b48575f7",
     "title": "Support for Doug Ford Craters Following Latest Scandals - The Grind Magazine",
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOV05jTlVBTGJpTUhUV2pENkFoNnlkcllIVkNnSFdGNVdEVFd3YkVuVlFIcXdibTdHUWJtRWV4b0RHM2tJdUs1TGU1N2xxbXRiTEMyclFBWk9QYVlTS25rZUd3ZHBNenpPN0FSZ01WZWVqU3hyUWNFTDl1ek5xbFNOc1FsZHkxdkZKdnFR?oc=5",
@@ -1719,6 +1732,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-05T19:59:48.104615+00:00"
+  },
+  {
+    "id": "bcfd83be84082406",
+    "title": "Kansas City election guide: What Jackson County and Platte County voters need to know - KCUR",
+    "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQR0JUR3FWS0thREY4R2xyMWphcDdvczZUdmxndUpxTTh3cEZtVU1rODhXV09iZmFIZUEySjdiRHJLR2Vkb0VLN2hmVF9FckVsczBXUmJ3WFFWbFhJMWh5dmdZSndBanFHbmlhX0syU2RQRFNXb0ZNZE5fRnFIWDdMQmJKUnlPR2loV0c2Mzg2cVFCUGRaemRnVFNOMGJmY25IZW1oQ2FfLUJDUzZBSTVaTnd1YW53NTJDR2tnTng0dG90cDV6N1N1UHJNYkhURmVtNkY3MUU3VFV4eFAtSnFBdzVINk5DNGM?oc=5",
+    "summary": "Kansas City election guide: What Jackson County and Platte County voters need to know&nbsp;&nbsp;KCUR",
+    "published_at": "2026-03-23T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-07T04:16:14.583536+00:00"
   },
   {
     "id": "a57a4d5a4eda56cd",
