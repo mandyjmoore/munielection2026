@@ -1,5 +1,18 @@
 [
   {
+    "id": "4da135dd9b3f8b90",
+    "title": "'This is a quagmire:' York Region seeks $1.74B in funding but must further slash development charges - NewmarketToday.ca",
+    "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNcDdXTUdfS05JWXJIWnFkc29SYkZpalJpQkJDdFhjYkFwQ2Y4ampVbmw0cDItbnVILWZ1M2FVdmdUamdVTWJuTy1CR0pLZnVxRHZObVNLM3BGZlV1bWk1X2t6M1RheUE5TXVybWlYdHZEaktSMHV1ZkhaMTJIRjRjRExBR1dBVjJ3cjBuV0FVTTRjcmlSVzltaEg2eFlFQmItVFlOQjNxcEdSekZWci12ZUVWdTJsOFppazhJLUVjUVJra0w3ZF9yMDRiUDFaWC02OEVMWHd1QkhoX3k3SGc?oc=5",
+    "summary": "'This is a quagmire:' York Region seeks $1.74B in funding but must further slash development charges&nbsp;&nbsp;NewmarketToday.ca",
+    "published_at": "2026-06-11T18:51:40+00:00",
+    "category": "development_charges",
+    "municipalities": [
+      "Newmarket"
+    ],
+    "dc_related": true,
+    "fetched_at": "2026-06-11T20:30:09.137464+00:00"
+  },
+  {
     "id": "38e4070aa5bcbeb7",
     "title": "2nd Newmarket councillor in days bows out of municipal election race - YorkRegion.com",
     "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQS0k5TXZTQjNDZmFvTExGQ0l1d1ZwRTA2MVZ1MllveXE5cWxmN1BxU0tIOFpuUXhsdFpzOVBoZjB6bXVUcV8wdlpKUXBKZ2ZCUEVTVHRXY0dzakNidGFQTjdTeGpSRGxPNlRHWDhncWNlNnpXWUtra0RkY0Z6Uks4SlhWajl0NXRZSHR6RE8zWkRIV3g4aVlRSDhpSmhaOWpsNFNpYkUyTjMzZGQ5T0d5bGEyNGo4VXh3R1B6Qk42VW5KT2thS2dacGx0b1AweTBUQkozS0x5TExWaGJPTDFfS2ZGN0VHN1BjOUgycFc4UkpVUlpI?oc=5",
@@ -116,6 +129,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-10T10:08:49.968417+00:00"
+  },
+  {
+    "id": "bd57de7b072523e7",
+    "title": "Up 15.6%: Georgina’s average home price reaches $887,470 in May 2026 - YorkRegion.com",
+    "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPSks2ZXpuVWdBZTR3amNwVndpSTNWcTcyeXdqQzVkUUFzQXV2QzRQeW5Vd093UVlhQ2pfTlJGWjEtRDRYUVdlOHNEU2JHX3RsSUlmeDVMcThKT2ZSUGZXSFo2TW5NWEVocG4zMlRXYVVtc0l6WUVmZVBfeHhBTUpnWkFVUVkzM3hLb3lQcXdpNUVTaEdDTzQ1NUNNYkgwdG14NllxZy12S2JVTEk0WWVsM1QxbkM2WUh0THZPd1JuYTVNR0gzOXlSb3hWcjFXVy01MThjRGNMeF9Ua1h6T1NjMUY3VlhTX2ZPU0dWdkN2eXRYUWVj?oc=5",
+    "summary": "Up 15.6%: Georgina’s average home price reaches $887,470 in May 2026&nbsp;&nbsp;YorkRegion.com",
+    "published_at": "2026-06-10T10:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Georgina"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-11T20:30:10.687596+00:00"
   },
   {
     "id": "ac19d24baea624ce",
@@ -710,6 +736,19 @@
     ],
     "dc_related": true,
     "fetched_at": "2026-06-10T18:33:18.500743+00:00"
+  },
+  {
+    "id": "74fc818d940f6859",
+    "title": "Fact check: City debt, arena capacity and the Cultural Hub budget - Sudbury News",
+    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPZS1wUEkzTklVbHdVTXd1QnlvY2c4ZGZEVGcyOV93Ry1aVFVoSkRnZ2FYdXE0YklLYW5kb2FTZk55Y1lSSW9oUDFhTXBIS3cySEFwNGlmY3ZSRXVJSTd5VVlVa3NNTG9LcDhpSGkzVGhVYmhnS3pUMXlrN0ZMcUd1dGp5UnJxZjY1eU5PbnRMLWZ1WDdNTmVtVHg3M2xWbF94dUhQWk41R3NVR1NDcHd4OHhHTU5UQmVRSlktOWZZR0VRN1k?oc=5",
+    "summary": "Fact check: City debt, arena capacity and the Cultural Hub budget&nbsp;&nbsp;Sudbury News",
+    "published_at": "2026-05-20T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-11T20:30:11.254609+00:00"
   },
   {
     "id": "dfa3c3c6bdd0e4fd",
@@ -1662,6 +1701,17 @@
     "fetched_at": "2026-06-05T19:59:46.270597+00:00"
   },
   {
+    "id": "b321381a484b95a5",
+    "title": "No injuries reported after victim assaulted at synagogue in Thornhill, 1 suspect at-large - CTV News",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNazJuZTZUQ3hjbG9LSk5lZ21fQ0cxMjdiNUFZM3ItRkoxbUVqTnlXSGExcnExQlJ3ZDJxendOTV9TS0Z1MjBMNC1jTTRFc0NLUnlDWmsyaVJiZTl6elQ2VFV6d0lVOTBfbk5lUDAzcWtvbTRITUtDTFljOS1VWHdpSm9DYmVPc1N1dUw3THVkamdScGYtLWJUYXBXTTV4d0N5MXk1V2Frdk1yekExdnc4bjlDTFlUMWJmT0JuYTY4UHp6b0JNZDNhUW9hamVnVktXVE91WTRn?oc=5",
+    "summary": "No injuries reported after victim assaulted at synagogue in Thornhill, 1 suspect at-large&nbsp;&nbsp;CTV News",
+    "published_at": "2026-04-25T07:00:00+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-06-11T20:30:09.137780+00:00"
+  },
+  {
     "id": "b6912f3cf20f6b4f",
     "title": "Smile Cookie campaign returning in support of Food Bank of York Region - NewmarketToday.ca",
     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQeFJKaXhEYlNyeFhmbWRZSVJ1TFpWaHh6d1dFc1hQTi1KamlSbzdwTWM3V2ZqSGZNcm5NNzl3dkJmbm1VcVNacDJnSk9CREZERVYyaTg0Y1N5dk9SSi15V3dESTB0bGwwRGVFeDJSSHU5Zk11djIwQ1c1WE1hS2NrVjBweVVHNEFlRUJiaHdaQ2YwdVFlR2R6T1hsQmJBSEt5azJENWF6dGN2N3hPYU1RU2d1R3JQSVZxOHR3NQ?oc=5",
@@ -1822,6 +1872,17 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-10T15:43:50.401443+00:00"
+  },
+  {
+    "id": "09b89ebc6649c937",
+    "title": "33 people charged after more than $2M worth of valuables stolen in York Region break-ins - CTV News",
+    "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOY3dGejdtc3Q4eW1ncWU2bk5SOVd5Y3prYl96ekVXWU9Sa1JwUVR0eEloOFVweFFGNXk0MS1GQzJwaHVYeHRFZW8zQ2I2NGl1QWNxQVlza1JYMm5DbEhJYlpYTDU5eVQxOXhaNWtBbFBhTGVid3FfQlR6c0hjbUQ2SVRWaXN2d1RyZHZNb3Q1bkktZXRRX0pVdlhiVDgzTEloZktuMkxVVGQ4NHQ2bTFpalZnMVRLQ1lHNmk4Tlh2R2szQTFDUUdjWS01T1lWMlVYYk1SUA?oc=5",
+    "summary": "33 people charged after more than $2M worth of valuables stolen in York Region break-ins&nbsp;&nbsp;CTV News",
+    "published_at": "2026-04-14T07:00:00+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-06-11T20:30:09.137683+00:00"
   },
   {
     "id": "eaa34abfb3e07915",
