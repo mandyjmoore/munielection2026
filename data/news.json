@@ -1,5 +1,18 @@
 [
   {
+    "id": "4d7e231c9c4ab838",
+    "title": "Who is running for mayor and council in Georgina so far? - YorkRegion.com",
+    "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQVk5YM2syNXo4cHhVRzRWbnZ6M3RfV2tqN0xmc2t4OUtZZkpKYkNWYXF5dktzT1J4TjdHYnowZFU3dFVBTlEyWGdZX0xiYThMdGpzZEFKZzJSZEliY3ZlOWlDTVR0LVlhZzMzd2VHdDFsRlI4cnBqdWVoUUNLUGkyeFdrVmtDN0tkN2lIMW5VbGkwSzJhUTlHZG1TRkJRUGx2NjZRdE9GYXBmVk43ZVFxZ2pBeG5FOENWcnRFTXpaQ0lQdDVxdHR4cnFFSFpHUFVfS0wxNkJ2MzRHN0YyQng2TWoxb3RKNzZ0U2F1el9B?oc=5",
+    "summary": "Who is running for mayor and council in Georgina so far?&nbsp;&nbsp;YorkRegion.com",
+    "published_at": "2026-06-13T10:15:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Georgina"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-13T14:11:43.726365+00:00"
+  },
+  {
     "id": "79f48c5f2543a3b3",
     "title": "Toronto Votes 2026: Nine candidates now registered to run for councillor in Beaches-East York - Beach Metro Community News",
     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMHFwMWhsSG1jeGJFZkVLX1BmNnFCRUs0c1Rad29TRHVSZUZoSndVdWZBZGNVRWUzb3NUMTNQUklrcEtZdl9RNnJKMW94WDR1cTJMY3NWS0JWWEhnQlRpazdYRW16LVdBcHhJSElCa0hrdEdleUxxR2tCdXhWWlllR2RrM04zelBZRC1wSkRqOGJaWW9uZTF5RlUtZDRxQlNScTVIR0sxYWFsY0xJdEpRbXpudkkxTDNCMTlwMW1rTkV4WjYxSUE?oc=5",
@@ -1722,6 +1735,19 @@
     ],
     "dc_related": true,
     "fetched_at": "2026-06-09T07:53:39.497114+00:00"
+  },
+  {
+    "id": "bfce23bf4db84dbd",
+    "title": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home - CP24",
+    "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPQ0N5VF8wRTYtbllPRk9BNUU0WnBfQ0w3Z2l4b3lORzJ0MkZwSjRfZldHLUMwZmxDQTVtOXFiMWhnYVNual9ORmpxOHJZbnhqcEFYaTVsb2RWZExJeUlwZ0lDYTJjWUlVOXdrMy1OSjhOZTM2QnBNTjFPZEtwUV9hbzVxMDR0aWRzQmgyem9ZS2NsRTgzU054dHBBVnQ3TjZzd0huaUI2MXNlZjllcDNkQlZZbG1aUlNZX2ZLcmRKMGpGRzBRM20tTXRJQ3VWNkZ5QmRxcm9PZWtCS29FUmJyT0U1U05DZDdrWEE?oc=5",
+    "summary": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home&nbsp;&nbsp;CP24",
+    "published_at": "2026-04-29T07:00:00+00:00",
+    "category": "development_charges",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-13T14:11:42.443142+00:00"
   },
   {
     "id": "6ba860536308085b",
