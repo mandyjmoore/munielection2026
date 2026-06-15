@@ -53,6 +53,19 @@
     "fetched_at": "2026-06-11T20:30:09.137464+00:00"
   },
   {
+    "id": "5576943c881b1db9",
+    "title": "Collingwood councillor race heats up with familiar face - CollingwoodToday.ca",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOU3J4MU9VaklrODVtNmlLNkpwRm41ZWo1ZkVvRjhiN09WR2pNTGh3U29NRmQtQnRaRjVLcnF5bElQcHVpbDk4MWhnaXE3TmNEN1hYeXVNQzAwTTFzSGFxUHoyS1owZUVhSlYxUllLMjVLUFVmUDFjNk9jYmVmc292RHpmUW0yb2tENnFSMjdRTUMtakgyZllwU05Fd1VYQzVRRHNKb1FfUTM3cE0?oc=5",
+    "summary": "Collingwood councillor race heats up with familiar face&nbsp;&nbsp;CollingwoodToday.ca",
+    "published_at": "2026-06-11T15:30:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Newmarket"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-15T12:23:15.825100+00:00"
+  },
+  {
     "id": "38e4070aa5bcbeb7",
     "title": "2nd Newmarket councillor in days bows out of municipal election race - YorkRegion.com",
     "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQS0k5TXZTQjNDZmFvTExGQ0l1d1ZwRTA2MVZ1MllveXE5cWxmN1BxU0tIOFpuUXhsdFpzOVBoZjB6bXVUcV8wdlpKUXBKZ2ZCUEVTVHRXY0dzakNidGFQTjdTeGpSRGxPNlRHWDhncWNlNnpXWUtra0RkY0Z6Uks4SlhWajl0NXRZSHR6RE8zWkRIV3g4aVlRSDhpSmhaOWpsNFNpYkUyTjMzZGQ5T0d5bGEyNGo4VXh3R1B6Qk42VW5KT2thS2dacGx0b1AweTBUQkozS0x5TExWaGJPTDFfS2ZGN0VHN1BjOUgycFc4UkpVUlpI?oc=5",
@@ -2876,56 +2889,5 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-06T13:51:12.356262+00:00"
-  },
-  {
-    "id": "2fc5ad06a5367690",
-    "title": "Georgina Lightning on building Alberta as the Indigenous film capital of the world - TownAndCountryToday.com",
-    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxON1BIMlljY3U3UF9VdGRjZ09OS3FabC02UUxlUDFjc0FRdGxacHZJZjVTZDAxSVRMWlloeVJiNkhIaFZXcWhPS3NDOFpRaXBrZms0ektqeDZhY0RuejlEYmpqYm1HMWxOWlNJSk5PeXJhTXVJZEF5amp0OTBNcmp1em5Nb0J1TXo3a0c2Tkw3TU1WNjVJNDJwMjNfZVBIWkRDdXl5cXBKdEdIVnhld2dTNnBROHAxN1JTdlVneTFnamlNd2ZfNG5OTXRDdzlldTdfQlFPOFU2OTlkS3F6ZE8w?oc=5",
-    "summary": "Georgina Lightning on building Alberta as the Indigenous film capital of the world&nbsp;&nbsp;TownAndCountryToday.com",
-    "published_at": "2026-03-17T07:00:00+00:00",
-    "category": "election",
-    "municipalities": [
-      "Georgina"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-05T19:59:47.552518+00:00"
-  },
-  {
-    "id": "5c4b98b073004c0a",
-    "title": "York-Simcoe Express cracks OHL Cup Top-10 rankings - NewmarketToday.ca",
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPRFdRTDFqd1BBZkRDeHMyZUpfYmtNQUJCdEVQNXpTa3UwMVV1QlViUHlQRjdfMzdkQm9PUTduSHNVUFA1OGtiNEgzQjVnUUd4aTZMaDliNzNsZEtsSk9ydEo0U21LUEtfaHNSUmVXWmZETVZQSWhNVFBpeVhPOFJQRDVpWU5WZThldFBNYkNmcDhmQXF2RUduNUZ6aEJSOHFrekdQaw?oc=5",
-    "summary": "York-Simcoe Express cracks OHL Cup Top-10 rankings&nbsp;&nbsp;NewmarketToday.ca",
-    "published_at": "2026-03-17T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "King",
-      "Newmarket"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-06T03:50:29.590355+00:00"
-  },
-  {
-    "id": "168da7647cb058fe",
-    "title": "Aurora-area residents cast ballots Tuesday in variety of races in primary election - Chicago Tribune",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNdVVRZ0Iyd1lUc01WNHd5TkFFVGd5NTkydTduODAxczQ3UXhNbmNhWmVkMnFZLWM5bVNJa2FRb3dOQjNJMEUtZ3ZhU0cydnhzZ0NlT0pMU0ZjZVBoNkI5Q1Z4YVdMVjM0b0dUeW5DSWhZQjRjbDRwbjdIdjJfeFI1ZHNUQVVDM3JfYjNpd1NMXzUyeTgtSFpqd1lFS2tiRHF5ZWNjbmUtdTZvTFNPZTNMRTlNSWxhcG1IUnEtTlAtWldKZlk?oc=5",
-    "summary": "Aurora-area residents cast ballots Tuesday in variety of races in primary election&nbsp;&nbsp;Chicago Tribune",
-    "published_at": "2026-03-17T07:00:00+00:00",
-    "category": "election",
-    "municipalities": [
-      "Aurora"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-07T17:22:29.994142+00:00"
-  },
-  {
-    "id": "91a3601bbbf8539b",
-    "title": "Keswick restaurant charged for public health violation - YorkRegion.com",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPQ1lhR0UwTkJtV1FGN0lwNG82WjRiWVh3MTBtUmUtb2NNYmJpc244Z3FLbFZrRmdQcVBjQ0RqOUFidG92UDdHZ0htYnhxV1FGdHR4ODJ5NTNmTVhGMW85aEZFLW1iZVNCbXhmRWFBZFZ3cmxKcndKV21mTkthOTBrd2dzdk5vcWN3RlUzZGVMR21vb3VWOXR4TnlKR1F6b3ozYm9OaUFqdWpObUgyUTA1NzVHTHZuczVS?oc=5",
-    "summary": "Keswick restaurant charged for public health violation&nbsp;&nbsp;YorkRegion.com",
-    "published_at": "2026-03-17T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [],
-    "dc_related": false,
-    "fetched_at": "2026-06-08T21:52:20.742128+00:00"
   }
 ]
