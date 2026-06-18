@@ -1,5 +1,16 @@
 [
   {
+    "id": "e72b39390b7dcfe7",
+    "title": "York police officer facing criminal charges after alleged unauthorized use of a computer - CTV News",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPRF9tMDlCSTQ1ZDRRUEg1ZXJKbEl0bE40eG5BNS1Tb1hSNWRRZTB2d0g1YWNwbnhRQWtRaXhaOGtJak5xOFdlQ2hGUHcwbXJldHY1V1M1eWRoN3JZbXZ2U2NEVExZTUhQdnE4djQ0TmVlbEhPelVDUTJud3hBY3B6RlR4djB0dTJXSEdFTVdkWjBLZFl4ZUdBS09oWXJERDlwQWlHN0VzSUF5WGJKcjg5SVZublJ3LW56MXNGTGFMaTRRLWNyMFpaQ1NlamFaMG5NUWotcGlR?oc=5",
+    "summary": "York police officer facing criminal charges after alleged unauthorized use of a computer&nbsp;&nbsp;CTV News",
+    "published_at": "2026-06-17T19:52:14+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-06-18T04:18:45.344700+00:00"
+  },
+  {
     "id": "1435f34209eff6fa",
     "title": "York Regional Council approves Sewage System Expansion - Durham Radio News",
     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5GM1JwcERRUXA2WkdVRkl2SklKamVDbnducFRwZkVNU09QX1BaelplTGNkc1phTkJfdzExWHJ0Sy1UX3hzTkF3SnhLNmVTWUV5NDFNMWh1Tk9QcVU?oc=5",
@@ -9,6 +20,19 @@
     "municipalities": [],
     "dc_related": false,
     "fetched_at": "2026-06-17T22:03:30.382377+00:00"
+  },
+  {
+    "id": "4c475b2f73fefaec",
+    "title": "Susan Lahey Appointed Ontario PC Party Candidate for York–Simcoe By-Election - PC Party of Ontario",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOLWZ6SHZFLWdWMmtidldoODlMNHNmbC1RT202Z3dFUVdqZEtjc04weUI3MVRMc3VrMXAwdjd3a0dYdVlKcUpJVTMxcGxuUmhIZXJlQTgzNmliaF9EbV9xRkFxR19jcGlub09YZWtTc3ZHNEI4clN3UHBxU29qai1FN0hHQmJocnpJUkpZbUZLR215d0hfVFBOekVQa0tRaGM5WDBIS3BWMzBvWDEyY3c?oc=5",
+    "summary": "Susan Lahey Appointed Ontario PC Party Candidate for York–Simcoe By-Election&nbsp;&nbsp;PC Party of Ontario",
+    "published_at": "2026-06-17T17:46:02+00:00",
+    "category": "election",
+    "municipalities": [
+      "East Gwillimbury"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-18T04:18:46.337237+00:00"
   },
   {
     "id": "6c98385a56d59a34",
@@ -1417,6 +1441,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-15T22:22:03.863461+00:00"
+  },
+  {
+    "id": "0abe64ea659dd978",
+    "title": "Richmond upon Thames local election results 2026 in full - Manchester Evening News",
+    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbFRPNHlkR04xTWpjNGpFMmR0VGlWck9kUmpKdFRCaXRqRWZXRXZGaERwXy1QRXlHNWcyZ1NST3VrSFoyT293bGhkWHhwUUlNQVdjZ3ZxNlNpd2dpVTZWczRZc0VtNTBnNmdsbW1yNEtud2tWblBRLU1Fd1BFOVFpYTdLRURkcjFUZkJudGtIc0gzOE1OUzVCb1JQRUN6dw?oc=5",
+    "summary": "Richmond upon Thames local election results 2026 in full&nbsp;&nbsp;Manchester Evening News",
+    "published_at": "2026-05-07T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Richmond Hill"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-18T04:18:49.303059+00:00"
   },
   {
     "id": "517973432336cfd1",
@@ -3157,6 +3194,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-05T19:59:48.569315+00:00"
+  },
+  {
+    "id": "dd31ad959e099d27",
+    "title": "Niverville's 2026 budget includes modest tax increase and big plans - SteinbachOnline",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVURXN1J1anFjTWFaM2xrVi1xQW03TmxXODc5Vmc5SWgyMDEtRkstdy1uSVFfR2Jod2Q2aW9qeUhmNzc3REdudXQ5d1FZT3Eya01GdGtvaFRwdS1zdF9CdHJTWnBuSkptRi0tT3R3N255aVp4VkRLaGo3X0FQeUw2R1hzTk9qSkZISlJLejdNWnBrbXVWWTliMk9wSk5ySEVwOVNTcUtfdnc0WkE?oc=5",
+    "summary": "Niverville's 2026 budget includes modest tax increase and big plans&nbsp;&nbsp;SteinbachOnline",
+    "published_at": "2026-03-24T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-18T04:18:47.529138+00:00"
   },
   {
     "id": "1fc0ce19013fd654",
