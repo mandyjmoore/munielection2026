@@ -190,6 +190,19 @@
     "fetched_at": "2026-06-17T15:41:56.868359+00:00"
   },
   {
+    "id": "996fb7dbcfb238c1",
+    "title": "Who’s running in the 2026 Windsor-Essex and Chatham-Kent municipal elections? - AM 800 CKLW",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNenpvQnpKMVc1SVctd3VZWm5mS1AzbFZONXM1NDJHV05ISVpHZFFxUEwwMkxQODRyd2ZJZnd1R3NZT3ByNHRJNk5vdHZKNmJYbURabjVROENDNHlQYVJVTGdadXRTSVJlRENERlJ6aEcyZ2hFSElpNVpGSGJHMmhSeDY3UERUYS1xNXpFQ3hmRmROM0F1XzhSc1pCRFJleFFlSi1JbnBFdlJRRzQ?oc=5",
+    "summary": "Who’s running in the 2026 Windsor-Essex and Chatham-Kent municipal elections?&nbsp;&nbsp;AM 800 CKLW",
+    "published_at": "2026-06-16T21:48:18+00:00",
+    "category": "election",
+    "municipalities": [
+      "Markham"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-20T09:22:12.068097+00:00"
+  },
+  {
     "id": "5d8ad616e52bda95",
     "title": "RCMP stop speeder near Dufresne, discover huge haul of contraband cigarettes - SteinbachOnline",
     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQTkJrcncxbmpkakFlQ1Y2TERJODlGUHg5bnE4RVljWVVNZnpXUVVxZnVBSmdtaTdPQ0tDVEt5eHNCWXY4ZTJ3RXQybTZ2NEV2LV9KOUpZYWVyWGE1RjUxYkkyemYxTTM2eDVkbjdORXQweHBEX1ZTS3lLdHZWV2MzWmxoNmhkTGl6bUdNMkdkdTJaYjg4Vy1haDhtV0hEWEQ5bXZsaXI5V3NsR3lHRmY4U1VwR19pbG8?oc=5",
@@ -1553,6 +1566,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-18T15:33:26.403673+00:00"
+  },
+  {
+    "id": "44bf4d5e1bb773ff",
+    "title": "Two dead in Vaughan shooting; homicide unit investigating - Global News",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBwazE2ZmpZV1ZDRURiT3BxaXhmUFlVdU1KbkZzMklBREduX3pzeDlhTGVhaDAyemQxdXVhcEtXekN1Q3JWS2RyRktuMWVGUU1zLWN4U3YzZkFYVzdZOC13UGYxcXVuUGNSeGZnNmlDQQ?oc=5",
+    "summary": "Two dead in Vaughan shooting; homicide unit investigating&nbsp;&nbsp;Global News",
+    "published_at": "2026-05-13T07:00:00+00:00",
+    "category": "development_charges",
+    "municipalities": [
+      "Vaughan"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-20T09:22:09.738255+00:00"
   },
   {
     "id": "07a50843025ae54d",
@@ -3580,18 +3606,5 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-07T04:16:14.583536+00:00"
-  },
-  {
-    "id": "0ca1cb928f5f60fd",
-    "title": "Socialist Grégoire becomes Paris mayor as the far right wins Nice in key municipal elections - Times Colonist",
-    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQalZPNWo2aXU0YkdUbk5zWnFMdlhNcFg2czE2a3Y5X2Nfc19tc1AteUlpdi15WjJmZlJzSEJmb3ZKQVdvbnpkSG5CQ0ROdDJxZUpiZWh1Y181LVlwVmNINW5rV2I0WlVuN3lhMEhVM2lZR1l3ZkVQMThhMDB3REJ4ejBNY3JFa2lGSl9WQTBxcC1fbzFNSzVCbWhMejBCMXIwQzVRUkpCM1pDTnRPZk9XY0t0cXFVN2pjX3A0cUZPbnh3QVc4VDF0VVljcnBacExKRkpheUJVUGJtdw?oc=5",
-    "summary": "Socialist Grégoire becomes Paris mayor as the far right wins Nice in key municipal elections&nbsp;&nbsp;Times Colonist",
-    "published_at": "2026-03-22T07:00:00+00:00",
-    "category": "election",
-    "municipalities": [
-      "Richmond Hill"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-18T10:25:20.930863+00:00"
   }
 ]
