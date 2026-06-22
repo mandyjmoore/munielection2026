@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Toronto Graduation Extravaganza</title>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #f0d48a;
+      --deep: #1a1a2e;
+      --card: #ffffff;
+      --bg: #f7f4ef;
+      --tuesday: #e8f4fd;
+      --tuesday-accent: #2196f3;
+      --wednesday: #fdf3e8;
+      --wednesday-accent: #ff9800;
+      --thursday: #f3fdf3;
+      --thursday-accent: #4caf50;
+      --friday: #fdf3f8;
+      --friday-accent: #e91e8c;
+      --text: #2c2c2c;
+      --muted: #666;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .hero {
+      background: linear-gradient(135deg, var(--deep) 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      text-align: center;
+      padding: 52px 24px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+
+    .confetti-row {
+      font-size: 1.6rem;
+      letter-spacing: 6px;
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: normal;
+      letter-spacing: 1px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .hero h1 span {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+    .hero-sub {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      opacity: 0.9;
+    }
+    .grad-names {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .grad-chip {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(201,168,76,0.5);
+      border-radius: 50px;
+      padding: 8px 22px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .grad-chip .cap { margin-right: 6px; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    /* ── Map ── */
+    .map-section {
+      margin-bottom: 40px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    .map-label {
+      background: var(--deep);
+      color: var(--gold-light);
+      text-align: center;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 10px;
+    }
+    .map-section iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: none;
+    }
+
+    /* ── Day Cards ── */
+    .day-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 20px 26px 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .day-date-badge {
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+      min-width: 58px;
+    }
+    .day-date-badge .month {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+    .day-date-badge .num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .day-date-badge .dow {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+    .day-title-block h2 {
+      font-size: 1.25rem;
+      font-weight: normal;
+      line-height: 1.3;
+    }
+    .day-title-block h2 strong { font-weight: 700; }
+    .day-routine {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.82rem;
+      margin-top: 5px;
+      opacity: 0.7;
+    }
+
+    .day-body { padding: 0 26px 24px; }
+
+    .section-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 18px 0 12px;
+      opacity: 0.55;
+    }
+
+    /* ── Timeline ── */
+    .timeline { list-style: none; }
+    .timeline li {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 16px;
+      position: relative;
+    }
+    .timeline li:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 46px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      background: #eee;
+    }
+    .tl-time {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      min-width: 64px;
+      text-align: right;
+      padding-top: 3px;
+      line-height: 1.3;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .tl-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+      z-index: 1;
+      border: 3px solid #fff;
+    }
+    .tl-content { flex: 1; }
+    .tl-content .event-title {
+      font-size: 0.97rem;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+    .tl-content .event-title strong { font-weight: 700; }
+    .tl-content .event-loc {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .tl-content .event-note {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* ── Highlight event row ── */
+    .event-highlight {
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin: -4px 0;
+    }
+    .event-highlight .event-title { font-size: 1.05rem; }
+
+    /* ── Split section ── */
+    .split-section {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-top: 4px;
+    }
+    .split-section .split-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+    .split-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 520px) { .split-cols { grid-template-columns: 1fr; } }
+    .split-col {
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .split-col-title {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .split-col ul { list-style: none; }
+    .split-col ul li {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.82rem;
+      padding: 3px 0;
+      display: flex;
+      gap: 7px;
+    }
+    .split-col ul li .bullet { opacity: 0.5; }
+
+    /* ── Day-specific colours ── */
+    /* Tuesday */
+    .day-tuesday .day-header { background: var(--tuesday); }
+    .day-tuesday .day-date-badge .month,
+    .day-tuesday .day-date-badge .num,
+    .day-tuesday .day-date-badge .dow { color: var(--tuesday-accent); }
+    .day-tuesday .tl-dot { background: var(--tuesday-accent); }
+    .day-tuesday .event-highlight { background: rgba(33,150,243,0.08); }
+    .day-tuesday .split-col:first-child { background: rgba(33,150,243,0.07); }
+    .day-tuesday .split-col:last-child { background: rgba(33,150,243,0.04); }
+
+    /* Wednesday */
+    .day-wednesday .day-header { background: var(--wednesday); }
+    .day-wednesday .day-date-badge .month,
+    .day-wednesday .day-date-badge .num,
+    .day-wednesday .day-date-badge .dow { color: var(--wednesday-accent); }
+    .day-wednesday .tl-dot { background: var(--wednesday-accent); }
+    .day-wednesday .event-highlight { background: rgba(255,152,0,0.09); }
+
+    /* Thursday */
+    .day-thursday .day-header { background: var(--thursday); }
+    .day-thursday .day-date-badge .month,
+    .day-thursday .day-date-badge .num,
+    .day-thursday .day-date-badge .dow { color: var(--thursday-accent); }
+    .day-thursday .tl-dot { background: var(--thursday-accent); }
+    .day-thursday .event-highlight { background: rgba(76,175,80,0.08); }
+
+    /* Friday */
+    .day-friday .day-header { background: var(--friday); }
+    .day-friday .day-date-badge .month,
+    .day-friday .day-date-badge .num,
+    .day-friday .day-date-badge .dow { color: var(--friday-accent); }
+    .day-friday .tl-dot { background: var(--friday-accent); }
+    .day-friday .event-highlight { background: rgba(233,30,140,0.08); }
+
+    /* ── Footer ── */
+    .footer-banner {
+      background: linear-gradient(135deg, var(--deep), #0f3460);
+      color: #fff;
+      text-align: center;
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      margin-top: 8px;
+    }
+    .footer-banner p {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+    .footer-banner .names {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="confetti-row">🎓 🥂 🎉 ✨ 🎓</div>
+    <h1>2026 Toronto<br><span>Graduation Extravaganza</span></h1>
+    <div class="hero-sub">Official Itinerary &nbsp;·&nbsp; June 23 – June 26</div>
+    <div class="grad-names">
+      <div class="grad-chip"><span class="cap">🎓</span> Zach</div>
+      <div class="grad-chip"><span class="cap">🎓</span> Hayden</div>
+      <div class="grad-chip"><span class="cap">🎓</span> Adele</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="container">
+
+  <!-- MAP -->
+  <div class="map-section">
+    <div class="map-label">📍 &nbsp; Neighbourhood Map — Parkdale &amp; Roncesvalles, Toronto</div>
+    <iframe
+      title="Graduation Week Map"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5768.432!2d-79.4530!3d43.6450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34e9b1c1b01b%3A0x0!2zNDPCsDM4JzQyLjAiTiA3OcKwMjcnMDcuMCJX!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca&center=43.6450,-79.4530&zoom=15&markers=color:red%7Clabel:H%7C43.6530,-79.4560&markers=color:red%7Clabel:P%7C43.6388,-79.4388"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- ══ TUESDAY ══ -->
+  <div class="day-card day-tuesday">
+    <div class="day-header">
+      <div class="day-date-badge">
+        <div class="month">June</div>
+        <div class="num">23</div>
+        <div class="dow">Tue</div>
+      </div>
+      <div class="day-title-block">
+        <h2>🎓 <strong>Zach's Graduation</strong></h2>
+        <div class="day-routine">Zach &amp; Hayden in school — 8:30 AM to 3:30 PM</div>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="section-label">Timeline of Events</div>
+      <ul class="timeline">
+        <li>
+          <div class="tl-time">4:15 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title"><strong>All-Family Assembly</strong></div>
+            <div class="event-loc">📍 299 Indian Rd — catch Ubers together</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">4:30 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">Arrival at Parkdale Collegiate Institute</div>
+            <div class="event-loc">📍 209 Jameson Ave — Toronto District School Board</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">5:00–<br/>6:45 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content event-highlight">
+            <div class="event-title">🎉 <strong>Zach's Graduation Ceremony</strong></div>
+            <div class="event-loc">📍 Parkdale Collegiate Institute</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">7:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🌮 <strong>Taco Tuesday Family Dinner</strong></div>
+            <div class="event-loc">📍 Home — 299 Indian Rd</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="section-label">Split Evening Logistics</div>
+      <div class="split-section">
+        <div class="split-label">After 7:00 PM</div>
+        <div class="split-cols">
+          <div class="split-col">
+            <div class="split-col-title">🎓 Zach Only</div>
+            <ul>
+              <li><span class="bullet">·</span><span>7:00 – 9:30 PM<br/>Fern Grad Party<br/>📍 Parkdale Hall, 1605 Queen St W</span></li>
+            </ul>
+          </div>
+          <div class="split-col">
+            <div class="split-col-title">🏠 Everyone Else</div>
+            <ul>
+              <li><span class="bullet">·</span><span>Relax and celebrate at home!</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WEDNESDAY ══ -->
+  <div class="day-card day-wednesday">
+    <div class="day-header">
+      <div class="day-date-badge">
+        <div class="month">June</div>
+        <div class="num">24</div>
+        <div class="dow">Wed</div>
+      </div>
+      <div class="day-title-block">
+        <h2>🎓 <strong>Hayden's Graduation</strong></h2>
+        <div class="day-routine">Zach &amp; Hayden in school — 8:30 AM to 3:30 PM</div>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="section-label">Timeline of Events</div>
+      <ul class="timeline">
+        <li>
+          <div class="tl-time">3:15 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title"><strong>Gather at Home</strong></div>
+            <div class="event-loc">📍 299 Indian Rd</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">3:22 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🚶 <strong>The Walk</strong></div>
+            <div class="event-note">Depart on foot together up to the school (~5–8 min stroll)</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">3:30–<br/>5:30 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content event-highlight">
+            <div class="event-title">🎉 <strong>Hayden's Graduation &amp; Reception</strong></div>
+            <div class="event-loc">📍 Howard Junior Public School — 30 Marmaduke St</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">6:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🥣 <strong>Celebration Dinner</strong></div>
+            <div class="event-loc">📍 Home — 299 Indian Rd</div>
+            <div class="event-note">Order-in bowls for everyone</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">7:00–<br/>9:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🎉 <strong>Hayden's Grad After-Party</strong></div>
+            <div class="event-loc">📍 Home — 299 Indian Rd</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ THURSDAY ══ -->
+  <div class="day-card day-thursday">
+    <div class="day-header">
+      <div class="day-date-badge">
+        <div class="month">June</div>
+        <div class="num">25</div>
+        <div class="dow">Thu</div>
+      </div>
+      <div class="day-title-block">
+        <h2>🎓 <strong>Adele's Grad &amp; Last Day of School</strong> 🌟</h2>
+        <div class="day-routine">Zach &amp; Hayden's final day wrap-up — 8:30 AM to 3:30 PM</div>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="section-label">Timeline of Events</div>
+      <ul class="timeline">
+        <li>
+          <div class="tl-time">12:40 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title"><strong>Ceremony Departure</strong></div>
+            <div class="event-note">Ticket holders (Adele, Mandy, Hollie, Ryan) Uber to venue</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">1:00–<br/>3:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content event-highlight">
+            <div class="event-title">🎉 <strong>Adele's Graduation Ceremony</strong></div>
+            <div class="event-loc">📍 Parkdale Collegiate — 209 Jameson Ave</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">3:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🎊 <strong>Howard Grade 6 Clap-Out</strong></div>
+            <div class="event-note">🚲 Mandy bikes from Parkdale to Howard Junior Public School</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">3:15 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🎊 <strong>Fern Grade 8 Clap-Out</strong></div>
+            <div class="event-note">🚲 Mandy bikes over to Fern Avenue School</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">3:30 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">📸 <strong>Graduation Portraits</strong></div>
+            <div class="event-note">🚲 Mandy bikes back to Parkdale Collegiate to join Adele for photos</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-time">6:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="event-title">🍽️ <strong>Neighbourhood Dinner</strong></div>
+            <div class="event-loc">Walk out to Roncesvalles Ave</div>
+            <div class="event-note">Note: Burnie kids will be heading out with their dad tonight</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ FRIDAY ══ -->
+  <div class="day-card day-friday">
+    <div class="day-header">
+      <div class="day-date-badge">
+        <div class="month">June</div>
+        <div class="num">26</div>
+        <div class="dow">Fri</div>
+      </div>
+      <div class="day-title-block">
+        <h2>✨ <strong>The Grand Finale</strong></h2>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="section-label">Timeline of Events</div>
+      <ul class="timeline">
+        <li>
+          <div class="tl-time">6:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content event-highlight">
+            <div class="event-title">🥂 <strong>Adele's Graduation Dinner</strong></div>
+            <div class="event-loc">📍 Cactus Club Cafe — 77 Adelaide St W</div>
+            <div class="event-note">Dress code: Elegant / Celebration attire</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-banner">
+    <p>✨ Three incredible milestones, one amazing family.<br/>Congratulations Zach, Hayden, and Adele! ✨</p>
+    <div class="names">June 23 – 26, 2026 &nbsp;·&nbsp; Toronto, Ontario</div>
+  </div>
+
+</div>
+</body>
+</html>
