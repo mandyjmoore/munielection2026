@@ -1,5 +1,18 @@
 [
   {
+    "id": "53d8358bba8c8448",
+    "title": "Coming Up at Council: Aurora weighs election-year powers as 'lame duck' rules loom - AuroraToday.ca",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQb3lIV05RQXdHVjBVSUY2MnZyc3pIdGRLODFRMVBLNS1fSXJDSWxnSThSZ1Y0UnMwQkJzbklENkU5WE53Y0RNaVJ3VThzOFZCazJBakRHZExpTWdRcnRhZk5ranI0ZjRpYzBKU0o5dU4taU9VMml0MnZRdzNiLVVOeTdrN2tfMkQ4SWdFXzNkanpUSVBVRXd3eDJ0a2FUWkhSSldWeW1uT1pDOHlya1hDTVFxOVhvWm96V2dReXgwM2hUdVky?oc=5",
+    "summary": "Coming Up at Council: Aurora weighs election-year powers as 'lame duck' rules loom&nbsp;&nbsp;AuroraToday.ca",
+    "published_at": "2026-06-22T18:18:55+00:00",
+    "category": "election",
+    "municipalities": [
+      "Aurora"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-22T22:06:11.455028+00:00"
+  },
+  {
     "id": "47c73c31e65b112d",
     "title": "York Region wants $1.74B from the province for a sewage solution to service 50,000 more homes in Newmarket, East Gwillimbury and Aurora — but there’s a catch - YorkRegion.com",
     "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPM0dOendWWWQyMG1ycnl0cnlUYkJVUkt5QnNvWDRMS2NzUDU3RWdLeEZSbGcxUTQ5SEhiOTNNMnZkcGctX0VzNGVscVBuU1pfaHJnMDZVNWM1b0xpSElUOE1lX3dTMFNYbzNZci0teEhTZ29JTHpvWmlJQVFkVEtkdkhma2lHVWpHVlg5aFFtdUI2OTc5VGd0a2NiOGtJVDgydk41OWxXNG5VbUhrUElnYWRYaVJoT2FhVjZMZHVrcWJBMTBRV3VPODc3THpNd2U0WlMzSHMxSQ?oc=5",
@@ -163,6 +176,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-19T15:27:48.230720+00:00"
+  },
+  {
+    "id": "77e3eba64a2e5553",
+    "title": "Three candidates step forward to represent Ward 5 in municipal election - newspapers-online.com",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNUXhnMkdHclh4emxXZXJNMGZuYkI3ekNKa1VIeVBNX3liRERIY0xtcWp0NVcyZmhoMFQzUFV2Qlc0UnRhUzA5QUV6X25fQnlVMXUxam85cURwazlZYWFDLWRvMnVEMXUwSDVfLXNwdzZleUhqdUhfT1JNQTBHcDRIQi1ZX25OOFBLbWpXbko4Z0t4akRHbWNvcFh4dTU0TVY0LWdidGwySkZmcUpFajlhR1Z0TWM?oc=5",
+    "summary": "Three candidates step forward to represent Ward 5 in municipal election&nbsp;&nbsp;newspapers-online.com",
+    "published_at": "2026-06-18T23:14:25+00:00",
+    "category": "election",
+    "municipalities": [
+      "Aurora"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-22T22:06:11.455078+00:00"
   },
   {
     "id": "3f7ffe0a4896092a",
@@ -720,6 +746,20 @@
     "fetched_at": "2026-06-18T15:33:28.585415+00:00"
   },
   {
+    "id": "c4b91c10ff5897f4",
+    "title": "Former London Transit Commission chair seeking seat on city council - CTV News",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQNk9RRWl1QWgyLTE5TkN5Q0dxU2Y5bXNSa1hJZ3M3OGtjVjM1dkV1TGl4WjJkVzQ3MWlLSFQwWk53ZFNiNGRzTnVEYWtZeFJrRk9meVFRb2x1b0dlUnkwRDdHUjFHXzhtQ0RTaFJlVkhwWHYwU3kzV0dhNDZtUHlqbUJfa255VFg5MDBIMVg1V0pmNnFDNElsOFBWOENRR29reGhEdTRrR0ZVZw?oc=5",
+    "summary": "Former London Transit Commission chair seeking seat on city council&nbsp;&nbsp;CTV News",
+    "published_at": "2026-06-10T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Vaughan",
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-22T22:06:14.918150+00:00"
+  },
+  {
     "id": "5644e470c9e4f129",
     "title": "Looking to watch some of the World Cup with your neighbours? Here are some municipal viewing parties happening in York Region - YorkRegion.com",
     "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQMFJud0dlWDNRdEJKYkFvMTZzWjZyZWwyQ2N1REdNbUY1ckxwMG1IUzNnQjF5Q1Biek1lbFJUbk4wX0tYLUNpbE9mY0Fwd2VOOEhsRkR1X3JYXzJiSGxDNldBRmxNaVVqQzlUVTBHVHNuZ0o1bnZESXJERWZ5bEk1WE5qY2NCQWxtUUtwMGVDajJHVnlPNkxBNHVjRUw1NnlZZTBPSUpIVTQ1NW9qX0MzVkdsX2Q1VHI0dHZXS3RoQjc3cVphX0lDNmU4RDNMdTdseWJyUjJRSlRtTmtHblV5aGdidw?oc=5",
@@ -1082,6 +1122,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-21T12:12:14.222849+00:00"
+  },
+  {
+    "id": "5924ff93f8b65ad8",
+    "title": "June - Pride Month - AMO.on.ca",
+    "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5Ncmo3dmN3WTZ3M3hESDN0RlVEQ2JmVFg5eFZPcHNOVmVYb1paVjNSMTRmS3dEd2tFYVpSWG5tdVcxWHUtdmhxOVVZcDFGd2M?oc=5",
+    "summary": "June - Pride Month&nbsp;&nbsp;AMO.on.ca",
+    "published_at": "2026-06-02T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Georgina"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-06-22T22:06:12.384861+00:00"
   },
   {
     "id": "827b93b5c0d28457",
