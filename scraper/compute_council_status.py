@@ -48,9 +48,12 @@ def _status_for_roster(member_candidates, total_seats, threshold_count, nominati
     confirmed, declined, not_yet, unknown = _filed_counts(member_candidates)
     confirmed_n, declined_n, not_yet_n, unknown_n = len(confirmed), len(declined), len(not_yet), len(unknown)
 
-    best_case_remaining = confirmed_n + unknown_n  # unknowns could still all file
+    # Best case: everyone except those who've explicitly declined could still
+    # file before nomination day. "not_yet" means "hasn't filed as of this
+    # check" — same as "unknown" for this purpose, not the same as "declined".
+    best_case_remaining = confirmed_n + not_yet_n + unknown_n
 
-    if confirmed_n == 0 and unknown_n == total_seats:
+    if confirmed_n == 0 and declined_n == 0:
         return "unknown", (
             f"No filing data yet for any of the {total_seats} current members. "
             f"Need {threshold_count} of {total_seats} to file for re-election by nomination day to avoid lame-duck status."

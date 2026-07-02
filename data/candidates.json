@@ -7,35 +7,28 @@
     "office": "Mayor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 8, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "Incumbent; no clear DC-related signal in 2 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 2,
     "last_news_date": "2026-05-11T07:00:00+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "2 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
   },
   {
     "id": "aurora-ward-1-councillor-ron-weese",
@@ -61,15 +54,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -98,15 +91,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -136,15 +129,15 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -157,35 +150,28 @@
     "office": "Ward Councillor",
     "ward": "4",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "June 11, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "Incumbent; no clear DC-related signal in 1 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 1,
     "last_news_date": "2026-04-20T07:00:00+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "1 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 1 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
   },
   {
     "id": "aurora-ward-5-councillor-john-gallo",
@@ -212,15 +198,15 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -233,34 +219,28 @@
     "office": "Ward Councillor",
     "ward": "6",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 28, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-virginia-hackson",
@@ -286,15 +266,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -307,34 +287,28 @@
     "office": "Ward Councillor",
     "ward": "1",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 30, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
   },
   {
     "id": "east-gwillimbury-ward-1-councillor-terry-e-foster",
@@ -360,15 +334,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -398,15 +372,15 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -436,15 +410,15 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -474,15 +448,15 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -495,35 +469,27 @@
     "office": "Ward Councillor",
     "ward": "3",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
+    "filed_for_reelection": "declined",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
     "registered": false,
-    "registration_date": null,
+    "registration_date": "May 21, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "Incumbent; no clear DC-related signal in 1 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 1,
     "last_news_date": "2026-06-17T17:46:02+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "1 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
   },
   {
     "id": "georgina-mayor-margaret-quirk",
@@ -533,35 +499,28 @@
     "office": "Mayor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 27, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "Incumbent; no clear DC-related signal in 1 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 1,
     "last_news_date": "2026-05-27T07:00:00+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "1 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
   },
   {
     "id": "georgina-regional-councillor-1-naomi-davison",
@@ -571,34 +530,28 @@
     "office": "Regional Councillor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
   },
   {
     "id": "georgina-ward-1-councillor-charlene-biggerstaff",
@@ -608,34 +561,28 @@
     "office": "Ward Councillor",
     "ward": "1",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
   },
   {
     "id": "georgina-ward-2-councillor-dan-fellini",
@@ -645,34 +592,28 @@
     "office": "Ward Councillor",
     "ward": "2",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 22, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
   },
   {
     "id": "georgina-ward-3-councillor-dave-neeson",
@@ -682,34 +623,28 @@
     "office": "Ward Councillor",
     "ward": "3",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "June 29, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "4 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
   },
   {
     "id": "georgina-ward-4-councillor-dale-kerr-genge",
@@ -735,15 +670,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 4 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -772,15 +707,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -793,34 +728,28 @@
     "office": "Mayor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
   },
   {
     "id": "king-ward-1-councillor-jordan-alexander-cescolini",
@@ -830,34 +759,28 @@
     "office": "Ward Councillor",
     "ward": "1",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
   },
   {
     "id": "king-ward-2-councillor-david-boyd",
@@ -867,34 +790,28 @@
     "office": "Ward Councillor",
     "ward": "2",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
   },
   {
     "id": "king-ward-3-councillor-jennifer-anstey",
@@ -904,34 +821,28 @@
     "office": "Ward Councillor",
     "ward": "3",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 8, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
   },
   {
     "id": "king-ward-4-councillor-mary-asselstine",
@@ -941,34 +852,28 @@
     "office": "Ward Councillor",
     "ward": "4",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 5, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
   },
   {
     "id": "king-ward-5-councillor-debbie-schaefer",
@@ -994,15 +899,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1015,34 +920,28 @@
     "office": "Ward Councillor",
     "ward": "6",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
   },
   {
     "id": "markham-mayor-frank-scarpitti",
@@ -1068,7 +967,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1076,7 +975,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1106,7 +1005,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1114,7 +1013,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1143,7 +1042,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1151,7 +1050,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1180,7 +1079,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1188,7 +1087,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1217,7 +1116,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1225,7 +1124,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1254,7 +1153,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1262,7 +1161,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1291,7 +1190,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1299,7 +1198,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1328,7 +1227,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1336,7 +1235,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1365,7 +1264,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1373,7 +1272,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1402,7 +1301,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1410,7 +1309,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1439,7 +1338,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1447,7 +1346,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1476,7 +1375,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1484,7 +1383,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1513,7 +1412,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1521,7 +1420,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1550,7 +1449,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1558,7 +1457,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1587,7 +1486,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1595,7 +1494,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1624,15 +1523,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 4 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1661,15 +1560,15 @@
         "News signal: \"Longtime Newmarket Councillor Victor Woodhouse won't seek re-election - NewmarketToday.ca\""
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1698,15 +1597,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1719,34 +1618,28 @@
     "office": "Ward Councillor",
     "ward": "4",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 6, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
   },
   {
     "id": "newmarket-ward-5-councillor-bob-kwapis",
@@ -1756,34 +1649,28 @@
     "office": "Ward Councillor",
     "ward": "5",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 4, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
   },
   {
     "id": "newmarket-ward-6-councillor-kelly-broome",
@@ -1793,34 +1680,28 @@
     "office": "Ward Councillor",
     "ward": "6",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 22, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
   },
   {
     "id": "newmarket-ward-7-councillor-christina-bisanz",
@@ -1846,7 +1727,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1854,7 +1735,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1867,35 +1748,28 @@
     "office": "Mayor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 7 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 7,
-    "last_news_date": "2026-06-29T17:02:01+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "7 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 4 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 4,
+    "last_news_date": "2026-05-18T07:00:00+00:00",
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-1-godwin-chan",
@@ -1905,35 +1779,28 @@
     "office": "Regional Councillor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 9, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "Incumbent; no clear DC-related signal in 2 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 2,
     "last_news_date": "2026-05-28T12:00:00+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "2 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-2-joe-dipaola",
@@ -1943,34 +1810,28 @@
     "office": "Regional Councillor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 25, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "richmond-hill-ward-1-councillor-carol-davidson",
@@ -1980,34 +1841,28 @@
     "office": "Ward Councillor",
     "ward": "1",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "richmond-hill-ward-2-councillor-scott-thompson",
@@ -2034,15 +1889,15 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2071,15 +1926,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2092,34 +1947,28 @@
     "office": "Ward Councillor",
     "ward": "4",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 1, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "richmond-hill-ward-5-councillor-karen-cilevitz",
@@ -2129,34 +1978,28 @@
     "office": "Ward Councillor",
     "ward": "5",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 6, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "richmond-hill-ward-6-councillor-michael-shiu",
@@ -2166,34 +2009,28 @@
     "office": "Ward Councillor",
     "ward": "6",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
-    "registration_date": null,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 29, 2026",
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
   },
   {
     "id": "vaughan-mayor-steven-del-duca",
@@ -2220,7 +2057,7 @@
         "5 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2228,7 +2065,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2257,7 +2094,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2265,7 +2102,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2294,7 +2131,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2302,7 +2139,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2331,7 +2168,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2339,7 +2176,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2368,7 +2205,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2376,7 +2213,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2405,7 +2242,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2413,7 +2250,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2442,7 +2279,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2450,7 +2287,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2479,7 +2316,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2487,7 +2324,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2516,7 +2353,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2524,7 +2361,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2553,7 +2390,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2561,7 +2398,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2591,7 +2428,7 @@
         "3 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2599,7 +2436,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2628,7 +2465,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2636,7 +2473,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2666,7 +2503,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2674,7 +2511,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2703,7 +2540,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2711,7 +2548,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2740,7 +2577,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2748,7 +2585,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2777,7 +2614,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2785,7 +2622,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2814,7 +2651,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2822,9 +2659,2086 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-02T20:27:30.022106+00:00"
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
     },
     "source": "seeded",
     "scraped_at": null
+  },
+  {
+    "id": "king-mayor-stephen-ferritto",
+    "seat_id": "king-mayor",
+    "name": "Stephen Ferritto",
+    "municipality": "King",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 8, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "king-ward-councillor-1-abrar-mohar",
+    "seat_id": "king-ward-1-councillor",
+    "name": "Abrar Mohar",
+    "municipality": "King",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 11, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "king-ward-councillor-4-frank-mastromattei",
+    "seat_id": "king-ward-4-councillor",
+    "name": "Frank Mastromattei",
+    "municipality": "King",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "king-ward-councillor-4-jakob-schneider",
+    "seat_id": "king-ward-4-councillor",
+    "name": "Jakob Schneider",
+    "municipality": "King",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "king-ward-councillor-5-ivan-rapa",
+    "seat_id": "king-ward-5-councillor",
+    "name": "Ivan Rapa",
+    "municipality": "King",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "May 21, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "king-ward-councillor-5-gregory-peri",
+    "seat_id": "king-ward-5-councillor",
+    "name": "Gregory Peri",
+    "municipality": "King",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "June 18, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-04-30T07:00:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "king-ward-councillor-5-stephen-ongaro",
+    "seat_id": "king-ward-5-councillor",
+    "name": "Stephen Ongaro",
+    "municipality": "King",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.king.ca/candidates",
+    "registered": true,
+    "registration_date": "June 25, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.579979+00:00"
+  },
+  {
+    "id": "aurora-mayor-shawn-deane",
+    "seat_id": "aurora-mayor",
+    "name": "Shawn Deane",
+    "municipality": "Aurora",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-06-10T18:45:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "1 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-mayor-john-gallo",
+    "seat_id": "aurora-mayor",
+    "name": "John Gallo",
+    "municipality": "Aurora",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 2 news article(s). Raw delta: +0.",
+    "news_mentions": 2,
+    "last_news_date": "2026-05-04T07:00:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "2 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-1-lauren-hanna",
+    "seat_id": "aurora-ward-1-councillor",
+    "name": "Lauren Hanna",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-1-rocco-morsillo",
+    "seat_id": "aurora-ward-1-councillor",
+    "name": "Rocco Morsillo",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 4, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-05-06T07:00:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-2-marco-di-girolamo",
+    "seat_id": "aurora-ward-2-councillor",
+    "name": "Marco Di Girolamo",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 28, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-3-nikki-alber",
+    "seat_id": "aurora-ward-3-councillor",
+    "name": "Nikki Alber",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-3-alexandra-bonham",
+    "seat_id": "aurora-ward-3-councillor",
+    "name": "Alexandra Bonham",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "July 2, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-3-robert-james-fraser",
+    "seat_id": "aurora-ward-3-councillor",
+    "name": "Robert James Fraser",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 13, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-06-01T18:38:48+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-4-shaheen-moledina",
+    "seat_id": "aurora-ward-4-councillor",
+    "name": "Shaheen Moledina",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "May 15, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-05-19T07:00:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "1 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-5-charity-dela-cruz-toupin",
+    "seat_id": "aurora-ward-5-councillor",
+    "name": "Charity Dela Cruz-Toupin",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "June 3, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-5-jessie-fraser",
+    "seat_id": "aurora-ward-5-councillor",
+    "name": "Jessie Fraser",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "June 11, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-06-01T18:38:48+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-5-milton-hart",
+    "seat_id": "aurora-ward-5-councillor",
+    "name": "Milton Hart",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "June 15, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "aurora-ward-councillor-6-jibraan-khan",
+    "seat_id": "aurora-ward-6-councillor",
+    "name": "Jibraan Khan",
+    "municipality": "Aurora",
+    "office": "Ward Councillor",
+    "ward": "6",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
+    "registered": true,
+    "registration_date": "June 8, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:49.889702+00:00"
+  },
+  {
+    "id": "georgina-mayor-dale-kerr-genge",
+    "seat_id": "georgina-mayor",
+    "name": "Dale Kerr Genge",
+    "municipality": "Georgina",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-regional-councillor-geoff-fardy",
+    "seat_id": "georgina-regional-councillor-1",
+    "name": "Geoff Fardy",
+    "municipality": "Georgina",
+    "office": "Regional Councillor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 22, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-1-duncan-maccallum",
+    "seat_id": "georgina-ward-1-councillor",
+    "name": "Duncan MacCallum",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-2-natalie-floyd",
+    "seat_id": "georgina-ward-2-councillor",
+    "name": "Natalie Floyd",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-2-mike-gurr",
+    "seat_id": "georgina-ward-2-councillor",
+    "name": "Mike Gurr",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-2-shannon-delenardo",
+    "seat_id": "georgina-ward-2-councillor",
+    "name": "Shannon DeLenardo",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 4, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-3-andrew-edge",
+    "seat_id": "georgina-ward-3-councillor",
+    "name": "Andrew Edge",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 2 news article(s). Raw delta: +0.",
+    "news_mentions": 2,
+    "last_news_date": "2026-06-30T03:55:07+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "2 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-3-billy-hadden",
+    "seat_id": "georgina-ward-3-councillor",
+    "name": "Billy Hadden",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 26, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-3-nicholas-watts",
+    "seat_id": "georgina-ward-3-councillor",
+    "name": "Nicholas Watts",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 27, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-3-danielle-cohen",
+    "seat_id": "georgina-ward-3-councillor",
+    "name": "Danielle Cohen",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 29, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-4-antonio-romans",
+    "seat_id": "georgina-ward-4-councillor",
+    "name": "Antonio Romans",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-4-casey-sellers",
+    "seat_id": "georgina-ward-4-councillor",
+    "name": "Casey Sellers",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 4, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-4-mike-anderson",
+    "seat_id": "georgina-ward-4-councillor",
+    "name": "Mike Anderson",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "June 18, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-4-ivy-henriksen",
+    "seat_id": "georgina-ward-4-councillor",
+    "name": "Ivy Henriksen",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "June 30, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "georgina-ward-councillor-5-karen-wolfe",
+    "seat_id": "georgina-ward-5-councillor",
+    "name": "Karen Wolfe",
+    "municipality": "Georgina",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.georgina.ca/municipal-government/elections/2026-candidate-information",
+    "registered": true,
+    "registration_date": "May 15, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.426127+00:00"
+  },
+  {
+    "id": "east-gwillimbury-mayor-scott-crone",
+    "seat_id": "east-gwillimbury-mayor",
+    "name": "Scott Crone",
+    "municipality": "East Gwillimbury",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-05-29T16:22:59+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-mayor-brian-johns",
+    "seat_id": "east-gwillimbury-mayor",
+    "name": "Brian Johns",
+    "municipality": "East Gwillimbury",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 11, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 2 news article(s). Raw delta: +0.",
+    "news_mentions": 2,
+    "last_news_date": "2026-05-11T07:00:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-1-david-blyth",
+    "seat_id": "east-gwillimbury-ward-1-councillor-loralea-carruthers",
+    "name": "David Blyth",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 6, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-1-joel-kearney",
+    "seat_id": "east-gwillimbury-ward-1-councillor-terry-e-foster",
+    "name": "Joel Kearney",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 6, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-1-andrew-lenkov",
+    "seat_id": "east-gwillimbury-ward-1-councillor-loralea-carruthers",
+    "name": "Andrew Lenkov",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 16, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-2-kelly-holiday",
+    "seat_id": "east-gwillimbury-ward-2-councillor-brian-johns",
+    "name": "Kelly Holiday",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-2-john-petejan",
+    "seat_id": "east-gwillimbury-ward-2-councillor-tara-roy-diclemente",
+    "name": "John Petejan",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 12, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-2-raka-paul",
+    "seat_id": "east-gwillimbury-ward-2-councillor-brian-johns",
+    "name": "Raka Paul",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 21, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-2-danny-mladjenovic",
+    "seat_id": "east-gwillimbury-ward-2-councillor-tara-roy-diclemente",
+    "name": "Danny Mladjenovic",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 16, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-3-christine-glenn",
+    "seat_id": "east-gwillimbury-ward-3-councillor-scott-crone",
+    "name": "Christine Glenn",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-06-02T18:36:11+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-3-carolyn-butterworth",
+    "seat_id": "east-gwillimbury-ward-3-councillor-susan-lahey",
+    "name": "Carolyn Butterworth",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "east-gwillimbury-ward-councillor-3-carmen-cipolla",
+    "seat_id": "east-gwillimbury-ward-3-councillor-scott-crone",
+    "name": "Carmen Cipolla",
+    "municipality": "East Gwillimbury",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 3, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:50.816983+00:00"
+  },
+  {
+    "id": "richmond-hill-mayor-holo-devnani",
+    "seat_id": "richmond-hill-mayor",
+    "name": "Holo Devnani",
+    "municipality": "Richmond Hill",
+    "office": "Mayor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 15, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-regional-councillor-marco-coletta",
+    "seat_id": "richmond-hill-regional-councillor-1",
+    "name": "Marco Coletta",
+    "municipality": "Richmond Hill",
+    "office": "Regional Councillor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 26, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-1-giovanni-nardone",
+    "seat_id": "richmond-hill-ward-1-councillor",
+    "name": "Giovanni Nardone",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 25, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-2-muhammad-kermalli",
+    "seat_id": "richmond-hill-ward-2-councillor",
+    "name": "Muhammad Kermalli",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 12, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-2-sigmund-lee",
+    "seat_id": "richmond-hill-ward-2-councillor",
+    "name": "Sigmund Lee",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 11, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-2-tom-muench",
+    "seat_id": "richmond-hill-ward-2-councillor",
+    "name": "Tom Muench",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "July 2, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-3-juni-yeung",
+    "seat_id": "richmond-hill-ward-3-councillor",
+    "name": "Juni Yeung",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "June 19, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-4-sharon-chisholm",
+    "seat_id": "richmond-hill-ward-4-councillor",
+    "name": "Sharon Chisholm",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 14, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-4-rose-weinberg",
+    "seat_id": "richmond-hill-ward-4-councillor",
+    "name": "Rose Weinberg",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-4-danny-yoon",
+    "seat_id": "richmond-hill-ward-4-councillor",
+    "name": "Danny Yoon",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 11, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-5-marty-paulin",
+    "seat_id": "richmond-hill-ward-5-councillor",
+    "name": "Marty Paulin",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "richmond-hill-ward-councillor-5-richard-rupp",
+    "seat_id": "richmond-hill-ward-5-councillor",
+    "name": "Richard Rupp",
+    "municipality": "Richmond Hill",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
+    "registered": true,
+    "registration_date": "May 21, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.410914+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-1-naqi-ahsan",
+    "seat_id": "newmarket-ward-1-councillor",
+    "name": "Naqi Ahsan",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 19, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-1-nasim-bahari",
+    "seat_id": "newmarket-ward-1-councillor",
+    "name": "Nasim Bahari",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 1, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-1-nisa-chaudhry",
+    "seat_id": "newmarket-ward-1-councillor",
+    "name": "Nisa Chaudhry",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 22, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-1-sonia-fiorini",
+    "seat_id": "newmarket-ward-1-councillor",
+    "name": "Sonia Fiorini",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 23, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "5 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-2-brian-andrews",
+    "seat_id": "newmarket-ward-2-councillor",
+    "name": "Brian Andrews",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 3, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-2-glenn-marais",
+    "seat_id": "newmarket-ward-2-councillor",
+    "name": "Glenn Marais",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 21, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-06-02T18:36:11+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-2-pamela-mccarthy",
+    "seat_id": "newmarket-ward-2-councillor",
+    "name": "Pamela McCarthy",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "May 7, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
+  },
+  {
+    "id": "newmarket-ward-councillor-3-andrey-zavidovskiy",
+    "seat_id": "newmarket-ward-3-councillor",
+    "name": "Andrey Zavidovskiy",
+    "municipality": "Newmarket",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://newmarketvotes.ca/candidates/registered-candidates/",
+    "registered": true,
+    "registration_date": "June 8, 2026",
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-02T21:01:06.559160+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-02T20:58:51.758616+00:00"
   }
 ]

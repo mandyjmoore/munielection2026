@@ -44,11 +44,11 @@ RETIREMENT_KEYWORDS = [
 def estimate_likely_to_run_again(
     candidate: dict, news_articles: list[dict], as_of: str
 ) -> Optional[dict]:
-    """Only meaningful for incumbents who haven't confirmed a filing yet."""
+    """Only meaningful for incumbents with no confirmed filing status yet."""
     if candidate.get("status") != "incumbent":
         return None
-    if candidate.get("filed_for_reelection") == "confirmed":
-        return None  # moot — confirmed filing status supersedes this estimate
+    if candidate.get("filed_for_reelection") in ("confirmed", "declined"):
+        return None  # moot — a known filing status (either way) supersedes this estimate
 
     articles = find_relevant_articles(candidate["name"], news_articles)
     hits = []
@@ -121,6 +121,19 @@ def estimate_likely_to_win(
         }
 
     is_incumbent = candidate.get("status") == "incumbent"
+
+    if is_incumbent and not _is_filed(candidate):
+        # Don't call an incumbent "favored" to win a race they haven't
+        # actually entered — that's a stronger claim than the data supports,
+        # especially once challengers have already filed against the seat.
+        return {
+            "label": "insufficient_data",
+            "basis": ["Incumbent has not yet filed for re-election" + (
+                f" — {len(other_filed)} other candidate(s) already have" if other_filed else ""
+            )],
+            "confidence": "low",
+            "as_of": as_of,
+        }
 
     if is_incumbent:
         if not other_filed:

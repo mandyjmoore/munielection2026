@@ -91,14 +91,21 @@ def article_id(url: str, title: str) -> str:
     return hashlib.md5(key.encode()).hexdigest()[:16]
 
 
+_MUNI_PATTERNS = {
+    muni: re.compile(r"\b" + re.escape(muni.lower()) + r"\b")
+    for muni in MUNICIPALITIES
+}
+
+
 def detect_municipalities(text: str) -> list[str]:
-    """Detect which municipalities are mentioned in article text."""
+    """
+    Detect which municipalities are mentioned in article text.
+    Uses word-boundary matching, not plain substring — "King" as a bare
+    substring matches inside "seeking", "asking", "looking", etc., which
+    previously mis-tagged unrelated articles as King Township news.
+    """
     text_lower = text.lower()
-    found = []
-    for muni in MUNICIPALITIES:
-        if muni.lower() in text_lower:
-            found.append(muni)
-    return found
+    return [muni for muni, pattern in _MUNI_PATTERNS.items() if pattern.search(text_lower)]
 
 
 def is_dc_related(text: str) -> bool:
@@ -136,6 +143,14 @@ def parse_feed(feed_url: str, category: str, municipality_tag: Optional[str]) ->
             detected_munis = detect_municipalities(full_text)
             if municipality_tag and municipality_tag not in detected_munis:
                 detected_munis.insert(0, municipality_tag)
+
+            # The global (untagged) "election"/"development_charges" feeds are
+            # broad Google News searches that can surface other Ontario
+            # municipalities' election coverage (e.g. Toronto, Caledon) with
+            # no actual York Region mention — drop those rather than let them
+            # pollute the news feed as unattributed "York Region" stories.
+            if not municipality_tag and not detected_munis and "york region" not in full_text:
+                continue
 
             aid = article_id(link, title)
 
