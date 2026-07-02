@@ -6,9 +6,11 @@ Runs all scrapers, updates data files, commits are handled by GitHub Actions.
 import json
 import logging
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
+from compute_council_status import compute_council_status
+from estimate_race_outlook import estimate_all
 from fetch_candidates import fetch_all_candidates
 from fetch_news import fetch_all_news
 from score_alignment import score_all_candidates
@@ -26,6 +28,15 @@ DATA_DIR = REPO_ROOT / "data"
 CANDIDATES_FILE = DATA_DIR / "candidates.json"
 NEWS_FILE = DATA_DIR / "news.json"
 METADATA_FILE = DATA_DIR / "metadata.json"
+SEATS_FILE = DATA_DIR / "seats.json"
+VOTES_FILE = DATA_DIR / "votes.json"
+COUNCIL_STATUS_FILE = DATA_DIR / "council_status.json"
+
+# NOTE: as of this rebuild, fetch_candidates is disabled pending the manual
+# per-municipality URL verification pass described in the rebuild plan —
+# candidate/filing data is manually seeded and reviewed until that's done.
+# See scraper/fetch_candidates.py.
+ENABLE_CANDIDATE_SCRAPE = False
 
 
 def load_json(path: Path, default):
@@ -57,11 +68,12 @@ def main():
     existing_candidates = load_json(CANDIDATES_FILE, [])
     existing_news = load_json(NEWS_FILE, [])
     metadata = load_json(METADATA_FILE, {})
+    seats = load_json(SEATS_FILE, [])
+    votes = load_json(VOTES_FILE, {}).get("votes", [])
 
     logger.info(
-        "Loaded %d existing candidates, %d existing news articles",
-        len(existing_candidates),
-        len(existing_news),
+        "Loaded %d existing candidates, %d existing news articles, %d seats, %d votes",
+        len(existing_candidates), len(existing_news), len(seats), len(votes),
     )
 
     # --- Step 1: Fetch news ---
@@ -72,23 +84,53 @@ def main():
         logger.error("News fetch failed: %s", exc)
         updated_news = existing_news
 
-    # --- Step 2: Fetch candidates ---
-    logger.info("--- Fetching candidates ---")
-    try:
-        updated_candidates = fetch_all_candidates(existing_candidates)
-    except Exception as exc:
-        logger.error("Candidate fetch failed: %s", exc)
+    # --- Step 2: Fetch candidates (disabled pending per-municipality URL
+    # verification — see ENABLE_CANDIDATE_SCRAPE) ---
+    if ENABLE_CANDIDATE_SCRAPE:
+        logger.info("--- Fetching candidates ---")
+        try:
+            updated_candidates = fetch_all_candidates(existing_candidates)
+        except Exception as exc:
+            logger.error("Candidate fetch failed: %s", exc)
+            updated_candidates = existing_candidates
+    else:
+        logger.info("--- Candidate scraping disabled; using manually-seeded/reviewed data as-is ---")
         updated_candidates = existing_candidates
 
-    # --- Step 3: Score candidates ---
+    # --- Step 3: Score candidates (voting record primary, news secondary) ---
     logger.info("--- Scoring candidates ---")
     try:
-        scored_candidates = score_all_candidates(updated_candidates, updated_news)
+        scored_candidates = score_all_candidates(updated_candidates, updated_news, votes)
     except Exception as exc:
         logger.error("Scoring failed: %s", exc)
         scored_candidates = updated_candidates
 
-    # --- Step 4: Update metadata ---
+    # --- Step 4: Estimate race outlook (likely to run again / likely to win) ---
+    logger.info("--- Estimating race outlook ---")
+    nomination_close = metadata.get("nomination_close")
+    nomination_day_passed = bool(nomination_close and date.today().isoformat() > nomination_close)
+    try:
+        scored_candidates = estimate_all(
+            scored_candidates, updated_news, now_iso, nomination_day_passed
+        )
+    except Exception as exc:
+        logger.error("Race outlook estimation failed: %s", exc)
+
+    # --- Step 5: Compute council lame-duck status ---
+    council_status = None
+    if seats:
+        logger.info("--- Computing council lame-duck status ---")
+        try:
+            council_status = compute_council_status(
+                seats, scored_candidates, now_iso,
+                metadata.get("nomination_close"), nomination_day_passed,
+            )
+        except Exception as exc:
+            logger.error("Council status computation failed: %s", exc)
+    else:
+        logger.warning("No seats.json data found — skipping council status computation")
+
+    # --- Step 6: Update metadata ---
     metadata["last_updated"] = now_iso
     metadata["candidate_count"] = len(scored_candidates)
     metadata["news_count"] = len(updated_news)
@@ -102,11 +144,23 @@ def main():
         and c.get("source") == "scraped"
     ]
     metadata["new_registrations_24h"] = len(new_registrations)
+    metadata["data_confidence"] = {
+        "candidates_confirmed_filed": sum(
+            1 for c in scored_candidates if c.get("filed_for_reelection") == "confirmed"
+        ),
+        "candidates_unknown_filing_status": sum(
+            1 for c in scored_candidates if c.get("filed_for_reelection") not in ("confirmed", "declined")
+        ),
+        "seats_total": len(seats),
+        "candidate_scraper_enabled": ENABLE_CANDIDATE_SCRAPE,
+    }
 
-    # --- Step 5: Save ---
+    # --- Step 7: Save ---
     save_json(CANDIDATES_FILE, scored_candidates)
     save_json(NEWS_FILE, updated_news)
     save_json(METADATA_FILE, metadata)
+    if council_status is not None:
+        save_json(COUNCIL_STATUS_FILE, council_status)
 
     logger.info("=== Scraper complete. %d candidates, %d news articles ===",
                 len(scored_candidates), len(updated_news))

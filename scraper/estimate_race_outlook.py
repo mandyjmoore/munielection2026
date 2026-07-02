@@ -1,0 +1,205 @@
+"""
+Heuristic estimates for two questions the dashboard needs an "at a glance"
+answer to, even though neither has a reliable ground-truth source for
+Ontario municipal races (no public polling, no real-time fundraising
+disclosure):
+
+  1. likely_to_run_again — for incumbents who haven't yet confirmed a filing.
+  2. likely_to_win — for any candidate, once a race has at least one filing.
+
+Both are deliberately small ordinal labels with a visible `basis` array of
+plain-language reasons, never a percentage or a normalized score — with only
+1-2 real signals available per race (incumbency, news volume), a fake-precision
+number would overstate what the data actually supports.
+"""
+
+import logging
+from typing import Optional
+
+from score_alignment import find_relevant_articles
+
+logger = logging.getLogger(__name__)
+
+# High-precision phrases only — false positives here directly mislabel an
+# incumbent as retiring, so keep this list narrow rather than clever.
+RETIREMENT_KEYWORDS = [
+    "will not seek re-election",
+    "will not seek reelection",
+    "won't seek re-election",
+    "won't seek reelection",
+    "not seeking re-election",
+    "not seeking reelection",
+    "will not be seeking re-election",
+    "won't run again",
+    "will not run again",
+    "announced retirement",
+    "announced her retirement",
+    "announced his retirement",
+    "retiring from council",
+    "retiring from politics",
+    "stepping down",
+]
+
+
+def estimate_likely_to_run_again(
+    candidate: dict, news_articles: list[dict], as_of: str
+) -> Optional[dict]:
+    """Only meaningful for incumbents who haven't confirmed a filing yet."""
+    if candidate.get("status") != "incumbent":
+        return None
+    if candidate.get("filed_for_reelection") == "confirmed":
+        return None  # moot — confirmed filing status supersedes this estimate
+
+    articles = find_relevant_articles(candidate["name"], news_articles)
+    hits = []
+    for article in articles:
+        text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
+        for phrase in RETIREMENT_KEYWORDS:
+            if phrase in text:
+                hits.append(article.get("title", phrase))
+                break
+
+    if hits:
+        return {
+            "label": "unlikely",
+            "basis": [f'News signal: "{title}"' for title in hits[:3]],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
+    if not articles:
+        return {
+            "label": "insufficient_data",
+            "basis": ["No news coverage found mentioning this candidate."],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
+    # Deliberately not defaulting to "likely" just because most incumbents
+    # usually do run again — that's an unverified inference, same failure
+    # mode as the original scraper's fabricated candidate data.
+    return {
+        "label": "uncertain",
+        "basis": [
+            "No retirement or non-candidacy announcement found in news",
+            f"{len(articles)} news article(s) reviewed, none signaling non-candidacy",
+        ],
+        "confidence": "low",
+        "as_of": as_of,
+    }
+
+
+def _is_filed(candidate: dict) -> bool:
+    return bool(candidate.get("registered")) or candidate.get("filed_for_reelection") == "confirmed"
+
+
+def estimate_likely_to_win(
+    candidate: dict,
+    all_candidates: list[dict],
+    news_articles: list[dict],
+    nomination_day_passed: bool,
+    as_of: str,
+) -> dict:
+    seat_id = candidate.get("seat_id")
+    seat_candidates = [c for c in all_candidates if c.get("seat_id") == seat_id]
+    other_filed = [c for c in seat_candidates if c["id"] != candidate["id"] and _is_filed(c)]
+
+    if not _is_filed(candidate) and not other_filed:
+        return {
+            "label": "insufficient_data",
+            "basis": ["No filings recorded yet for this seat."],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
+    if nomination_day_passed and _is_filed(candidate) and not other_filed:
+        return {
+            "label": "acclaimed",
+            "basis": ["No other candidates filed for this seat by nomination close."],
+            "confidence": "medium",
+            "as_of": as_of,
+        }
+
+    is_incumbent = candidate.get("status") == "incumbent"
+
+    if is_incumbent:
+        if not other_filed:
+            return {
+                "label": "favored",
+                "basis": ["Incumbent", "No challengers filed yet"],
+                "confidence": "low",
+                "as_of": as_of,
+            }
+        challenger_mention_counts = [
+            len(find_relevant_articles(c["name"], news_articles)) for c in other_filed
+        ]
+        max_mentions = max(challenger_mention_counts, default=0)
+        if max_mentions >= 3:
+            return {
+                "label": "competitive",
+                "basis": [
+                    "Incumbent",
+                    f"{len(other_filed)} challenger(s) filed",
+                    f"Highest challenger news volume: {max_mentions} mention(s)",
+                ],
+                "confidence": "low",
+                "as_of": as_of,
+            }
+        return {
+            "label": "favored",
+            "basis": [
+                "Incumbent",
+                f"{len(other_filed)} challenger(s) filed with limited news visibility (max {max_mentions} mention(s))",
+            ],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
+    # Candidate is a challenger, or this is an open seat with no incumbent filed.
+    incumbent_in_race = any(c.get("status") == "incumbent" for c in other_filed)
+    if not incumbent_in_race:
+        return {
+            "label": "competitive",
+            "basis": ["Open seat — no incumbent in the race", f"{len(seat_candidates)} candidate(s) filed"],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
+    own_mentions = len(find_relevant_articles(candidate["name"], news_articles))
+    if own_mentions >= 3:
+        return {
+            "label": "competitive",
+            "basis": ["Challenging an incumbent", f"{own_mentions} news mention(s) — meaningful visibility"],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+    return {
+        "label": "long_shot",
+        "basis": ["Challenging an incumbent", f"{own_mentions} news mention(s) — limited visibility"],
+        "confidence": "low",
+        "as_of": as_of,
+    }
+
+
+def estimate_all(
+    candidates: list[dict],
+    news_articles: list[dict],
+    as_of: str,
+    nomination_day_passed: bool = False,
+) -> list[dict]:
+    """Attach likely_to_run_again and likely_to_win estimates to every candidate."""
+    updated = []
+    for candidate in candidates:
+        try:
+            new_candidate = dict(candidate)
+            new_candidate["likely_to_run_again"] = estimate_likely_to_run_again(
+                candidate, news_articles, as_of
+            )
+            new_candidate["likely_to_win"] = estimate_likely_to_win(
+                candidate, candidates, news_articles, nomination_day_passed, as_of
+            )
+            updated.append(new_candidate)
+        except Exception as exc:
+            logger.error("Error estimating outlook for %s: %s", candidate.get("name"), exc)
+            updated.append(candidate)
+    return updated

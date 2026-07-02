@@ -159,6 +159,102 @@
     .alert-banner.hidden { display: none; }
 
     /* ============================================================
+       LAME-DUCK COUNCIL STATUS
+    ============================================================ */
+    .lameduck-banner {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .lameduck-banner.status-on_track    { background: linear-gradient(90deg, #0f1e14, #0f2a1a); border-color: var(--green-dim); }
+    .lameduck-banner.status-at_risk     { background: linear-gradient(90deg, #241d05, #2d2500); border-color: #713f12; }
+    .lameduck-banner.status-lame_duck_confirmed { background: linear-gradient(90deg, #2d0a0a, #3a0d0d); border-color: #7f1d1d; }
+    .lameduck-banner.status-unknown     { background: var(--bg-card); border-color: var(--border); }
+
+    .lameduck-stat {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .lameduck-stat .lameduck-value {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .lameduck-stat .lameduck-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    .lameduck-body { flex: 1; min-width: 240px; }
+
+    .lameduck-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 4px;
+    }
+
+    .lameduck-basis {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .lameduck-muni-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      cursor: pointer;
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+
+    .lameduck-muni-toggle:hover { border-color: var(--accent); color: var(--text); }
+
+    .lameduck-muni-panel {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .lameduck-muni-panel.open { display: block; }
+
+    .lameduck-muni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px;
+    }
+
+    .lameduck-muni-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--text-dim);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+
+    .lameduck-muni-card.status-on_track { border-left-color: var(--green); }
+    .lameduck-muni-card.status-at_risk { border-left-color: var(--yellow); }
+    .lameduck-muni-card.status-lame_duck_confirmed { border-left-color: var(--red); }
+
+    .lameduck-muni-card .muni-name { font-weight: 700; color: #f1f5f9; margin-bottom: 2px; }
+    .lameduck-muni-card .muni-count { color: var(--text-muted); font-size: 11px; }
+
+    /* ============================================================
        MAIN CONTENT AREA
     ============================================================ */
     .main-content {
@@ -424,6 +520,38 @@
     .badge-incumbent { background: #1e3a5f; color: #60a5fa; }
     .badge-challenger { background: #1a2e1a; color: #86efac; }
     .badge-unknown { background: #1e1e1e; color: #64748b; }
+
+    /* Heuristic/estimated fields (likely_to_run_again, likely_to_win) get a
+       visually distinct treatment — dashed border, no solid fill — so they
+       can never be confused with confirmed facts like incumbent status. */
+    .badge-estimate {
+      background: transparent;
+      border: 1px dashed var(--text-dim);
+      color: var(--text-muted);
+    }
+
+    .badge-estimate.est-favored, .badge-estimate.est-likely { border-color: var(--lime); color: var(--lime); }
+    .badge-estimate.est-acclaimed { border-color: var(--green); color: var(--green); }
+    .badge-estimate.est-competitive, .badge-estimate.est-uncertain { border-color: var(--yellow); color: var(--yellow); }
+    .badge-estimate.est-long_shot, .badge-estimate.est-unlikely { border-color: var(--orange); color: var(--orange); }
+
+    .candidate-row.seat-empty {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .basis-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .basis-tag.basis-voting_record { color: var(--accent); border-color: var(--accent); }
 
     .score-pill {
       font-size: 10px;
@@ -702,6 +830,22 @@
 <main class="main-content">
   <div class="container">
 
+    <!-- Lame-Duck Council Status -->
+    <div class="lameduck-banner status-unknown" id="lameduck-banner">
+      <div class="lameduck-stat">
+        <div class="lameduck-value" id="lameduck-fraction">—</div>
+        <div class="lameduck-label">Confirmed Filed</div>
+      </div>
+      <div class="lameduck-body">
+        <div class="lameduck-title" id="lameduck-title">York Regional Council — Lame-Duck Status</div>
+        <div class="lameduck-basis" id="lameduck-basis">Loading council status…</div>
+      </div>
+      <button class="lameduck-muni-toggle" id="lameduck-muni-toggle">Show 9 municipalities &#9662;</button>
+    </div>
+    <div class="lameduck-muni-panel" id="lameduck-muni-panel">
+      <div class="lameduck-muni-grid" id="lameduck-muni-grid"></div>
+    </div>
+
     <!-- Nomination Period Status -->
     <div class="nomination-banner">
       <div class="nom-item">
@@ -769,6 +913,10 @@
           <canvas id="alignment-chart"></canvas>
         </div>
       </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
+        <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">Scored from &mdash; how much of this is measured vs. estimated</div>
+        <div class="alignment-bars" id="alignment-basis-bars"></div>
+      </div>
     </div>
 
     <!-- Municipality Tabs -->
@@ -823,9 +971,11 @@
   const NOM_CLOSE     = new Date('2026-08-21T23:59:59-05:00');
   const REFRESH_MS    = 30 * 60 * 1000; // 30 minutes
 
-  const MUNICIPALITIES = [
+  // Fallback only — the real municipality list is derived from seats.json
+  // (or metadata.municipalities) once loaded, via getMunicipalities().
+  const DEFAULT_MUNICIPALITIES = [
     'Aurora', 'East Gwillimbury', 'Georgina', 'King', 'Markham',
-    'Newmarket', 'Richmond Hill', 'Vaughan', 'Whitchurch-Stouffville', 'York Region'
+    'Newmarket', 'Richmond Hill', 'Vaughan', 'Whitchurch-Stouffville'
   ];
 
   const ALIGN_COLORS = {
@@ -844,6 +994,27 @@
     strongly_misaligned: 'Strongly Misaligned',
   };
 
+  const BASIS_LABELS = {
+    voting_record:      'Voting Record',
+    news_inferred:       'News-Inferred',
+    incumbency_default:  'Incumbency Default',
+    unscored:            'Unscored',
+  };
+
+  const BASIS_COLORS = {
+    voting_record:      '#3b82f6',
+    news_inferred:       '#84cc16',
+    incumbency_default:  '#94a3b8',
+    unscored:            '#334155',
+  };
+
+  const LAMEDUCK_STATUS_TEXT = {
+    on_track:            'On Track',
+    at_risk:              'At Risk',
+    lame_duck_confirmed:  'Lame Duck',
+    unknown:               'Unknown',
+  };
+
   // ============================================================
   // STATE
   // ============================================================
@@ -851,7 +1022,9 @@
     candidates: [],
     news: [],
     metadata: {},
-    activeMuni: MUNICIPALITIES[0],
+    seats: [],
+    councilStatus: {},
+    activeMuni: null,
     chartInstance: null,
   };
 
@@ -870,17 +1043,31 @@
   }
 
   async function loadData() {
-    const [candidates, news, metadata] = await Promise.all([
+    const [candidates, news, metadata, seats, councilStatus] = await Promise.all([
       fetchJSON('data/candidates.json'),
       fetchJSON('data/news.json'),
       fetchJSON('data/metadata.json'),
+      fetchJSON('data/seats.json'),
+      fetchJSON('data/council_status.json'),
     ]);
 
-    state.candidates = candidates || [];
-    state.news       = Array.isArray(news) ? news : [];
-    state.metadata   = metadata || {};
+    state.candidates    = candidates || [];
+    state.news          = Array.isArray(news) ? news : [];
+    state.metadata      = metadata || {};
+    state.seats          = Array.isArray(seats) ? seats : [];
+    state.councilStatus = councilStatus || {};
 
     render();
+  }
+
+  function getMunicipalities() {
+    if (state.seats.length) {
+      return [...new Set(state.seats.map(s => s.municipality))].sort();
+    }
+    if (state.metadata.municipalities && state.metadata.municipalities.length) {
+      return state.metadata.municipalities;
+    }
+    return DEFAULT_MUNICIPALITIES;
   }
 
   // ============================================================
@@ -971,6 +1158,57 @@
   }
 
   // ============================================================
+  // RENDER: LAME-DUCK COUNCIL STATUS
+  // ============================================================
+  function renderLameDuckBanner() {
+    const banner = document.getElementById('lameduck-banner');
+    if (!banner) return;
+    const rc = state.councilStatus.regional_council;
+
+    if (!rc) {
+      banner.className = 'lameduck-banner status-unknown';
+      setText('lameduck-fraction', '—');
+      const titleEl = document.getElementById('lameduck-title');
+      if (titleEl) titleEl.textContent = 'York Regional Council — Lame-Duck Status';
+      setText('lameduck-basis', 'Council status data not yet available.');
+      return;
+    }
+
+    banner.className = 'lameduck-banner status-' + rc.status;
+    setText('lameduck-fraction', `${rc.confirmed_filed_count}/${rc.threshold_count}`);
+    const titleEl = document.getElementById('lameduck-title');
+    if (titleEl) {
+      titleEl.textContent = `York Regional Council — ${LAMEDUCK_STATUS_TEXT[rc.status] || rc.status}`;
+    }
+    setText('lameduck-basis', rc.status_basis || '');
+
+    const toggle = document.getElementById('lameduck-muni-toggle');
+    if (toggle && !document.getElementById('lameduck-muni-panel').classList.contains('open')) {
+      const n = Object.keys(state.councilStatus.municipalities || {}).length;
+      toggle.innerHTML = `Show ${n} municipalities &#9662;`;
+    }
+
+    renderLameDuckMuniPanel();
+  }
+
+  function renderLameDuckMuniPanel() {
+    const grid = document.getElementById('lameduck-muni-grid');
+    if (!grid) return;
+    const munis = state.councilStatus.municipalities || {};
+    const names = Object.keys(munis).sort();
+
+    grid.innerHTML = names.map(name => {
+      const m = munis[name];
+      return `
+        <div class="lameduck-muni-card status-${m.status}">
+          <div class="muni-name">${escapeHtml(name)}</div>
+          <div class="muni-count">${m.confirmed_filed_count}/${m.threshold_count} filed &bull; ${LAMEDUCK_STATUS_TEXT[m.status] || m.status}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ============================================================
   // RENDER: STAT CARDS
   // ============================================================
   function renderStats() {
@@ -1055,6 +1293,36 @@
 
     // Chart.js doughnut
     renderAlignmentChart(counts);
+    renderAlignmentBasisBreakdown();
+  }
+
+  function renderAlignmentBasisBreakdown() {
+    const container = document.getElementById('alignment-basis-bars');
+    if (!container) return;
+    const candidates = state.candidates;
+    const counts = { voting_record: 0, news_inferred: 0, incumbency_default: 0, unscored: 0 };
+
+    for (const c of candidates) {
+      const b = c.fiscal_alignment_basis;
+      if (b in counts) counts[b]++;
+      else counts.unscored++;
+    }
+
+    const total = candidates.length || 1;
+    container.innerHTML = Object.keys(BASIS_LABELS).map(key => {
+      const count = counts[key];
+      const pct = ((count / total) * 100).toFixed(1);
+      const color = BASIS_COLORS[key];
+      return `
+        <div class="alignment-bar-row" title="${BASIS_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct}%)">
+          <div class="alignment-bar-label">${BASIS_LABELS[key]}</div>
+          <div class="alignment-bar-track">
+            <div class="alignment-bar-fill" style="width:${pct}%;background:${color}"></div>
+          </div>
+          <div class="alignment-bar-count" style="color:${color}">${count}</div>
+        </div>
+      `;
+    }).join('');
   }
 
   function renderAlignmentChart(counts) {
@@ -1109,19 +1377,26 @@
     const panelsEl = document.getElementById('muni-panels');
     if (!tabsEl || !panelsEl) return;
 
-    // Group candidates by municipality
-    const byMuni = groupBy(state.candidates, 'municipality');
+    const munis = getMunicipalities();
+    if (!state.activeMuni || !munis.includes(state.activeMuni)) {
+      state.activeMuni = munis[0];
+    }
 
-    tabsEl.innerHTML = MUNICIPALITIES.map(muni => {
-      const count = (byMuni[muni] || []).length;
+    const seatCountByMuni = {};
+    for (const s of state.seats) {
+      seatCountByMuni[s.municipality] = (seatCountByMuni[s.municipality] || 0) + 1;
+    }
+
+    tabsEl.innerHTML = munis.map(muni => {
+      const count = seatCountByMuni[muni] || 0;
       const active = muni === state.activeMuni ? ' active' : '';
       return `<button class="muni-tab${active}" data-muni="${escapeHtml(muni)}">${escapeHtml(muni)} <span style="opacity:0.6">(${count})</span></button>`;
     }).join('');
 
-    panelsEl.innerHTML = MUNICIPALITIES.map(muni => {
+    panelsEl.innerHTML = munis.map(muni => {
       const active = muni === state.activeMuni ? ' active' : '';
       return `<div class="muni-panel${active}" id="panel-${slugify(muni)}" data-muni="${escapeHtml(muni)}">
-        ${renderMuniPanel(muni, byMuni[muni] || [])}
+        ${renderMuniPanel(muni)}
       </div>`;
     }).join('');
 
@@ -1138,15 +1413,28 @@
     });
   }
 
-  function renderMuniPanel(muni, candidates) {
-    if (!candidates.length) {
-      return `<div class="empty-state">No candidates on file for ${escapeHtml(muni)} yet. Data updates every 2 hours.</div>`;
+  function renderMuniPanel(muni) {
+    const muniSeats = state.seats.filter(s => s.municipality === muni);
+
+    if (!muniSeats.length) {
+      // No seat inventory loaded for this municipality — fall back to
+      // whatever flat candidate records exist, so the panel isn't empty
+      // if seats.json failed to load for some reason.
+      const flat = state.candidates.filter(c => c.municipality === muni);
+      if (!flat.length) {
+        return `<div class="empty-state">No seat data on file for ${escapeHtml(muni)} yet.</div>`;
+      }
+      return flat.map(renderCandidateRow).join('');
     }
 
-    // Group by office + ward
-    const byOffice = groupBy(candidates, 'office');
-    const officeOrder = ['Mayor', 'Regional Councillor', 'Councillor', 'Unknown'];
+    const candidatesBySeat = {};
+    for (const c of state.candidates) {
+      if (!c.seat_id) continue;
+      (candidatesBySeat[c.seat_id] = candidatesBySeat[c.seat_id] || []).push(c);
+    }
 
+    const byOffice = groupBy(muniSeats, 'office');
+    const officeOrder = ['Mayor', 'Regional Councillor', 'Ward Councillor'];
     const sortedOffices = Object.keys(byOffice).sort((a, b) => {
       const ai = officeOrder.indexOf(a) >= 0 ? officeOrder.indexOf(a) : 99;
       const bi = officeOrder.indexOf(b) >= 0 ? officeOrder.indexOf(b) : 99;
@@ -1154,19 +1442,63 @@
     });
 
     return sortedOffices.map(office => {
-      const group = byOffice[office];
+      const seatsInOffice = byOffice[office];
+      const rows = seatsInOffice.map(seat => {
+        const seatCandidates = candidatesBySeat[seat.id] || [];
+        return seatCandidates.length
+          ? seatCandidates.map(renderCandidateRow).join('')
+          : renderEmptySeatRow(seat);
+      }).join('');
+
       return `
         <div class="race-group">
           <div class="race-header">
             <span class="race-title">${escapeHtml(office)}</span>
-            <span class="race-count">${group.length} candidate${group.length !== 1 ? 's' : ''}</span>
+            <span class="race-count">${seatsInOffice.length} seat${seatsInOffice.length !== 1 ? 's' : ''}</span>
           </div>
-          <div class="candidate-list">
-            ${group.map(renderCandidateRow).join('')}
-          </div>
+          <div class="candidate-list">${rows}</div>
         </div>
       `;
     }).join('');
+  }
+
+  function renderEmptySeatRow(seat) {
+    const wardText = seat.ward ? ` — Ward ${escapeHtml(seat.ward)}` : '';
+    return `
+      <div class="candidate-row seat-empty">
+        <div class="alignment-dot" style="background:var(--text-dim)"></div>
+        <div class="candidate-name">${escapeHtml(seat.seat_label || seat.office)}${wardText}</div>
+        <div class="candidate-badges">
+          <span class="badge badge-unknown">No candidates filed yet</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFilingBadge(c) {
+    if (c.status !== 'incumbent') return '';
+    if (c.filed_for_reelection === 'confirmed') {
+      return `<span class="badge badge-challenger" title="${escapeHtml(c.filing_source || 'Confirmed filing')}">Filed</span>`;
+    }
+    if (c.filed_for_reelection === 'declined') {
+      return `<span class="badge badge-unknown">Not Running</span>`;
+    }
+    return ''; // unknown/not_yet — the likely_to_run_again estimate badge covers this instead
+  }
+
+  function renderOutlookBadges(c) {
+    let html = '';
+    const ra = c.likely_to_run_again;
+    if (ra && ra.label !== 'insufficient_data') {
+      const titleText = escapeHtml('Estimate, not fact — ' + (ra.basis || []).join('; '));
+      html += `<span class="badge badge-estimate est-${ra.label}" title="${titleText}">Run again: ${escapeHtml(ra.label.replace(/_/g, ' '))}</span>`;
+    }
+    const w = c.likely_to_win;
+    if (w && w.label !== 'insufficient_data') {
+      const titleText = escapeHtml('Estimate, not fact — ' + (w.basis || []).join('; '));
+      html += `<span class="badge badge-estimate est-${w.label}" title="${titleText}">${escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
+    }
+    return html;
   }
 
   function renderCandidateRow(c) {
@@ -1175,6 +1507,7 @@
     const color  = ALIGN_COLORS[label] || ALIGN_COLORS.neutral;
     const status = c.status || 'unknown';
     const mentions = c.news_mentions || 0;
+    const basis = c.fiscal_alignment_basis || 'unscored';
 
     const statusBadge = status === 'incumbent'
       ? `<span class="badge badge-incumbent">Incumbent</span>`
@@ -1187,6 +1520,9 @@
     const newsHtml = mentions > 0
       ? `<span class="news-count has-news" title="News mentions">&#128240; ${mentions}</span>`
       : `<span class="news-count">0 mentions</span>`;
+    const basisTagHtml = basis !== 'unscored'
+      ? `<span class="basis-tag basis-${basis}" title="Fiscal score basis">${basis.replace(/_/g, ' ')}</span>`
+      : '';
 
     return `
       <div class="candidate-row" title="${title}">
@@ -1194,7 +1530,10 @@
         <div class="candidate-name">${escapeHtml(c.name)}${wardText ? `<span style="font-weight:400;color:var(--text-muted);font-size:11px">${escapeHtml(wardText)}</span>` : ''}</div>
         <div class="candidate-badges">
           ${statusBadge}
+          ${renderFilingBadge(c)}
+          ${renderOutlookBadges(c)}
           <span class="score-pill score-${label}" title="Fiscal alignment score">${score}/10</span>
+          ${basisTagHtml}
           ${newsHtml}
         </div>
       </div>
@@ -1253,6 +1592,7 @@
   // ============================================================
   function render() {
     renderHeader();
+    renderLameDuckBanner();
     renderNomProgress();
     renderAlert();
     renderStats();
@@ -1269,6 +1609,18 @@
     const days = daysUntil(ELECTION_DATE);
     const el = document.getElementById('countdown-days');
     if (el) el.textContent = days > 0 ? days : '0';
+
+    // Lame-duck municipal breakdown toggle (attached once; panel content
+    // itself is re-rendered on every data refresh)
+    const muniToggle = document.getElementById('lameduck-muni-toggle');
+    const muniPanel = document.getElementById('lameduck-muni-panel');
+    if (muniToggle && muniPanel) {
+      muniToggle.addEventListener('click', () => {
+        const isOpen = muniPanel.classList.toggle('open');
+        const n = Object.keys(state.councilStatus.municipalities || {}).length || 9;
+        muniToggle.innerHTML = isOpen ? 'Hide municipalities &#9652;' : `Show ${n} municipalities &#9662;`;
+      });
+    }
 
     // Load data
     loadData();
