@@ -1,24 +1,24 @@
 {
-  "computed_at": "2026-07-02T20:27:30.022106+00:00",
+  "computed_at": "2026-07-02T20:58:47.779072+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
     "chair_excluded": "Eric Jolliffe (appointed, not counted)",
     "threshold_fraction": 0.75,
     "threshold_count": 16,
-    "confirmed_filed_count": 0,
+    "confirmed_filed_count": 7,
     "declined_count": 0,
     "not_yet_filed_count": 0,
-    "unknown_count": 21,
-    "status": "unknown",
-    "status_basis": "No filing data yet for any of the 21 current members. Need 16 of 21 to file for re-election by nomination day to avoid lame-duck status.",
+    "unknown_count": 14,
+    "status": "at_risk",
+    "status_basis": "7 of 21 current members confirmed filing so far (0 declined, 14 still unknown). Threshold is 16 of 21 — outcome is not yet decided.",
     "members": [
       {
         "seat_id": "aurora-mayor",
         "name": "Tom Mrakas",
         "municipality": "Aurora",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "east-gwillimbury-mayor",
@@ -32,21 +32,21 @@
         "name": "Margaret Quirk",
         "municipality": "Georgina",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "georgina-regional-councillor-1",
         "name": "Naomi Davison",
         "municipality": "Georgina",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "king-mayor",
         "name": "Steve Pellegrini",
         "municipality": "King",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "markham-mayor",
@@ -102,21 +102,21 @@
         "name": "David West",
         "municipality": "Richmond Hill",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "richmond-hill-regional-councillor-1",
         "name": "Godwin Chan",
         "municipality": "Richmond Hill",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "richmond-hill-regional-councillor-2",
         "name": "Joe DiPaola",
         "municipality": "Richmond Hill",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "vaughan-mayor",
@@ -167,45 +167,45 @@
       "total_current_elected_members": 7,
       "threshold_fraction": 0.75,
       "threshold_count": 6,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 3,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 7,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 4,
+      "status": "at_risk",
+      "status_basis": "3 of 7 current members confirmed filing so far (0 declined, 4 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
     },
     "East Gwillimbury": {
       "total_current_elected_members": 7,
       "threshold_fraction": 0.75,
       "threshold_count": 6,
-      "confirmed_filed_count": 0,
-      "declined_count": 0,
+      "confirmed_filed_count": 1,
+      "declined_count": 1,
       "not_yet_filed_count": 0,
-      "unknown_count": 7,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 5,
+      "status": "at_risk",
+      "status_basis": "1 of 7 current members confirmed filing so far (1 declined, 5 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
     },
     "Georgina": {
       "total_current_elected_members": 7,
       "threshold_fraction": 0.75,
       "threshold_count": 6,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 5,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 7,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 2,
+      "status": "at_risk",
+      "status_basis": "5 of 7 current members confirmed filing so far (0 declined, 2 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
     },
     "King": {
       "total_current_elected_members": 7,
       "threshold_fraction": 0.75,
       "threshold_count": 6,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 6,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 7,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 1,
+      "status": "on_track",
+      "status_basis": "6 of 7 current members have confirmed re-election filings — already meets the 6-of-7 threshold."
     },
     "Markham": {
       "total_current_elected_members": 13,
@@ -222,23 +222,23 @@
       "total_current_elected_members": 9,
       "threshold_fraction": 0.75,
       "threshold_count": 7,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 3,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 9,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 9 current members. Need 7 of 9 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 6,
+      "status": "at_risk",
+      "status_basis": "3 of 9 current members confirmed filing so far (0 declined, 6 still unknown). Threshold is 7 of 9 — outcome is not yet decided."
     },
     "Richmond Hill": {
       "total_current_elected_members": 9,
       "threshold_fraction": 0.75,
       "threshold_count": 7,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 7,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 9,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 9 current members. Need 7 of 9 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 2,
+      "status": "on_track",
+      "status_basis": "7 of 9 current members have confirmed re-election filings — already meets the 7-of-9 threshold."
     },
     "Vaughan": {
       "total_current_elected_members": 10,

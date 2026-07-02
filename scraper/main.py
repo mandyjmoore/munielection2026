@@ -32,11 +32,12 @@ SEATS_FILE = DATA_DIR / "seats.json"
 VOTES_FILE = DATA_DIR / "votes.json"
 COUNCIL_STATUS_FILE = DATA_DIR / "council_status.json"
 
-# NOTE: as of this rebuild, fetch_candidates is disabled pending the manual
-# per-municipality URL verification pass described in the rebuild plan —
-# candidate/filing data is manually seeded and reviewed until that's done.
-# See scraper/fetch_candidates.py.
-ENABLE_CANDIDATE_SCRAPE = False
+# Candidate scraping is live for the 6 municipalities with a verified,
+# working extraction path (Georgina, Richmond Hill, Newmarket, Aurora, East
+# Gwillimbury, King — see SCRAPABLE_MUNICIPALITIES in fetch_candidates.py).
+# Markham/Vaughan (bot-blocked) and Whitchurch-Stouffville (JS-rendered) fall
+# back to existing/seeded data until a workaround exists for those.
+ENABLE_CANDIDATE_SCRAPE = True
 
 
 def load_json(path: Path, default):
@@ -84,12 +85,11 @@ def main():
         logger.error("News fetch failed: %s", exc)
         updated_news = existing_news
 
-    # --- Step 2: Fetch candidates (disabled pending per-municipality URL
-    # verification — see ENABLE_CANDIDATE_SCRAPE) ---
+    # --- Step 2: Fetch candidates (see ENABLE_CANDIDATE_SCRAPE) ---
     if ENABLE_CANDIDATE_SCRAPE:
         logger.info("--- Fetching candidates ---")
         try:
-            updated_candidates = fetch_all_candidates(existing_candidates)
+            updated_candidates = fetch_all_candidates(existing_candidates, seats)
         except Exception as exc:
             logger.error("Candidate fetch failed: %s", exc)
             updated_candidates = existing_candidates
