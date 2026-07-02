@@ -1,0 +1,16 @@
+{
+  "votes": [
+    {
+      "id": "dc-bylaw-2026-20",
+      "title": "DC Bylaw No. 2026-20 (Region-wide Development Charges rate reduction)",
+      "body": "York Regional Council",
+      "date": "2026-05-21",
+      "source_url": "https://yorkpublishing.escribemeetings.com/filestream.ashx?DocumentId=47492",
+      "source_type": "unconfirmed",
+      "description": "Passage of Region-wide DC Bylaw 2026-20, cutting development charge rates across all classes of development for the first time in the Region's 55-year history (2-9% residential, 2-35% non-residential decreases).",
+      "fiscal_alignment_direction": "yes_vote_is_misaligned",
+      "results": [],
+      "verification_notes": "Decision document exists at source_url but could not be fetched by automated tooling (SSL error on York's document server). Needs a human to open it directly and confirm whether this was a recorded roll-call vote (transcribe member-level results into `results[]` and set source_type to 'recorded_vote') or passed on consent with no individual breakdown (set source_type to 'consent_agenda_no_breakdown', leave results empty)."
+    }
+  ]
+}

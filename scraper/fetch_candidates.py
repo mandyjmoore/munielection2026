@@ -22,6 +22,12 @@ HEADERS = {
     "Accept-Language": "en-CA,en;q=0.9",
 }
 
+# NOTE: There is no "York Region" candidate page to scrape — Regional Council
+# has no separate election; its members are the 9 municipal mayors plus
+# regional councillors elected as part of specific municipalities' local
+# ballots. The old scraper had a "York Region" entry here pointing at a
+# general york.ca info page, and it's what produced the 330 nav-menu-junk
+# "candidates" this rebuild is cleaning up. Do not re-add it.
 MUNICIPALITY_URLS = {
     "Markham": "https://www.electionsmarkham.ca/en/candidates/list-of-candidates/",
     "Vaughan": "https://www.vaughan.ca/government/elections/candidates",
@@ -32,8 +38,20 @@ MUNICIPALITY_URLS = {
     "Georgina": "https://www.georgina.ca/en/town-services/2026-election.aspx",
     "King": "https://www.king.ca/en/local-government/elections.aspx",
     "Whitchurch-Stouffville": "https://www.townofws.ca/en/town-hall/elections.aspx",
-    "York Region": "https://www.york.ca/york-region/municipal-election",
 }
+
+# Hard safeguards against the failure mode that produced 330 garbage records:
+# any candidate extracted must have a real office and belong to a known
+# municipality, and a single municipality producing an implausible number of
+# "candidates" is treated as a scraper bug, not real data.
+VALID_OFFICES = {"mayor", "regional councillor", "councillor"}
+KNOWN_MUNICIPALITIES = set(MUNICIPALITY_URLS.keys())
+MAX_CANDIDATES_PER_MUNICIPALITY = 20
+# A candidate/nomination list page should contain at least one of these terms
+# somewhere in its text; if it doesn't, this almost certainly isn't a real
+# candidate list yet (e.g. a generic "how elections work" info page) and
+# extraction should be skipped rather than run against the wrong content.
+PAGE_MARKER_TERMS = ["candidate", "nomination", "nominee"]
 
 
 def slugify(text: str) -> str:
@@ -64,15 +82,75 @@ def fetch_page(url: str, timeout: int = 15) -> Optional[BeautifulSoup]:
         return None
 
 
-def extract_candidates_generic(soup: BeautifulSoup, municipality: str) -> list[dict]:
+def page_looks_like_candidate_list(soup: BeautifulSoup) -> bool:
     """
-    Generic extraction: looks for tables or lists that contain candidate names
-    alongside office/ward information. Returns a list of partial candidate dicts.
+    Sanity check before extraction runs. The original scraper's fatal flaw was
+    running extraction against a page that was never actually a candidate
+    list (a general York Region info page), producing 330 nav-menu-junk
+    "candidates". Require the page to actually mention candidates/nominations
+    somewhere before trusting anything extracted from it.
     """
+    text = soup.get_text(" ", strip=True).lower()
+    return any(term in text for term in PAGE_MARKER_TERMS)
+
+
+def _make_candidate_record(municipality: str, office: str, name: str, ward: Optional[str], now_iso: str, source_url: str) -> Optional[dict]:
+    """Build a candidate record, or return None if it fails validation safeguards."""
+    if not name or len(name) < 2:
+        return None
+    if municipality not in KNOWN_MUNICIPALITIES:
+        return None
+    if office.strip().lower() not in VALID_OFFICES:
+        return None
+
+    cid = make_candidate_id(municipality, office, name, ward)
+    return {
+        "id": cid,
+        "seat_id": None,  # reconciled against seats.json separately, not guessed here
+        "name": name,
+        "municipality": municipality,
+        "office": office,
+        "ward": ward,
+        "status": "unknown",
+        "filed_for_reelection": "confirmed",  # appearing on an official clerk candidate list means they filed
+        "filing_source": source_url,
+        "registered": True,
+        "registration_date": None,
+        "fiscal_alignment_score": 5,
+        "fiscal_alignment_label": "neutral",
+        "fiscal_alignment_basis": "unscored",
+        "fiscal_notes": "",
+        "news_mentions": 0,
+        "last_news_date": None,
+        "likely_to_run_again": None,
+        "likely_to_win": None,
+        "source": "scraped",
+        "scraped_at": now_iso,
+    }
+
+
+def extract_candidates_generic(soup: BeautifulSoup, municipality: str, source_url: str) -> list[dict]:
+    """
+    Table-based extraction only: looks for a table whose header row identifies
+    a name column (plus optionally office/ward columns). Every extracted
+    candidate is validated against VALID_OFFICES/KNOWN_MUNICIPALITIES before
+    being kept.
+
+    Deliberately no generic list-heading fallback here (removed — it was the
+    source of all 330 garbage records from the previous scraper run, matching
+    arbitrary <li> text as candidate names on pages that didn't actually list
+    candidates). If a municipality's real candidate list isn't table-based,
+    it needs its own targeted extraction function, not a looser heuristic.
+    """
+    if not page_looks_like_candidate_list(soup):
+        logger.warning(
+            "%s page doesn't appear to be a candidate/nomination list yet — skipping extraction", municipality
+        )
+        return []
+
     candidates = []
     now_iso = datetime.now(timezone.utc).isoformat()
 
-    # Try tables first (most municipal pages use tables)
     tables = soup.find_all("table")
     for table in tables:
         rows = table.find_all("tr")
@@ -82,7 +160,6 @@ def extract_candidates_generic(soup: BeautifulSoup, municipality: str) -> list[d
 
         col_headers = [th.get_text(strip=True).lower() for th in headers_row.find_all(["th", "td"])]
 
-        # Find relevant column indices
         name_idx = next((i for i, h in enumerate(col_headers) if "name" in h or "candidate" in h), None)
         office_idx = next((i for i, h in enumerate(col_headers) if "office" in h or "position" in h or "race" in h), None)
         ward_idx = next((i for i, h in enumerate(col_headers) if "ward" in h or "district" in h), None)
@@ -96,137 +173,32 @@ def extract_candidates_generic(soup: BeautifulSoup, municipality: str) -> list[d
                 continue
 
             name = cells[name_idx].get_text(strip=True)
-            if not name or len(name) < 2:
-                continue
+            office = cells[office_idx].get_text(strip=True) if office_idx is not None and office_idx < len(cells) else ""
+            ward = cells[ward_idx].get_text(strip=True) if ward_idx is not None and ward_idx < len(cells) else None
 
-            office = cells[office_idx].get_text(strip=True) if office_idx and office_idx < len(cells) else "Unknown"
-            ward = cells[ward_idx].get_text(strip=True) if ward_idx and ward_idx < len(cells) else None
+            record = _make_candidate_record(municipality, office, name, ward, now_iso, source_url)
+            if record is not None:
+                candidates.append(record)
 
-            cid = make_candidate_id(municipality, office, name, ward)
-            candidates.append({
-                "id": cid,
-                "name": name,
-                "municipality": municipality,
-                "office": office,
-                "ward": ward,
-                "status": "unknown",
-                "registered": True,
-                "registration_date": None,
-                "fiscal_alignment_score": 5,
-                "fiscal_alignment_label": "neutral",
-                "fiscal_notes": "",
-                "news_mentions": 0,
-                "last_news_date": None,
-                "source": "scraped",
-                "scraped_at": now_iso,
-            })
-
-    # If no tables found, try list-based extraction
-    if not candidates:
-        # Look for headings that might indicate office, then lists of names
-        current_office = "Unknown"
-        current_ward = None
-        for elem in soup.find_all(["h1", "h2", "h3", "h4", "li", "p"]):
-            text = elem.get_text(strip=True)
-            if not text:
-                continue
-
-            # Detect office headings
-            if elem.name in ["h2", "h3", "h4"]:
-                text_lower = text.lower()
-                if "mayor" in text_lower:
-                    current_office = "Mayor"
-                    current_ward = None
-                elif "regional councillor" in text_lower:
-                    current_office = "Regional Councillor"
-                    m = re.search(r"ward\s+(\w+)", text_lower)
-                    current_ward = m.group(1).capitalize() if m else None
-                elif "councillor" in text_lower or "council" in text_lower:
-                    current_office = "Councillor"
-                    m = re.search(r"ward\s+(\w+)", text_lower)
-                    current_ward = m.group(1).capitalize() if m else None
-                continue
-
-            if elem.name == "li":
-                # Simple name heuristic: 2+ words, title case, not too long
-                if 2 <= len(text.split()) <= 6 and text[0].isupper() and len(text) < 60:
-                    cid = make_candidate_id(municipality, current_office, text, current_ward)
-                    candidates.append({
-                        "id": cid,
-                        "name": text,
-                        "municipality": municipality,
-                        "office": current_office,
-                        "ward": current_ward,
-                        "status": "unknown",
-                        "registered": True,
-                        "registration_date": None,
-                        "fiscal_alignment_score": 5,
-                        "fiscal_alignment_label": "neutral",
-                        "fiscal_notes": "",
-                        "news_mentions": 0,
-                        "last_news_date": None,
-                        "source": "scraped",
-                        "scraped_at": now_iso,
-                    })
+    if len(candidates) > MAX_CANDIDATES_PER_MUNICIPALITY:
+        logger.error(
+            "%s scrape produced %d candidates (cap %d) — treating as a scraper bug, discarding this run's results",
+            municipality, len(candidates), MAX_CANDIDATES_PER_MUNICIPALITY,
+        )
+        return []
 
     return candidates
 
 
-def scrape_markham(soup: BeautifulSoup) -> list[dict]:
-    """Scrape Elections Markham candidate list."""
-    return extract_candidates_generic(soup, "Markham")
-
-
-def scrape_vaughan(soup: BeautifulSoup) -> list[dict]:
-    """Scrape Vaughan candidate list."""
-    return extract_candidates_generic(soup, "Vaughan")
-
-
-def scrape_richmond_hill(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "Richmond Hill")
-
-
-def scrape_newmarket(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "Newmarket")
-
-
-def scrape_aurora(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "Aurora")
-
-
-def scrape_east_gwillimbury(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "East Gwillimbury")
-
-
-def scrape_georgina(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "Georgina")
-
-
-def scrape_king(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "King")
-
-
-def scrape_whitchurch_stouffville(soup: BeautifulSoup) -> list[dict]:
-    return extract_candidates_generic(soup, "Whitchurch-Stouffville")
-
-
-def scrape_york_region(soup: BeautifulSoup) -> list[dict]:
-    """Scrape York Region page for regional councillor candidates."""
-    return extract_candidates_generic(soup, "York Region")
-
-
-SCRAPERS = {
-    "Markham": scrape_markham,
-    "Vaughan": scrape_vaughan,
-    "Richmond Hill": scrape_richmond_hill,
-    "Newmarket": scrape_newmarket,
-    "Aurora": scrape_aurora,
-    "East Gwillimbury": scrape_east_gwillimbury,
-    "Georgina": scrape_georgina,
-    "King": scrape_king,
-    "Whitchurch-Stouffville": scrape_whitchurch_stouffville,
-    "York Region": scrape_york_region,
-}
+# Every municipality currently routes through extract_candidates_generic
+# (table-based extraction only, with the safeguards above). None of the 9
+# municipality URLs have been manually verified yet to confirm they host a
+# real, structured candidate table (see rebuild plan, phase 5.4/5.2) — until
+# that verification happens per-municipality, a dedicated extraction function
+# would just be guessing at a page structure nobody has looked at. Once a
+# municipality is verified, give it its own function here (e.g. a real
+# scrape_markham() targeting Elections Markham's actual table selectors)
+# instead of relying on the generic fallback.
 
 
 def merge_candidates(existing: list[dict], scraped: list[dict]) -> list[dict]:
@@ -267,13 +239,8 @@ def fetch_all_candidates(existing_candidates: list[dict]) -> list[dict]:
             logger.warning("Skipping %s — page fetch failed", municipality)
             continue
 
-        scraper_fn = SCRAPERS.get(municipality)
-        if scraper_fn is None:
-            logger.warning("No scraper for %s", municipality)
-            continue
-
         try:
-            scraped = scraper_fn(soup)
+            scraped = extract_candidates_generic(soup, municipality, url)
             logger.info("Found %d candidates for %s", len(scraped), municipality)
             all_scraped.extend(scraped)
         except Exception as exc:

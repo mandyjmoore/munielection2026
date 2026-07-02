@@ -57,15 +57,18 @@ MISALIGNED_SIGNALS = [
     ("builder-friendly", -1),
 ]
 
-# Incumbents who voted FOR DC Bylaw 2026-20 get a small negative adjustment
-# The bylaw passed May 21, 2026 at York Region Council. Regional and local
-# mayors sitting on York Region Council who supported it are noted here.
-# This list represents those who are known to have voted in favour.
-DC_BYLAW_YES_VOTERS = {
-    # Regional councillors / mayors who attend YR Council and approved cuts
-    # Without confirmed individual votes we apply a general incumbent adjustment
-    # for all mayors (they attend/influence regional decisions) — small penalty
-}
+def find_relevant_articles(candidate_name: str, news_articles: list[dict]) -> list[dict]:
+    """Find news articles mentioning a candidate by full or last name."""
+    name = candidate_name.lower()
+    name_parts = candidate_name.split()
+    last_name = name_parts[-1].lower() if name_parts else name
+
+    relevant = []
+    for article in news_articles:
+        text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
+        if name in text or (len(last_name) > 3 and last_name in text):
+            relevant.append(article)
+    return relevant
 
 
 def score_from_text(text: str) -> int:
@@ -105,79 +108,125 @@ def clamp(value: int, lo: int = 0, hi: int = 10) -> int:
     return max(lo, min(hi, value))
 
 
-def score_candidate(candidate: dict, news_articles: list[dict]) -> dict:
+VOTE_WEIGHT = 3  # a single recorded vote outweighs any one news-keyword hit
+
+
+def score_from_votes(candidate_id: str, votes: list[dict]) -> Optional[dict]:
     """
-    Re-score a candidate based on news articles mentioning their name.
-    Returns an updated candidate dict.
+    Compute an alignment delta from recorded council votes for this candidate.
+    Returns None if the candidate has no matching recorded ("yes"/"no") votes —
+    distinct from a neutral score, since absence of data must stay absence of data.
     """
-    name = candidate["name"].lower()
-    # Also match last name only for common references
-    name_parts = candidate["name"].split()
-    last_name = name_parts[-1].lower() if name_parts else name
+    matches = []
+    for vote in votes:
+        for result in vote.get("results", []):
+            if result.get("candidate_id") == candidate_id and result.get("vote") in ("yes", "no"):
+                matches.append((vote, result["vote"]))
 
-    relevant_articles = []
-    for article in news_articles:
-        text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
-        if name in text or (len(last_name) > 3 and last_name in text):
-            relevant_articles.append(article)
+    if not matches:
+        return None
 
-    if not relevant_articles:
-        # No news — preserve existing score, just update mention count
-        updated = dict(candidate)
-        updated["news_mentions"] = 0
-        return updated
+    delta = 0
+    notes_parts = []
+    for vote, cast in matches:
+        direction = vote.get("fiscal_alignment_direction")
+        if direction == "yes_vote_is_misaligned":
+            sign = -1 if cast == "yes" else 1
+        elif direction == "yes_vote_is_aligned":
+            sign = 1 if cast == "yes" else -1
+        else:
+            sign = 0
+        delta += sign * VOTE_WEIGHT
+        notes_parts.append(f'Voted {cast.upper()} on "{vote.get("title")}" ({vote.get("date")}).')
 
-    # Compute delta from all relevant articles
-    total_delta = 0
+    return {"delta": delta, "notes": " ".join(notes_parts), "n_votes": len(matches)}
+
+
+def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[list[dict]] = None) -> dict:
+    """
+    Re-score a candidate. Voting-record signal (if any) is primary; news-keyword
+    signal is secondary/minor when a voting record exists, and the sole signal
+    otherwise. `fiscal_alignment_basis` always records which path was used.
+    """
+    votes = votes or []
+    relevant_articles = find_relevant_articles(candidate["name"], news_articles)
+
+    news_delta = 0
     latest_date = None
-
     for article in relevant_articles:
         text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
-        total_delta += score_from_text(text)
-
+        news_delta += score_from_text(text)
         pub = article.get("published_at")
-        if pub:
-            if latest_date is None or pub > latest_date:
-                latest_date = pub
+        if pub and (latest_date is None or pub > latest_date):
+            latest_date = pub
 
-    # Start from baseline 5, apply delta
-    base_score = 5
-    new_score = clamp(base_score + total_delta)
-    new_label = label_from_score(new_score)
-
-    # Incumbent adjustment: incumbents who participated in YR Council
-    # when DC Bylaw 2026-20 passed get a slight negative signal (-0.5 → round down)
-    # We apply -1 if incumbent and no strong positive signals detected
-    if candidate.get("status") == "incumbent" and total_delta == 0:
-        new_score = clamp(new_score - 1)
-        new_label = label_from_score(new_score)
-        fiscal_notes = (
-            f"Incumbent; DC Bylaw 2026-20 slight negative adjustment. "
-            f"{len(relevant_articles)} news article(s) reviewed."
-        )
-    else:
-        fiscal_notes = (
-            f"Scored from {len(relevant_articles)} news article(s). "
-            f"Raw delta: {total_delta:+d}."
-        )
+    vote_result = score_from_votes(candidate["id"], votes)
 
     updated = dict(candidate)
-    updated["fiscal_alignment_score"] = new_score
-    updated["fiscal_alignment_label"] = new_label
-    updated["fiscal_notes"] = fiscal_notes
     updated["news_mentions"] = len(relevant_articles)
     if latest_date:
         updated["last_news_date"] = latest_date
 
+    if vote_result is not None:
+        # Voting record is ground truth: it dominates. News delta only nudges
+        # within it, and is deliberately down-weighted (integer division) so a
+        # handful of keyword hits can't override a documented vote.
+        new_score = clamp(5 + vote_result["delta"] + news_delta // 3)
+        updated["fiscal_alignment_score"] = new_score
+        updated["fiscal_alignment_label"] = label_from_score(new_score)
+        updated["fiscal_alignment_basis"] = "voting_record"
+        notes = vote_result["notes"]
+        if relevant_articles:
+            notes += f" Plus {len(relevant_articles)} news article(s) as minor secondary signal."
+        updated["fiscal_notes"] = notes
+
+    elif relevant_articles:
+        new_score = clamp(5 + news_delta)
+        updated["fiscal_alignment_score"] = new_score
+        updated["fiscal_alignment_label"] = label_from_score(new_score)
+
+        if candidate.get("status") == "incumbent" and news_delta == 0:
+            new_score = clamp(new_score - 1)
+            updated["fiscal_alignment_score"] = new_score
+            updated["fiscal_alignment_label"] = label_from_score(new_score)
+            updated["fiscal_alignment_basis"] = "incumbency_default"
+            updated["fiscal_notes"] = (
+                f"Incumbent; no clear DC-related signal in {len(relevant_articles)} news article(s) reviewed. "
+                f"Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20)."
+            )
+        else:
+            updated["fiscal_alignment_basis"] = "news_inferred"
+            updated["fiscal_notes"] = (
+                f"Scored from {len(relevant_articles)} news article(s). Raw delta: {news_delta:+d}."
+            )
+
+    elif candidate.get("status") == "incumbent":
+        new_score = clamp(5 - 1)
+        updated["fiscal_alignment_score"] = new_score
+        updated["fiscal_alignment_label"] = label_from_score(new_score)
+        updated["fiscal_alignment_basis"] = "incumbency_default"
+        updated["fiscal_notes"] = (
+            "No recorded vote or news signal found. Default incumbency adjustment applied "
+            "(tacit association with DC Bylaw 2026-20)."
+        )
+
+    else:
+        # No votes, no news, not an incumbent — nothing to score from. Leave
+        # score/label as-is (default neutral 5) rather than fabricate a basis.
+        updated["fiscal_alignment_basis"] = "unscored"
+        updated["fiscal_notes"] = ""
+
     return updated
 
 
-def score_all_candidates(candidates: list[dict], news_articles: list[dict]) -> list[dict]:
-    """Score all candidates based on news mentions."""
+def score_all_candidates(
+    candidates: list[dict], news_articles: list[dict], votes: Optional[list[dict]] = None
+) -> list[dict]:
+    """Score all candidates based on recorded votes (primary) and news mentions (secondary/fallback)."""
     scored = []
     for candidate in candidates:
         try:
-            updated = score_candidate(candidate, news_articles)
+            updated = score_candidate(candidate, news_articles, votes)
             scored.append(updated)
         except Exception as exc:
             logger.error("Error scoring candidate %s: %s", candidate.get("name"), exc)

@@ -1,0 +1,266 @@
+{
+  "computed_at": "2026-07-02T20:27:30.022106+00:00",
+  "nomination_day": "2026-08-21",
+  "regional_council": {
+    "total_current_elected_members": 21,
+    "chair_excluded": "Eric Jolliffe (appointed, not counted)",
+    "threshold_fraction": 0.75,
+    "threshold_count": 16,
+    "confirmed_filed_count": 0,
+    "declined_count": 0,
+    "not_yet_filed_count": 0,
+    "unknown_count": 21,
+    "status": "unknown",
+    "status_basis": "No filing data yet for any of the 21 current members. Need 16 of 21 to file for re-election by nomination day to avoid lame-duck status.",
+    "members": [
+      {
+        "seat_id": "aurora-mayor",
+        "name": "Tom Mrakas",
+        "municipality": "Aurora",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "east-gwillimbury-mayor",
+        "name": "Virginia Hackson",
+        "municipality": "East Gwillimbury",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "georgina-mayor",
+        "name": "Margaret Quirk",
+        "municipality": "Georgina",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "georgina-regional-councillor-1",
+        "name": "Naomi Davison",
+        "municipality": "Georgina",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "king-mayor",
+        "name": "Steve Pellegrini",
+        "municipality": "King",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "markham-mayor",
+        "name": "Frank Scarpitti",
+        "municipality": "Markham",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "markham-regional-councillor-1",
+        "name": "Michael Chan",
+        "municipality": "Markham",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "markham-regional-councillor-2",
+        "name": "Jim Jones",
+        "municipality": "Markham",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "markham-regional-councillor-3",
+        "name": "Joe Li",
+        "municipality": "Markham",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "markham-regional-councillor-4",
+        "name": "Alan Ho",
+        "municipality": "Markham",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "newmarket-mayor",
+        "name": "John Taylor",
+        "municipality": "Newmarket",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "newmarket-regional-councillor-1",
+        "name": "Tom Vegh",
+        "municipality": "Newmarket",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "richmond-hill-mayor",
+        "name": "David West",
+        "municipality": "Richmond Hill",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "richmond-hill-regional-councillor-1",
+        "name": "Godwin Chan",
+        "municipality": "Richmond Hill",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "richmond-hill-regional-councillor-2",
+        "name": "Joe DiPaola",
+        "municipality": "Richmond Hill",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "vaughan-mayor",
+        "name": "Steven Del Duca",
+        "municipality": "Vaughan",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "vaughan-regional-councillor-1",
+        "name": "Linda D. Jackson",
+        "municipality": "Vaughan",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "vaughan-regional-councillor-2",
+        "name": "Mario Ferri",
+        "municipality": "Vaughan",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "vaughan-regional-councillor-3",
+        "name": "Gino Rosati",
+        "municipality": "Vaughan",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "vaughan-regional-councillor-4",
+        "name": "Mario G. Racco",
+        "municipality": "Vaughan",
+        "office": "Regional Councillor",
+        "filed_for_reelection": "unknown"
+      },
+      {
+        "seat_id": "whitchurch-stouffville-mayor",
+        "name": "Iain Lovatt",
+        "municipality": "Whitchurch-Stouffville",
+        "office": "Mayor",
+        "filed_for_reelection": "unknown"
+      }
+    ]
+  },
+  "municipalities": {
+    "Aurora": {
+      "total_current_elected_members": 7,
+      "threshold_fraction": 0.75,
+      "threshold_count": 6,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 7,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "East Gwillimbury": {
+      "total_current_elected_members": 7,
+      "threshold_fraction": 0.75,
+      "threshold_count": 6,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 7,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "Georgina": {
+      "total_current_elected_members": 7,
+      "threshold_fraction": 0.75,
+      "threshold_count": 6,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 7,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "King": {
+      "total_current_elected_members": 7,
+      "threshold_fraction": 0.75,
+      "threshold_count": 6,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 7,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "Markham": {
+      "total_current_elected_members": 13,
+      "threshold_fraction": 0.75,
+      "threshold_count": 10,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 13,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 13 current members. Need 10 of 13 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "Newmarket": {
+      "total_current_elected_members": 9,
+      "threshold_fraction": 0.75,
+      "threshold_count": 7,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 9,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 9 current members. Need 7 of 9 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "Richmond Hill": {
+      "total_current_elected_members": 9,
+      "threshold_fraction": 0.75,
+      "threshold_count": 7,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 9,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 9 current members. Need 7 of 9 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "Vaughan": {
+      "total_current_elected_members": 10,
+      "threshold_fraction": 0.75,
+      "threshold_count": 8,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 10,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 10 current members. Need 8 of 10 to file for re-election by nomination day to avoid lame-duck status."
+    },
+    "Whitchurch-Stouffville": {
+      "total_current_elected_members": 7,
+      "threshold_fraction": 0.75,
+      "threshold_count": 6,
+      "confirmed_filed_count": 0,
+      "declined_count": 0,
+      "not_yet_filed_count": 0,
+      "unknown_count": 7,
+      "status": "unknown",
+      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+    }
+  }
+}
