@@ -1,17 +1,17 @@
 {
-  "computed_at": "2026-07-06T16:05:37.931164+00:00",
+  "computed_at": "2026-07-06T16:49:15.372448+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
     "chair_excluded": "Eric Jolliffe (appointed, not counted)",
     "threshold_fraction": 0.75,
     "threshold_count": 16,
-    "confirmed_filed_count": 11,
+    "confirmed_filed_count": 12,
     "declined_count": 0,
     "not_yet_filed_count": 0,
-    "unknown_count": 10,
+    "unknown_count": 9,
     "status": "at_risk",
-    "status_basis": "11 of 21 current members confirmed filing so far (0 declined, 10 still unknown). Threshold is 16 of 21 — outcome is not yet decided.",
+    "status_basis": "12 of 21 current members confirmed filing so far (0 declined, 9 still unknown). Threshold is 16 of 21 — outcome is not yet decided.",
     "members": [
       {
         "seat_id": "aurora-mayor",
@@ -123,7 +123,7 @@
         "name": "Steven Del Duca",
         "municipality": "Vaughan",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "vaughan-regional-councillor-1",
@@ -244,12 +244,12 @@
       "total_current_elected_members": 10,
       "threshold_fraction": 0.75,
       "threshold_count": 8,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 1,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 10,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 10 current members. Need 8 of 10 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 9,
+      "status": "at_risk",
+      "status_basis": "1 of 10 current members confirmed filing so far (0 declined, 9 still unknown). Threshold is 8 of 10 — outcome is not yet decided."
     },
     "Whitchurch-Stouffville": {
       "total_current_elected_members": 7,
