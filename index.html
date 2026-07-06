@@ -1772,9 +1772,9 @@
     el.innerHTML = `
       <div class="chamber-arm">${CHAMBER_LEFT.map(id => chairCard(seatById[id])).join('')}</div>
       <div class="chamber-middle">
+        <div class="chamber-head">${headCard}</div>
         <div class="chamber-bottom">${CHAMBER_TOP.map(id => chairCard(seatById[id])).join('')}</div>
         <div class="chamber-floor">Council Chamber Floor</div>
-        <div class="chamber-head">${headCard}</div>
       </div>
       <div class="chamber-arm">${CHAMBER_RIGHT.map(id => chairCard(seatById[id])).join('')}</div>
     `;

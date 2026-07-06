@@ -1,6 +1,360 @@
 {
   "votes": [
     {
+      "id": "dc-deferral-amendment-2025-04-03",
+      "title": "Immediate DC deferrals for all residential development (carried 12–8)",
+      "body": "York Regional Council — Special Meeting",
+      "date": "2025-04-03",
+      "source_url": "https://yorkpublishing.escribemeetings.com/Meeting.aspx?Id=9d8ca694-28b2-4ddb-bb49-6a3d65158ae5&Agenda=PostMinutes&lang=English",
+      "source_type": "recorded_vote",
+      "description": "Amendment moved by Mayor Scarpitti, seconded by Mayor Del Duca: with immediate effect, defer development charges payable on all residential development — high-rise interest-free 24 months then with interest to the earlier of 4 years or condo registration; low-rise interest-free until building permit issuance. Deferring DC collection delays revenue and forgoes interest — a builder-relief measure at the Region’s fiscal cost.",
+      "fiscal_alignment_direction": "yes_vote_is_misaligned",
+      "results": [
+        {
+          "seat_id": "richmond-hill-regional-councillor-1",
+          "candidate_id": "richmond-hill-regional-councillor-1-godwin-chan",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-1",
+          "candidate_id": "markham-regional-councillor-1-michael-chan",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-mayor",
+          "candidate_id": "vaughan-mayor-steven-del-duca",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-regional-councillor-2",
+          "candidate_id": "richmond-hill-regional-councillor-2-joe-dipaola",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-2",
+          "candidate_id": "vaughan-regional-councillor-2-mario-ferri",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-4",
+          "candidate_id": "markham-regional-councillor-4-alan-ho",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-2",
+          "candidate_id": "markham-regional-councillor-2-jim-jones",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-3",
+          "candidate_id": "markham-regional-councillor-3-joe-li",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-mayor",
+          "candidate_id": "markham-mayor-frank-scarpitti",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "newmarket-regional-councillor-1",
+          "candidate_id": "newmarket-regional-councillor-1-tom-vegh",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-mayor",
+          "candidate_id": "richmond-hill-mayor-david-west",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "georgina-regional-councillor-1",
+          "candidate_id": "georgina-regional-councillor-1-naomi-davison",
+          "vote": "no"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-1",
+          "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson",
+          "vote": "no"
+        },
+        {
+          "seat_id": "whitchurch-stouffville-mayor",
+          "candidate_id": "whitchurch-stouffville-mayor-iain-lovatt",
+          "vote": "no"
+        },
+        {
+          "seat_id": "aurora-mayor",
+          "candidate_id": "aurora-mayor-tom-mrakas",
+          "vote": "no"
+        },
+        {
+          "seat_id": "king-mayor",
+          "candidate_id": "king-mayor-steve-pellegrini",
+          "vote": "no"
+        },
+        {
+          "seat_id": "georgina-mayor",
+          "candidate_id": "georgina-mayor-margaret-quirk",
+          "vote": "no"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-3",
+          "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
+          "vote": "no"
+        },
+        {
+          "seat_id": "newmarket-mayor",
+          "candidate_id": "newmarket-mayor-john-taylor",
+          "vote": "no"
+        },
+        {
+          "seat_id": "east-gwillimbury-mayor",
+          "candidate_id": "east-gwillimbury-mayor-virginia-hackson",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-4",
+          "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
+          "vote": "absent"
+        }
+      ],
+      "verification_notes": "Transcribed 2026-07-06 from the official April 3, 2025 Special Council meeting minutes. For (12) incl. Chair Jolliffe (appointed, excluded from results). Carried."
+    },
+    {
+      "id": "dc-deferral-extension-chair-challenge-2025-06-26",
+      "title": "Overrule Chair to allow extending DC deferrals (defeated 8–11)",
+      "body": "York Regional Council",
+      "date": "2025-06-26",
+      "source_url": "https://yorkpublishing.escribemeetings.com/Meeting.aspx?Id=7b9a6465-aec8-414c-ae49-49511367fdf1&Agenda=PostMinutes&lang=English",
+      "source_type": "recorded_vote",
+      "description": "Mayor Del Duca moved to amend the DC deferral policy from “to first building permit issuance” to “the later of first building permit or two years” — extending the deferral window. Chair Jolliffe ruled it out of order; Scarpitti/Del Duca moved to overrule the Chair. Voting For = enabling a longer DC deferral (further delayed DC revenue). Challenge defeated; Chair sustained.",
+      "fiscal_alignment_direction": "yes_vote_is_misaligned",
+      "results": [
+        {
+          "seat_id": "markham-regional-councillor-1",
+          "candidate_id": "markham-regional-councillor-1-michael-chan",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-mayor",
+          "candidate_id": "vaughan-mayor-steven-del-duca",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-regional-councillor-2",
+          "candidate_id": "richmond-hill-regional-councillor-2-joe-dipaola",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-4",
+          "candidate_id": "markham-regional-councillor-4-alan-ho",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-1",
+          "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-2",
+          "candidate_id": "markham-regional-councillor-2-jim-jones",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-3",
+          "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-mayor",
+          "candidate_id": "markham-mayor-frank-scarpitti",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-regional-councillor-1",
+          "candidate_id": "richmond-hill-regional-councillor-1-godwin-chan",
+          "vote": "no"
+        },
+        {
+          "seat_id": "east-gwillimbury-mayor",
+          "candidate_id": "east-gwillimbury-mayor-virginia-hackson",
+          "vote": "no"
+        },
+        {
+          "seat_id": "whitchurch-stouffville-mayor",
+          "candidate_id": "whitchurch-stouffville-mayor-iain-lovatt",
+          "vote": "no"
+        },
+        {
+          "seat_id": "aurora-mayor",
+          "candidate_id": "aurora-mayor-tom-mrakas",
+          "vote": "no"
+        },
+        {
+          "seat_id": "king-mayor",
+          "candidate_id": "king-mayor-steve-pellegrini",
+          "vote": "no"
+        },
+        {
+          "seat_id": "georgina-mayor",
+          "candidate_id": "georgina-mayor-margaret-quirk",
+          "vote": "no"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-4",
+          "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
+          "vote": "no"
+        },
+        {
+          "seat_id": "newmarket-mayor",
+          "candidate_id": "newmarket-mayor-john-taylor",
+          "vote": "no"
+        },
+        {
+          "seat_id": "newmarket-regional-councillor-1",
+          "candidate_id": "newmarket-regional-councillor-1-tom-vegh",
+          "vote": "no"
+        },
+        {
+          "seat_id": "richmond-hill-mayor",
+          "candidate_id": "richmond-hill-mayor-david-west",
+          "vote": "no"
+        },
+        {
+          "seat_id": "georgina-regional-councillor-1",
+          "candidate_id": "georgina-regional-councillor-1-naomi-davison",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-2",
+          "candidate_id": "vaughan-regional-councillor-2-mario-ferri",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "markham-regional-councillor-3",
+          "candidate_id": "markham-regional-councillor-3-joe-li",
+          "vote": "absent"
+        }
+      ],
+      "verification_notes": "Transcribed 2026-07-06 from the official June 26, 2025 Regional Council minutes. Against (11) incl. Chair Jolliffe (appointed, excluded). Ambiguous procedural reconsideration votes from the same meeting were deliberately NOT scored — members voted “reconsider” with opposite intents."
+    },
+    {
+      "id": "ase-provincial-reimbursement-2025-09-25",
+      "title": "Demand full provincial reimbursement of ASE cancellation costs (carried 17–1)",
+      "body": "York Regional Council",
+      "date": "2025-09-25",
+      "source_url": "https://yorkpublishing.escribemeetings.com/Meeting.aspx?Id=c01250a7-425c-4eaa-bf24-73a0a23fb4e0&Agenda=PostMinutes&lang=English",
+      "source_type": "recorded_vote",
+      "description": "Motion (Scarpitti/Lovatt): contingent on the Province cancelling the Automated Speed Enforcement program, staff report all financial implications and the Province be requested to fully reimburse York Region for all cancellation costs. Voting For = opposing provincial downloading of costs onto the Region — a core YR Finance-aligned position.",
+      "fiscal_alignment_direction": "yes_vote_is_aligned",
+      "results": [
+        {
+          "seat_id": "richmond-hill-regional-councillor-1",
+          "candidate_id": "richmond-hill-regional-councillor-1-godwin-chan",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-1",
+          "candidate_id": "markham-regional-councillor-1-michael-chan",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "georgina-regional-councillor-1",
+          "candidate_id": "georgina-regional-councillor-1-naomi-davison",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "east-gwillimbury-mayor",
+          "candidate_id": "east-gwillimbury-mayor-virginia-hackson",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-4",
+          "candidate_id": "markham-regional-councillor-4-alan-ho",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-2",
+          "candidate_id": "markham-regional-councillor-2-jim-jones",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-3",
+          "candidate_id": "markham-regional-councillor-3-joe-li",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "whitchurch-stouffville-mayor",
+          "candidate_id": "whitchurch-stouffville-mayor-iain-lovatt",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "king-mayor",
+          "candidate_id": "king-mayor-steve-pellegrini",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "georgina-mayor",
+          "candidate_id": "georgina-mayor-margaret-quirk",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-4",
+          "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-3",
+          "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-mayor",
+          "candidate_id": "markham-mayor-frank-scarpitti",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "newmarket-mayor",
+          "candidate_id": "newmarket-mayor-john-taylor",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "newmarket-regional-councillor-1",
+          "candidate_id": "newmarket-regional-councillor-1-tom-vegh",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-mayor",
+          "candidate_id": "richmond-hill-mayor-david-west",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-regional-councillor-2",
+          "candidate_id": "richmond-hill-regional-councillor-2-joe-dipaola",
+          "vote": "no"
+        },
+        {
+          "seat_id": "vaughan-mayor",
+          "candidate_id": "vaughan-mayor-steven-del-duca",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-2",
+          "candidate_id": "vaughan-regional-councillor-2-mario-ferri",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-1",
+          "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "aurora-mayor",
+          "candidate_id": "aurora-mayor-tom-mrakas",
+          "vote": "absent"
+        }
+      ],
+      "verification_notes": "Transcribed 2026-07-06 from the official September 25, 2025 Regional Council minutes (item L.7 ASE Funding). For (17) incl. Chair Jolliffe (appointed, excluded)."
+    },
+    {
       "id": "dc-bylaw-2026-20",
       "title": "DC Bylaw No. 2026-20 (Region-wide Development Charges rate reduction)",
       "body": "York Regional Council",
@@ -22,27 +376,111 @@
       "description": "Motion to Amend #2 during the DC Bylaw 2026-20 debate (item I.2.4), moved by Mayor Del Duca, seconded by Regional Councillor Jackson: assess DCs payable at occupancy for non-rental residential development at no higher than the prevailing rate at occupancy — a further limit on DC collections beyond the bylaw's rate cuts. Defeated on a recorded vote, 4 for / 13 against (5 absent; Chair Jolliffe voted against but is appointed and not a candidate).",
       "fiscal_alignment_direction": "yes_vote_is_misaligned",
       "results": [
-        { "seat_id": "vaughan-mayor", "candidate_id": "vaughan-mayor-steven-del-duca", "vote": "yes" },
-        { "seat_id": "richmond-hill-regional-councillor-2", "candidate_id": "richmond-hill-regional-councillor-2-joe-dipaola", "vote": "yes" },
-        { "seat_id": "vaughan-regional-councillor-2", "candidate_id": "vaughan-regional-councillor-2-mario-ferri", "vote": "yes" },
-        { "seat_id": "markham-regional-councillor-3", "candidate_id": "markham-regional-councillor-3-joe-li", "vote": "yes" },
-        { "seat_id": "richmond-hill-regional-councillor-1", "candidate_id": "richmond-hill-regional-councillor-1-godwin-chan", "vote": "no" },
-        { "seat_id": "georgina-regional-councillor-1", "candidate_id": "georgina-regional-councillor-1-naomi-davison", "vote": "no" },
-        { "seat_id": "markham-regional-councillor-2", "candidate_id": "markham-regional-councillor-2-jim-jones", "vote": "no" },
-        { "seat_id": "whitchurch-stouffville-mayor", "candidate_id": "whitchurch-stouffville-mayor-iain-lovatt", "vote": "no" },
-        { "seat_id": "aurora-mayor", "candidate_id": "aurora-mayor-tom-mrakas", "vote": "no" },
-        { "seat_id": "king-mayor", "candidate_id": "king-mayor-steve-pellegrini", "vote": "no" },
-        { "seat_id": "georgina-mayor", "candidate_id": "georgina-mayor-margaret-quirk", "vote": "no" },
-        { "seat_id": "vaughan-regional-councillor-4", "candidate_id": "vaughan-regional-councillor-4-mario-g-racco", "vote": "no" },
-        { "seat_id": "markham-mayor", "candidate_id": "markham-mayor-frank-scarpitti", "vote": "no" },
-        { "seat_id": "newmarket-mayor", "candidate_id": "newmarket-mayor-john-taylor", "vote": "no" },
-        { "seat_id": "newmarket-regional-councillor-1", "candidate_id": "newmarket-regional-councillor-1-tom-vegh", "vote": "no" },
-        { "seat_id": "richmond-hill-mayor", "candidate_id": "richmond-hill-mayor-david-west", "vote": "no" },
-        { "seat_id": "markham-regional-councillor-1", "candidate_id": "markham-regional-councillor-1-michael-chan", "vote": "absent" },
-        { "seat_id": "east-gwillimbury-mayor", "candidate_id": "east-gwillimbury-mayor-virginia-hackson", "vote": "absent" },
-        { "seat_id": "markham-regional-councillor-4", "candidate_id": "markham-regional-councillor-4-alan-ho", "vote": "absent" },
-        { "seat_id": "vaughan-regional-councillor-1", "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson", "vote": "absent" },
-        { "seat_id": "vaughan-regional-councillor-3", "candidate_id": "vaughan-regional-councillor-3-gino-rosati", "vote": "absent" }
+        {
+          "seat_id": "vaughan-mayor",
+          "candidate_id": "vaughan-mayor-steven-del-duca",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-regional-councillor-2",
+          "candidate_id": "richmond-hill-regional-councillor-2-joe-dipaola",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-2",
+          "candidate_id": "vaughan-regional-councillor-2-mario-ferri",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "markham-regional-councillor-3",
+          "candidate_id": "markham-regional-councillor-3-joe-li",
+          "vote": "yes"
+        },
+        {
+          "seat_id": "richmond-hill-regional-councillor-1",
+          "candidate_id": "richmond-hill-regional-councillor-1-godwin-chan",
+          "vote": "no"
+        },
+        {
+          "seat_id": "georgina-regional-councillor-1",
+          "candidate_id": "georgina-regional-councillor-1-naomi-davison",
+          "vote": "no"
+        },
+        {
+          "seat_id": "markham-regional-councillor-2",
+          "candidate_id": "markham-regional-councillor-2-jim-jones",
+          "vote": "no"
+        },
+        {
+          "seat_id": "whitchurch-stouffville-mayor",
+          "candidate_id": "whitchurch-stouffville-mayor-iain-lovatt",
+          "vote": "no"
+        },
+        {
+          "seat_id": "aurora-mayor",
+          "candidate_id": "aurora-mayor-tom-mrakas",
+          "vote": "no"
+        },
+        {
+          "seat_id": "king-mayor",
+          "candidate_id": "king-mayor-steve-pellegrini",
+          "vote": "no"
+        },
+        {
+          "seat_id": "georgina-mayor",
+          "candidate_id": "georgina-mayor-margaret-quirk",
+          "vote": "no"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-4",
+          "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
+          "vote": "no"
+        },
+        {
+          "seat_id": "markham-mayor",
+          "candidate_id": "markham-mayor-frank-scarpitti",
+          "vote": "no"
+        },
+        {
+          "seat_id": "newmarket-mayor",
+          "candidate_id": "newmarket-mayor-john-taylor",
+          "vote": "no"
+        },
+        {
+          "seat_id": "newmarket-regional-councillor-1",
+          "candidate_id": "newmarket-regional-councillor-1-tom-vegh",
+          "vote": "no"
+        },
+        {
+          "seat_id": "richmond-hill-mayor",
+          "candidate_id": "richmond-hill-mayor-david-west",
+          "vote": "no"
+        },
+        {
+          "seat_id": "markham-regional-councillor-1",
+          "candidate_id": "markham-regional-councillor-1-michael-chan",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "east-gwillimbury-mayor",
+          "candidate_id": "east-gwillimbury-mayor-virginia-hackson",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "markham-regional-councillor-4",
+          "candidate_id": "markham-regional-councillor-4-alan-ho",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-1",
+          "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson",
+          "vote": "absent"
+        },
+        {
+          "seat_id": "vaughan-regional-councillor-3",
+          "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
+          "vote": "absent"
+        }
       ],
       "verification_notes": "Transcribed 2026-07-06 from the official May 21, 2026 Regional Council minutes (item I.2.4, 'Motion to Amend #2 - Capping DC rates at prevailing rate at occupancy'). Recorded vote as published: For: Del Duca, DiPaola, Ferri, Li (4). Against: G. Chan, Davison, Jolliffe, Jones, Lovatt, Mrakas, Pellegrini, Quirk, Racco, Scarpitti, Taylor, Vegh, West (13). Absent: M. Chan, Hackson, Ho, Jackson, Rosati (5)."
     }
