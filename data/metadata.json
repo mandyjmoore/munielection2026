@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06T20:36:13.770964+00:00",
+  "last_updated": "2026-07-06T20:46:37.339014+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -26,13 +26,13 @@
     "note": "Provincially appointed — not on ballot"
   },
   "scraper_version": "1.0.0",
-  "candidate_count": 163,
-  "news_count": 367,
-  "new_registrations_24h": 122,
+  "candidate_count": 31,
+  "news_count": 371,
+  "new_registrations_24h": 21,
   "data_confidence": {
-    "candidates_confirmed_filed": 126,
-    "candidates_unknown_filing_status": 36,
-    "seats_total": 76,
+    "candidates_confirmed_filed": 26,
+    "candidates_unknown_filing_status": 5,
+    "seats_total": 21,
     "candidate_scraper_enabled": true,
     "scrape_coverage": {
       "Georgina": "live",
@@ -46,5 +46,5 @@
       "Vaughan": "manual_check_required"
     }
   },
-  "new_filings_7d": 7
+  "new_filings_7d": 0
 }

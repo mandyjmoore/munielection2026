@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-07-06T20:36:13.770964+00:00",
+  "computed_at": "2026-07-06T20:46:37.339014+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
@@ -161,106 +161,5 @@
         "filed_for_reelection": "confirmed"
       }
     ]
-  },
-  "municipalities": {
-    "Aurora": {
-      "total_current_elected_members": 7,
-      "threshold_fraction": 0.75,
-      "threshold_count": 6,
-      "confirmed_filed_count": 3,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 4,
-      "status": "at_risk",
-      "status_basis": "3 of 7 current members confirmed filing so far (0 declined, 4 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
-    },
-    "East Gwillimbury": {
-      "total_current_elected_members": 7,
-      "threshold_fraction": 0.75,
-      "threshold_count": 6,
-      "confirmed_filed_count": 1,
-      "declined_count": 1,
-      "not_yet_filed_count": 0,
-      "unknown_count": 5,
-      "status": "at_risk",
-      "status_basis": "1 of 7 current members confirmed filing so far (1 declined, 5 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
-    },
-    "Georgina": {
-      "total_current_elected_members": 7,
-      "threshold_fraction": 0.75,
-      "threshold_count": 6,
-      "confirmed_filed_count": 5,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 2,
-      "status": "at_risk",
-      "status_basis": "5 of 7 current members confirmed filing so far (0 declined, 2 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
-    },
-    "King": {
-      "total_current_elected_members": 7,
-      "threshold_fraction": 0.75,
-      "threshold_count": 6,
-      "confirmed_filed_count": 6,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 1,
-      "status": "on_track",
-      "status_basis": "6 of 7 current members have confirmed re-election filings — already meets the 6-of-7 threshold."
-    },
-    "Markham": {
-      "total_current_elected_members": 13,
-      "threshold_fraction": 0.75,
-      "threshold_count": 10,
-      "confirmed_filed_count": 6,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 7,
-      "status": "at_risk",
-      "status_basis": "6 of 13 current members confirmed filing so far (0 declined, 7 still unknown). Threshold is 10 of 13 — outcome is not yet decided."
-    },
-    "Newmarket": {
-      "total_current_elected_members": 9,
-      "threshold_fraction": 0.75,
-      "threshold_count": 7,
-      "confirmed_filed_count": 3,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 6,
-      "status": "at_risk",
-      "status_basis": "3 of 9 current members confirmed filing so far (0 declined, 6 still unknown). Threshold is 7 of 9 — outcome is not yet decided."
-    },
-    "Richmond Hill": {
-      "total_current_elected_members": 9,
-      "threshold_fraction": 0.75,
-      "threshold_count": 7,
-      "confirmed_filed_count": 7,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 2,
-      "status": "on_track",
-      "status_basis": "7 of 9 current members have confirmed re-election filings — already meets the 7-of-9 threshold."
-    },
-    "Vaughan": {
-      "total_current_elected_members": 10,
-      "threshold_fraction": 0.75,
-      "threshold_count": 8,
-      "confirmed_filed_count": 5,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 5,
-      "status": "at_risk",
-      "status_basis": "5 of 10 current members confirmed filing so far (0 declined, 5 still unknown). Threshold is 8 of 10 — outcome is not yet decided."
-    },
-    "Whitchurch-Stouffville": {
-      "total_current_elected_members": 7,
-      "threshold_fraction": 0.75,
-      "threshold_count": 6,
-      "confirmed_filed_count": 3,
-      "declined_count": 0,
-      "not_yet_filed_count": 0,
-      "unknown_count": 4,
-      "status": "at_risk",
-      "status_basis": "3 of 7 current members confirmed filing so far (0 declined, 4 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
-    }
   }
 }
