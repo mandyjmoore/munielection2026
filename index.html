@@ -1674,22 +1674,25 @@
   // Chairs grouped by municipality around a U that mimics the chamber's
   // horseshoe — York Region doesn't publish actual seat assignments, so
   // this is illustrative placement, not the real chair map.
-  const CHAMBER_LEFT = [
-    'vaughan-mayor',
-    'vaughan-regional-councillor-1', 'vaughan-regional-councillor-2',
-    'vaughan-regional-councillor-3', 'vaughan-regional-councillor-4',
-    'king-mayor', 'aurora-mayor',
-  ];
-  const CHAMBER_BOTTOM = [
+  // The U opens downward: crossbar row across the top, arms running down
+  // each side, and the Regional Chair at the bottom centre facing the open
+  // end. Arm arrays read top-to-bottom.
+  const CHAMBER_TOP = [
     'richmond-hill-mayor', 'richmond-hill-regional-councillor-1', 'richmond-hill-regional-councillor-2',
     'georgina-mayor', 'georgina-regional-councillor-1',
     'newmarket-mayor', 'newmarket-regional-councillor-1',
   ];
+  const CHAMBER_LEFT = [
+    'aurora-mayor', 'king-mayor',
+    'vaughan-regional-councillor-4', 'vaughan-regional-councillor-3',
+    'vaughan-regional-councillor-2', 'vaughan-regional-councillor-1',
+    'vaughan-mayor',
+  ];
   const CHAMBER_RIGHT = [
+    'east-gwillimbury-mayor', 'whitchurch-stouffville-mayor',
+    'markham-regional-councillor-4', 'markham-regional-councillor-3',
+    'markham-regional-councillor-2', 'markham-regional-councillor-1',
     'markham-mayor',
-    'markham-regional-councillor-1', 'markham-regional-councillor-2',
-    'markham-regional-councillor-3', 'markham-regional-councillor-4',
-    'whitchurch-stouffville-mayor', 'east-gwillimbury-mayor',
   ];
 
   const MUNI_SHORT = {
@@ -1769,9 +1772,9 @@
     el.innerHTML = `
       <div class="chamber-arm">${CHAMBER_LEFT.map(id => chairCard(seatById[id])).join('')}</div>
       <div class="chamber-middle">
-        <div class="chamber-head">${headCard}</div>
+        <div class="chamber-bottom">${CHAMBER_TOP.map(id => chairCard(seatById[id])).join('')}</div>
         <div class="chamber-floor">Council Chamber Floor</div>
-        <div class="chamber-bottom">${CHAMBER_BOTTOM.map(id => chairCard(seatById[id])).join('')}</div>
+        <div class="chamber-head">${headCard}</div>
       </div>
       <div class="chamber-arm">${CHAMBER_RIGHT.map(id => chairCard(seatById[id])).join('')}</div>
     `;
