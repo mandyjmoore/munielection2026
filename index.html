@@ -589,118 +589,6 @@
       align-items: center;
     }
 
-    /* ============================================================
-       MUNICIPALITIES SECTION
-    ============================================================ */
-    .municipalities-section {
-      margin-bottom: 20px;
-    }
-
-    .muni-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .muni-tab {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 6px 14px;
-      border-radius: 99px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.15s;
-      font-family: inherit;
-    }
-
-    .muni-tab:hover {
-      border-color: var(--accent);
-      color: var(--text);
-    }
-
-    .muni-tab.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-      font-weight: 600;
-    }
-
-    .muni-panel {
-      display: none;
-    }
-
-    .muni-panel.active {
-      display: block;
-    }
-
-    .race-group {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-
-    .race-header {
-      background: var(--bg-card2);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .race-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #f1f5f9;
-    }
-
-    .race-count {
-      font-size: 11px;
-      color: var(--text-dim);
-    }
-
-    .candidate-list {
-      padding: 8px 0;
-    }
-
-    .candidate-row {
-      display: flex;
-      align-items: center;
-      padding: 10px 16px;
-      gap: 12px;
-      transition: background 0.1s;
-      border-bottom: 1px solid rgba(51,65,85,0.3);
-    }
-
-    .candidate-row:last-child { border-bottom: none; }
-    .candidate-row:hover { background: rgba(255,255,255,0.02); }
-
-    .alignment-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .candidate-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #f1f5f9;
-      flex: 1;
-    }
-
-    .candidate-badges {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
     .badge {
       font-size: 10px;
       font-weight: 600;
@@ -725,11 +613,6 @@
     .badge-estimate.est-acclaimed { border-color: var(--green); color: var(--green); }
     .badge-estimate.est-competitive, .badge-estimate.est-uncertain { border-color: var(--yellow); color: var(--yellow); }
     .badge-estimate.est-long_shot, .badge-estimate.est-unlikely { border-color: var(--orange); color: var(--orange); }
-
-    .candidate-row.seat-empty {
-      opacity: 0.6;
-      font-style: italic;
-    }
 
     .basis-tag {
       font-size: 9px;
@@ -756,14 +639,6 @@
     .score-neutral             { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #713f12; }
     .score-misaligned          { background: var(--orange-bg); color: var(--orange); border: 1px solid #7c2d12; }
     .score-strongly_misaligned { background: var(--red-bg); color: var(--red); border: 1px solid #7f1d1d; }
-
-    .news-count {
-      font-size: 10px;
-      color: var(--text-dim);
-      white-space: nowrap;
-    }
-
-    .news-count.has-news { color: var(--accent); }
 
     /* ============================================================
        NEWS SECTION
@@ -969,8 +844,6 @@
     @media (max-width: 480px) {
       .stat-grid { grid-template-columns: 1fr 1fr; }
       .dc-facts { grid-template-columns: 1fr; }
-      .muni-tabs { gap: 4px; }
-      .muni-tab { font-size: 11px; padding: 5px 10px; }
     }
 
     /* ============================================================
@@ -1074,20 +947,6 @@
       </div>
     </div>
 
-    <!-- Regional Council Races by Municipality -->
-    <div class="municipalities-section">
-      <div class="section-title" style="margin-bottom:10px">
-        Regional Council Races by Municipality
-        <span style="font-size:11px;font-weight:400;color:var(--text-dim)">Mayor + Regional Councillor seats — the 21 that sit on York Regional Council</span>
-      </div>
-      <div class="muni-tabs" id="muni-tabs">
-        <!-- tabs injected by JS -->
-      </div>
-      <div id="muni-panels">
-        <!-- panels injected by JS -->
-      </div>
-    </div>
-
     <!-- Recent Registrations -->
     <div class="alignment-overview">
       <div class="section-title">
@@ -1126,13 +985,6 @@
   const NOM_OPEN      = new Date('2026-05-01T00:00:00-05:00');
   const NOM_CLOSE     = new Date('2026-08-21T23:59:59-05:00');
   const REFRESH_MS    = 30 * 60 * 1000; // 30 minutes
-
-  // Fallback only — the real municipality list is derived from seats.json
-  // (or metadata.municipalities) once loaded, via getMunicipalities().
-  const DEFAULT_MUNICIPALITIES = [
-    'Aurora', 'East Gwillimbury', 'Georgina', 'King', 'Markham',
-    'Newmarket', 'Richmond Hill', 'Vaughan', 'Whitchurch-Stouffville'
-  ];
 
   const ALIGN_COLORS = {
     strongly_aligned:    '#22c55e',
@@ -1173,7 +1025,6 @@
     metadata: {},
     seats: [],
     councilStatus: {},
-    activeMuni: null,
     chartInstance: null,
   };
 
@@ -1207,16 +1058,6 @@
     state.councilStatus = councilStatus || {};
 
     render();
-  }
-
-  function getMunicipalities() {
-    if (state.seats.length) {
-      return [...new Set(state.seats.map(s => s.municipality))].sort();
-    }
-    if (state.metadata.municipalities && state.metadata.municipalities.length) {
-      return state.metadata.municipalities;
-    }
-    return DEFAULT_MUNICIPALITIES;
   }
 
   // ============================================================
@@ -1662,233 +1503,6 @@
     el.innerHTML = `<div class="chamber-groups">${blocks}${chairBlock}</div>`;
   }
 
-  // ============================================================
-  // RENDER: MUNICIPALITY TABS
-  // ============================================================
-  function renderMuniTabs() {
-    const tabsEl   = document.getElementById('muni-tabs');
-    const panelsEl = document.getElementById('muni-panels');
-    if (!tabsEl || !panelsEl) return;
-
-    const munis = getMunicipalities();
-    if (!state.activeMuni || !munis.includes(state.activeMuni)) {
-      state.activeMuni = munis[0];
-    }
-
-    const seatCountByMuni = {};
-    for (const s of regionalSeats()) {
-      seatCountByMuni[s.municipality] = (seatCountByMuni[s.municipality] || 0) + 1;
-    }
-
-    tabsEl.innerHTML = munis.map(muni => {
-      const count = seatCountByMuni[muni] || 0;
-      const active = muni === state.activeMuni ? ' active' : '';
-      return `<button class="muni-tab${active}" data-muni="${escapeHtml(muni)}">${escapeHtml(muni)} <span style="opacity:0.6">(${count})</span></button>`;
-    }).join('');
-
-    panelsEl.innerHTML = munis.map(muni => {
-      const active = muni === state.activeMuni ? ' active' : '';
-      return `<div class="muni-panel${active}" id="panel-${slugify(muni)}" data-muni="${escapeHtml(muni)}">
-        ${renderMuniPanel(muni)}
-      </div>`;
-    }).join('');
-
-    // Tab click events
-    tabsEl.querySelectorAll('.muni-tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        state.activeMuni = btn.dataset.muni;
-        tabsEl.querySelectorAll('.muni-tab').forEach(b => b.classList.remove('active'));
-        panelsEl.querySelectorAll('.muni-panel').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        const panel = document.getElementById('panel-' + slugify(btn.dataset.muni));
-        if (panel) panel.classList.add('active');
-      });
-    });
-  }
-
-  // Registration-signal phrases for gleaning candidacy news. Deliberately a
-  // review queue for a human, never auto-created candidate records — parsing
-  // names out of headlines is how garbage data gets born.
-  const REGISTRATION_PHRASES = [
-    'registered to run', 'registered as a candidate', 'registers', 'files nomination',
-    'filed nomination', 'nomination papers', 'announces candidacy',
-    'announced her candidacy', 'announced his candidacy', 'declares candidacy',
-    'running for mayor', 'running for council', 'running for regional councillor',
-    'seeking re-election', 'seeking reelection', 'not seeking re-election',
-    'enters the race', 'joins the race', 'launches campaign', 'launches bid',
-    "throwing her hat", "throwing his hat", 'will seek election',
-    'mayoral race', 'run for re-election', 'run for reelection', 'announces run',
-    're-election bid', 'reelection bid', 'enters race', 'campaign launch',
-  ];
-
-  function registrationNewsQueue(muni) {
-    const hits = state.news.filter(a => {
-      if (!(a.municipalities || []).includes(muni)) return false;
-      const text = `${a.title || ''} ${a.summary || ''}`.toLowerCase();
-      return REGISTRATION_PHRASES.some(p => text.includes(p));
-    }).slice(0, 4);
-
-    if (!hits.length) return '';
-    const items = hits.map(a => {
-      const link = a.url
-        ? `<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.title)}</a>`
-        : escapeHtml(a.title);
-      return `<div style="margin-top:3px">&#128240; ${link} <span style="color:var(--text-dim)">(${formatShortDate(a.published_at)})</span></div>`;
-    }).join('');
-    return `<div style="margin-top:8px;padding-top:6px;border-top:1px dashed rgba(249,115,22,0.3);color:var(--text-muted)">
-        Possible registration news to check:${items}
-      </div>`;
-  }
-
-  function renderMuniPanel(muni) {
-    const muniSeats = regionalSeats().filter(s => s.municipality === muni);
-
-    // Be honest about coverage: filings for bot-blocked clerk pages can't be
-    // auto-detected live, so "not filed" there means "not checked" (or, for
-    // archive-sourced municipalities, "not filed as of the last snapshot").
-    const coverage = (state.metadata.data_confidence || {}).scrape_coverage || {};
-    let coverageNote = '';
-    if (coverage[muni] === 'manual_check_required') {
-      coverageNote = `<div style="font-size:11px;color:var(--orange);background:var(--orange-bg);border:1px solid rgba(249,115,22,0.3);border-radius:var(--radius);padding:8px 12px;margin-bottom:10px">
-           &#9888; ${escapeHtml(muni)}'s clerk page can't be scraped automatically — filing statuses below may be out of date and need a manual check of the official candidate list.
-           ${registrationNewsQueue(muni)}
-         </div>`;
-    } else if (coverage[muni] === 'archive_delayed') {
-      coverageNote = `<div style="font-size:11px;color:var(--text-muted);background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;margin-bottom:10px">
-           &#128337; ${escapeHtml(muni)}'s clerk page blocks direct scraping — data comes from the most recent Wayback Machine snapshot and may lag by a few days.
-         </div>`;
-    }
-
-    if (!muniSeats.length) {
-      // No seat inventory loaded for this municipality — fall back to
-      // whatever flat candidate records exist, so the panel isn't empty
-      // if seats.json failed to load for some reason.
-      const flat = regionalCandidates().filter(c => c.municipality === muni);
-      if (!flat.length) {
-        return `<div class="empty-state">No seat data on file for ${escapeHtml(muni)} yet.</div>`;
-      }
-      return flat.map(renderCandidateRow).join('');
-    }
-
-    const candidatesBySeat = {};
-    for (const c of state.candidates) {
-      if (!c.seat_id) continue;
-      (candidatesBySeat[c.seat_id] = candidatesBySeat[c.seat_id] || []).push(c);
-    }
-
-    const byOffice = groupBy(muniSeats, 'office');
-    const officeOrder = ['Mayor', 'Regional Councillor', 'Ward Councillor'];
-    const sortedOffices = Object.keys(byOffice).sort((a, b) => {
-      const ai = officeOrder.indexOf(a) >= 0 ? officeOrder.indexOf(a) : 99;
-      const bi = officeOrder.indexOf(b) >= 0 ? officeOrder.indexOf(b) : 99;
-      return ai - bi || a.localeCompare(b);
-    });
-
-    return coverageNote + sortedOffices.map(office => {
-      const seatsInOffice = byOffice[office];
-      const rows = seatsInOffice.map(seat => {
-        const seatCandidates = candidatesBySeat[seat.id] || [];
-        return seatCandidates.length
-          ? seatCandidates.map(renderCandidateRow).join('')
-          : renderEmptySeatRow(seat);
-      }).join('');
-
-      return `
-        <div class="race-group">
-          <div class="race-header">
-            <span class="race-title">${escapeHtml(office)}</span>
-            <span class="race-count">${seatsInOffice.length} seat${seatsInOffice.length !== 1 ? 's' : ''}</span>
-          </div>
-          <div class="candidate-list">${rows}</div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  function renderEmptySeatRow(seat) {
-    const wardText = seat.ward ? ` — Ward ${escapeHtml(seat.ward)}` : '';
-    return `
-      <div class="candidate-row seat-empty">
-        <div class="alignment-dot" style="background:var(--text-dim)"></div>
-        <div class="candidate-name">${escapeHtml(seat.seat_label || seat.office)}${wardText}</div>
-        <div class="candidate-badges">
-          <span class="badge badge-unknown">No candidates filed yet</span>
-        </div>
-      </div>
-    `;
-  }
-
-  function renderFilingBadge(c) {
-    if (c.status !== 'incumbent') return '';
-    if (c.filed_for_reelection === 'confirmed') {
-      return `<span class="badge badge-challenger" title="${escapeHtml(c.filing_source || 'Confirmed filing')}">Filed</span>`;
-    }
-    if (c.filed_for_reelection === 'declined') {
-      return `<span class="badge badge-unknown">Not Running</span>`;
-    }
-    return ''; // unknown/not_yet — the likely_to_run_again estimate badge covers this instead
-  }
-
-  function renderOutlookBadges(c) {
-    let html = '';
-    const ra = c.likely_to_run_again;
-    if (ra && ra.label !== 'insufficient_data') {
-      const titleText = escapeHtml('Estimate, not fact — ' + (ra.basis || []).join('; '));
-      html += `<span class="badge badge-estimate est-${ra.label}" title="${titleText}">Run again: ${escapeHtml(ra.label.replace(/_/g, ' '))}</span>`;
-    }
-    const w = c.likely_to_win;
-    if (w && w.label !== 'insufficient_data') {
-      const titleText = escapeHtml('Estimate, not fact — ' + (w.basis || []).join('; '));
-      html += `<span class="badge badge-estimate est-${w.label}" title="${titleText}">${escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
-    }
-    return html;
-  }
-
-  function renderCandidateRow(c) {
-    const score  = c.fiscal_alignment_score ?? 5;
-    const label  = c.fiscal_alignment_label || 'neutral';
-    const color  = ALIGN_COLORS[label] || ALIGN_COLORS.neutral;
-    const status = c.status || 'unknown';
-    const mentions = c.news_mentions || 0;
-    const basis = c.fiscal_alignment_basis || 'unscored';
-
-    const statusBadge = status === 'incumbent'
-      ? `<span class="badge badge-incumbent">Incumbent</span>`
-      : status === 'challenger'
-      ? `<span class="badge badge-challenger">Challenger</span>`
-      : `<span class="badge badge-unknown">Unknown</span>`;
-
-    const wardText = c.ward ? ` — Ward ${escapeHtml(c.ward)}` : '';
-    const title = escapeHtml(c.fiscal_notes || `Score: ${score}/10 — ${ALIGN_LABELS[label]}`);
-    const newsHtml = mentions > 0
-      ? `<span class="news-count has-news" title="News mentions">&#128240; ${mentions}</span>`
-      : `<span class="news-count">0 mentions</span>`;
-    const basisTagHtml = basis !== 'unscored'
-      ? `<span class="basis-tag basis-${basis}" title="Fiscal score basis">${basis.replace(/_/g, ' ')}</span>`
-      : '';
-
-    return `
-      <div class="candidate-row" title="${title}">
-        <div class="alignment-dot" style="background:${color};box-shadow:0 0 6px ${color}40" title="${ALIGN_LABELS[label]}"></div>
-        <div class="candidate-name">${escapeHtml(c.name)}${wardText ? `<span style="font-weight:400;color:var(--text-muted);font-size:11px">${escapeHtml(wardText)}</span>` : ''}</div>
-        <div class="candidate-badges">
-          ${statusBadge}
-          ${renderFilingBadge(c)}
-          ${renderOutlookBadges(c)}
-          <span class="score-pill score-${label}" title="Fiscal alignment score">${score}/10</span>
-          ${basisTagHtml}
-          ${newsHtml}
-        </div>
-      </div>
-    `;
-  }
-
-  // ============================================================
-  // HELPERS
-  // ============================================================
-  function slugify(str) {
-    return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
 
   // ============================================================
   // MAIN RENDER
@@ -1899,7 +1513,6 @@
     renderChamber();
     renderAlert();
     renderAlignmentOverview();
-    renderMuniTabs();
     renderRecentRegistrations();
   }
 
