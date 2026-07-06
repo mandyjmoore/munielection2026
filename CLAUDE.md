@@ -19,7 +19,7 @@ Distinguish visibly between **confirmed** (official clerk filing, documented rec
 ## Zero Manual Updates (with honest exceptions)
 GitHub Action scrapes every 2 hours and commits; dashboard auto-refreshes every 30 minutes. Exceptions that are deliberately manual:
 - `data/votes.json` — hand-curated recorded council votes (small, high-signal set)
-- Markham + Vaughan (bot-blocked) and Whitchurch-Stouffville (JS-rendered) can't be auto-scraped; their filings need periodic manual checks
+- `data/manual_overrides.json` — human-verified facts for what scrapers can't reach (primarily **Vaughan** filings). Applied by main.py after every fetch, so they always win. Each entry needs provenance (verified_by / verified_on / source). Lesson from the Del Duca miss (showed "Not registered" for two months after he filed May 1): the news feed can't backfill events older than its collection start, so Vaughan corrections MUST come through this file when the owner checks vaughan.ca/council/elections/candidates
 
 ## Jurisdiction & Seats
 York Region, Ontario — 9 lower-tier municipalities: Aurora, East Gwillimbury, Georgina, King, Markham, Newmarket, Richmond Hill, Vaughan, Whitchurch-Stouffville. **Regional Chair is provincially appointed** (Eric Jolliffe) — not on the ballot.
