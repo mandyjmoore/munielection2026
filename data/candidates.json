@@ -25,10 +25,10 @@
         "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -55,7 +55,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -63,7 +63,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -92,7 +92,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -100,7 +100,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -130,7 +130,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -138,7 +138,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -169,10 +169,10 @@
         "1 challenger(s) filed with limited news visibility (max 1 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -200,7 +200,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -208,7 +208,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -239,10 +239,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -269,7 +269,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -277,7 +277,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -308,10 +308,10 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -338,7 +338,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -346,7 +346,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -376,7 +376,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -384,7 +384,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -414,7 +414,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -422,7 +422,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -452,7 +452,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -460,7 +460,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -490,10 +490,10 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -522,10 +522,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -554,10 +554,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -586,10 +586,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -618,10 +618,10 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -650,10 +650,10 @@
         "4 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -680,7 +680,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -688,7 +688,7 @@
         "Incumbent has not yet filed for re-election — 4 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -717,7 +717,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -725,7 +725,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -756,10 +756,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -788,10 +788,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -820,10 +820,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -852,10 +852,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -884,10 +884,10 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -914,7 +914,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -922,7 +922,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -953,10 +953,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -983,7 +983,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -991,7 +991,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1011,25 +1011,25 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 2 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 2,
-    "last_news_date": "2026-05-28T12:00:00+00:00",
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 3 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 3,
+    "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": {
       "label": "uncertain",
       "basis": [
         "No retirement or non-candidacy announcement found in news",
-        "2 news article(s) reviewed, none signaling non-candidacy"
+        "3 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1042,9 +1042,9 @@
     "office": "Regional Councillor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -1052,24 +1052,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-regional-councillor-3-joe-li",
@@ -1079,9 +1074,9 @@
     "office": "Regional Councillor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -1089,24 +1084,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-regional-councillor-4-alan-ho",
@@ -1116,9 +1106,9 @@
     "office": "Regional Councillor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -1126,24 +1116,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-ward-1-councillor-keith-irish",
@@ -1169,15 +1154,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1190,9 +1175,9 @@
     "office": "Ward Councillor",
     "ward": "2",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -1200,24 +1185,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-ward-3-councillor-reid-mcalpine",
@@ -1243,15 +1223,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1280,7 +1260,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1288,7 +1268,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1301,9 +1281,9 @@
     "office": "Ward Councillor",
     "ward": "5",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -1311,24 +1291,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-ward-6-councillor-amanda-yeung-collucci",
@@ -1354,7 +1329,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1362,7 +1337,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1391,15 +1366,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1412,9 +1387,9 @@
     "office": "Ward Councillor",
     "ward": "8",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -1422,24 +1397,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "newmarket-mayor-john-taylor",
@@ -1465,7 +1435,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1473,7 +1443,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1502,7 +1472,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1510,7 +1480,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1539,7 +1509,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1547,7 +1517,7 @@
         "Incumbent has not yet filed for re-election — 4 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1576,7 +1546,7 @@
         "News signal: \"Longtime Newmarket Councillor Victor Woodhouse won't seek re-election - NewmarketToday.ca\""
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1584,7 +1554,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1613,7 +1583,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1621,7 +1591,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1652,10 +1622,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -1684,10 +1654,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -1716,10 +1686,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -1746,7 +1716,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1754,7 +1724,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1774,9 +1744,9 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 4 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 4,
-    "last_news_date": "2026-05-18T07:00:00+00:00",
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 7 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 7,
+    "last_news_date": "2026-06-19T07:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
       "label": "favored",
@@ -1785,10 +1755,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -1806,9 +1776,9 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 2 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 2,
-    "last_news_date": "2026-05-28T12:00:00+00:00",
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 3 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 3,
+    "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
       "label": "favored",
@@ -1817,10 +1787,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -1849,10 +1819,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -1881,10 +1851,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -1912,7 +1882,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1920,7 +1890,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1949,7 +1919,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1957,7 +1927,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1988,10 +1958,10 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -2020,10 +1990,10 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -2052,10 +2022,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -2073,17 +2043,17 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 5 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 5,
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 6 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 6,
     "last_news_date": "2026-07-01T17:00:00+00:00",
     "likely_to_run_again": {
       "label": "uncertain",
       "basis": [
         "No retirement or non-candidacy announcement found in news",
-        "5 news article(s) reviewed, none signaling non-candidacy"
+        "6 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2091,7 +2061,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2120,7 +2090,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2128,7 +2098,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2157,7 +2127,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2165,7 +2135,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2194,7 +2164,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2202,7 +2172,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2231,7 +2201,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2239,7 +2209,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2268,7 +2238,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2276,7 +2246,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2305,7 +2275,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2313,7 +2283,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2342,7 +2312,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2350,7 +2320,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2379,7 +2349,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2387,7 +2357,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2416,7 +2386,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2424,7 +2394,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2437,9 +2407,9 @@
     "office": "Mayor",
     "ward": null,
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -2447,25 +2417,19 @@
     "fiscal_notes": "Incumbent; no clear DC-related signal in 3 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 3,
     "last_news_date": "2026-05-27T07:00:00+00:00",
-    "likely_to_run_again": {
-      "label": "uncertain",
-      "basis": [
-        "No retirement or non-candidacy announcement found in news",
-        "3 news article(s) reviewed, none signaling non-candidacy"
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
   },
   {
     "id": "whitchurch-stouffville-ward-1-councillor-hugo-t-kroon",
@@ -2491,15 +2455,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2529,15 +2493,15 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 5 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2550,9 +2514,9 @@
     "office": "Ward Councillor",
     "ward": "3",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -2560,24 +2524,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
   },
   {
     "id": "whitchurch-stouffville-ward-4-councillor-rick-upton",
@@ -2603,15 +2562,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2624,9 +2583,9 @@
     "office": "Ward Councillor",
     "ward": "5",
     "status": "incumbent",
-    "filed_for_reelection": "unknown",
-    "filing_source": null,
-    "registered": false,
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
@@ -2634,24 +2593,19 @@
     "fiscal_notes": "No recorded vote or news signal found. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
     "news_mentions": 0,
     "last_news_date": null,
-    "likely_to_run_again": {
-      "label": "insufficient_data",
-      "basis": [
-        "No news coverage found mentioning this candidate."
-      ],
-      "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
-    },
+    "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "favored",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent",
+        "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
-    "source": "seeded",
-    "scraped_at": null
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
   },
   {
     "id": "whitchurch-stouffville-ward-6-councillor-sue-sherban",
@@ -2677,15 +2631,15 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
       "basis": [
-        "No filings recorded yet for this seat."
+        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2716,10 +2670,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2748,10 +2702,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2780,10 +2734,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2812,10 +2766,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2844,10 +2798,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2876,10 +2830,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2908,10 +2862,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "scraped_at": "2026-07-06T14:49:33.546556+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -2940,10 +2894,10 @@
         "1 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -2972,10 +2926,10 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3004,10 +2958,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3036,10 +2990,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3068,10 +3022,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3100,10 +3054,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3132,10 +3086,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3164,10 +3118,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3196,10 +3150,10 @@
         "1 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3228,10 +3182,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3260,10 +3214,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3292,10 +3246,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3324,10 +3278,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "scraped_at": "2026-07-06T14:50:06.914912+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -3356,10 +3310,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3388,10 +3342,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3420,10 +3374,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3452,10 +3406,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3484,10 +3438,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3516,10 +3470,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3548,10 +3502,10 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3580,10 +3534,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3612,10 +3566,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3644,10 +3598,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3676,10 +3630,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3708,10 +3662,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3740,10 +3694,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3772,10 +3726,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3804,10 +3758,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "scraped_at": "2026-07-06T14:49:33.030518+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -3836,10 +3790,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -3868,10 +3822,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -3900,10 +3854,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -3932,10 +3886,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -3964,10 +3918,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -3996,10 +3950,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4028,10 +3982,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4060,10 +4014,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4092,10 +4046,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4124,10 +4078,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4156,10 +4110,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4188,10 +4142,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "scraped_at": "2026-07-06T14:50:07.217754+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -4220,10 +4174,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4252,10 +4206,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4284,10 +4238,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4316,10 +4270,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4348,10 +4302,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4380,10 +4334,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4412,10 +4366,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4444,10 +4398,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4476,10 +4430,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4508,10 +4462,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4540,10 +4494,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4572,10 +4526,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "scraped_at": "2026-07-06T14:49:32.637894+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -4604,10 +4558,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4636,10 +4590,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4668,10 +4622,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4700,10 +4654,10 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4732,10 +4686,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4764,10 +4718,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4796,10 +4750,10 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
@@ -4828,10 +4782,618 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:43:57.100566+00:00"
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "scraped_at": "2026-07-06T14:50:07.598926+00:00",
     "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-1-michael-cleverdon",
+    "seat_id": "whitchurch-stouffville-ward-1-councillor",
+    "name": "Michael Cleverdon",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-1-hugo-kroon",
+    "seat_id": "whitchurch-stouffville-ward-1-councillor",
+    "name": "Hugo Kroon",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-2-rocco-priore",
+    "seat_id": "whitchurch-stouffville-ward-2-councillor",
+    "name": "Rocco Priore",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "6 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-2-jared-simpson",
+    "seat_id": "whitchurch-stouffville-ward-2-councillor",
+    "name": "Jared Simpson",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "6 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-2-george-karpouzis",
+    "seat_id": "whitchurch-stouffville-ward-2-councillor",
+    "name": "George Karpouzis",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "6 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-2-adam-hassan",
+    "seat_id": "whitchurch-stouffville-ward-2-councillor",
+    "name": "Adam Hassan",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "6 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-2-terri-drover",
+    "seat_id": "whitchurch-stouffville-ward-2-councillor",
+    "name": "Terri Drover",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "6 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-4-david-parmer",
+    "seat_id": "whitchurch-stouffville-ward-4-councillor",
+    "name": "David Parmer",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "4",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-6-angel-freedman",
+    "seat_id": "whitchurch-stouffville-ward-6-councillor",
+    "name": "Angel Freedman",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "6",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "whitchurch-stouffville-ward-councillor-6-greg-smith",
+    "seat_id": "whitchurch-stouffville-ward-6-councillor",
+    "name": "Greg Smith",
+    "municipality": "Whitchurch-Stouffville",
+    "office": "Ward Councillor",
+    "ward": "6",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 1 news article(s). Raw delta: +0.",
+    "news_mentions": 1,
+    "last_news_date": "2026-06-20T09:02:06+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:07.861634+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+  },
+  {
+    "id": "markham-regional-councillor-kristian-chan",
+    "seat_id": "markham-regional-councillor-1",
+    "name": "Kristian Chan",
+    "municipality": "Markham",
+    "office": "Regional Councillor",
+    "ward": null,
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "news_inferred",
+    "fiscal_notes": "Scored from 3 news article(s). Raw delta: +0.",
+    "news_mentions": 3,
+    "last_news_date": "2026-07-03T14:00:00+00:00",
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-1-christina-cadorin",
+    "seat_id": "markham-ward-1-councillor",
+    "name": "Christina Cadorin",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "1",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "2 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-2-mark-lin",
+    "seat_id": "markham-ward-2-councillor",
+    "name": "Mark Lin",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "2",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-3-larry-lau",
+    "seat_id": "markham-ward-3-councillor",
+    "name": "Larry Lau",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-3-ron-lynn",
+    "seat_id": "markham-ward-3-councillor",
+    "name": "Ron Lynn",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-3-jack-ng",
+    "seat_id": "markham-ward-3-councillor",
+    "name": "Jack Ng",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "3",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "4 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-5-thamiraa-ragikaran",
+    "seat_id": "markham-ward-5-councillor",
+    "name": "Thamiraa Ragikaran",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "5",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "long_shot",
+      "basis": [
+        "Challenging an incumbent",
+        "0 news mention(s) — limited visibility"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-7-killi-chelliah",
+    "seat_id": "markham-ward-7-councillor",
+    "name": "Killi Chelliah",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "7",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+  },
+  {
+    "id": "markham-ward-councillor-7-sameer-qureshi",
+    "seat_id": "markham-ward-7-councillor",
+    "name": "Sameer Qureshi",
+    "municipality": "Markham",
+    "office": "Ward Councillor",
+    "ward": "7",
+    "status": "challenger",
+    "filed_for_reelection": "confirmed",
+    "filing_source": "https://web.archive.org/web/20260519053657/https://electionsmarkham.ca/en/candidates/who-s-running/",
+    "registered": true,
+    "registration_date": null,
+    "fiscal_alignment_score": 5,
+    "fiscal_alignment_label": "neutral",
+    "fiscal_alignment_basis": "unscored",
+    "fiscal_notes": "",
+    "news_mentions": 0,
+    "last_news_date": null,
+    "likely_to_run_again": null,
+    "likely_to_win": {
+      "label": "competitive",
+      "basis": [
+        "Open seat — no incumbent in the race",
+        "3 candidate(s) filed"
+      ],
+      "confidence": "low",
+      "as_of": "2026-07-06T14:49:30.707055+00:00"
+    },
+    "source": "scraped",
+    "scraped_at": "2026-07-06T14:50:06.508299+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   }
 ]

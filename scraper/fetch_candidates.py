@@ -49,20 +49,29 @@ MUNICIPALITY_URLS = {
     "Aurora": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
     "East Gwillimbury": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
     "King": "https://www.king.ca/candidates",
-    # Blocked by bot-detection (Reblaze JS challenge, HTTP 247) — not scrapable
-    # via plain HTTP fetch. Left here so logs show *why* it's skipped.
-    "Markham": "https://www.electionsmarkham.ca/en/candidates/list-of-candidates/",
-    # Blocked (403 Forbidden to non-browser requests).
-    "Vaughan": "https://www.vaughan.ca/council/elections/candidates",
-    # Candidate list is rendered client-side via JavaScript — a plain HTTP
-    # fetch only returns empty heading containers, no candidate data.
+    # Candidate names are in the static HTML inside "pod" divs (no tables,
+    # no filing dates published) — parsed by scrape_whitchurch_stouffville.
     "Whitchurch-Stouffville": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    # Direct fetch is blocked by bot-detection (Reblaze JS challenge), but the
+    # Wayback Machine's crawler gets through — scraped via the latest archive
+    # snapshot instead (see WAYBACK_FALLBACK), so data may lag by days.
+    "Markham": "https://electionsmarkham.ca/en/candidates/who-s-running/",
+    # Blocked (403 Forbidden — WAF rejects non-browser clients regardless of
+    # user-agent; server-side fetchers AND the Wayback crawler are blocked
+    # too, so there is no automated path; needs manual checks).
+    "Vaughan": "https://www.vaughan.ca/council/elections/candidates",
 }
 
 # Municipalities with a working, verified extraction path.
 SCRAPABLE_MUNICIPALITIES = {
     "Georgina", "Richmond Hill", "Newmarket", "Aurora", "East Gwillimbury", "King",
+    "Whitchurch-Stouffville", "Markham",
 }
+
+# Municipalities whose live site is bot-blocked but whose page the Wayback
+# Machine can crawl: fetch the latest archive snapshot instead, and ping
+# Save Page Now each run so the archive stays reasonably fresh.
+WAYBACK_FALLBACK = {"Markham"}
 
 # Hard safeguards against the failure mode that produced 330 garbage records:
 # any candidate extracted must have a real office and belong to a known
@@ -145,6 +154,62 @@ def fetch_page(url: str, timeout: int = 15) -> Optional[BeautifulSoup]:
     except Exception as exc:
         logger.warning("Failed to fetch %s: %s", url, exc)
         return None
+
+
+def fetch_page_via_wayback(url: str, timeout: int = 30) -> tuple[Optional[BeautifulSoup], Optional[str]]:
+    """
+    Fetch the most recent *usable* Wayback Machine snapshot of a URL.
+
+    Can't just take the newest snapshot: when the target site's bot-detection
+    also challenges the archive crawler, the newest captures are 2KB
+    challenge pages, not content. So: ask the CDX index for the last few
+    HTTP-200 captures, newest first, and return the first one whose content
+    actually looks like a candidate list.
+
+    Returns (soup, snapshot_url) — the snapshot URL embeds the capture date,
+    and is used as filing_source so provenance and staleness are visible.
+    """
+    cdx_url = (
+        "https://web.archive.org/cdx/search/cdx"
+        f"?url={url}&output=json&filter=statuscode:200&limit=-5&fl=timestamp"
+    )
+    try:
+        resp = requests.get(cdx_url, headers=HEADERS, timeout=timeout)
+        resp.raise_for_status()
+        rows = resp.json()
+        timestamps = [r[0] for r in rows[1:]]  # rows[0] is the header
+    except Exception as exc:
+        logger.warning("Wayback CDX lookup failed for %s: %s", url, exc)
+        return None, None
+
+    for ts in reversed(sorted(timestamps)):
+        snapshot_url = f"https://web.archive.org/web/{ts}/{url}"
+        try:
+            resp = requests.get(snapshot_url, headers=HEADERS, timeout=timeout)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "lxml")
+            if page_looks_like_candidate_list(soup):
+                logger.info("Using Wayback snapshot %s for %s", ts, url)
+                return soup, snapshot_url
+            logger.info("Wayback snapshot %s of %s isn't a candidate list — trying older", ts, url)
+        except Exception as exc:
+            logger.warning("Wayback snapshot %s fetch failed: %s", ts, exc)
+
+    logger.warning("No usable Wayback snapshot found for %s", url)
+    return None, None
+
+
+def ping_save_page_now(url: str) -> None:
+    """
+    Fire-and-forget request asking the Wayback Machine to take a fresh
+    snapshot, so the *next* scraper run gets newer data. Failures are
+    logged and ignored — this is a best-effort freshness improvement.
+    """
+    try:
+        requests.get(f"https://web.archive.org/save/{url}", headers=HEADERS, timeout=20)
+        logger.info("Requested fresh Wayback snapshot of %s", url)
+    except Exception as exc:
+        logger.info("Save Page Now request failed for %s (non-fatal): %s", url, exc)
 
 
 def page_looks_like_candidate_list(soup: BeautifulSoup) -> bool:
@@ -341,6 +406,86 @@ def scrape_king(soup: BeautifulSoup, source_url: str) -> list[dict]:
     return raw_candidates
 
 
+def scrape_whitchurch_stouffville(soup: BeautifulSoup, source_url: str) -> list[dict]:
+    """
+    stouffvillevotes.ca publishes candidates in "pod" content blocks, not
+    tables: each block has an office heading (h2.h5) followed by <p> elements
+    with the candidate's name in <strong>. No filing dates are published on
+    this page, so date_filed stays None (appearing on the official certified
+    list still confirms the filing itself).
+    """
+    now_iso = datetime.now(timezone.utc).isoformat()
+    raw_candidates = []
+
+    for pod in soup.find_all("div", class_="pod__text"):
+        heading = pod.find(["h2", "h3"])
+        if heading is None:
+            continue
+        office_ward = parse_office_ward(heading.get_text(strip=True))
+        if office_ward is None:
+            continue
+        office, ward = office_ward
+
+        for p in pod.find_all("p"):
+            for strong in p.find_all("strong"):
+                rec = _build_record(
+                    "Whitchurch-Stouffville", office, ward,
+                    strong.get_text(strip=True), None, source_url, now_iso,
+                )
+                if rec:
+                    raw_candidates.append(rec)
+
+    return raw_candidates
+
+
+def scrape_markham(soup: BeautifulSoup, source_url: str) -> list[dict]:
+    """
+    Elections Markham's "Who's Running" page: one table per office, with the
+    office name in a preceding accordion/heading element rather than inside
+    the table. No filing-date column is published. Parsed from the latest
+    Wayback snapshot (see WAYBACK_FALLBACK) since the live site bot-blocks.
+    """
+    now_iso = datetime.now(timezone.utc).isoformat()
+    raw_candidates = []
+
+    def is_office_label(tag):
+        if tag.name in ("h2", "h3", "h4", "button", "summary"):
+            return True
+        classes = tag.get("class") or []
+        return tag.name == "div" and any(
+            "accordion" in c.lower() or "title" in c.lower() or "header" in c.lower()
+            for c in classes
+        )
+
+    for table in soup.find_all("table"):
+        label_el = table.find_previous(is_office_label)
+        if label_el is None:
+            continue
+        office_ward = parse_office_ward(label_el.get_text(strip=True))
+        if office_ward is None:
+            continue
+        office, ward = office_ward
+
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+        header_cells = [c.get_text(strip=True).lower() for c in rows[0].find_all(["th", "td"])]
+        name_idx, date_idx = _find_column_indices(header_cells)
+        if name_idx is None:
+            continue
+        for row in rows[1:]:
+            cells = row.find_all(["td", "th"])
+            if len(cells) <= name_idx:
+                continue
+            raw_name = cells[name_idx].get_text(strip=True)
+            date_filed = cells[date_idx].get_text(strip=True) if date_idx is not None and date_idx < len(cells) else None
+            rec = _build_record("Markham", office, ward, raw_name, date_filed, source_url, now_iso)
+            if rec:
+                raw_candidates.append(rec)
+
+    return raw_candidates
+
+
 SCRAPERS = {
     "Georgina": extract_from_heading_tables,
     "Newmarket": extract_from_heading_tables,
@@ -348,6 +493,8 @@ SCRAPERS = {
     "East Gwillimbury": extract_from_heading_tables,
     "Richmond Hill": lambda soup, muni, url: scrape_richmond_hill(soup, url),
     "King": lambda soup, muni, url: scrape_king(soup, url),
+    "Whitchurch-Stouffville": lambda soup, muni, url: scrape_whitchurch_stouffville(soup, url),
+    "Markham": lambda soup, muni, url: scrape_markham(soup, url),
 }
 
 
@@ -493,8 +640,20 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
 
     for municipality in SCRAPABLE_MUNICIPALITIES:
         url = MUNICIPALITY_URLS[municipality]
-        logger.info("Scraping %s from %s", municipality, url)
-        soup = fetch_page(url)
+        source_url = url
+
+        if municipality in WAYBACK_FALLBACK:
+            # Live site bot-blocks; the Wayback crawler gets through. Fetch
+            # the newest snapshot and ask for a fresh one for next time.
+            logger.info("Scraping %s via Wayback snapshot of %s", municipality, url)
+            soup, snapshot_url = fetch_page_via_wayback(url)
+            if snapshot_url:
+                source_url = snapshot_url
+            ping_save_page_now(url)
+        else:
+            logger.info("Scraping %s from %s", municipality, url)
+            soup = fetch_page(url)
+
         if soup is None:
             logger.warning("Skipping %s — page fetch failed", municipality)
             continue
@@ -507,7 +666,7 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
             continue
 
         try:
-            raw = scraper_fn(soup, municipality, url)
+            raw = scraper_fn(soup, municipality, source_url)
         except Exception as exc:
             logger.error("Scraper error for %s: %s", municipality, exc)
             continue
