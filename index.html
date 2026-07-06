@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
     /* ============================================================
        RESET & BASE
@@ -535,59 +534,58 @@
       border-radius: 99px;
     }
 
-    .alignment-bars {
+    /* Single horizontal stacked bar + names listed under each category */
+    .align-stack {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      height: 28px;
+      border-radius: 99px;
+      overflow: hidden;
+      background: var(--border);
     }
 
-    .alignment-bar-row {
+    .align-stack .seg {
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-
-    .alignment-bar-label {
-      width: 130px;
-      font-size: 12px;
-      color: var(--text-muted);
-      flex-shrink: 0;
-    }
-
-    .alignment-bar-track {
-      flex: 1;
-      background: var(--border);
-      border-radius: 99px;
-      height: 10px;
-      overflow: hidden;
-    }
-
-    .alignment-bar-fill {
-      height: 100%;
-      border-radius: 99px;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      min-width: 0;
       transition: width 0.6s ease;
     }
 
-    .alignment-bar-count {
-      width: 28px;
-      text-align: right;
+    .align-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .align-col-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--col, var(--border));
+      color: var(--col, var(--text-muted));
+    }
+
+    .align-col-header .count { color: var(--text-dim); font-weight: 500; }
+
+    .align-col-names {
       font-size: 12px;
-      font-weight: 600;
+      line-height: 1.8;
       color: var(--text);
     }
 
-    .chart-container {
-      max-width: 340px;
-      margin: 0 auto;
-      height: 200px;
-    }
-
-    .alignment-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: center;
-    }
+    .align-col-names .muni { color: var(--text-dim); font-size: 10px; }
+    .align-col-names .challenger { color: var(--text-muted); }
+    .align-col-names .none { color: var(--text-dim); font-style: italic; font-size: 11px; }
 
     .badge {
       font-size: 10px;
@@ -822,10 +820,7 @@
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
       .header-meta { width: 100%; justify-content: space-between; }
-      .alignment-grid { grid-template-columns: 1fr; }
-      .chart-container { display: none; }
       .dc-facts { grid-template-columns: 1fr 1fr; }
-      .candidate-badges { gap: 4px; }
     }
 
     @media (max-width: 480px) {
@@ -920,18 +915,10 @@
         Fiscal Alignment Overview
         <span class="badge" id="alignment-total-badge">0 candidates</span>
       </div>
-      <div class="alignment-grid">
-        <div class="alignment-bars" id="alignment-bars">
-          <div class="loading-spinner"><div class="spinner"></div> Loading alignment data…</div>
-        </div>
-        <div class="chart-container">
-          <canvas id="alignment-chart"></canvas>
-        </div>
+      <div class="align-stack" id="alignment-stack">
+        <div class="loading-spinner"><div class="spinner"></div> Loading alignment data…</div>
       </div>
-      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
-        <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">Scored from &mdash; how much of this is measured vs. estimated</div>
-        <div class="alignment-bars" id="alignment-basis-bars"></div>
-      </div>
+      <div class="align-columns" id="alignment-columns"></div>
     </div>
 
     <!-- Recent Registrations -->
@@ -989,20 +976,6 @@
     strongly_misaligned: 'Strongly Misaligned',
   };
 
-  const BASIS_LABELS = {
-    voting_record:      'Voting Record',
-    news_inferred:       'News-Inferred',
-    incumbency_default:  'Incumbency Default',
-    unscored:            'Unscored',
-  };
-
-  const BASIS_COLORS = {
-    voting_record:      '#3b82f6',
-    news_inferred:       '#84cc16',
-    incumbency_default:  '#94a3b8',
-    unscored:            '#334155',
-  };
-
   // ============================================================
   // STATE
   // ============================================================
@@ -1012,7 +985,6 @@
     metadata: {},
     seats: [],
     councilStatus: {},
-    chartInstance: null,
   };
 
   // ============================================================
@@ -1246,102 +1218,43 @@
     const badge = document.getElementById('alignment-total-badge');
     if (badge) badge.textContent = `${candidates.length} candidate${candidates.length !== 1 ? 's' : ''}`;
 
-    const container = document.getElementById('alignment-bars');
-    if (!container) return;
+    const stack = document.getElementById('alignment-stack');
+    const columns = document.getElementById('alignment-columns');
+    if (!stack || !columns) return;
 
     const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned'];
-    container.innerHTML = order.map(key => {
+
+    stack.innerHTML = order.map(key => {
       const count = counts[key];
-      const pct = ((count / total) * 100).toFixed(1);
-      const color = ALIGN_COLORS[key];
-      const label = ALIGN_LABELS[key];
+      if (!count) return '';
+      const pct = (count / total) * 100;
+      return `<div class="seg" style="width:${pct}%;background:${ALIGN_COLORS[key]}"
+        title="${ALIGN_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct.toFixed(0)}%)">${count}</div>`;
+    }).join('');
+
+    // Names under each category, incumbents first then challengers,
+    // each sorted by score (most extreme first within their category).
+    columns.innerHTML = order.map(key => {
+      const group = candidates
+        .filter(c => (c.fiscal_alignment_label || 'neutral') === key)
+        .sort((a, b) =>
+          (a.status === 'incumbent' ? 0 : 1) - (b.status === 'incumbent' ? 0 : 1)
+          || (b.fiscal_alignment_score ?? 5) - (a.fiscal_alignment_score ?? 5)
+          || a.name.localeCompare(b.name));
+      const names = group.length
+        ? group.map(c => {
+            const tip = escapeHtml(c.fiscal_notes || `${c.fiscal_alignment_score ?? 5}/10`);
+            const cls = c.status === 'incumbent' ? '' : ' class="challenger"';
+            return `<div${cls} title="${tip}">${escapeHtml(c.name)} <span class="muni">${escapeHtml(c.municipality)}${c.status !== 'incumbent' ? ' · challenger' : ''}</span></div>`;
+          }).join('')
+        : `<div class="none">None</div>`;
       return `
-        <div class="alignment-bar-row" title="${label}: ${count} candidate${count !== 1 ? 's' : ''} (${pct}%)">
-          <div class="alignment-bar-label">${label}</div>
-          <div class="alignment-bar-track">
-            <div class="alignment-bar-fill" style="width:${pct}%;background:${color}"></div>
-          </div>
-          <div class="alignment-bar-count" style="color:${color}">${count}</div>
+        <div class="align-col" style="--col:${ALIGN_COLORS[key]}">
+          <div class="align-col-header">${ALIGN_LABELS[key]} <span class="count">(${counts[key]})</span></div>
+          <div class="align-col-names">${names}</div>
         </div>
       `;
     }).join('');
-
-    // Chart.js doughnut
-    renderAlignmentChart(counts);
-    renderAlignmentBasisBreakdown();
-  }
-
-  function renderAlignmentBasisBreakdown() {
-    const container = document.getElementById('alignment-basis-bars');
-    if (!container) return;
-    const candidates = regionalCandidates();
-    const counts = { voting_record: 0, news_inferred: 0, incumbency_default: 0, unscored: 0 };
-
-    for (const c of candidates) {
-      const b = c.fiscal_alignment_basis;
-      if (b in counts) counts[b]++;
-      else counts.unscored++;
-    }
-
-    const total = candidates.length || 1;
-    container.innerHTML = Object.keys(BASIS_LABELS).map(key => {
-      const count = counts[key];
-      const pct = ((count / total) * 100).toFixed(1);
-      const color = BASIS_COLORS[key];
-      return `
-        <div class="alignment-bar-row" title="${BASIS_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct}%)">
-          <div class="alignment-bar-label">${BASIS_LABELS[key]}</div>
-          <div class="alignment-bar-track">
-            <div class="alignment-bar-fill" style="width:${pct}%;background:${color}"></div>
-          </div>
-          <div class="alignment-bar-count" style="color:${color}">${count}</div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  function renderAlignmentChart(counts) {
-    const ctx = document.getElementById('alignment-chart');
-    if (!ctx) return;
-
-    const labels = Object.keys(ALIGN_LABELS).map(k => ALIGN_LABELS[k]);
-    const data   = Object.keys(ALIGN_LABELS).map(k => counts[k] || 0);
-    const colors = Object.keys(ALIGN_LABELS).map(k => ALIGN_COLORS[k]);
-
-    if (state.chartInstance) {
-      state.chartInstance.data.datasets[0].data = data;
-      state.chartInstance.update();
-      return;
-    }
-
-    state.chartInstance = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels,
-        datasets: [{
-          data,
-          backgroundColor: colors,
-          borderColor: '#0f172a',
-          borderWidth: 2,
-          hoverOffset: 6,
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: '60%',
-        plugins: {
-          legend: {
-            display: false,
-          },
-          tooltip: {
-            callbacks: {
-              label: ctx => ` ${ctx.label}: ${ctx.raw} candidate${ctx.raw !== 1 ? 's' : ''}`,
-            }
-          }
-        }
-      }
-    });
   }
 
   // ============================================================
