@@ -166,7 +166,15 @@ def main():
         if c.get("registered") and (d := parse_filed(c)) and d >= cutoff_7d
     )
 
-    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS
+    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS, WAYBACK_FALLBACK
+
+    def coverage(muni):
+        if muni in WAYBACK_FALLBACK:
+            return "archive_delayed"
+        if muni in SCRAPABLE_MUNICIPALITIES:
+            return "live"
+        return "manual_check_required"
+
     metadata["data_confidence"] = {
         "candidates_confirmed_filed": sum(
             1 for c in scored_candidates if c.get("filed_for_reelection") == "confirmed"
@@ -176,10 +184,7 @@ def main():
         ),
         "seats_total": len(seats),
         "candidate_scraper_enabled": ENABLE_CANDIDATE_SCRAPE,
-        "scrape_coverage": {
-            muni: ("live" if muni in SCRAPABLE_MUNICIPALITIES else "manual_check_required")
-            for muni in MUNICIPALITY_URLS
-        },
+        "scrape_coverage": {muni: coverage(muni) for muni in MUNICIPALITY_URLS},
     }
 
     # --- Step 7: Save ---

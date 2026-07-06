@@ -61,21 +61,22 @@ scraper/estimate_race_outlook.py    # likely_to_run_again / likely_to_win ordina
 .github/workflows/pages.yml         # Pages deploy on push to index.html or data/**
 ```
 
-## Scrape Coverage (verified 2026-07-02)
+## Scrape Coverage (verified 2026-07-06)
 | Municipality | Status | Notes |
 |---|---|---|
 | Georgina, Richmond Hill, Newmarket, Aurora, East Gwillimbury, King | ✅ live | Real clerk pages, per-municipality extractors tested against snapshots |
-| Markham | ❌ bot-blocked | electionsmarkham.ca returns Reblaze JS challenge (HTTP 247) |
-| Vaughan | ❌ bot-blocked | vaughan.ca returns 403 to non-browser requests |
-| Whitchurch-Stouffville | ❌ JS-rendered | stouffvillevotes.ca list renders client-side only |
+| Whitchurch-Stouffville | ✅ live | Data IS in static HTML (earlier "JS-rendered" diagnosis was wrong — the site's malformed markup broke the first parser). Pod-div structure, no filing dates published → registration_date stays null |
+| Markham | 🕐 archive-delayed | Live site bot-blocks (Reblaze, HTTP 247) including archive.org's on-demand crawler — but regular Wayback crawls get through. Scraper fetches the newest *verified-content* snapshot via the CDX API (`filter=statuscode:200`, content-checked — the newest raw snapshot may be a captured challenge page) and pings Save Page Now for freshness. Data lags by days-to-weeks; snapshot date is visible in filing_source |
+| Vaughan | ❌ no automated path | 403 to every non-browser client tried (browser UAs, server-side fetchers, and the Wayback crawler are all blocked). Needs manual checks; the Vaughan tab shows a registration-news review queue (gleaned from the news feed by candidacy phrases) to prompt them. Vaughan Chamber of Commerce's candidate page is stale (still 2022) — don't use it |
 
 Scraper safeguards (do not remove): office allowlist, municipality allowlist, per-municipality candidate cap, page-must-mention-candidates check, no generic list-extraction fallback. King's extractor maps tables to offices **by position** (page has no per-office headings) — re-verify if King results look wrong.
 
 ## Known Gaps / Future Work
 - `votes.json` is empty pending the DC Bylaw roll-call research (see Open manual item above)
-- Markham/Vaughan/W-S filings need manual entry or a browser-based scrape workaround
+- Vaughan filings need manual entry (weekly through July, twice-weekly in August; nom close Aug 21) — the Vaughan tab's news queue helps spot them
+- Markham data lags by the age of the newest good Wayback snapshot — check the snapshot date in filing_source when precision matters
 - No public polling exists for these races; likely-to-win stays a low-confidence ordinal
-- Manual review cadence: check unscrapable clerk pages weekly through July, twice-weekly in August (nom close Aug 21)
+- Chamber view seat placement is illustrative (grouped by municipality); actual chair assignments aren't published — owner may supply the real order
 
 ## Current Incumbents (2022 elected; filing status tracked live in candidates.json)
 Mayors: Mrakas (Aurora), Hackson (East Gwillimbury), Quirk (Georgina), Pellegrini (King), Scarpitti (Markham), Taylor (Newmarket), West (Richmond Hill), Del Duca (Vaughan), Lovatt (Whitchurch-Stouffville). Full 76-incumbent roster lives in `data/seats.json`.

@@ -1821,17 +1821,56 @@
     });
   }
 
+  // Registration-signal phrases for gleaning candidacy news. Deliberately a
+  // review queue for a human, never auto-created candidate records — parsing
+  // names out of headlines is how garbage data gets born.
+  const REGISTRATION_PHRASES = [
+    'registered to run', 'registered as a candidate', 'files nomination',
+    'filed nomination', 'nomination papers', 'announces candidacy',
+    'announced her candidacy', 'announced his candidacy', 'declares candidacy',
+    'running for mayor', 'running for council', 'running for regional councillor',
+    'seeking re-election', 'seeking reelection', 'not seeking re-election',
+    'enters the race', 'joins the race', 'launches campaign', 'launches bid',
+    "throwing her hat", "throwing his hat", 'will seek election',
+  ];
+
+  function registrationNewsQueue(muni) {
+    const hits = state.news.filter(a => {
+      if (!(a.municipalities || []).includes(muni)) return false;
+      const text = `${a.title || ''} ${a.summary || ''}`.toLowerCase();
+      return REGISTRATION_PHRASES.some(p => text.includes(p));
+    }).slice(0, 4);
+
+    if (!hits.length) return '';
+    const items = hits.map(a => {
+      const link = a.url
+        ? `<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.title)}</a>`
+        : escapeHtml(a.title);
+      return `<div style="margin-top:3px">&#128240; ${link} <span style="color:var(--text-dim)">(${formatShortDate(a.published_at)})</span></div>`;
+    }).join('');
+    return `<div style="margin-top:8px;padding-top:6px;border-top:1px dashed rgba(249,115,22,0.3);color:var(--text-muted)">
+        Possible registration news to check:${items}
+      </div>`;
+  }
+
   function renderMuniPanel(muni) {
     const muniSeats = regionalSeats().filter(s => s.municipality === muni);
 
-    // Be honest about coverage: filings for bot-blocked/JS-rendered clerk
-    // pages can't be auto-detected, so "not filed" there means "not checked".
+    // Be honest about coverage: filings for bot-blocked clerk pages can't be
+    // auto-detected live, so "not filed" there means "not checked" (or, for
+    // archive-sourced municipalities, "not filed as of the last snapshot").
     const coverage = (state.metadata.data_confidence || {}).scrape_coverage || {};
-    const coverageNote = coverage[muni] === 'manual_check_required'
-      ? `<div style="font-size:11px;color:var(--orange);background:var(--orange-bg);border:1px solid rgba(249,115,22,0.3);border-radius:var(--radius);padding:8px 12px;margin-bottom:10px">
+    let coverageNote = '';
+    if (coverage[muni] === 'manual_check_required') {
+      coverageNote = `<div style="font-size:11px;color:var(--orange);background:var(--orange-bg);border:1px solid rgba(249,115,22,0.3);border-radius:var(--radius);padding:8px 12px;margin-bottom:10px">
            &#9888; ${escapeHtml(muni)}'s clerk page can't be scraped automatically — filing statuses below may be out of date and need a manual check of the official candidate list.
-         </div>`
-      : '';
+           ${registrationNewsQueue(muni)}
+         </div>`;
+    } else if (coverage[muni] === 'archive_delayed') {
+      coverageNote = `<div style="font-size:11px;color:var(--text-muted);background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;margin-bottom:10px">
+           &#128337; ${escapeHtml(muni)}'s clerk page blocks direct scraping — data comes from the most recent Wayback Machine snapshot and may lag by a few days.
+         </div>`;
+    }
 
     if (!muniSeats.length) {
       // No seat inventory loaded for this municipality — fall back to

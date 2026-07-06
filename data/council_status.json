@@ -1,17 +1,17 @@
 {
-  "computed_at": "2026-07-06T13:43:57.100566+00:00",
+  "computed_at": "2026-07-06T14:49:30.707055+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
     "chair_excluded": "Eric Jolliffe (appointed, not counted)",
     "threshold_fraction": 0.75,
     "threshold_count": 16,
-    "confirmed_filed_count": 7,
+    "confirmed_filed_count": 11,
     "declined_count": 0,
     "not_yet_filed_count": 0,
-    "unknown_count": 14,
+    "unknown_count": 10,
     "status": "at_risk",
-    "status_basis": "7 of 21 current members confirmed filing so far (0 declined, 14 still unknown). Threshold is 16 of 21 — outcome is not yet decided.",
+    "status_basis": "11 of 21 current members confirmed filing so far (0 declined, 10 still unknown). Threshold is 16 of 21 — outcome is not yet decided.",
     "members": [
       {
         "seat_id": "aurora-mayor",
@@ -67,21 +67,21 @@
         "name": "Jim Jones",
         "municipality": "Markham",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "markham-regional-councillor-3",
         "name": "Joe Li",
         "municipality": "Markham",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "markham-regional-councillor-4",
         "name": "Alan Ho",
         "municipality": "Markham",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "newmarket-mayor",
@@ -158,7 +158,7 @@
         "name": "Iain Lovatt",
         "municipality": "Whitchurch-Stouffville",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       }
     ]
   },
@@ -211,12 +211,12 @@
       "total_current_elected_members": 13,
       "threshold_fraction": 0.75,
       "threshold_count": 10,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 6,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 13,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 13 current members. Need 10 of 13 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 7,
+      "status": "at_risk",
+      "status_basis": "6 of 13 current members confirmed filing so far (0 declined, 7 still unknown). Threshold is 10 of 13 — outcome is not yet decided."
     },
     "Newmarket": {
       "total_current_elected_members": 9,
@@ -255,12 +255,12 @@
       "total_current_elected_members": 7,
       "threshold_fraction": 0.75,
       "threshold_count": 6,
-      "confirmed_filed_count": 0,
+      "confirmed_filed_count": 3,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 7,
-      "status": "unknown",
-      "status_basis": "No filing data yet for any of the 7 current members. Need 6 of 7 to file for re-election by nomination day to avoid lame-duck status."
+      "unknown_count": 4,
+      "status": "at_risk",
+      "status_basis": "3 of 7 current members confirmed filing so far (0 declined, 4 still unknown). Threshold is 6 of 7 — outcome is not yet decided."
     }
   }
 }
