@@ -5,8 +5,8 @@ A council becomes "lame duck" — restricted from hiring/firing senior staff,
 selling assets over $50k, or approving non-budgeted expenditures over $50k —
 if fewer than three-quarters of its *current* elected members have been
 nominated for re-election (to any office, any municipality) as of nomination
-day. This module computes that status for York Regional Council and, as a
-secondary metric, for each of the 9 local municipal councils.
+day. This module computes that status for York Regional Council (only — local
+municipal councils are out of scope for this dashboard by owner decision).
 
 Pure function: no network calls. Depends only on seats.json + candidates.json.
 """
@@ -126,44 +126,16 @@ def compute_regional_status(seats, candidates, nomination_day_passed=False):
     }
 
 
-def compute_municipal_status(seats, candidates, municipality, nomination_day_passed=False):
-    muni_seats = [s for s in seats if s["municipality"] == municipality]
-    cand_by_id = _candidates_by_id(candidates)
-    member_candidates = [cand_by_id[s["incumbent_candidate_id"]] for s in muni_seats
-                          if s.get("incumbent_candidate_id") in cand_by_id]
-    total = len(muni_seats)
-    threshold = math.ceil(total * REGIONAL_THRESHOLD_FRACTION)
-
-    status, basis = _status_for_roster(member_candidates, total, threshold, nomination_day_passed)
-    confirmed, declined, not_yet, unknown = _filed_counts(member_candidates)
-
-    return {
-        "total_current_elected_members": total,
-        "threshold_fraction": REGIONAL_THRESHOLD_FRACTION,
-        "threshold_count": threshold,
-        "confirmed_filed_count": len(confirmed),
-        "declined_count": len(declined),
-        "not_yet_filed_count": len(not_yet),
-        "unknown_count": len(unknown),
-        "status": status,
-        "status_basis": basis,
-    }
-
-
 def compute_council_status(seats, candidates, now_iso, nomination_day, nomination_day_passed=False):
+    # Regional Council only. Per-municipality lame-duck status was removed
+    # with the ward-councillor data (owner decision, 2026-07-06) — local
+    # council rosters are no longer tracked, so the s.275 math can only be
+    # computed for the 21-member Regional Council.
     logger.info("Computing regional lame-duck status")
     regional = compute_regional_status(seats, candidates, nomination_day_passed)
-
-    municipalities = sorted({s["municipality"] for s in seats})
-    logger.info("Computing per-municipality lame-duck status for %d municipalities", len(municipalities))
-    muni_status = {
-        m: compute_municipal_status(seats, candidates, m, nomination_day_passed)
-        for m in municipalities
-    }
 
     return {
         "computed_at": now_iso,
         "nomination_day": nomination_day,
         "regional_council": regional,
-        "municipalities": muni_status,
     }

@@ -77,7 +77,10 @@ WAYBACK_FALLBACK = {"Markham"}
 # any candidate extracted must have a real office and belong to a known
 # municipality, and a single municipality producing an implausible number of
 # "candidates" is treated as a scraper bug, not real data.
-VALID_OFFICES = {"mayor", "regional councillor", "ward councillor"}
+# Ward councillor races are deliberately NOT collected (owner decision,
+# 2026-07-06): the dashboard tracks only the 21 seats on York Regional
+# Council — 9 Mayors + 12 Regional Councillors.
+VALID_OFFICES = {"mayor", "regional councillor"}
 KNOWN_MUNICIPALITIES = set(MUNICIPALITY_URLS.keys())
 MAX_CANDIDATES_PER_MUNICIPALITY = 30
 # A candidate/nomination list page should contain at least one of these terms
