@@ -614,19 +614,6 @@
     .badge-estimate.est-competitive, .badge-estimate.est-uncertain { border-color: var(--yellow); color: var(--yellow); }
     .badge-estimate.est-long_shot, .badge-estimate.est-unlikely { border-color: var(--orange); color: var(--orange); }
 
-    .basis-tag {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      padding: 1px 5px;
-      border-radius: 4px;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    .basis-tag.basis-voting_record { color: var(--accent); border-color: var(--accent); }
-
     .score-pill {
       font-size: 10px;
       font-weight: 700;
@@ -1428,10 +1415,6 @@
       }
     }
 
-    const basisTag = inc && inc.fiscal_alignment_basis === 'voting_record'
-      ? `<span class="basis-tag basis-voting_record" title="Score based on recorded council votes">voting record</span>`
-      : '';
-
     const challengerHtml = challengers.length
       ? challengers.map(ch => {
           const d = parseFiledDate(ch);
@@ -1453,7 +1436,7 @@
           ${scorePill(inc, false)}
         </div>
         <div class="chair-status st-${statusClass}" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-          <span>${statusHtml}</span>${winBadge(inc)}${basisTag}
+          <span>${statusHtml}</span>${winBadge(inc)}
         </div>
         <div class="chair-challengers">${challengerHtml}</div>
       </div>
