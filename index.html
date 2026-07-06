@@ -805,6 +805,10 @@
       </div>
       <div class="header-meta">
         <div class="countdown-box">
+          <div class="days" id="countdown-noms" style="color:var(--orange)">—</div>
+          <div class="label">Days to Noms Close</div>
+        </div>
+        <div class="countdown-box">
           <div class="days" id="countdown-days">—</div>
           <div class="label">Days to Election</div>
         </div>
@@ -834,7 +838,7 @@
     <div class="lameduck-banner status-unknown" id="lameduck-banner">
       <div class="lameduck-stat">
         <div class="lameduck-value" id="lameduck-fraction">—</div>
-        <div class="lameduck-label">Confirmed Filed</div>
+        <div class="lameduck-label" id="lameduck-fraction-label">Confirmed Filed</div>
       </div>
       <div class="lameduck-body">
         <div class="lameduck-title" id="lameduck-title">York Regional Council — Lame-Duck Status</div>
@@ -843,6 +847,7 @@
       <button class="lameduck-muni-toggle" id="lameduck-muni-toggle">Show 9 municipalities &#9662;</button>
     </div>
     <div class="lameduck-muni-panel" id="lameduck-muni-panel">
+      <div id="lameduck-unfiled" style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.7"></div>
       <div class="lameduck-muni-grid" id="lameduck-muni-grid"></div>
     </div>
 
@@ -887,14 +892,25 @@
         <div class="stat-sub">Races with 2+ candidates</div>
       </div>
       <div class="stat-card green">
-        <div class="stat-value" id="stat-strongly-aligned">—</div>
-        <div class="stat-label">Strongly Aligned</div>
-        <div class="stat-sub">Score 8+ (green on fiscal)</div>
+        <div class="stat-value" id="stat-filings-7d">—</div>
+        <div class="stat-label">Filings (7 Days)</div>
+        <div class="stat-sub">New registrations this week</div>
       </div>
       <div class="stat-card yellow">
-        <div class="stat-value" id="stat-news-7d">—</div>
-        <div class="stat-label">News (7 Days)</div>
-        <div class="stat-sub">Articles this week</div>
+        <div class="stat-value" id="stat-empty-seats">—</div>
+        <div class="stat-label">Seats With No Filed Candidates</div>
+        <div class="stat-sub">Of 76 total seats</div>
+      </div>
+    </div>
+
+    <!-- Recent Registrations -->
+    <div class="alignment-overview">
+      <div class="section-title">
+        Recent Candidate Registrations
+        <span class="badge" id="recent-reg-badge">0</span>
+      </div>
+      <div class="news-grid" id="recent-registrations">
+        <div class="loading-spinner"><div class="spinner"></div> Loading registrations…</div>
       </div>
     </div>
 
@@ -1114,6 +1130,17 @@
     return total > 0 ? (elapsed / total) * 100 : 0;
   }
 
+  // Clerk pages publish "May 1, 2026"-style dates; Date() parses these fine.
+  function parseFiledDate(c) {
+    if (!c.registration_date) return null;
+    const d = new Date(c.registration_date);
+    return isNaN(d) ? null : d;
+  }
+
+  function isFiled(c) {
+    return !!c.registered || c.filed_for_reelection === 'confirmed';
+  }
+
   // ============================================================
   // RENDER: HEADER / COUNTDOWN
   // ============================================================
@@ -1121,6 +1148,10 @@
     const days = daysUntil(ELECTION_DATE);
     const el = document.getElementById('countdown-days');
     if (el) el.textContent = days > 0 ? days : 0;
+
+    const nomDays = daysUntil(NOM_CLOSE);
+    const nomEl = document.getElementById('countdown-noms');
+    if (nomEl) nomEl.textContent = nomDays > 0 ? nomDays : 0;
 
     const lu = state.metadata.last_updated;
     const luEl = document.getElementById('last-updated-time');
@@ -1145,13 +1176,19 @@
   // RENDER: ALERT BANNER
   // ============================================================
   function renderAlert() {
-    const newCount = state.metadata.new_registrations_24h || 0;
+    // Based on the clerk-published date filed, not scrape time — scrape time
+    // resets on every run and once made every candidate look "new" forever.
+    const cutoff = Date.now() - 7 * 86400000;
+    const recent = state.candidates.filter(c => {
+      const d = parseFiledDate(c);
+      return isFiled(c) && d && d.getTime() >= cutoff;
+    });
     const banner = document.getElementById('alert-banner');
     const text   = document.getElementById('alert-text');
     if (!banner) return;
-    if (newCount > 0) {
+    if (recent.length > 0) {
       banner.classList.remove('hidden');
-      if (text) text.textContent = `${newCount} new candidate registration${newCount > 1 ? 's' : ''} detected in the last 24 hours. Scroll down to review.`;
+      if (text) text.textContent = `${recent.length} candidate${recent.length > 1 ? 's' : ''} filed in the last 7 days — see Recent Candidate Registrations below.`;
     } else {
       banner.classList.add('hidden');
     }
@@ -1175,7 +1212,8 @@
     }
 
     banner.className = 'lameduck-banner status-' + rc.status;
-    setText('lameduck-fraction', `${rc.confirmed_filed_count}/${rc.threshold_count}`);
+    setText('lameduck-fraction', `${rc.confirmed_filed_count}/${rc.total_current_elected_members}`);
+    setText('lameduck-fraction-label', `Filed (need ${rc.threshold_count})`);
     const titleEl = document.getElementById('lameduck-title');
     if (titleEl) {
       titleEl.textContent = `York Regional Council — ${LAMEDUCK_STATUS_TEXT[rc.status] || rc.status}`;
@@ -1192,6 +1230,23 @@
   }
 
   function renderLameDuckMuniPanel() {
+    // The names behind the lame-duck math: which regional council members
+    // haven't filed yet. This is the watchlist that decides the 16-of-21.
+    const unfiledEl = document.getElementById('lameduck-unfiled');
+    const rc = state.councilStatus.regional_council;
+    if (unfiledEl && rc && rc.members) {
+      const unfiled = rc.members.filter(m => m.filed_for_reelection !== 'confirmed');
+      if (unfiled.length) {
+        const names = unfiled.map(m => {
+          const declined = m.filed_for_reelection === 'declined';
+          return `<span style="${declined ? 'color:var(--red);text-decoration:line-through' : ''}">${escapeHtml(m.name || m.seat_id)} <span style="color:var(--text-dim)">(${escapeHtml(m.municipality)} ${m.office === 'Mayor' ? 'Mayor' : 'RC'})</span></span>`;
+        }).join(', ');
+        unfiledEl.innerHTML = `<strong style="color:var(--text)">Regional members not yet filed (${unfiled.length}):</strong> ${names}`;
+      } else {
+        unfiledEl.innerHTML = '';
+      }
+    }
+
     const grid = document.getElementById('lameduck-muni-grid');
     if (!grid) return;
     const munis = state.councilStatus.municipalities || {};
@@ -1202,7 +1257,7 @@
       return `
         <div class="lameduck-muni-card status-${m.status}">
           <div class="muni-name">${escapeHtml(name)}</div>
-          <div class="muni-count">${m.confirmed_filed_count}/${m.threshold_count} filed &bull; ${LAMEDUCK_STATUS_TEXT[m.status] || m.status}</div>
+          <div class="muni-count">${m.confirmed_filed_count}/${m.total_current_elected_members} filed (need ${m.threshold_count}) &bull; ${LAMEDUCK_STATUS_TEXT[m.status] || m.status}</div>
         </div>
       `;
     }).join('');
@@ -1229,18 +1284,61 @@
     const contested = Object.values(raceCounts).filter(n => n >= 2).length;
     setText('stat-races-contested', contested);
 
-    // Strongly aligned (score >= 8)
-    const stronglyAligned = candidates.filter(c => (c.fiscal_alignment_score || 5) >= 8).length;
-    setText('stat-strongly-aligned', stronglyAligned);
+    // Filings in the last 7 days (by clerk-published date filed)
+    const cutoff7d = Date.now() - 7 * 86400000;
+    const filings7d = candidates.filter(c => {
+      const d = parseFiledDate(c);
+      return isFiled(c) && d && d.getTime() >= cutoff7d;
+    }).length;
+    setText('stat-filings-7d', filings7d);
 
-    // News in last 7 days
-    const cutoff7d = new Date(Date.now() - 7 * 86400000).toISOString();
-    const recent = news.filter(a => a.published_at && a.published_at > cutoff7d).length;
-    setText('stat-news-7d', recent);
+    // Seats where nobody has filed yet
+    const filedSeatIds = new Set(candidates.filter(c => isFiled(c) && c.seat_id).map(c => c.seat_id));
+    const emptySeats = state.seats.filter(s => !filedSeatIds.has(s.id)).length;
+    setText('stat-empty-seats', state.seats.length ? emptySeats : '—');
+  }
 
-    // DC-related news count
-    const dcCount = news.filter(a => a.dc_related).length;
-    setText('stat-dc-news', dcCount);
+  // ============================================================
+  // RENDER: RECENT REGISTRATIONS
+  // ============================================================
+  function renderRecentRegistrations() {
+    const container = document.getElementById('recent-registrations');
+    const badge = document.getElementById('recent-reg-badge');
+    if (!container) return;
+
+    const filed = state.candidates
+      .map(c => ({ c, d: parseFiledDate(c) }))
+      .filter(x => isFiled(x.c) && x.d)
+      .sort((a, b) => b.d - a.d)
+      .slice(0, 15);
+
+    if (badge) badge.textContent = `latest ${filed.length}`;
+
+    if (!filed.length) {
+      container.innerHTML = `<div class="empty-state">No registrations detected yet. Nomination period: May 1 – Aug 21, 2026.</div>`;
+      return;
+    }
+
+    container.innerHTML = filed.map(({ c, d }) => {
+      const seatLabel = c.ward ? `${c.office}, Ward ${escapeHtml(c.ward)}` : c.office;
+      const statusBadge = c.status === 'incumbent'
+        ? `<span class="badge badge-incumbent">Incumbent</span>`
+        : `<span class="badge badge-challenger">Challenger</span>`;
+      const src = c.filing_source
+        ? ` <a href="${escapeHtml(c.filing_source)}" target="_blank" rel="noopener" style="font-size:10px">clerk page</a>`
+        : '';
+      return `
+        <div class="news-item">
+          <div class="news-item-header">
+            <div class="news-item-title">${escapeHtml(c.name)} <span style="font-weight:400;color:var(--text-muted)">— ${escapeHtml(seatLabel)}, ${escapeHtml(c.municipality)}</span></div>
+            ${statusBadge}
+          </div>
+          <div class="news-item-meta">
+            <span class="news-date">Filed ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}</span>${src}
+          </div>
+        </div>
+      `;
+    }).join('');
   }
 
   function setText(id, val) {
@@ -1416,6 +1514,15 @@
   function renderMuniPanel(muni) {
     const muniSeats = state.seats.filter(s => s.municipality === muni);
 
+    // Be honest about coverage: filings for bot-blocked/JS-rendered clerk
+    // pages can't be auto-detected, so "not filed" there means "not checked".
+    const coverage = (state.metadata.data_confidence || {}).scrape_coverage || {};
+    const coverageNote = coverage[muni] === 'manual_check_required'
+      ? `<div style="font-size:11px;color:var(--orange);background:var(--orange-bg);border:1px solid rgba(249,115,22,0.3);border-radius:var(--radius);padding:8px 12px;margin-bottom:10px">
+           &#9888; ${escapeHtml(muni)}'s clerk page can't be scraped automatically — filing statuses below may be out of date and need a manual check of the official candidate list.
+         </div>`
+      : '';
+
     if (!muniSeats.length) {
       // No seat inventory loaded for this municipality — fall back to
       // whatever flat candidate records exist, so the panel isn't empty
@@ -1441,7 +1548,7 @@
       return ai - bi || a.localeCompare(b);
     });
 
-    return sortedOffices.map(office => {
+    return coverageNote + sortedOffices.map(office => {
       const seatsInOffice = byOffice[office];
       const rows = seatsInOffice.map(seat => {
         const seatCandidates = candidatesBySeat[seat.id] || [];
@@ -1596,6 +1703,7 @@
     renderNomProgress();
     renderAlert();
     renderStats();
+    renderRecentRegistrations();
     renderAlignmentOverview();
     renderMuniTabs();
     renderNews();
