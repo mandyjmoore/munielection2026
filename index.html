@@ -310,52 +310,63 @@
       padding-bottom: 8px;
     }
 
-    /* Upside-down U (∩): full-width top bar with the Chair at its centre,
-       arms hanging down from the ends, open floor in the middle. */
+    /* Municipality-grouped seat grid: one colour-coded block per
+       municipality, sized by its Regional Council contingent so Vaughan and
+       Markham (5 seats each) visually dominate. */
     .chamber {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      min-width: 1100px;
+      gap: 12px;
     }
 
-    .chamber-topbar {
+    .chamber-head-row {
       display: flex;
-      gap: 8px;
-      align-items: stretch;
+      justify-content: center;
     }
 
-    .chamber-topbar .topbar-side {
-      flex: 1;
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
-      gap: 8px;
-    }
-
-    .chamber-body {
+    .chamber-groups {
       display: flex;
-      gap: 14px;
-      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .chamber-arm {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      width: 220px;
-      flex-shrink: 0;
+    .muni-block {
+      border: 1px solid var(--muni, var(--border));
+      border-radius: var(--radius-lg);
+      padding: 10px 12px 12px;
+      background: color-mix(in srgb, var(--muni, #64748b) 6%, transparent);
+      flex-grow: 1;
     }
 
-    .chamber-floor {
-      flex: 1;
-      text-align: center;
-      color: var(--text-dim);
+    .muni-block-header {
       font-size: 11px;
-      letter-spacing: 2px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      opacity: 0.6;
-      align-self: center;
+      color: var(--muni, var(--text-muted));
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .muni-block-header .seat-count {
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.3px;
+      text-transform: none;
+    }
+
+    .muni-block-tiles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .muni-block-tiles .chair-card {
+      width: 190px;
+      flex-grow: 1;
+      max-width: 260px;
     }
 
     .chair-card {
@@ -1013,7 +1024,7 @@
         <span><span class="dot" style="background:var(--yellow)"></span> Incumbent not registered yet</span>
         <span><span class="dot" style="background:var(--red)"></span> Incumbent not running</span>
         <span style="color:var(--text-dim)">&#9679; challenger filed &nbsp; &#9675; challenger likely (not yet filed)</span>
-        <span style="color:var(--text-dim);font-style:italic">Horseshoe mimics the chamber &mdash; chairs grouped by municipality, not actual seat assignments</span>
+        <span style="color:var(--text-dim);font-style:italic">One block per municipality &mdash; block size reflects its Regional Council contingent</span>
       </div>
       <div class="chamber-wrap">
         <div class="chamber" id="chamber">
@@ -1490,30 +1501,25 @@
   // Chairs grouped by municipality around a U that mimics the chamber's
   // horseshoe — York Region doesn't publish actual seat assignments, so
   // this is illustrative placement, not the real chair map.
-  // The U opens downward: crossbar row across the top, arms running down
-  // each side, and the Regional Chair at the bottom centre facing the open
-  // end. Arm arrays read top-to-bottom.
-  const CHAMBER_TOP = [
-    'richmond-hill-mayor', 'richmond-hill-regional-councillor-1', 'richmond-hill-regional-councillor-2',
-    'georgina-mayor', 'georgina-regional-councillor-1',
-    'newmarket-mayor', 'newmarket-regional-councillor-1',
-  ];
-  const CHAMBER_LEFT = [
-    'aurora-mayor', 'king-mayor',
-    'vaughan-regional-councillor-4', 'vaughan-regional-councillor-3',
-    'vaughan-regional-councillor-2', 'vaughan-regional-councillor-1',
-    'vaughan-mayor',
-  ];
-  const CHAMBER_RIGHT = [
-    'east-gwillimbury-mayor', 'whitchurch-stouffville-mayor',
-    'markham-regional-councillor-4', 'markham-regional-councillor-3',
-    'markham-regional-councillor-2', 'markham-regional-councillor-1',
-    'markham-mayor',
+  // Municipality display order: biggest Regional Council contingents first
+  // so Vaughan and Markham (5 seats each) dominate the top of the grid.
+  const CHAMBER_MUNI_ORDER = [
+    'Vaughan', 'Markham', 'Richmond Hill', 'Georgina', 'Newmarket',
+    'Aurora', 'East Gwillimbury', 'King', 'Whitchurch-Stouffville',
   ];
 
-  const MUNI_SHORT = {
-    'Whitchurch-Stouffville': 'W-Stouffville',
-    'East Gwillimbury': 'E. Gwillimbury',
+  // One distinct hue per municipality (kept away from the green/yellow/red
+  // used for filing status on each tile's top edge).
+  const MUNI_COLORS = {
+    'Vaughan':                '#f97316',
+    'Markham':                '#3b82f6',
+    'Richmond Hill':          '#a855f7',
+    'Georgina':               '#14b8a6',
+    'Newmarket':              '#06b6d4',
+    'Aurora':                 '#ec4899',
+    'East Gwillimbury':       '#6366f1',
+    'King':                   '#84cc16',
+    'Whitchurch-Stouffville': '#f43f5e',
   };
 
   function chairCard(seat) {
@@ -1523,10 +1529,10 @@
       || state.candidates.find(c => c.id === seat.incumbent_candidate_id);
     const challengers = cands.filter(c => c.id !== seat.incumbent_candidate_id);
 
-    const muni = MUNI_SHORT[seat.municipality] || seat.municipality;
+    // Municipality is conveyed by the coloured block the tile sits in.
     const atLarge = (seat.seat_label || '').includes('at-large') ? ' · at-large' : '';
-    const officeShort = seat.office === 'Regional Councillor' ? 'Reg. Councillor' : seat.office;
-    const seatLabel = `${muni} — ${officeShort}${atLarge}`;
+    const officeShort = seat.office === 'Regional Councillor' ? 'Regional Councillor' : seat.office;
+    const seatLabel = `${officeShort}${atLarge}`;
 
     let statusClass = 'unknown';
     let statusHtml = 'Not registered';
@@ -1573,9 +1579,6 @@
       return;
     }
 
-    const seatById = {};
-    for (const s of state.seats) seatById[s.id] = s;
-
     const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
     const headCard = `
       <div class="chair-card chair-appointed">
@@ -1585,19 +1588,24 @@
       </div>
     `;
 
-    const topLeft = CHAMBER_TOP.slice(0, 3);
-    const topRight = CHAMBER_TOP.slice(3);
+    const blocks = CHAMBER_MUNI_ORDER.map(muni => {
+      // Mayor first, then regional councillors in seat order.
+      const seats = regionalSeats()
+        .filter(s => s.municipality === muni)
+        .sort((a, b) => (a.office === 'Mayor' ? -1 : 1) - (b.office === 'Mayor' ? -1 : 1) || a.id.localeCompare(b.id));
+      if (!seats.length) return '';
+      const color = MUNI_COLORS[muni] || '#64748b';
+      return `
+        <div class="muni-block" style="--muni:${color}">
+          <div class="muni-block-header">${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
+          <div class="muni-block-tiles">${seats.map(chairCard).join('')}</div>
+        </div>
+      `;
+    }).join('');
+
     el.innerHTML = `
-      <div class="chamber-topbar">
-        <div class="topbar-side">${topLeft.map(id => chairCard(seatById[id])).join('')}</div>
-        ${headCard}
-        <div class="topbar-side">${topRight.map(id => chairCard(seatById[id])).join('')}</div>
-      </div>
-      <div class="chamber-body">
-        <div class="chamber-arm">${CHAMBER_LEFT.map(id => chairCard(seatById[id])).join('')}</div>
-        <div class="chamber-floor">Council Chamber Floor</div>
-        <div class="chamber-arm">${CHAMBER_RIGHT.map(id => chairCard(seatById[id])).join('')}</div>
-      </div>
+      <div class="chamber-head-row">${headCard}</div>
+      <div class="chamber-groups">${blocks}</div>
     `;
   }
 
