@@ -966,10 +966,12 @@
         <div class="countdown-box">
           <div class="days" id="countdown-noms" style="color:var(--orange)">—</div>
           <div class="label">Days to Noms Close</div>
+          <div class="label" style="color:var(--text);font-weight:600">Aug 21, 2026</div>
         </div>
         <div class="countdown-box">
           <div class="days" id="countdown-days">—</div>
           <div class="label">Days to Election</div>
+          <div class="label" style="color:var(--text);font-weight:600">Oct 26, 2026</div>
         </div>
         <div class="last-updated">
           <div><strong>Last Updated</strong></div>
@@ -997,26 +999,14 @@
     <div class="lameduck-banner status-unknown" id="lameduck-banner">
       <div class="lameduck-stat">
         <div class="lameduck-value" id="lameduck-fraction">—</div>
-        <div class="lameduck-label" id="lameduck-fraction-label">Confirmed Filed</div>
+        <div class="lameduck-label">Incumbents Registered</div>
       </div>
       <div class="lameduck-body">
-        <div class="lameduck-title" id="lameduck-title">York Regional Council — Lame-Duck Status</div>
-        <div class="lameduck-basis" id="lameduck-basis">Loading council status…</div>
+        <div class="lameduck-title" id="lameduck-basis">Loading council status…</div>
       </div>
-      <button class="lameduck-muni-toggle" id="lameduck-muni-toggle">Show 9 municipalities &#9662;</button>
-    </div>
-    <div class="lameduck-muni-panel" id="lameduck-muni-panel">
-      <div id="lameduck-unfiled" style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.7"></div>
-      <div class="lameduck-muni-grid" id="lameduck-muni-grid"></div>
     </div>
 
-    <!-- View Switcher -->
-    <div class="view-tabs">
-      <button class="view-tab active" data-view="chamber">Council Chamber</button>
-      <button class="view-tab" data-view="overview">Overview</button>
-    </div>
-
-    <!-- ======================= CHAMBER VIEW ======================= -->
+    <!-- Council Chamber -->
     <div id="view-chamber">
       <div class="chamber-legend">
         <span><span class="dot" style="background:var(--green)"></span> Incumbent filed</span>
@@ -1031,73 +1021,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ======================= OVERVIEW VIEW ======================= -->
-    <div id="view-overview" style="display:none">
-
-    <!-- Nomination Period Status -->
-    <div class="nomination-banner">
-      <div class="nom-item">
-        <span class="nom-value">May 1</span>
-        <span class="nom-label">Noms Open</span>
-      </div>
-      <div class="nom-divider"></div>
-      <div class="nom-item">
-        <span class="nom-value">Aug 21</span>
-        <span class="nom-label">Noms Close</span>
-      </div>
-      <div class="nom-divider"></div>
-      <div class="nom-item">
-        <span class="nom-value">Oct 26</span>
-        <span class="nom-label">Election Day</span>
-      </div>
-      <div class="nom-divider"></div>
-      <div class="nom-progress-wrap">
-        <div class="nom-progress-label">
-          <span>Nomination Window Progress</span>
-          <span id="nom-pct">—%</span>
-        </div>
-        <div class="nom-progress-track">
-          <div class="nom-progress-fill" id="nom-progress-bar" style="width:0%"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stat Cards -->
-    <div class="stat-grid" id="stat-grid">
-      <div class="stat-card blue">
-        <div class="stat-value" id="stat-total-candidates">—</div>
-        <div class="stat-label">Total Candidates</div>
-        <div class="stat-sub">Mayor + Regional Councillor races</div>
-      </div>
-      <div class="stat-card orange">
-        <div class="stat-value" id="stat-races-contested">—</div>
-        <div class="stat-label">Contested Races</div>
-        <div class="stat-sub">Regional races with 2+ candidates</div>
-      </div>
-      <div class="stat-card green">
-        <div class="stat-value" id="stat-filings-7d">—</div>
-        <div class="stat-label">Filings (7 Days)</div>
-        <div class="stat-sub">New regional-race registrations</div>
-      </div>
-      <div class="stat-card yellow">
-        <div class="stat-value" id="stat-empty-seats">—</div>
-        <div class="stat-label">Seats With No Filed Candidates</div>
-        <div class="stat-sub">Of 21 Regional Council seats</div>
-      </div>
-    </div>
-
-    <!-- Recent Registrations -->
-    <div class="alignment-overview">
-      <div class="section-title">
-        Recent Candidate Registrations
-        <span class="badge" id="recent-reg-badge">0</span>
-      </div>
-      <div class="news-grid" id="recent-registrations">
-        <div class="loading-spinner"><div class="spinner"></div> Loading registrations…</div>
-      </div>
-    </div>
-
 
     <!-- Fiscal Alignment Overview -->
     <div class="alignment-overview">
@@ -1119,7 +1042,7 @@
       </div>
     </div>
 
-    <!-- Municipality Tabs -->
+    <!-- Regional Council Races by Municipality -->
     <div class="municipalities-section">
       <div class="section-title" style="margin-bottom:10px">
         Regional Council Races by Municipality
@@ -1133,18 +1056,16 @@
       </div>
     </div>
 
-    <!-- News Feed -->
-    <div class="news-section">
+    <!-- Recent Registrations -->
+    <div class="alignment-overview">
       <div class="section-title">
-        Latest News
-        <span class="badge" id="news-total-badge">0 articles</span>
+        Recent Candidate Registrations
+        <span class="badge" id="recent-reg-badge">0</span>
       </div>
-      <div class="news-grid" id="news-grid">
-        <div class="loading-spinner"><div class="spinner"></div> Loading news…</div>
+      <div class="news-grid" id="recent-registrations">
+        <div class="loading-spinner"><div class="spinner"></div> Loading registrations…</div>
       </div>
     </div>
-
-    </div><!-- /#view-overview -->
 
   </div>
 </main>
@@ -1209,13 +1130,6 @@
     news_inferred:       '#84cc16',
     incumbency_default:  '#94a3b8',
     unscored:            '#334155',
-  };
-
-  const LAMEDUCK_STATUS_TEXT = {
-    on_track:            'On Track',
-    at_risk:              'At Risk',
-    lame_duck_confirmed:  'Lame Duck',
-    unknown:               'Unknown',
   };
 
   // ============================================================
@@ -1310,13 +1224,6 @@
     }, {});
   }
 
-  function nominationProgress() {
-    const now = Date.now();
-    const total = NOM_CLOSE - NOM_OPEN;
-    const elapsed = Math.min(Math.max(now - NOM_OPEN, 0), total);
-    return total > 0 ? (elapsed / total) * 100 : 0;
-  }
-
   // Clerk pages publish "May 1, 2026"-style dates; Date() parses these fine.
   function parseFiledDate(c) {
     if (!c.registration_date) return null;
@@ -1365,17 +1272,6 @@
   }
 
   // ============================================================
-  // RENDER: NOMINATION PROGRESS
-  // ============================================================
-  function renderNomProgress() {
-    const pct = nominationProgress();
-    const bar = document.getElementById('nom-progress-bar');
-    const label = document.getElementById('nom-pct');
-    if (bar) bar.style.width = pct.toFixed(1) + '%';
-    if (label) label.textContent = pct.toFixed(0) + '%';
-  }
-
-  // ============================================================
   // RENDER: ALERT BANNER
   // ============================================================
   function renderAlert() {
@@ -1408,98 +1304,15 @@
     if (!rc) {
       banner.className = 'lameduck-banner status-unknown';
       setText('lameduck-fraction', '—');
-      const titleEl = document.getElementById('lameduck-title');
-      if (titleEl) titleEl.textContent = 'York Regional Council — Lame-Duck Status';
       setText('lameduck-basis', 'Council status data not yet available.');
       return;
     }
 
     banner.className = 'lameduck-banner status-' + rc.status;
     setText('lameduck-fraction', `${rc.confirmed_filed_count}/${rc.total_current_elected_members}`);
-    setText('lameduck-fraction-label', `Filed (need ${rc.threshold_count})`);
-    const titleEl = document.getElementById('lameduck-title');
-    if (titleEl) {
-      titleEl.textContent = `York Regional Council — ${LAMEDUCK_STATUS_TEXT[rc.status] || rc.status}`;
-    }
-    setText('lameduck-basis', rc.status_basis || '');
-
-    const toggle = document.getElementById('lameduck-muni-toggle');
-    if (toggle && !document.getElementById('lameduck-muni-panel').classList.contains('open')) {
-      const n = Object.keys(state.councilStatus.municipalities || {}).length;
-      toggle.innerHTML = `Show ${n} municipalities &#9662;`;
-    }
-
-    renderLameDuckMuniPanel();
-  }
-
-  function renderLameDuckMuniPanel() {
-    // The names behind the lame-duck math: which regional council members
-    // haven't filed yet. This is the watchlist that decides the 16-of-21.
-    const unfiledEl = document.getElementById('lameduck-unfiled');
-    const rc = state.councilStatus.regional_council;
-    if (unfiledEl && rc && rc.members) {
-      const unfiled = rc.members.filter(m => m.filed_for_reelection !== 'confirmed');
-      if (unfiled.length) {
-        const names = unfiled.map(m => {
-          const declined = m.filed_for_reelection === 'declined';
-          return `<span style="${declined ? 'color:var(--red);text-decoration:line-through' : ''}">${escapeHtml(m.name || m.seat_id)} <span style="color:var(--text-dim)">(${escapeHtml(m.municipality)} ${m.office === 'Mayor' ? 'Mayor' : 'RC'})</span></span>`;
-        }).join(', ');
-        unfiledEl.innerHTML = `<strong style="color:var(--text)">Regional members not yet filed (${unfiled.length}):</strong> ${names}`;
-      } else {
-        unfiledEl.innerHTML = '';
-      }
-    }
-
-    const grid = document.getElementById('lameduck-muni-grid');
-    if (!grid) return;
-    const munis = state.councilStatus.municipalities || {};
-    const names = Object.keys(munis).sort();
-
-    grid.innerHTML = names.map(name => {
-      const m = munis[name];
-      return `
-        <div class="lameduck-muni-card status-${m.status}">
-          <div class="muni-name">${escapeHtml(name)}</div>
-          <div class="muni-count">${m.confirmed_filed_count}/${m.total_current_elected_members} filed (need ${m.threshold_count}) &bull; ${LAMEDUCK_STATUS_TEXT[m.status] || m.status}</div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  // ============================================================
-  // RENDER: STAT CARDS
-  // ============================================================
-  function renderStats() {
-    const candidates = regionalCandidates();
-    const news = state.news;
-
-    // Total candidates (regional races only)
-    const total = candidates.length;
-    setText('stat-total-candidates', total);
-
-    // Contested races: group by municipality+office+ward, count those with 2+
-    const raceKey = c => `${c.municipality}|${c.office}|${c.ward || ''}`;
-    const raceCounts = {};
-    for (const c of candidates) {
-      const k = raceKey(c);
-      raceCounts[k] = (raceCounts[k] || 0) + 1;
-    }
-    const contested = Object.values(raceCounts).filter(n => n >= 2).length;
-    setText('stat-races-contested', contested);
-
-    // Filings in the last 7 days (by clerk-published date filed)
-    const cutoff7d = Date.now() - 7 * 86400000;
-    const filings7d = candidates.filter(c => {
-      const d = parseFiledDate(c);
-      return isFiled(c) && d && d.getTime() >= cutoff7d;
-    }).length;
-    setText('stat-filings-7d', filings7d);
-
-    // Regional council seats where nobody has filed yet
-    const filedSeatIds = new Set(candidates.filter(c => isFiled(c) && c.seat_id).map(c => c.seat_id));
-    const rSeats = regionalSeats();
-    const emptySeats = rSeats.filter(s => !filedSeatIds.has(s.id)).length;
-    setText('stat-empty-seats', rSeats.length ? emptySeats : '—');
+    setText('lameduck-basis',
+      `${rc.confirmed_filed_count}/${rc.total_current_elected_members} incumbents registered. ` +
+      `${rc.threshold_count} required to avoid lame duck session.`);
   }
 
   // ============================================================
@@ -2008,46 +1821,6 @@
   }
 
   // ============================================================
-  // RENDER: NEWS FEED
-  // ============================================================
-  function renderNews() {
-    const container = document.getElementById('news-grid');
-    const badge = document.getElementById('news-total-badge');
-    if (!container) return;
-
-    const articles = state.news.slice(0, 20); // show latest 20
-    if (badge) badge.textContent = `${state.news.length} article${state.news.length !== 1 ? 's' : ''}`;
-
-    if (!articles.length) {
-      container.innerHTML = `<div class="empty-state">No news articles yet. Data updates every 2 hours via GitHub Actions.</div>`;
-      return;
-    }
-
-    container.innerHTML = articles.map(a => {
-      const dcClass = a.dc_related ? ' dc-story' : '';
-      const munis = (a.municipalities || []).slice(0, 3);
-      const muniTags = munis.map(m => `<span class="muni-tag">${escapeHtml(m)}</span>`).join('');
-      const dcTag = a.dc_related ? `<span class="dc-tag">DC / Bylaw</span>` : '';
-      const date = formatShortDate(a.published_at);
-      const titleHtml = a.url
-        ? `<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.title)}</a>`
-        : escapeHtml(a.title);
-
-      return `
-        <div class="news-item${dcClass}">
-          <div class="news-item-header">
-            <div class="news-item-title">${titleHtml}</div>
-          </div>
-          <div class="news-item-meta">
-            <span class="news-date">${date}</span>
-            <div class="news-muni-tags">${muniTags}${dcTag}</div>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  // ============================================================
   // HELPERS
   // ============================================================
   function slugify(str) {
@@ -2061,13 +1834,10 @@
     renderHeader();
     renderLameDuckBanner();
     renderChamber();
-    renderNomProgress();
     renderAlert();
-    renderStats();
-    renderRecentRegistrations();
     renderAlignmentOverview();
     renderMuniTabs();
-    renderNews();
+    renderRecentRegistrations();
   }
 
   // ============================================================
@@ -2078,29 +1848,6 @@
     const days = daysUntil(ELECTION_DATE);
     const el = document.getElementById('countdown-days');
     if (el) el.textContent = days > 0 ? days : '0';
-
-    // View switcher: Council Chamber vs Overview
-    document.querySelectorAll('.view-tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.view-tab').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const view = btn.dataset.view;
-        document.getElementById('view-chamber').style.display = view === 'chamber' ? '' : 'none';
-        document.getElementById('view-overview').style.display = view === 'overview' ? '' : 'none';
-      });
-    });
-
-    // Lame-duck municipal breakdown toggle (attached once; panel content
-    // itself is re-rendered on every data refresh)
-    const muniToggle = document.getElementById('lameduck-muni-toggle');
-    const muniPanel = document.getElementById('lameduck-muni-panel');
-    if (muniToggle && muniPanel) {
-      muniToggle.addEventListener('click', () => {
-        const isOpen = muniPanel.classList.toggle('open');
-        const n = Object.keys(state.councilStatus.municipalities || {}).length || 9;
-        muniToggle.innerHTML = isOpen ? 'Hide municipalities &#9652;' : `Show ${n} municipalities &#9662;`;
-      });
-    }
 
     // Load data
     loadData();
