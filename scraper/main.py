@@ -135,15 +135,38 @@ def main():
     metadata["candidate_count"] = len(scored_candidates)
     metadata["news_count"] = len(updated_news)
 
-    # Count new registrations in last 24h (based on scraped_at)
+    # New registrations in the last 24h, based on first_seen_at (stable across
+    # re-scrapes — scraped_at refreshes every run, which previously made every
+    # candidate count as "new" forever).
     from datetime import timedelta
     cutoff_24h = (now - timedelta(hours=24)).isoformat()
     new_registrations = [
         c for c in scored_candidates
-        if c.get("scraped_at") and c["scraped_at"] > cutoff_24h
-        and c.get("source") == "scraped"
+        if c.get("source") == "scraped"
+        and (c.get("first_seen_at") or c.get("scraped_at") or "") > cutoff_24h
     ]
     metadata["new_registrations_24h"] = len(new_registrations)
+
+    # Filings in the last 7 days by the clerk-published date filed — the
+    # real-world "timely" signal, independent of when we happened to scrape.
+    def parse_filed(c):
+        raw = c.get("registration_date")
+        if not raw:
+            return None
+        for fmt in ("%B %d, %Y", "%b %d, %Y", "%Y-%m-%d"):
+            try:
+                return datetime.strptime(raw.strip(), fmt).date()
+            except ValueError:
+                continue
+        return None
+
+    cutoff_7d = (now - timedelta(days=7)).date()
+    metadata["new_filings_7d"] = sum(
+        1 for c in scored_candidates
+        if c.get("registered") and (d := parse_filed(c)) and d >= cutoff_7d
+    )
+
+    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS
     metadata["data_confidence"] = {
         "candidates_confirmed_filed": sum(
             1 for c in scored_candidates if c.get("filed_for_reelection") == "confirmed"
@@ -153,6 +176,10 @@ def main():
         ),
         "seats_total": len(seats),
         "candidate_scraper_enabled": ENABLE_CANDIDATE_SCRAPE,
+        "scrape_coverage": {
+            muni: ("live" if muni in SCRAPABLE_MUNICIPALITIES else "manual_check_required")
+            for muni in MUNICIPALITY_URLS
+        },
     }
 
     # --- Step 7: Save ---

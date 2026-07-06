@@ -405,6 +405,9 @@ def reconcile_scraped_candidates(
             existing["registration_date"] = rc["date_filed"]
             existing["source"] = "scraped"
             existing["scraped_at"] = rc["scraped_at"]
+            # first_seen_at must survive re-scrapes — it's what "newly
+            # detected filing" alerts key off, unlike scraped_at (last seen).
+            existing.setdefault("first_seen_at", rc["scraped_at"])
             if rc["withdrawn"]:
                 existing["fiscal_notes"] = (existing.get("fiscal_notes") or "") + " Filed then withdrew nomination."
             updated[cid] = existing
@@ -413,6 +416,21 @@ def reconcile_scraped_candidates(
         if rc["withdrawn"]:
             # A withdrawn filing from someone who wasn't a current incumbent
             # isn't worth creating a permanent candidate record for.
+            continue
+
+        cid = make_challenger_id(rc["municipality"], rc["office"], rc["ward"], rc["name"])
+
+        if cid in updated:
+            # Known challenger re-observed on a later scrape: refresh only the
+            # scrape-owned fields. Rebuilding the whole record here would reset
+            # first_seen_at every run (making every candidate look "new"
+            # forever) and would discard any manual edits.
+            existing = updated[cid]
+            existing["filing_source"] = rc["filing_source"]
+            existing["registered"] = True
+            existing["registration_date"] = rc["date_filed"]
+            existing["scraped_at"] = rc["scraped_at"]
+            existing.setdefault("first_seen_at", rc["scraped_at"])
             continue
 
         # New challenger. Assign to a matched seat if one exists (multi-seat
@@ -427,7 +445,6 @@ def reconcile_scraped_candidates(
             seat_id = matched_seats[idx]["id"]
             seat_taken_by_challenger[f"{rc['municipality']}|{rc['office']}|{rc['ward']}"] = idx + 1
 
-        cid = make_challenger_id(rc["municipality"], rc["office"], rc["ward"], rc["name"])
         updated[cid] = {
             "id": cid,
             "seat_id": seat_id,
@@ -450,6 +467,7 @@ def reconcile_scraped_candidates(
             "likely_to_win": None,
             "source": "scraped",
             "scraped_at": rc["scraped_at"],
+            "first_seen_at": rc["scraped_at"],
         }
 
     return list(updated.values())

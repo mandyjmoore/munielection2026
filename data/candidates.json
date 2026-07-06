@@ -25,10 +25,11 @@
         "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-1-councillor-ron-weese",
@@ -54,7 +55,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -62,7 +63,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -91,7 +92,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -99,7 +100,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -129,7 +130,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -137,7 +138,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -168,10 +169,11 @@
         "1 challenger(s) filed with limited news visibility (max 1 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-5-councillor-john-gallo",
@@ -198,7 +200,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -206,7 +208,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -237,10 +239,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-virginia-hackson",
@@ -266,7 +269,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -274,7 +277,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -305,10 +308,11 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-1-councillor-terry-e-foster",
@@ -334,7 +338,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -342,7 +346,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -372,7 +376,7 @@
         "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -380,7 +384,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -410,7 +414,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -418,7 +422,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -448,7 +452,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -456,7 +460,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -486,10 +490,11 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "georgina-mayor-margaret-quirk",
@@ -517,10 +522,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-regional-councillor-1-naomi-davison",
@@ -548,10 +554,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-1-councillor-charlene-biggerstaff",
@@ -579,10 +586,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-2-councillor-dan-fellini",
@@ -610,10 +618,11 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-3-councillor-dave-neeson",
@@ -641,10 +650,11 @@
         "4 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-4-councillor-dale-kerr-genge",
@@ -670,7 +680,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -678,7 +688,7 @@
         "Incumbent has not yet filed for re-election — 4 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -707,7 +717,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -715,7 +725,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -746,10 +756,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-1-councillor-jordan-alexander-cescolini",
@@ -777,10 +788,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-2-councillor-david-boyd",
@@ -808,10 +820,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-3-councillor-jennifer-anstey",
@@ -839,10 +852,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-4-councillor-mary-asselstine",
@@ -870,10 +884,11 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-5-councillor-debbie-schaefer",
@@ -899,7 +914,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -907,7 +922,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -938,10 +953,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "markham-mayor-frank-scarpitti",
@@ -967,7 +983,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -975,7 +991,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -995,17 +1011,17 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 3 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 3,
-    "last_news_date": "2026-07-03T14:00:00+00:00",
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 2 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 2,
+    "last_news_date": "2026-05-28T12:00:00+00:00",
     "likely_to_run_again": {
       "label": "uncertain",
       "basis": [
         "No retirement or non-candidacy announcement found in news",
-        "3 news article(s) reviewed, none signaling non-candidacy"
+        "2 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1013,7 +1029,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1042,7 +1058,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1050,7 +1066,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1079,7 +1095,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1087,7 +1103,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1116,7 +1132,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1124,7 +1140,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1153,7 +1169,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1161,7 +1177,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1190,7 +1206,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1198,7 +1214,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1227,7 +1243,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1235,7 +1251,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1264,7 +1280,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1272,7 +1288,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1301,7 +1317,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1309,7 +1325,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1338,7 +1354,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1346,7 +1362,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1375,7 +1391,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1383,7 +1399,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1412,7 +1428,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1420,7 +1436,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1449,7 +1465,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1457,7 +1473,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1486,7 +1502,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1494,7 +1510,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1523,7 +1539,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1531,7 +1547,7 @@
         "Incumbent has not yet filed for re-election — 4 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1560,7 +1576,7 @@
         "News signal: \"Longtime Newmarket Councillor Victor Woodhouse won't seek re-election - NewmarketToday.ca\""
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1568,7 +1584,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1597,7 +1613,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1605,7 +1621,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1636,10 +1652,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-5-councillor-bob-kwapis",
@@ -1667,10 +1684,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-6-councillor-kelly-broome",
@@ -1698,10 +1716,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-7-councillor-christina-bisanz",
@@ -1727,7 +1746,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1735,7 +1754,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1755,9 +1774,9 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 7 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 7,
-    "last_news_date": "2026-06-19T07:00:00+00:00",
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 4 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 4,
+    "last_news_date": "2026-05-18T07:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
       "label": "favored",
@@ -1766,10 +1785,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-1-godwin-chan",
@@ -1786,9 +1806,9 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 3 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 3,
-    "last_news_date": "2026-07-03T14:00:00+00:00",
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 2 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 2,
+    "last_news_date": "2026-05-28T12:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
       "label": "favored",
@@ -1797,10 +1817,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-2-joe-dipaola",
@@ -1828,10 +1849,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-1-councillor-carol-davidson",
@@ -1859,10 +1881,11 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-2-councillor-scott-thompson",
@@ -1889,7 +1912,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1897,7 +1920,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1926,7 +1949,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -1934,7 +1957,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1965,10 +1988,11 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-5-councillor-karen-cilevitz",
@@ -1996,10 +2020,11 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-6-councillor-michael-shiu",
@@ -2027,10 +2052,11 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "vaughan-mayor-steven-del-duca",
@@ -2047,17 +2073,17 @@
     "fiscal_alignment_score": 4,
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "incumbency_default",
-    "fiscal_notes": "Incumbent; no clear DC-related signal in 6 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
-    "news_mentions": 6,
+    "fiscal_notes": "Incumbent; no clear DC-related signal in 5 news article(s) reviewed. Default incumbency adjustment applied (tacit association with DC Bylaw 2026-20).",
+    "news_mentions": 5,
     "last_news_date": "2026-07-01T17:00:00+00:00",
     "likely_to_run_again": {
       "label": "uncertain",
       "basis": [
         "No retirement or non-candidacy announcement found in news",
-        "6 news article(s) reviewed, none signaling non-candidacy"
+        "5 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2065,7 +2091,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2094,7 +2120,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2102,7 +2128,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2131,7 +2157,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2139,7 +2165,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2168,7 +2194,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2176,7 +2202,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2205,7 +2231,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2213,7 +2239,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2242,7 +2268,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2250,7 +2276,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2279,7 +2305,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2287,7 +2313,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2316,7 +2342,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2324,7 +2350,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2353,7 +2379,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2361,7 +2387,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2390,7 +2416,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2398,7 +2424,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2428,7 +2454,7 @@
         "3 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2436,7 +2462,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2465,7 +2491,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2473,7 +2499,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2503,7 +2529,7 @@
         "1 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2511,7 +2537,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2540,7 +2566,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2548,7 +2574,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2577,7 +2603,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2585,7 +2611,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2614,7 +2640,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2622,7 +2648,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2651,7 +2677,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -2659,7 +2685,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -2690,10 +2716,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-councillor-1-abrar-mohar",
@@ -2721,10 +2748,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-councillor-4-frank-mastromattei",
@@ -2752,10 +2780,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-councillor-4-jakob-schneider",
@@ -2783,10 +2812,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-councillor-5-ivan-rapa",
@@ -2814,10 +2844,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-councillor-5-gregory-peri",
@@ -2845,10 +2876,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "king-ward-councillor-5-stephen-ongaro",
@@ -2876,10 +2908,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:16.833081+00:00"
+    "scraped_at": "2026-07-06T13:44:01.110542+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "aurora-mayor-shawn-deane",
@@ -2907,10 +2940,11 @@
         "1 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-mayor-john-gallo",
@@ -2938,10 +2972,11 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-1-lauren-hanna",
@@ -2969,10 +3004,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-1-rocco-morsillo",
@@ -3000,10 +3036,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-2-marco-di-girolamo",
@@ -3031,10 +3068,11 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-3-nikki-alber",
@@ -3062,10 +3100,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-3-alexandra-bonham",
@@ -3093,10 +3132,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-3-robert-james-fraser",
@@ -3124,10 +3164,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-4-shaheen-moledina",
@@ -3155,10 +3196,11 @@
         "1 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-5-charity-dela-cruz-toupin",
@@ -3186,10 +3228,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-5-jessie-fraser",
@@ -3217,10 +3260,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-5-milton-hart",
@@ -3248,10 +3292,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-ward-councillor-6-jibraan-khan",
@@ -3279,10 +3324,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.907999+00:00"
+    "scraped_at": "2026-07-06T13:44:00.603662+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "georgina-mayor-dale-kerr-genge",
@@ -3310,10 +3356,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-regional-councillor-geoff-fardy",
@@ -3341,10 +3388,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-1-duncan-maccallum",
@@ -3372,10 +3420,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-2-natalie-floyd",
@@ -3403,10 +3452,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-2-mike-gurr",
@@ -3434,10 +3484,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-2-shannon-delenardo",
@@ -3465,10 +3516,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-3-andrew-edge",
@@ -3496,10 +3548,11 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-3-billy-hadden",
@@ -3527,10 +3580,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-3-nicholas-watts",
@@ -3558,10 +3612,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-3-danielle-cohen",
@@ -3589,10 +3644,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-4-antonio-romans",
@@ -3620,10 +3676,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-4-casey-sellers",
@@ -3651,10 +3708,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-4-mike-anderson",
@@ -3682,10 +3740,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-4-ivy-henriksen",
@@ -3713,10 +3772,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-ward-councillor-5-karen-wolfe",
@@ -3744,10 +3804,11 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:18.337511+00:00"
+    "scraped_at": "2026-07-06T13:43:59.717526+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-scott-crone",
@@ -3775,10 +3836,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-brian-johns",
@@ -3806,10 +3868,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-1-david-blyth",
@@ -3837,10 +3900,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-1-joel-kearney",
@@ -3868,10 +3932,11 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-1-andrew-lenkov",
@@ -3899,10 +3964,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-2-kelly-holiday",
@@ -3930,10 +3996,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-2-john-petejan",
@@ -3961,10 +4028,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-2-raka-paul",
@@ -3992,10 +4060,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-2-danny-mladjenovic",
@@ -4023,10 +4092,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-3-christine-glenn",
@@ -4054,10 +4124,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-3-carolyn-butterworth",
@@ -4085,10 +4156,11 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-ward-councillor-3-carmen-cipolla",
@@ -4116,10 +4188,11 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.157355+00:00"
+    "scraped_at": "2026-07-06T13:44:00.020297+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "richmond-hill-mayor-holo-devnani",
@@ -4147,10 +4220,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-marco-coletta",
@@ -4178,10 +4252,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-1-giovanni-nardone",
@@ -4209,10 +4284,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-2-muhammad-kermalli",
@@ -4240,10 +4316,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-2-sigmund-lee",
@@ -4271,10 +4348,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-2-tom-muench",
@@ -4302,10 +4380,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-3-juni-yeung",
@@ -4333,10 +4412,11 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-4-sharon-chisholm",
@@ -4364,10 +4444,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-4-rose-weinberg",
@@ -4395,10 +4476,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-4-danny-yoon",
@@ -4426,10 +4508,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-5-marty-paulin",
@@ -4457,10 +4540,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-ward-councillor-5-richard-rupp",
@@ -4488,10 +4572,11 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:17.797119+00:00"
+    "scraped_at": "2026-07-06T13:43:59.312552+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "newmarket-ward-councillor-1-naqi-ahsan",
@@ -4519,10 +4604,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-1-nasim-bahari",
@@ -4550,10 +4636,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-1-nisa-chaudhry",
@@ -4581,10 +4668,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-1-sonia-fiorini",
@@ -4612,10 +4700,11 @@
         "5 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-2-brian-andrews",
@@ -4643,10 +4732,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-2-glenn-marais",
@@ -4674,10 +4764,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-2-pamela-mccarthy",
@@ -4705,10 +4796,11 @@
         "4 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   },
   {
     "id": "newmarket-ward-councillor-3-andrey-zavidovskiy",
@@ -4736,9 +4828,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-07-06T13:40:04.978263+00:00"
+      "as_of": "2026-07-06T13:43:57.100566+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-06T13:40:11.587765+00:00"
+    "scraped_at": "2026-07-06T13:43:58.721629+00:00",
+    "first_seen_at": "2026-07-06T13:43:58.721629+00:00"
   }
 ]
