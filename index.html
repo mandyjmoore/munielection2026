@@ -884,22 +884,22 @@
       <div class="stat-card blue">
         <div class="stat-value" id="stat-total-candidates">—</div>
         <div class="stat-label">Total Candidates</div>
-        <div class="stat-sub">All registered nominees</div>
+        <div class="stat-sub">Mayor + Regional Councillor races</div>
       </div>
       <div class="stat-card orange">
         <div class="stat-value" id="stat-races-contested">—</div>
         <div class="stat-label">Contested Races</div>
-        <div class="stat-sub">Races with 2+ candidates</div>
+        <div class="stat-sub">Regional races with 2+ candidates</div>
       </div>
       <div class="stat-card green">
         <div class="stat-value" id="stat-filings-7d">—</div>
         <div class="stat-label">Filings (7 Days)</div>
-        <div class="stat-sub">New registrations this week</div>
+        <div class="stat-sub">New regional-race registrations</div>
       </div>
       <div class="stat-card yellow">
         <div class="stat-value" id="stat-empty-seats">—</div>
         <div class="stat-label">Seats With No Filed Candidates</div>
-        <div class="stat-sub">Of 76 total seats</div>
+        <div class="stat-sub">Of 21 Regional Council seats</div>
       </div>
     </div>
 
@@ -938,7 +938,8 @@
     <!-- Municipality Tabs -->
     <div class="municipalities-section">
       <div class="section-title" style="margin-bottom:10px">
-        Candidates by Municipality
+        Regional Council Races by Municipality
+        <span style="font-size:11px;font-weight:400;color:var(--text-dim)">Mayor + Regional Councillor seats — the 21 that sit on York Regional Council</span>
       </div>
       <div class="muni-tabs" id="muni-tabs">
         <!-- tabs injected by JS -->
@@ -1141,6 +1142,22 @@
     return !!c.registered || c.filed_for_reelection === 'confirmed';
   }
 
+  // The dashboard only displays races for seats on York Regional Council —
+  // the 9 mayoral races plus the 12 regional councillor seats. Ward
+  // councillor data stays in the pipeline (the per-municipality lame-duck
+  // math needs those filings) but ward races are not shown.
+  function isRegionalRace(c) {
+    return c.office === 'Mayor' || c.office === 'Regional Councillor';
+  }
+
+  function regionalCandidates() {
+    return state.candidates.filter(isRegionalRace);
+  }
+
+  function regionalSeats() {
+    return state.seats.filter(s => s.is_regional_seat);
+  }
+
   // ============================================================
   // RENDER: HEADER / COUNTDOWN
   // ============================================================
@@ -1179,7 +1196,7 @@
     // Based on the clerk-published date filed, not scrape time — scrape time
     // resets on every run and once made every candidate look "new" forever.
     const cutoff = Date.now() - 7 * 86400000;
-    const recent = state.candidates.filter(c => {
+    const recent = regionalCandidates().filter(c => {
       const d = parseFiledDate(c);
       return isFiled(c) && d && d.getTime() >= cutoff;
     });
@@ -1267,10 +1284,10 @@
   // RENDER: STAT CARDS
   // ============================================================
   function renderStats() {
-    const candidates = state.candidates;
+    const candidates = regionalCandidates();
     const news = state.news;
 
-    // Total candidates
+    // Total candidates (regional races only)
     const total = candidates.length;
     setText('stat-total-candidates', total);
 
@@ -1292,10 +1309,11 @@
     }).length;
     setText('stat-filings-7d', filings7d);
 
-    // Seats where nobody has filed yet
+    // Regional council seats where nobody has filed yet
     const filedSeatIds = new Set(candidates.filter(c => isFiled(c) && c.seat_id).map(c => c.seat_id));
-    const emptySeats = state.seats.filter(s => !filedSeatIds.has(s.id)).length;
-    setText('stat-empty-seats', state.seats.length ? emptySeats : '—');
+    const rSeats = regionalSeats();
+    const emptySeats = rSeats.filter(s => !filedSeatIds.has(s.id)).length;
+    setText('stat-empty-seats', rSeats.length ? emptySeats : '—');
   }
 
   // ============================================================
@@ -1306,7 +1324,7 @@
     const badge = document.getElementById('recent-reg-badge');
     if (!container) return;
 
-    const filed = state.candidates
+    const filed = regionalCandidates()
       .map(c => ({ c, d: parseFiledDate(c) }))
       .filter(x => isFiled(x.c) && x.d)
       .sort((a, b) => b.d - a.d)
@@ -1350,7 +1368,7 @@
   // RENDER: ALIGNMENT OVERVIEW
   // ============================================================
   function renderAlignmentOverview() {
-    const candidates = state.candidates;
+    const candidates = regionalCandidates();
     const counts = {
       strongly_aligned: 0,
       aligned: 0,
@@ -1397,7 +1415,7 @@
   function renderAlignmentBasisBreakdown() {
     const container = document.getElementById('alignment-basis-bars');
     if (!container) return;
-    const candidates = state.candidates;
+    const candidates = regionalCandidates();
     const counts = { voting_record: 0, news_inferred: 0, incumbency_default: 0, unscored: 0 };
 
     for (const c of candidates) {
@@ -1481,7 +1499,7 @@
     }
 
     const seatCountByMuni = {};
-    for (const s of state.seats) {
+    for (const s of regionalSeats()) {
       seatCountByMuni[s.municipality] = (seatCountByMuni[s.municipality] || 0) + 1;
     }
 
@@ -1512,7 +1530,7 @@
   }
 
   function renderMuniPanel(muni) {
-    const muniSeats = state.seats.filter(s => s.municipality === muni);
+    const muniSeats = regionalSeats().filter(s => s.municipality === muni);
 
     // Be honest about coverage: filings for bot-blocked/JS-rendered clerk
     // pages can't be auto-detected, so "not filed" there means "not checked".
@@ -1527,7 +1545,7 @@
       // No seat inventory loaded for this municipality — fall back to
       // whatever flat candidate records exist, so the panel isn't empty
       // if seats.json failed to load for some reason.
-      const flat = state.candidates.filter(c => c.municipality === muni);
+      const flat = regionalCandidates().filter(c => c.municipality === muni);
       if (!flat.length) {
         return `<div class="empty-state">No seat data on file for ${escapeHtml(muni)} yet.</div>`;
       }
