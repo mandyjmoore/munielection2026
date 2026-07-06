@@ -40,7 +40,7 @@ Priority order of signal, recorded in each candidate's `fiscal_alignment_basis`:
 
 Labels: 8–10 strongly_aligned, 6–7 aligned, 4–5 neutral, 2–3 misaligned, 0–1 strongly_misaligned.
 
-**Open manual item:** whether the May 21, 2026 DC Bylaw vote was a recorded roll-call is unconfirmed. Decision doc (couldn't be fetched by tooling — SSL): https://yorkpublishing.escribemeetings.com/filestream.ashx?DocumentId=47492. If roll-call: transcribe into `votes.json` `results[]`, set `source_type: "recorded_vote"`. If consent: set `"consent_agenda_no_breakdown"`, leave `results` empty.
+**RESOLVED (2026-07-06) — the May 21, 2026 votes are transcribed in `votes.json`** from the official minutes (eScribe meeting c7c85849-e9e8-43fe-b503-98e226752b51). The bylaw passage itself carried **without** a recorded vote (no per-member breakdown exists for it), but **Amendment #2 — Del Duca/Jackson's motion to cap DC rates at the prevailing rate at occupancy — went to a recorded vote and was defeated 4–13**: For (misaligned): Del Duca, DiPaola, Ferri, Li. Against (aligned): G. Chan, Davison, Jones, Lovatt, Mrakas, Pellegrini, Quirk, Racco, Scarpitti, Taylor, Vegh, West. Absent: M. Chan, Hackson, Ho, Jackson, Rosati. This is the primary fiscal-alignment signal for 16 of 21 incumbents. To find future recorded votes: eScribe meeting IDs come from POSTing `{'calendarStartDate':...,'calendarEndDate':...}` to `/MeetingsCalendarView.aspx/GetCalendarMeetings`; minutes are in the `Agenda=PostMinutes` page HTML.
 
 ## Architecture
 ```
