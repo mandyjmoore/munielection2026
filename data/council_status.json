@@ -1,17 +1,17 @@
 {
-  "computed_at": "2026-07-06T19:46:31.875919+00:00",
+  "computed_at": "2026-07-06T20:36:13.770964+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
     "chair_excluded": "Eric Jolliffe (appointed, not counted)",
     "threshold_fraction": 0.75,
     "threshold_count": 16,
-    "confirmed_filed_count": 12,
+    "confirmed_filed_count": 16,
     "declined_count": 0,
     "not_yet_filed_count": 0,
-    "unknown_count": 9,
-    "status": "at_risk",
-    "status_basis": "12 of 21 current members confirmed filing so far (0 declined, 9 still unknown). Threshold is 16 of 21 — outcome is not yet decided.",
+    "unknown_count": 5,
+    "status": "on_track",
+    "status_basis": "16 of 21 current members have confirmed re-election filings — already meets the 16-of-21 threshold.",
     "members": [
       {
         "seat_id": "aurora-mayor",
@@ -130,28 +130,28 @@
         "name": "Linda D. Jackson",
         "municipality": "Vaughan",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "vaughan-regional-councillor-2",
         "name": "Mario Ferri",
         "municipality": "Vaughan",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "vaughan-regional-councillor-3",
         "name": "Gino Rosati",
         "municipality": "Vaughan",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "vaughan-regional-councillor-4",
         "name": "Mario G. Racco",
         "municipality": "Vaughan",
         "office": "Regional Councillor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "whitchurch-stouffville-mayor",
@@ -244,12 +244,12 @@
       "total_current_elected_members": 10,
       "threshold_fraction": 0.75,
       "threshold_count": 8,
-      "confirmed_filed_count": 1,
+      "confirmed_filed_count": 5,
       "declined_count": 0,
       "not_yet_filed_count": 0,
-      "unknown_count": 9,
+      "unknown_count": 5,
       "status": "at_risk",
-      "status_basis": "1 of 10 current members confirmed filing so far (0 declined, 9 still unknown). Threshold is 8 of 10 — outcome is not yet decided."
+      "status_basis": "5 of 10 current members confirmed filing so far (0 declined, 5 still unknown). Threshold is 8 of 10 — outcome is not yet decided."
     },
     "Whitchurch-Stouffville": {
       "total_current_elected_members": 7,

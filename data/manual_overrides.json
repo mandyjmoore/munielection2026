@@ -11,6 +11,46 @@
       },
       "verified_by": "owner (listed on Vaughan's official Candidates page); news coverage of his campaign launch on nomination-opening day, e.g. westernstandard.news 2026-05-01 'Del Duca enters 2026 Vaughan mayoral race'",
       "verified_on": "2026-07-06"
+    },
+    {
+      "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson",
+      "fields": {
+        "filed_for_reelection": "confirmed",
+        "registered": true,
+        "filing_source": "https://www.vaughan.ca/council/elections/candidates"
+      },
+      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
+      "verified_on": "2026-07-06"
+    },
+    {
+      "candidate_id": "vaughan-regional-councillor-2-mario-ferri",
+      "fields": {
+        "filed_for_reelection": "confirmed",
+        "registered": true,
+        "filing_source": "https://www.vaughan.ca/council/elections/candidates"
+      },
+      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
+      "verified_on": "2026-07-06"
+    },
+    {
+      "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
+      "fields": {
+        "filed_for_reelection": "confirmed",
+        "registered": true,
+        "filing_source": "https://www.vaughan.ca/council/elections/candidates"
+      },
+      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
+      "verified_on": "2026-07-06"
+    },
+    {
+      "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
+      "fields": {
+        "filed_for_reelection": "confirmed",
+        "registered": true,
+        "filing_source": "https://www.vaughan.ca/council/elections/candidates"
+      },
+      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
+      "verified_on": "2026-07-06"
     }
   ]
 }
