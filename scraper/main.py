@@ -31,6 +31,24 @@ METADATA_FILE = DATA_DIR / "metadata.json"
 SEATS_FILE = DATA_DIR / "seats.json"
 VOTES_FILE = DATA_DIR / "votes.json"
 COUNCIL_STATUS_FILE = DATA_DIR / "council_status.json"
+OVERRIDES_FILE = DATA_DIR / "manual_overrides.json"
+
+
+def apply_manual_overrides(candidates: list[dict], overrides: list[dict]) -> list[dict]:
+    """
+    Merge human-verified facts over the scraped data. This is the correction
+    channel for municipalities no scraper can reach (e.g. Vaughan blocks all
+    automated clients) — overrides run after every fetch so they always win.
+    """
+    by_id = {c["id"]: c for c in candidates}
+    for ov in overrides:
+        cand = by_id.get(ov.get("candidate_id"))
+        if cand is None:
+            logger.warning("Manual override for unknown candidate_id %s — skipped", ov.get("candidate_id"))
+            continue
+        cand.update(ov.get("fields", {}))
+        logger.info("Applied manual override for %s (%s)", cand["name"], ov.get("verified_on", "undated"))
+    return candidates
 
 # Candidate scraping is live for the 6 municipalities with a verified,
 # working extraction path (Georgina, Richmond Hill, Newmarket, Aurora, East
@@ -96,6 +114,14 @@ def main():
     else:
         logger.info("--- Candidate scraping disabled; using manually-seeded/reviewed data as-is ---")
         updated_candidates = existing_candidates
+
+    # --- Step 2b: Apply human-verified manual overrides (always win) ---
+    try:
+        overrides = load_json(OVERRIDES_FILE, {}).get("overrides", [])
+        if overrides:
+            updated_candidates = apply_manual_overrides(updated_candidates, overrides)
+    except Exception as exc:
+        logger.error("Manual override application failed: %s", exc)
 
     # --- Step 3: Score candidates (voting record primary, news secondary) ---
     logger.info("--- Scoring candidates ---")
