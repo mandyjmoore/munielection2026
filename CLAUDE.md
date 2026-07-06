@@ -26,6 +26,8 @@ York Region, Ontario — 9 lower-tier municipalities: Aurora, East Gwillimbury, 
 
 **76 seats total** in `data/seats.json` (verified 2022 inventory): 9 Mayors + 12 Regional Councillors (Markham 4, Vaughan 4, Richmond Hill 2, Georgina 1, Newmarket 1 — elected at-large) + 55 Ward Councillors (East Gwillimbury elects 2 per ward). In the 6 municipalities without a separate regional seat, the Mayor is the sole regional representative. School board trustees are not tracked.
 
+**UI scope (owner decision, 2026-07-06): the dashboard displays only the 21 Regional Council races** (Mayor + Regional Councillor). Ward councillor races are deliberately not shown — but ward data stays in the scrape pipeline and `candidates.json` because the per-municipality lame-duck math requires ward incumbents' filing status. Don't "clean up" ward candidates out of the data.
+
 ## The Central Issue: Development Charges
 On May 21, 2026, Regional Council passed DC Bylaw No. 2026-20, cutting DC rates for the first time in York Region's 55-year history (~$1.4B fiscal pressure; provincially forced via Bill 17). **YR Finance perspective = "growth pays for growth"**: DCs must fund the infrastructure new development requires; downloading those costs to the property tax levy is fiscally irresponsible.
 
