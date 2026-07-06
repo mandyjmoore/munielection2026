@@ -255,6 +255,162 @@
     .lameduck-muni-card .muni-count { color: var(--text-muted); font-size: 11px; }
 
     /* ============================================================
+       VIEW TABS
+    ============================================================ */
+    .view-tabs {
+      display: flex;
+      gap: 8px;
+      margin: 4px 0 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
+    }
+
+    .view-tab {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      padding: 8px 18px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+    }
+
+    .view-tab:hover { color: var(--text); }
+
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ============================================================
+       COUNCIL CHAMBER (horseshoe)
+    ============================================================ */
+    .chamber-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .chamber-legend .dot {
+      display: inline-block;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .chamber-wrap {
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .chamber {
+      display: flex;
+      gap: 14px;
+      min-width: 1100px;
+      align-items: stretch;
+    }
+
+    .chamber-arm {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 220px;
+      flex-shrink: 0;
+    }
+
+    .chamber-middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .chamber-head {
+      display: flex;
+      justify-content: center;
+    }
+
+    .chamber-floor {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      align-self: center;
+      opacity: 0.6;
+    }
+
+    .chamber-bottom {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .chair-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--text-dim);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      font-size: 11px;
+      min-width: 0;
+    }
+
+    .chair-card.chair-filed    { border-top-color: var(--green); }
+    .chair-card.chair-unknown  { border-top-color: var(--yellow); }
+    .chair-card.chair-declined { border-top-color: var(--red); }
+
+    .chair-card.chair-appointed {
+      border-top-color: var(--accent);
+      background: var(--bg-card2);
+      width: 230px;
+      text-align: center;
+    }
+
+    .chair-seat-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--text-dim);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chair-incumbent {
+      font-weight: 700;
+      color: #f1f5f9;
+      font-size: 12px;
+      line-height: 1.3;
+      margin: 2px 0;
+    }
+
+    .chair-status { font-size: 10px; font-weight: 600; }
+    .chair-status.st-filed    { color: var(--green); }
+    .chair-status.st-unknown  { color: var(--yellow); }
+    .chair-status.st-declined { color: var(--red); }
+
+    .chair-challengers {
+      margin-top: 6px;
+      padding-top: 5px;
+      border-top: 1px dashed var(--border);
+      color: var(--text-muted);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .chair-challengers .none { color: var(--text-dim); font-style: italic; }
+
+    /* ============================================================
        MAIN CONTENT AREA
     ============================================================ */
     .main-content {
@@ -851,6 +1007,31 @@
       <div class="lameduck-muni-grid" id="lameduck-muni-grid"></div>
     </div>
 
+    <!-- View Switcher -->
+    <div class="view-tabs">
+      <button class="view-tab active" data-view="chamber">Council Chamber</button>
+      <button class="view-tab" data-view="overview">Overview</button>
+    </div>
+
+    <!-- ======================= CHAMBER VIEW ======================= -->
+    <div id="view-chamber">
+      <div class="chamber-legend">
+        <span><span class="dot" style="background:var(--green)"></span> Incumbent filed</span>
+        <span><span class="dot" style="background:var(--yellow)"></span> Incumbent not registered yet</span>
+        <span><span class="dot" style="background:var(--red)"></span> Incumbent not running</span>
+        <span style="color:var(--text-dim)">&#9679; challenger filed &nbsp; &#9675; challenger likely (not yet filed)</span>
+        <span style="color:var(--text-dim);font-style:italic">Horseshoe mimics the chamber &mdash; chairs grouped by municipality, not actual seat assignments</span>
+      </div>
+      <div class="chamber-wrap">
+        <div class="chamber" id="chamber">
+          <!-- chairs injected by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================= OVERVIEW VIEW ======================= -->
+    <div id="view-overview" style="display:none">
+
     <!-- Nomination Period Status -->
     <div class="nomination-banner">
       <div class="nom-item">
@@ -959,6 +1140,8 @@
         <div class="loading-spinner"><div class="spinner"></div> Loading news…</div>
       </div>
     </div>
+
+    </div><!-- /#view-overview -->
 
   </div>
 </main>
@@ -1486,6 +1669,115 @@
   }
 
   // ============================================================
+  // RENDER: COUNCIL CHAMBER (horseshoe)
+  // ============================================================
+  // Chairs grouped by municipality around a U that mimics the chamber's
+  // horseshoe — York Region doesn't publish actual seat assignments, so
+  // this is illustrative placement, not the real chair map.
+  const CHAMBER_LEFT = [
+    'vaughan-mayor',
+    'vaughan-regional-councillor-1', 'vaughan-regional-councillor-2',
+    'vaughan-regional-councillor-3', 'vaughan-regional-councillor-4',
+    'king-mayor', 'aurora-mayor',
+  ];
+  const CHAMBER_BOTTOM = [
+    'richmond-hill-mayor', 'richmond-hill-regional-councillor-1', 'richmond-hill-regional-councillor-2',
+    'georgina-mayor', 'georgina-regional-councillor-1',
+    'newmarket-mayor', 'newmarket-regional-councillor-1',
+  ];
+  const CHAMBER_RIGHT = [
+    'markham-mayor',
+    'markham-regional-councillor-1', 'markham-regional-councillor-2',
+    'markham-regional-councillor-3', 'markham-regional-councillor-4',
+    'whitchurch-stouffville-mayor', 'east-gwillimbury-mayor',
+  ];
+
+  const MUNI_SHORT = {
+    'Whitchurch-Stouffville': 'W-Stouffville',
+    'East Gwillimbury': 'E. Gwillimbury',
+  };
+
+  function chairCard(seat) {
+    if (!seat) return '';
+    const cands = regionalCandidates().filter(c => c.seat_id === seat.id);
+    const inc = cands.find(c => c.id === seat.incumbent_candidate_id)
+      || state.candidates.find(c => c.id === seat.incumbent_candidate_id);
+    const challengers = cands.filter(c => c.id !== seat.incumbent_candidate_id);
+
+    const muni = MUNI_SHORT[seat.municipality] || seat.municipality;
+    const atLarge = (seat.seat_label || '').includes('at-large') ? ' · at-large' : '';
+    const officeShort = seat.office === 'Regional Councillor' ? 'Reg. Councillor' : seat.office;
+    const seatLabel = `${muni} — ${officeShort}${atLarge}`;
+
+    let statusClass = 'unknown';
+    let statusHtml = 'Not registered';
+    if (inc) {
+      if (inc.filed_for_reelection === 'declined') {
+        statusClass = 'declined';
+        statusHtml = '&#10007; Not running';
+      } else if (isFiled(inc)) {
+        statusClass = 'filed';
+        const d = parseFiledDate(inc);
+        statusHtml = '&#10003; Filed' + (d ? ` ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '');
+      } else {
+        const est = inc.likely_to_run_again;
+        if (est && est.label && est.label !== 'insufficient_data') {
+          statusHtml += ` &middot; <span style="border-bottom:1px dashed var(--text-dim)" title="${escapeHtml('Estimate — ' + (est.basis || []).join('; '))}">est: ${escapeHtml(est.label)}</span>`;
+        }
+      }
+    }
+
+    const challengerHtml = challengers.length
+      ? challengers.map(ch => {
+          const d = parseFiledDate(ch);
+          return isFiled(ch)
+            ? `<div>&#9679; ${escapeHtml(ch.name)}${d ? ` &middot; ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : ''}</div>`
+            : `<div style="color:var(--text-dim)">&#9675; ${escapeHtml(ch.name)} &middot; likely</div>`;
+        }).join('')
+      : `<div class="none">No challengers</div>`;
+
+    return `
+      <div class="chair-card chair-${statusClass}">
+        <div class="chair-seat-label" title="${escapeHtml(seat.municipality)} — ${escapeHtml(seat.office)}">${escapeHtml(seatLabel)}</div>
+        <div class="chair-incumbent">${inc ? escapeHtml(inc.name) : 'Vacant'}</div>
+        <div class="chair-status st-${statusClass}">${statusHtml}</div>
+        <div class="chair-challengers">${challengerHtml}</div>
+      </div>
+    `;
+  }
+
+  function renderChamber() {
+    const el = document.getElementById('chamber');
+    if (!el) return;
+    if (!state.seats.length) {
+      el.innerHTML = `<div class="empty-state" style="width:100%">Seat data not loaded yet.</div>`;
+      return;
+    }
+
+    const seatById = {};
+    for (const s of state.seats) seatById[s.id] = s;
+
+    const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
+    const headCard = `
+      <div class="chair-card chair-appointed">
+        <div class="chair-seat-label">York Region — Regional Chair</div>
+        <div class="chair-incumbent">${escapeHtml(chairName)}</div>
+        <div class="chair-status" style="color:var(--accent)">Provincially appointed &mdash; not on ballot</div>
+      </div>
+    `;
+
+    el.innerHTML = `
+      <div class="chamber-arm">${CHAMBER_LEFT.map(id => chairCard(seatById[id])).join('')}</div>
+      <div class="chamber-middle">
+        <div class="chamber-head">${headCard}</div>
+        <div class="chamber-floor">Council Chamber Floor</div>
+        <div class="chamber-bottom">${CHAMBER_BOTTOM.map(id => chairCard(seatById[id])).join('')}</div>
+      </div>
+      <div class="chamber-arm">${CHAMBER_RIGHT.map(id => chairCard(seatById[id])).join('')}</div>
+    `;
+  }
+
+  // ============================================================
   // RENDER: MUNICIPALITY TABS
   // ============================================================
   function renderMuniTabs() {
@@ -1718,6 +2010,7 @@
   function render() {
     renderHeader();
     renderLameDuckBanner();
+    renderChamber();
     renderNomProgress();
     renderAlert();
     renderStats();
@@ -1735,6 +2028,17 @@
     const days = daysUntil(ELECTION_DATE);
     const el = document.getElementById('countdown-days');
     if (el) el.textContent = days > 0 ? days : '0';
+
+    // View switcher: Council Chamber vs Overview
+    document.querySelectorAll('.view-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.view-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const view = btn.dataset.view;
+        document.getElementById('view-chamber').style.display = view === 'chamber' ? '' : 'none';
+        document.getElementById('view-overview').style.display = view === 'overview' ? '' : 'none';
+      });
+    });
 
     // Lame-duck municipal breakdown toggle (attached once; panel content
     // itself is re-rendered on every data refresh)
