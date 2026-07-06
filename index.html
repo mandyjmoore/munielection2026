@@ -319,35 +319,47 @@
       gap: 12px;
     }
 
-    .chamber-head-row {
-      display: flex;
-      justify-content: center;
-    }
-
     .chamber-groups {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
 
+    .chamber-break {
+      flex-basis: 100%;
+      height: 0;
+    }
+
     .muni-block {
-      border: 1px solid var(--muni, var(--border));
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--muni, var(--border));
       border-radius: var(--radius-lg);
       padding: 10px 12px 12px;
-      background: color-mix(in srgb, var(--muni, #64748b) 6%, transparent);
       flex-grow: 1;
     }
+
+    .muni-block.no-grow { flex-grow: 0; }
+
+    /* Tiles in non-stretching blocks match the width tiles reach elsewhere */
+    .muni-block.no-grow .chair-card { width: 260px; }
 
     .muni-block-header {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--muni, var(--text-muted));
+      color: var(--text-muted);
       margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+    }
+
+    .muni-block-header .mdot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--muni, var(--text-dim));
+      flex-shrink: 0;
     }
 
     .muni-block-header .seat-count {
@@ -385,9 +397,6 @@
 
     .chair-card.chair-appointed {
       border-top-color: var(--accent);
-      background: var(--bg-card2);
-      width: 230px;
-      text-align: center;
     }
 
     .chair-seat-label {
@@ -1580,11 +1589,16 @@
     }
 
     const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
-    const headCard = `
-      <div class="chair-card chair-appointed">
-        <div class="chair-seat-label">York Region — Regional Chair</div>
-        <div class="chair-incumbent">${escapeHtml(chairName)}</div>
-        <div class="chair-status" style="color:var(--accent)">Provincially appointed &mdash; not on ballot</div>
+    const chairBlock = `
+      <div class="muni-block no-grow" style="--muni:#94a3b8">
+        <div class="muni-block-header"><span class="mdot"></span>York Region <span class="seat-count">&middot; Regional Chair</span></div>
+        <div class="muni-block-tiles">
+          <div class="chair-card chair-appointed">
+            <div class="chair-seat-label">Regional Chair</div>
+            <div class="chair-incumbent">${escapeHtml(chairName)}</div>
+            <div class="chair-status" style="color:var(--accent)">Appointed &mdash; not on ballot</div>
+          </div>
+        </div>
       </div>
     `;
 
@@ -1595,18 +1609,18 @@
         .sort((a, b) => (a.office === 'Mayor' ? -1 : 1) - (b.office === 'Mayor' ? -1 : 1) || a.id.localeCompare(b.id));
       if (!seats.length) return '';
       const color = MUNI_COLORS[muni] || '#64748b';
-      return `
-        <div class="muni-block" style="--muni:${color}">
-          <div class="muni-block-header">${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
+      const noGrow = muni === 'Whitchurch-Stouffville' ? ' no-grow' : '';
+      // Whitchurch-Stouffville starts a fresh row, with the Chair beside it.
+      const lineBreak = muni === 'Whitchurch-Stouffville' ? '<div class="chamber-break"></div>' : '';
+      return `${lineBreak}
+        <div class="muni-block${noGrow}" style="--muni:${color}">
+          <div class="muni-block-header"><span class="mdot"></span>${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
           <div class="muni-block-tiles">${seats.map(chairCard).join('')}</div>
         </div>
       `;
     }).join('');
 
-    el.innerHTML = `
-      <div class="chamber-head-row">${headCard}</div>
-      <div class="chamber-groups">${blocks}</div>
-    `;
+    el.innerHTML = `<div class="chamber-groups">${blocks}${chairBlock}</div>`;
   }
 
   // ============================================================
