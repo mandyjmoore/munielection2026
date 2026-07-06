@@ -5,12 +5,46 @@
       "title": "DC Bylaw No. 2026-20 (Region-wide Development Charges rate reduction)",
       "body": "York Regional Council",
       "date": "2026-05-21",
-      "source_url": "https://yorkpublishing.escribemeetings.com/filestream.ashx?DocumentId=47492",
-      "source_type": "unconfirmed",
-      "description": "Passage of Region-wide DC Bylaw 2026-20, cutting development charge rates across all classes of development for the first time in the Region's 55-year history (2-9% residential, 2-35% non-residential decreases).",
+      "source_url": "https://yorkpublishing.escribemeetings.com/Meeting.aspx?Id=c7c85849-e9e8-43fe-b503-98e226752b51&Agenda=PostMinutes&lang=English",
+      "source_type": "carried_no_recorded_vote",
+      "description": "Passage of Region-wide DC Bylaw 2026-20 (and Nobleton area-specific bylaw), cutting development charge rates across all classes of development for the first time in the Region's 55-year history. Item I.2.4: main motion moved by Mayor Scarpitti, seconded by Mayor Pellegrini; carried as amended WITHOUT a recorded vote, so no individual member breakdown exists for the passage itself.",
       "fiscal_alignment_direction": "yes_vote_is_misaligned",
       "results": [],
-      "verification_notes": "Decision document exists at source_url but could not be fetched by automated tooling (SSL error on York's document server). Needs a human to open it directly and confirm whether this was a recorded roll-call vote (transcribe member-level results into `results[]` and set source_type to 'recorded_vote') or passed on consent with no individual breakdown (set source_type to 'consent_agenda_no_breakdown', leave results empty)."
+      "verification_notes": "Verified 2026-07-06 against the official May 21, 2026 Regional Council minutes (source_url). The passage carried on an unrecorded vote — the per-member signal from this meeting is the recorded amendment vote below (dc-cap-amendment-2026-05-21)."
+    },
+    {
+      "id": "dc-cap-amendment-2026-05-21",
+      "title": "Amendment: cap DC rates at prevailing rate at occupancy (defeated 4–13)",
+      "body": "York Regional Council",
+      "date": "2026-05-21",
+      "source_url": "https://yorkpublishing.escribemeetings.com/Meeting.aspx?Id=c7c85849-e9e8-43fe-b503-98e226752b51&Agenda=PostMinutes&lang=English",
+      "source_type": "recorded_vote",
+      "description": "Motion to Amend #2 during the DC Bylaw 2026-20 debate (item I.2.4), moved by Mayor Del Duca, seconded by Regional Councillor Jackson: assess DCs payable at occupancy for non-rental residential development at no higher than the prevailing rate at occupancy — a further limit on DC collections beyond the bylaw's rate cuts. Defeated on a recorded vote, 4 for / 13 against (5 absent; Chair Jolliffe voted against but is appointed and not a candidate).",
+      "fiscal_alignment_direction": "yes_vote_is_misaligned",
+      "results": [
+        { "seat_id": "vaughan-mayor", "candidate_id": "vaughan-mayor-steven-del-duca", "vote": "yes" },
+        { "seat_id": "richmond-hill-regional-councillor-2", "candidate_id": "richmond-hill-regional-councillor-2-joe-dipaola", "vote": "yes" },
+        { "seat_id": "vaughan-regional-councillor-2", "candidate_id": "vaughan-regional-councillor-2-mario-ferri", "vote": "yes" },
+        { "seat_id": "markham-regional-councillor-3", "candidate_id": "markham-regional-councillor-3-joe-li", "vote": "yes" },
+        { "seat_id": "richmond-hill-regional-councillor-1", "candidate_id": "richmond-hill-regional-councillor-1-godwin-chan", "vote": "no" },
+        { "seat_id": "georgina-regional-councillor-1", "candidate_id": "georgina-regional-councillor-1-naomi-davison", "vote": "no" },
+        { "seat_id": "markham-regional-councillor-2", "candidate_id": "markham-regional-councillor-2-jim-jones", "vote": "no" },
+        { "seat_id": "whitchurch-stouffville-mayor", "candidate_id": "whitchurch-stouffville-mayor-iain-lovatt", "vote": "no" },
+        { "seat_id": "aurora-mayor", "candidate_id": "aurora-mayor-tom-mrakas", "vote": "no" },
+        { "seat_id": "king-mayor", "candidate_id": "king-mayor-steve-pellegrini", "vote": "no" },
+        { "seat_id": "georgina-mayor", "candidate_id": "georgina-mayor-margaret-quirk", "vote": "no" },
+        { "seat_id": "vaughan-regional-councillor-4", "candidate_id": "vaughan-regional-councillor-4-mario-g-racco", "vote": "no" },
+        { "seat_id": "markham-mayor", "candidate_id": "markham-mayor-frank-scarpitti", "vote": "no" },
+        { "seat_id": "newmarket-mayor", "candidate_id": "newmarket-mayor-john-taylor", "vote": "no" },
+        { "seat_id": "newmarket-regional-councillor-1", "candidate_id": "newmarket-regional-councillor-1-tom-vegh", "vote": "no" },
+        { "seat_id": "richmond-hill-mayor", "candidate_id": "richmond-hill-mayor-david-west", "vote": "no" },
+        { "seat_id": "markham-regional-councillor-1", "candidate_id": "markham-regional-councillor-1-michael-chan", "vote": "absent" },
+        { "seat_id": "east-gwillimbury-mayor", "candidate_id": "east-gwillimbury-mayor-virginia-hackson", "vote": "absent" },
+        { "seat_id": "markham-regional-councillor-4", "candidate_id": "markham-regional-councillor-4-alan-ho", "vote": "absent" },
+        { "seat_id": "vaughan-regional-councillor-1", "candidate_id": "vaughan-regional-councillor-1-linda-d-jackson", "vote": "absent" },
+        { "seat_id": "vaughan-regional-councillor-3", "candidate_id": "vaughan-regional-councillor-3-gino-rosati", "vote": "absent" }
+      ],
+      "verification_notes": "Transcribed 2026-07-06 from the official May 21, 2026 Regional Council minutes (item I.2.4, 'Motion to Amend #2 - Capping DC rates at prevailing rate at occupancy'). Recorded vote as published: For: Del Duca, DiPaola, Ferri, Li (4). Against: G. Chan, Davison, Jolliffe, Jones, Lovatt, Mrakas, Pellegrini, Quirk, Racco, Scarpitti, Taylor, Vegh, West (13). Absent: M. Chan, Hackson, Ho, Jackson, Rosati (5)."
     }
   ]
 }
