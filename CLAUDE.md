@@ -40,7 +40,13 @@ Priority order of signal, recorded in each candidate's `fiscal_alignment_basis`:
 
 Labels: 8–10 strongly_aligned, 6–7 aligned, 4–5 neutral, 2–3 misaligned, 0–1 strongly_misaligned.
 
-**RESOLVED (2026-07-06) — the May 21, 2026 votes are transcribed in `votes.json`** from the official minutes (eScribe meeting c7c85849-e9e8-43fe-b503-98e226752b51). The bylaw passage itself carried **without** a recorded vote (no per-member breakdown exists for it), but **Amendment #2 — Del Duca/Jackson's motion to cap DC rates at the prevailing rate at occupancy — went to a recorded vote and was defeated 4–13**: For (misaligned): Del Duca, DiPaola, Ferri, Li. Against (aligned): G. Chan, Davison, Jones, Lovatt, Mrakas, Pellegrini, Quirk, Racco, Scarpitti, Taylor, Vegh, West. Absent: M. Chan, Hackson, Ho, Jackson, Rosati. This is the primary fiscal-alignment signal for 16 of 21 incumbents. To find future recorded votes: eScribe meeting IDs come from POSTing `{'calendarStartDate':...,'calendarEndDate':...}` to `/MeetingsCalendarView.aspx/GetCalendarMeetings`; minutes are in the `Agenda=PostMinutes` page HTML.
+**`votes.json` holds 4 recorded votes transcribed from official minutes (2026-07-06 harvest of all 2025–mid-2026 Regional Council + Committee of the Whole meetings — 37 meetings scanned, 10 recorded votes found, 4 fiscally scoreable).** All 21 incumbents now have a voting-record fiscal score:
+1. **2025-04-03** (Special Meeting): immediate DC deferrals for all residential — carried 12–8 (yes = misaligned)
+2. **2025-06-26**: overrule Chair to allow extending DC deferrals — defeated 8–11 (yes = misaligned)
+3. **2025-09-25**: demand full provincial reimbursement of ASE cancellation costs — carried 17–1 (yes = aligned; opposing provincial downloading)
+4. **2026-05-21**: cap DC rates at prevailing rate at occupancy — defeated 4–13 (yes = misaligned). The DC Bylaw 2026-20 passage itself carried **without** a recorded vote — no per-member breakdown exists for it.
+
+Deliberately excluded: reconsideration/deferral-of-consideration procedural votes (members voted "reconsider" with opposite intents — direction not attributable), the unanimous Nov 2025 budget vote (no discriminating signal, declared conflicts), and the Vaughan forestry download (governance, not fiscal). To harvest future recorded votes: POST `{'calendarStartDate':...,'calendarEndDate':...}` to `/MeetingsCalendarView.aspx/GetCalendarMeetings` for meeting GUIDs, then grep the `Agenda=PostMinutes` page text for "recorded vote".
 
 ## Architecture
 ```
