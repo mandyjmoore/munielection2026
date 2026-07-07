@@ -566,8 +566,85 @@
     }
 
     .align-col-names .muni { color: var(--text-dim); font-size: 10px; }
-    .align-col-names .challenger { color: var(--text-muted); }
     .align-col-names .none { color: var(--text-dim); font-style: italic; font-size: 11px; }
+
+    .align-col-names .member-link { cursor: pointer; }
+    .align-col-names .member-link:hover { color: var(--accent); text-decoration: underline; }
+
+    /* Member vote-history modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.75);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 60px 16px 40px;
+      z-index: 500;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.hidden { display: none; }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      max-width: 720px;
+      width: 100%;
+      padding: 20px 24px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 14px;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    .mm-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .mm-name { font-size: 17px; font-weight: 800; color: #f1f5f9; }
+    .mm-sub { font-size: 11px; color: var(--text-muted); }
+
+    .mm-summary {
+      font-size: 11px;
+      color: var(--text-dim);
+      padding-bottom: 10px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mm-row {
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(51,65,85,0.4);
+      font-size: 12px;
+    }
+
+    .mm-row:last-child { border-bottom: none; }
+
+    .mm-row-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .mm-row-title { color: var(--text-muted); }
 
     /* ============================================================
        COUNCIL VOTING RECORD
@@ -1003,6 +1080,14 @@
   </div>
 </main>
 
+<!-- Member vote-history modal -->
+<div id="member-modal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <button class="modal-close" id="member-modal-close" aria-label="Close">&times;</button>
+    <div id="member-modal-body"></div>
+  </div>
+</div>
+
 <!-- ============================================================
      FOOTER
 ============================================================ -->
@@ -1318,9 +1403,8 @@
           || a.name.localeCompare(b.name));
       const names = group.length
         ? group.map(c => {
-            const tip = escapeHtml(c.fiscal_notes || `${c.fiscal_alignment_score ?? 5}/10`);
             const suffix = c.status === 'appointed' ? ' · Chair (appointed)' : '';
-            return `<div title="${tip}">${escapeHtml(c.name)} <span class="muni">${escapeHtml(c.municipality)}${suffix}</span></div>`;
+            return `<div class="member-link" data-cid="${escapeHtml(c.id)}" title="Click for this member's full recorded-vote history">${escapeHtml(c.name)} <span class="muni">${escapeHtml(c.municipality)}${suffix}</span></div>`;
           }).join('')
         : `<div class="none">None</div>`;
       return `
@@ -1482,6 +1566,100 @@
   }
 
   // ============================================================
+  // MEMBER VOTE HISTORY (modal)
+  // ============================================================
+  // Match scored votes (votes.json) to record motions via date + snippet
+  function findScoredVote(meetingDate, motion) {
+    return state.scoredVotes.find(v =>
+      v.date === meetingDate && v.match_snippet && motion.text.includes(v.match_snippet));
+  }
+
+  // How each sitting member appears in the minutes' recorded-vote lists
+  const RECORD_NAMES = {
+    'Steven Del Duca': 'Del Duca', 'Linda D. Jackson': 'Jackson', 'Mario Ferri': 'Ferri',
+    'Gino Rosati': 'Rosati', 'Mario G. Racco': 'Racco', 'Frank Scarpitti': 'Scarpitti',
+    'Michael Chan': 'M. Chan', 'Jim Jones': 'Jones', 'Joe Li': 'Li', 'Alan Ho': 'Ho',
+    'David West': 'West', 'Godwin Chan': 'G. Chan', 'Joe DiPaola': 'DiPaola',
+    'Margaret Quirk': 'Quirk', 'Naomi Davison': 'Davison', 'John Taylor': 'Taylor',
+    'Tom Vegh': 'Vegh', 'Tom Mrakas': 'Mrakas', 'Virginia Hackson': 'Hackson',
+    'Steve Pellegrini': 'Pellegrini', 'Iain Lovatt': 'Lovatt', 'Eric Jolliffe': 'Jolliffe',
+  };
+
+  function memberVoteHistory(recordName) {
+    const rows = [];
+    for (const mtg of (state.votingRecord.meetings || [])) {
+      for (const m of mtg.motions) {
+        if (m.vote_type !== 'recorded' || !m.recorded_vote) continue;
+        const rv = m.recorded_vote;
+        let cast = null;
+        if (rv.for.includes(recordName)) cast = 'for';
+        else if (rv.against.includes(recordName)) cast = 'against';
+        else if (rv.absent.includes(recordName)) cast = 'absent';
+        else if ((rv.conflict || []).includes(recordName)) cast = 'conflict';
+        if (!cast) continue;  // not a member at the time (e.g. pre-appointment)
+        rows.push({ date: mtg.date, motion: m, cast, scored: findScoredVote(mtg.date, m) });
+      }
+    }
+    return rows.reverse();  // newest first
+  }
+
+  function openMemberModal(candidateId) {
+    const member = state.candidates.find(c => c.id === candidateId);
+    if (!member) return;
+    const recordName = RECORD_NAMES[member.name];
+    const rows = recordName ? memberVoteHistory(recordName) : [];
+    const voted = rows.filter(r => r.cast === 'for' || r.cast === 'against').length;
+
+    const CAST_STYLE = {
+      for:      ['FOR', 'var(--green)'],
+      against:  ['AGAINST', 'var(--red)'],
+      absent:   ['ABSENT', 'var(--text-dim)'],
+      conflict: ['CONFLICT DECLARED', 'var(--yellow)'],
+    };
+
+    const rowsHtml = rows.length ? rows.map(r => {
+      const [castText, castColor] = CAST_STYLE[r.cast];
+      const rv = r.motion.recorded_vote;
+      const title = r.scored ? r.scored.title
+        : `${(r.motion.item || '').replace(/^[A-Z]\.\d+(\.\d+)?\s*/, '')}` || r.motion.text.slice(0, 90);
+      let alignHtml = '';
+      if (r.scored && (r.cast === 'for' || r.cast === 'against')) {
+        const yes = r.cast === 'for';
+        const aligned = (r.scored.fiscal_alignment_direction === 'yes_vote_is_aligned') === yes;
+        alignHtml = `<span class="vr-tag" style="color:${aligned ? 'var(--green)' : 'var(--red)'};border-color:${aligned ? 'var(--green-dim)' : '#7f1d1d'}">${aligned ? 'aligned' : 'misaligned'} &middot; w${r.scored.weight ?? 3}</span>`;
+      }
+      return `
+        <div class="mm-row">
+          <div class="mm-row-head">
+            <span style="color:var(--text-dim)">${r.date}</span>
+            <strong style="color:${castColor}">${castText}</strong>
+            <span class="vr-tag ${/defeated/i.test(r.motion.disposition) ? 'vr-defeated' : 'vr-carried'}">${r.motion.disposition === 'Recorded' ? 'outcome n/a' : escapeHtml(r.motion.disposition)} ${rv.for.length}&ndash;${rv.against.length}</span>
+            ${alignHtml}
+          </div>
+          <div class="mm-row-title" title="${escapeHtml(r.motion.text.slice(0, 600))}">${escapeHtml(title.slice(0, 120))}</div>
+        </div>
+      `;
+    }).join('') : `<div class="empty-state">No recorded votes found for this member.</div>`;
+
+    document.getElementById('member-modal-body').innerHTML = `
+      <div class="mm-header">
+        <div>
+          <div class="mm-name">${escapeHtml(member.name)}</div>
+          <div class="mm-sub">${escapeHtml(member.municipality)} &middot; ${escapeHtml(member.office)}${member.status === 'appointed' ? ' (appointed)' : ''}</div>
+        </div>
+        <span class="score-pill score-${member.fiscal_alignment_label}" title="${escapeHtml(member.fiscal_notes || '')}">${member.fiscal_alignment_score}/10</span>
+      </div>
+      <div class="mm-summary">Cast a vote in ${voted} of the council&rsquo;s ${rows.length} recorded votes during their tenure. Voice votes have no individual attribution and are not shown.</div>
+      ${rowsHtml}
+    `;
+    document.getElementById('member-modal').classList.remove('hidden');
+  }
+
+  function closeMemberModal() {
+    document.getElementById('member-modal').classList.add('hidden');
+  }
+
+  // ============================================================
   // RENDER: COUNCIL VOTING RECORD
   // ============================================================
   function renderVotingRecord() {
@@ -1499,18 +1677,12 @@
     const totalRecorded = meetings.reduce((n, m) => n + m.motions.filter(x => x.vote_type === 'recorded').length, 0);
     if (badge) badge.textContent = `${totalMotions} motions · ${totalRecorded} recorded votes · ${meetings.length} meetings`;
 
-    // Match scored votes (votes.json) to record motions via date + snippet
-    function scoredVoteFor(meetingDate, motion) {
-      return state.scoredVotes.find(v =>
-        v.date === meetingDate && v.match_snippet && motion.text.includes(v.match_snippet));
-    }
-
     el.innerHTML = meetings.map(mtg => {
       const recordedN = mtg.motions.filter(m => m.vote_type === 'recorded').length;
       const motionsHtml = mtg.motions.map(m => {
-        const scored = scoredVoteFor(mtg.date, m);
+        const scored = findScoredVote(mtg.date, m);
         const dispClass = /defeated/i.test(m.disposition) ? 'vr-defeated' : 'vr-carried';
-        const dispText = m.disposition === 'Recorded' ? 'Carried' : m.disposition;
+        const dispText = m.disposition === 'Recorded' ? 'outcome not parsed' : m.disposition;
 
         let staffHtml = '';
         if (m.staff_recommended === true) staffHtml = `<span class="vr-tag vr-staff" title="Inferred: motion adopts a staff report or Committee of the Whole recommendation">staff-recommended</span>`;
@@ -1589,6 +1761,21 @@
     const days = daysUntil(ELECTION_DATE);
     const el = document.getElementById('countdown-days');
     if (el) el.textContent = days > 0 ? days : '0';
+
+    // Member vote-history modal wiring (delegated; column content re-renders)
+    const alignCols = document.getElementById('alignment-columns');
+    if (alignCols) {
+      alignCols.addEventListener('click', e => {
+        const link = e.target.closest('.member-link');
+        if (link) openMemberModal(link.dataset.cid);
+      });
+    }
+    const modal = document.getElementById('member-modal');
+    if (modal) {
+      modal.addEventListener('click', e => { if (e.target === modal) closeMemberModal(); });
+      document.getElementById('member-modal-close').addEventListener('click', closeMemberModal);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMemberModal(); });
+    }
 
     // Load data
     loadData();
