@@ -284,26 +284,8 @@
     }
 
     /* ============================================================
-       COUNCIL CHAMBER (horseshoe)
+       COUNCIL CHAMBER (municipality grid)
     ============================================================ */
-    .chamber-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      align-items: center;
-    }
-
-    .chamber-legend .dot {
-      display: inline-block;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      margin-right: 4px;
-      vertical-align: middle;
-    }
-
     .chamber-wrap {
       overflow-x: auto;
       padding-bottom: 8px;
@@ -970,13 +952,6 @@
 
     <!-- Council Chamber -->
     <div id="view-chamber">
-      <div class="chamber-legend">
-        <span><span class="dot" style="background:var(--green)"></span> Incumbent filed</span>
-        <span><span class="dot" style="background:var(--yellow)"></span> Incumbent not registered yet</span>
-        <span><span class="dot" style="background:var(--red)"></span> Incumbent not running</span>
-        <span style="color:var(--text-dim)">&#9679; challenger filed &nbsp; &#9675; challenger likely (not yet filed)</span>
-        <span style="color:var(--text-dim);font-style:italic">One block per municipality &mdash; block size reflects its Regional Council contingent</span>
-      </div>
       <div class="chamber-wrap">
         <div class="chamber" id="chamber">
           <!-- chairs injected by JS -->
