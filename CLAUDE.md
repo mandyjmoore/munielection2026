@@ -27,7 +27,7 @@ York Region, Ontario — 9 lower-tier municipalities: Aurora, East Gwillimbury, 
 
 **21 seats total** in `data/seats.json`: 9 Mayors + 12 Regional Councillors (Markham 4, Vaughan 4, Richmond Hill 2, Georgina 1, Newmarket 1 — elected at-large). In the 6 municipalities without a separate regional seat, the Mayor is the sole regional representative. School board trustees are not tracked.
 
-**Scope (owner decision, final form 2026-07-06): Regional Council races ONLY — data and display.** Ward councillor candidates are not collected, stored, or shown anywhere (the scraper's `VALID_OFFICES` rejects them at extraction). This also removed the per-municipality lame-duck calculation (it needed local rosters); only the 21-member Regional Council s.275 math remains. An earlier iteration kept ward data for that municipal math — both were removed together at the owner's direction, so don't reintroduce either.
+**Scope (owner decision, final form 2026-07-06): Regional Council races ONLY — data and display.** Ward councillor candidates are not collected, stored, or shown anywhere (the scraper's `VALID_OFFICES` rejects them at extraction). This also removed the per-municipality lame-duck calculation (it needed local rosters); only the Regional Council s.275 math remains (22 voting members / 17 threshold, see requirement 2). An earlier iteration kept ward data for that municipal math — both were removed together at the owner's direction, so don't reintroduce either.
 
 ## The Central Issue: Development Charges
 On May 21, 2026, Regional Council passed DC Bylaw No. 2026-20, cutting DC rates for the first time in York Region's 55-year history (~$1.4B fiscal pressure; provincially forced via Bill 17). **YR Finance perspective = "growth pays for growth"**: DCs must fund the infrastructure new development requires; downloading those costs to the property tax levy is fiscally irresponsible.
@@ -43,32 +43,39 @@ Priority order of signal, recorded in each candidate's `fiscal_alignment_basis`:
 
 Labels: 8–10 strongly_aligned, 6–7 aligned, 4–5 neutral, 2–3 misaligned, 0–1 strongly_misaligned.
 
-**`votes.json` holds 4 recorded votes transcribed from official minutes (2026-07-06 harvest of all 2025–mid-2026 Regional Council + Committee of the Whole meetings — 37 meetings scanned, 10 recorded votes found, 4 fiscally scoreable).** All 21 incumbents now have a voting-record fiscal score:
-1. **2025-04-03** (Special Meeting): immediate DC deferrals for all residential — carried 12–8 (yes = misaligned)
-2. **2025-06-26**: overrule Chair to allow extending DC deferrals — defeated 8–11 (yes = misaligned)
-3. **2025-09-25**: demand full provincial reimbursement of ASE cancellation costs — carried 17–1 (yes = aligned; opposing provincial downloading)
-4. **2026-05-21**: cap DC rates at prevailing rate at occupancy — defeated 4–13 (yes = misaligned). The DC Bylaw 2026-20 passage itself carried **without** a recorded vote — no per-member breakdown exists for it.
+**`votes.json` holds 7 scored votes** (6 with member results + the DC Bylaw 2026-20 passage recorded as `carried_no_recorded_vote` with empty results — no per-member breakdown exists for the bylaw itself). Transcribed from official minutes; all 22 sitting members have voting-record scores:
+1. **2023-02-23** Pandemic/Recovery Reserve Fund restructuring — carried 22–0 (yes = aligned, **weight 1** consensus)
+2. **2024-11-28** 2025–2026 Regional Budget main adoption — carried 21–0 (yes = aligned, **weight 1** consensus; the police/health conflict carve-out votes from the same item are deliberately not scored separately)
+3. **2025-04-03** immediate DC deferrals for all residential — carried 12–8 (yes = misaligned, weight 3)
+4. **2025-06-26** overrule Chair to allow extending DC deferrals — defeated 8–11 (yes = misaligned, weight 3)
+5. **2025-09-25** demand full provincial reimbursement of ASE cancellation costs — carried 17–1 (yes = aligned, weight 3)
+6. **2026-05-21** cap DC rates at prevailing rate at occupancy — defeated 4–13 (yes = misaligned, weight 3)
 
-Deliberately excluded: reconsideration/deferral-of-consideration procedural votes (members voted "reconsider" with opposite intents — direction not attributable), the unanimous Nov 2025 budget vote (no discriminating signal, declared conflicts), and the Vaughan forestry download (governance, not fiscal). To harvest future recorded votes: POST `{'calendarStartDate':...,'calendarEndDate':...}` to `/MeetingsCalendarView.aspx/GetCalendarMeetings` for meeting GUIDs, then grep the `Agenda=PostMinutes` page text for "recorded vote".
+Deliberately excluded, with reasons: reconsideration/deferral-of-consideration procedural votes (members voted "reconsider" with opposite intents — direction not attributable); the Nov 2025 roll call (it was Del Duca's $25M medical-school amendment, direction ambiguous — the 2026 budget itself passed by voice, unattributable; an earlier mistranscription of this as "budget adoption" was caught and corrected); the asylum-seekers vote (social policy, direction contestable both ways); the Vaughan forestry download and Milani/OLT votes (not fiscal). Each scored vote carries a `match_snippet` linking it to its motion in `voting_record.json`, which powers the ⚖ scored badges and the member vote-history modals.
 
 ## Architecture
 ```
-index.html                          # Single-file dashboard, no build step, vanilla JS + Chart.js
-data/seats.json                     # 76-seat inventory (manual seed, static) — the backbone; everything joins on seat_id
-data/candidates.json                # Auto-updated: incumbents + scraped filings, scores, outlook estimates
-data/council_status.json            # Computed lame-duck math (regional + per-municipality)
-data/votes.json                     # Hand-curated recorded council votes
+index.html                          # Single-file dashboard, no build step, pure vanilla JS (zero external JS deps)
+data/seats.json                     # 21-seat regional inventory (manual seed, static) — everything joins on seat_id
+data/candidates.json                # Auto-updated: 22 sitting members (incl. appointed Chair) + scraped challengers
+data/council_status.json            # Computed lame-duck math (Regional Council only; 17-of-22 threshold)
+data/votes.json                     # Hand-curated SCORED votes (direction + weight + match_snippet)
+data/voting_record.json             # Full motion-level record since Nov 2022 (manual refresh, see above)
+data/manual_overrides.json          # Owner-verified facts (Vaughan filings) — always win, applied every run
 data/news.json                      # Google News RSS, 90-day retention
-data/metadata.json                  # Timestamps, counts, data_confidence block
-scraper/main.py                     # Orchestrator (news → candidates → score → outlook → council status)
+data/metadata.json                  # Timestamps, counts, data_confidence + scrape_coverage
+scraper/main.py                     # Orchestrator (news → candidates → overrides → score → outlook → council status)
 scraper/fetch_candidates.py         # Per-municipality extractors, verified against real clerk pages
 scraper/fetch_news.py               # RSS feeds; word-boundary municipality matching; York-Region-relevance filter
-scraper/score_alignment.py          # Voting-record-first scoring (score_from_votes + score_from_text)
-scraper/compute_council_status.py   # s.275 lame-duck calculator (pure function; 21/16 hardcoded w/ assertion)
+scraper/score_alignment.py          # Weighted-average voting-record scoring (sitting members only)
+scraper/compute_council_status.py   # s.275 lame-duck calculator (22 voting members / 17 threshold, asserted)
 scraper/estimate_race_outlook.py    # likely_to_run_again / likely_to_win ordinal heuristics
+scraper/harvest_voting_record.py    # Manual-run minutes harvester → data/voting_record.json
 .github/workflows/update_data.yml   # Cron every 2 hours
 .github/workflows/pages.yml         # Pages deploy on push to index.html or data/**
 ```
+
+**Page layout (top to bottom):** lame-duck banner (16/22 fraction + % + the two countdown tiles) → Council Chamber grid (one colour-dotted block per municipality, Vaughan/Markham dominant, Chair beside Whitchurch-Stouffville on the last row; tiles carry filing status, win outlook, fiscal score) → Fiscal Alignment Overview (stacked bar + name columns; **clicking a name opens that member's full recorded-vote history modal**) → Council Voting Record (collapsible per-meeting motion record with recorded-vote breakdowns and ⚖ scored badges) → Recent Candidate Registrations.
 
 ## Scrape Coverage (verified 2026-07-06)
 | Municipality | Status | Notes |
@@ -81,11 +88,17 @@ scraper/estimate_race_outlook.py    # likely_to_run_again / likely_to_win ordina
 Scraper safeguards (do not remove): office allowlist, municipality allowlist, per-municipality candidate cap, page-must-mention-candidates check, no generic list-extraction fallback. King's extractor maps tables to offices **by position** (page has no per-office headings) — re-verify if King results look wrong.
 
 ## Known Gaps / Future Work
-- `votes.json` is empty pending the DC Bylaw roll-call research (see Open manual item above)
-- Vaughan filings need manual entry (weekly through July, twice-weekly in August; nom close Aug 21) — the Vaughan tab's news queue helps spot them
-- Markham data lags by the age of the newest good Wayback snapshot — check the snapshot date in filing_source when precision matters
-- No public polling exists for these races; likely-to-win stays a low-confidence ordinal
-- Chamber view seat placement is illustrative (grouped by municipality); actual chair assignments aren't published — owner may supply the real order
+- **Vaughan filings need manual entry** via `data/manual_overrides.json` (Mayor + all 4 RCs already recorded there; check vaughan.ca weekly through July, twice-weekly in August). Vaughan tab surfaces a candidacy-news queue to prompt.
+- **Markham data lags** by the age of the newest good Wayback snapshot — check the snapshot date in `filing_source` when precision matters. Its RC incumbents Scarpitti/M. Chan showing "Not registered" may just be snapshot lag.
+- **Refresh the voting record after each new council meeting**: `python3 scraper/harvest_voting_record.py`, then review new recorded votes and add fiscally relevant ones to `votes.json`.
+- No public polling exists; likely-to-win stays a low-confidence ordinal.
+- **Chamber seat layout is illustrative** (blocks grouped by municipality, sized by contingent). Owner planned to walk to chambers for the real chair map — when supplied, it drops into `CHAMBER_MUNI_ORDER`/`MUNI_COLORS` in index.html (block-based now, not the old horseshoe).
 
-## Current Incumbents (2022 elected; filing status tracked live in candidates.json)
-Mayors: Mrakas (Aurora), Hackson (East Gwillimbury), Quirk (Georgina), Pellegrini (King), Scarpitti (Markham), Taylor (Newmarket), West (Richmond Hill), Del Duca (Vaughan), Lovatt (Whitchurch-Stouffville). Full 76-incumbent roster lives in `data/seats.json`.
+## Current Status (2026-07-07)
+16 of 22 registered (73%), **at risk** — needs 17. Five outstanding: Scarpitti + M. Chan (Markham, likely snapshot lag), Hackson (East Gwillimbury), Taylor + Vegh (Newmarket, scraped live so genuinely not yet filed). Full 21-incumbent roster + Chair in `data/seats.json`/`candidates.json`; filing status tracked live.
+
+## Working notes for the next session
+- **Every push waits on a flaky GitHub Pages deploy API** — it fails transiently ~1 in 3 times with "Deployment failed, try again later" (not our content). Standard move: `gh run rerun <id>` up to 3× until it goes green. GitHub status is otherwise operational.
+- The **auto-update bot commits every ~2 hours**, so `git push` often rejects → `git pull --rebase`, then on data-file conflicts `git checkout --theirs data/*.json` (bot data is fresher for news; our schema-carrying commits win on structure — validate JSON after) and `git rebase --continue`.
+- Git commits use an auto-detected local identity (`Mandy Moore <mandymoore@...local>`), not the gmail — cosmetic, GitHub attributes via login. Owner can `git config --global user.email` if she wants it fixed.
+- See owner memory `feedback_recompute_consequences.md`: when she corrects a computation input, recompute + surface ALL downstream effects (incl. unfavorable) before shipping.
