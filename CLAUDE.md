@@ -18,7 +18,8 @@ Distinguish visibly between **confirmed** (official clerk filing, documented rec
 
 ## Zero Manual Updates (with honest exceptions)
 GitHub Action scrapes every 2 hours and commits; dashboard auto-refreshes every 30 minutes. Exceptions that are deliberately manual:
-- `data/votes.json` — hand-curated recorded council votes (small, high-signal set)
+- `data/votes.json` — hand-curated scored votes (each fiscally classified with direction + weight; `match_snippet` links it to its motion in the voting record)
+- `data/voting_record.json` — the full motion-level record of this council since the Nov 2022 inauguration (449 motions, 47 meetings, all 23 recorded votes with member breakdowns; routine procedural motions excluded per owner rule; `staff_recommended` inferred from motion structure). Refresh after new meetings with `python3 scraper/harvest_voting_record.py` (run manually — not part of the 2-hour pipeline), then review any NEW recorded votes for scoring candidacy and add fiscally relevant ones to `votes.json`
 - `data/manual_overrides.json` — human-verified facts for what scrapers can't reach (primarily **Vaughan** filings). Applied by main.py after every fetch, so they always win. Each entry needs provenance (verified_by / verified_on / source). Lesson from the Del Duca miss (showed "Not registered" for two months after he filed May 1): the news feed can't backfill events older than its collection start, so Vaughan corrections MUST come through this file when the owner checks vaughan.ca/council/elections/candidates
 
 ## Jurisdiction & Seats
@@ -33,7 +34,7 @@ On May 21, 2026, Regional Council passed DC Bylaw No. 2026-20, cutting DC rates 
 
 ## Fiscal Alignment Scoring (0–10, higher = more aligned with YR Finance)
 Priority order of signal, recorded in each candidate's `fiscal_alignment_basis`:
-1. **`voting_record`** — recorded votes in `data/votes.json` dominate (±3 per vote); news keywords become a minor secondary nudge
+1. **`voting_record`** — recorded votes in `data/votes.json` dominate. **Weighted-average model** (2026-07-07): each vote contributes sign × weight (contested fiscal votes weight 3; consensus fiscal votes like budget adoptions and staff-recommended reserve motions weight 1), normalized by total weight voted on, mapped onto 0–10 around neutral 5. Consensus votes lend baseline alignment credit so the scale grades rather than saturates — e.g. Del Duca (against the majority on every DC question, but supported both budgets) lands at 2/10, not 0. News keywords remain a minor secondary nudge
 2. **`news_inferred`** — keyword deltas from news mentions (aligned: "growth pays for growth", "infrastructure funding", oppose DC cuts; misaligned: "cut development charges", "eliminate development charges", DC-framed affordability)
 3. **`incumbency_default`** — no signal at all: incumbents get −1 (tacit association with DC Bylaw 2026-20), stated plainly in `fiscal_notes`
 4. **`unscored`** — challengers with no signal stay neutral 5
