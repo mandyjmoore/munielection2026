@@ -100,9 +100,34 @@ def estimate_likely_to_win(
     nomination_day_passed: bool,
     as_of: str,
 ) -> dict:
+    # At-large challengers compete against the incumbents across all of a
+    # municipality's regional seats, not for one numbered slot. The single-seat
+    # heuristics below (and their "open seat — no incumbent" branch) would
+    # misread that, so decline to guess a multi-winner outcome.
+    if candidate.get("at_large_pool"):
+        return {
+            "label": "insufficient_data",
+            "basis": ["At-large race for multiple seats — multi-winner outlook is not modelled"],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
     seat_id = candidate.get("seat_id")
     seat_candidates = [c for c in all_candidates if c.get("seat_id") == seat_id]
     other_filed = [c for c in seat_candidates if c["id"] != candidate["id"] and _is_filed(c)]
+
+    # A regional-councillor incumbent holds a numbered slot, but the race is
+    # at-large: the municipality's at-large challenger pool (a separate pool
+    # seat_id) is running against them too. Fold those challengers in so the
+    # incumbent isn't wrongly reported as "acclaimed" or facing no challengers.
+    if candidate.get("status") == "incumbent" and candidate.get("office") == "Regional Councillor":
+        other_filed = other_filed + [
+            c for c in all_candidates
+            if c.get("at_large_pool")
+            and c.get("municipality") == candidate.get("municipality")
+            and c["id"] != candidate["id"]
+            and _is_filed(c)
+        ]
 
     if not _is_filed(candidate) and not other_filed:
         return {

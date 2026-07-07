@@ -44,7 +44,18 @@ def apply_manual_overrides(candidates: list[dict], overrides: list[dict]) -> lis
     for ov in overrides:
         cand = by_id.get(ov.get("candidate_id"))
         if cand is None:
-            logger.warning("Manual override for unknown candidate_id %s — skipped", ov.get("candidate_id"))
+            # Insert a candidate no scraper can see (e.g. Vaughan at-large
+            # challengers). "fields" must be a complete candidate record.
+            if ov.get("new_candidate"):
+                new_cand = dict(ov.get("fields", {}))
+                if not new_cand.get("id") or not new_cand.get("name"):
+                    logger.warning("new_candidate override %s missing id/name — skipped", ov.get("candidate_id"))
+                    continue
+                candidates.append(new_cand)
+                by_id[new_cand["id"]] = new_cand
+                logger.info("Inserted manual candidate %s (%s)", new_cand["name"], ov.get("verified_on", "undated"))
+            else:
+                logger.warning("Manual override for unknown candidate_id %s — skipped", ov.get("candidate_id"))
             continue
         cand.update(ov.get("fields", {}))
         logger.info("Applied manual override for %s (%s)", cand["name"], ov.get("verified_on", "undated"))

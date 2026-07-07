@@ -411,6 +411,40 @@
 
     .chair-challengers .none { color: var(--text-dim); font-style: italic; }
 
+    /* At-large challenger pool — regional-councillor challengers run city-wide
+       against the incumbents, so they belong to the whole block, not one tile */
+    .atlarge-pool {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border: 1px dashed var(--muni, var(--border));
+      border-radius: var(--radius-md, 8px);
+      background: color-mix(in srgb, var(--muni, #64748b) 7%, transparent);
+    }
+    .atlarge-pool-head {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .atlarge-pool-head .al-sub {
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      text-transform: none;
+      color: var(--text-dim);
+    }
+    .atlarge-pool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .atlarge-cand { color: var(--text); white-space: nowrap; }
+    .atlarge-cand.not-filed { color: var(--text-dim); }
+    .atlarge-cand .al-meta { color: var(--text-dim); }
+
     /* ============================================================
        MAIN CONTENT AREA
     ============================================================ */
@@ -1546,6 +1580,35 @@
     `;
   }
 
+  // Regional-councillor challengers are elected at-large (city-wide, top
+  // vote-getters win), so they aren't tied to any one incumbent's tile —
+  // render them as a shared pool under the municipality block.
+  function atLargePoolCard(muni, regionalSeatCount) {
+    const pool = regionalCandidates()
+      .filter(c => c.municipality === muni && c.at_large_pool)
+      .sort((a, b) => {
+        const da = parseFiledDate(a), db = parseFiledDate(b);
+        if (da && db) return da - db;
+        return (a.name || '').localeCompare(b.name || '');
+      });
+    if (!pool.length) return '';
+    const items = pool.map(ch => {
+      const d = parseFiledDate(ch);
+      const filed = isFiled(ch);
+      const dot = filed ? '&#9679;' : '&#9675;';
+      const meta = filed
+        ? (d ? ` &middot; ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '')
+        : ' &middot; likely';
+      return `<span class="atlarge-cand${filed ? '' : ' not-filed'}">${dot} ${escapeHtml(ch.name)}<span class="al-meta">${meta}</span></span>`;
+    }).join('');
+    const n = regionalSeatCount || pool.length;
+    return `
+      <div class="atlarge-pool" title="Regional councillors are elected at-large: every voter in the municipality votes for up to ${n}, and the ${n} highest vote-getters — incumbents and challengers together — win the seats. No challenger runs against a specific incumbent.">
+        <div class="atlarge-pool-head">Challenging at-large <span class="al-sub">&middot; competing with the incumbents for the ${n} seat${n !== 1 ? 's' : ''}</span></div>
+        <div class="atlarge-pool-list">${items}</div>
+      </div>`;
+  }
+
   function renderChamber() {
     const el = document.getElementById('chamber');
     if (!el) return;
@@ -1589,6 +1652,7 @@
         <div class="muni-block${noGrow}" style="--muni:${color}">
           <div class="muni-block-header"><span class="mdot"></span>${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
           <div class="muni-block-tiles">${seats.map(chairCard).join('')}</div>
+          ${atLargePoolCard(muni, seats.filter(s => s.office === 'Regional Councillor').length)}
         </div>
       `;
     }).join('');
