@@ -195,21 +195,6 @@
       margin-top: 4px;
     }
 
-    .lameduck-body { flex: 1; min-width: 240px; }
-
-    .lameduck-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #f1f5f9;
-      margin-bottom: 4px;
-    }
-
-    .lameduck-basis {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
     .lameduck-muni-toggle {
       background: transparent;
       border: 1px solid var(--border);
@@ -984,16 +969,6 @@
         <div class="subtitle">Tracking 9 municipalities &bull; October 26, 2026 &bull; Fiscal alignment monitor</div>
       </div>
       <div class="header-meta">
-        <div class="countdown-box">
-          <div class="days" id="countdown-noms" style="color:var(--orange)">—</div>
-          <div class="label">Days to Noms Close</div>
-          <div class="label" style="color:var(--text);font-weight:600">Aug 21, 2026</div>
-        </div>
-        <div class="countdown-box">
-          <div class="days" id="countdown-days">—</div>
-          <div class="label">Days to Election</div>
-          <div class="label" style="color:var(--text);font-weight:600">Oct 26, 2026</div>
-        </div>
         <div class="last-updated">
           <div><strong>Last Updated</strong></div>
           <div id="last-updated-time">Loading…</div>
@@ -1022,9 +997,17 @@
         <div class="lameduck-value" id="lameduck-fraction">—</div>
         <div class="lameduck-label" id="lameduck-pct" style="color:var(--text);font-weight:700"></div>
         <div class="lameduck-label">Incumbents Registered</div>
+        <div class="lameduck-label" style="font-size:9px;text-transform:none;letter-spacing:0.3px">75% to avoid lame duck</div>
       </div>
-      <div class="lameduck-body">
-        <div class="lameduck-title" id="lameduck-basis">Loading council status…</div>
+      <div class="countdown-box">
+        <div class="days" id="countdown-noms" style="color:var(--orange)">—</div>
+        <div class="label">Days to Noms Close</div>
+        <div class="label" style="color:var(--text);font-weight:600">Aug 21, 2026</div>
+      </div>
+      <div class="countdown-box">
+        <div class="days" id="countdown-days">—</div>
+        <div class="label">Days to Election</div>
+        <div class="label" style="color:var(--text);font-weight:600">Oct 26, 2026</div>
       </div>
     </div>
 
@@ -1296,7 +1279,6 @@
     if (!rc) {
       banner.className = 'lameduck-banner status-unknown';
       setText('lameduck-fraction', '—');
-      setText('lameduck-basis', 'Council status data not yet available.');
       return;
     }
 
@@ -1308,9 +1290,6 @@
     const pct = Math.round((rc.confirmed_filed_count / totalVoting) * 100);
     setText('lameduck-fraction', `${rc.confirmed_filed_count}/${totalVoting}`);
     setText('lameduck-pct', `${pct}%`);
-    setText('lameduck-basis',
-      `${rc.confirmed_filed_count}/${totalVoting} incumbents registered. ` +
-      `${rc.threshold_count} required to avoid lame duck session.`);
   }
 
   // ============================================================
