@@ -1301,8 +1301,9 @@
     }
 
     banner.className = 'lameduck-banner status-' + rc.status;
-    // Council has 22 voting members (21 elected + the appointed Chair, who
-    // continues automatically and cannot file) — the fraction reads out of 22.
+    // Council has 22 voting members (21 elected + the appointed Chair);
+    // 3/4 of 22 rounds up to 17 required. The Chair cannot file, so the
+    // 17 must come from the 21 elected members.
     const totalVoting = rc.total_voting_members || rc.total_current_elected_members + 1;
     const pct = Math.round((rc.confirmed_filed_count / totalVoting) * 100);
     setText('lameduck-fraction', `${rc.confirmed_filed_count}/${totalVoting}`);
