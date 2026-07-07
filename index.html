@@ -744,6 +744,38 @@
     .score-misaligned          { background: var(--orange-bg); color: var(--orange); border: 1px solid #7c2d12; }
     .score-strongly_misaligned { background: var(--red-bg); color: var(--red); border: 1px solid #7f1d1d; }
 
+    /* Clickable score pills (chamber tiles + modal) open the member's vote history */
+    .score-pill.score-clickable { cursor: pointer; }
+    .score-pill.score-clickable:hover { filter: brightness(1.25); }
+
+    /* ============================================================
+       FISCAL SCORE LEGEND (Council Chamber header)
+    ============================================================ */
+    .fiscal-legend {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin: -4px 0 16px;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+    .fiscal-legend .fl-intro { font-weight: 600; color: var(--text); }
+    .fiscal-legend .fl-scale { display: flex; flex-wrap: wrap; gap: 4px; }
+    .fiscal-legend .fl-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 7px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .fiscal-legend .fl-num { font-weight: 700; opacity: 0.85; }
+    .fiscal-legend .fl-hint { flex-basis: 100%; font-size: 10px; opacity: 0.85; }
+
     /* ============================================================
        NEWS SECTION
     ============================================================ */
@@ -1013,6 +1045,19 @@
 
     <!-- Council Chamber -->
     <div id="view-chamber">
+      <div class="section-title">Council Chamber</div>
+      <div class="fiscal-legend">
+        <span class="fl-intro">Fiscal score</span>
+        <span>= alignment with YR Finance (&ldquo;growth pays for growth&rdquo;), higher = more aligned:</span>
+        <span class="fl-scale">
+          <span class="score-pill score-strongly_misaligned fl-chip"><span class="fl-num">0&ndash;1</span> Strongly misaligned</span>
+          <span class="score-pill score-misaligned fl-chip"><span class="fl-num">2&ndash;3</span> Misaligned</span>
+          <span class="score-pill score-neutral fl-chip"><span class="fl-num">4&ndash;5</span> Neutral</span>
+          <span class="score-pill score-aligned fl-chip"><span class="fl-num">6&ndash;7</span> Aligned</span>
+          <span class="score-pill score-strongly_aligned fl-chip"><span class="fl-num">8&ndash;10</span> Strongly aligned</span>
+        </span>
+        <span class="fl-hint">Tap or click any score to see that member&rsquo;s full recorded-vote history. Sitting members only; challengers are unscored.</span>
+      </div>
       <div class="chamber-wrap">
         <div class="chamber" id="chamber">
           <!-- chairs injected by JS -->
@@ -1444,8 +1489,8 @@
     function scorePill(c, mini) {
       if (!c || c.fiscal_alignment_basis === 'unscored') return '';
       const label = c.fiscal_alignment_label || 'neutral';
-      const tip = escapeHtml(c.fiscal_notes || `Fiscal alignment: ${label}`);
-      return `<span class="score-pill score-${label}${mini ? ' mini' : ''}" title="${tip}">${c.fiscal_alignment_score ?? 5}/10</span>`;
+      const tip = escapeHtml((c.fiscal_notes || `Fiscal alignment: ${label}`) + ' — click for vote history');
+      return `<span class="score-pill score-${label} score-clickable${mini ? ' mini' : ''}" data-cid="${escapeHtml(c.id)}" role="button" tabindex="0" title="${tip}">${c.fiscal_alignment_score ?? 5}/10</span>`;
     }
 
     function winBadge(c) {
@@ -1512,7 +1557,7 @@
     const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
     const chairRec = state.candidates.find(c => c.status === 'appointed');
     const chairPill = chairRec && chairRec.fiscal_alignment_basis !== 'unscored'
-      ? `<span class="score-pill score-${chairRec.fiscal_alignment_label}" title="${escapeHtml(chairRec.fiscal_notes || '')}">${chairRec.fiscal_alignment_score}/10</span>`
+      ? `<span class="score-pill score-${chairRec.fiscal_alignment_label} score-clickable" data-cid="${escapeHtml(chairRec.id)}" role="button" tabindex="0" title="${escapeHtml((chairRec.fiscal_notes || '') + ' — click for vote history')}">${chairRec.fiscal_alignment_score}/10</span>`
       : '';
     const chairBlock = `
       <div class="muni-block no-grow" style="--muni:#94a3b8">
@@ -1754,6 +1799,19 @@
       alignCols.addEventListener('click', e => {
         const link = e.target.closest('.member-link');
         if (link) openMemberModal(link.dataset.cid);
+      });
+    }
+    // Chamber-tile score pills open the same member vote-history modal
+    const chamberEl = document.getElementById('chamber');
+    if (chamberEl) {
+      chamberEl.addEventListener('click', e => {
+        const pill = e.target.closest('.score-clickable[data-cid]');
+        if (pill) openMemberModal(pill.dataset.cid);
+      });
+      chamberEl.addEventListener('keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const pill = e.target.closest('.score-clickable[data-cid]');
+        if (pill) { e.preventDefault(); openMemberModal(pill.dataset.cid); }
       });
     }
     const modal = document.getElementById('member-modal');
