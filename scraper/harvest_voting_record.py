@@ -129,6 +129,14 @@ def parse_meeting(mid, name, date):
                     if prefix:
                         body.append(prefix)
                     recorded, j = parse_recorded(lines, j)
+                    # parse_recorded stops AT the disposition line — consume it
+                    # here rather than letting the loop's j += 1 skip past it
+                    nxt = lines[j].strip() if j < len(lines) else ""
+                    if DISPOSITIONS.match(nxt):
+                        disposition = nxt
+                        j += 1
+                        break
+                    continue  # re-evaluate lines[j] without the extra increment
                 elif DISPOSITIONS.match(l2):
                     disposition = l2
                     j += 1
@@ -152,6 +160,12 @@ def parse_meeting(mid, name, date):
                     staff = True
                 elif MEMBER_MOTION.search(motion_text) or (current_item and 'Motion' in current_item.split(' ', 1)[-1][:30]):
                     staff = False
+                if recorded and not disposition:
+                    # Minutes sometimes phrase outcomes non-standardly
+                    # ("Challenge is defeated") or omit the word entirely;
+                    # for recorded votes the tally determines it (simple
+                    # majority; flagged as derived for honesty).
+                    disposition = ("Carried" if len(recorded["for"]) > len(recorded["against"]) else "Defeated") + " (derived from tally)"
                 motions.append({
                     "item": current_item,
                     "mover": mover,
