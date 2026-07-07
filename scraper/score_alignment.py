@@ -108,14 +108,24 @@ def clamp(value: int, lo: int = 0, hi: int = 10) -> int:
     return max(lo, min(hi, value))
 
 
-VOTE_WEIGHT = 3  # a single recorded vote outweighs any one news-keyword hit
+DEFAULT_VOTE_WEIGHT = 3  # contested fiscal votes; consensus votes carry lower per-vote weight
 
 
 def score_from_votes(candidate_id: str, votes: list[dict]) -> Optional[dict]:
     """
-    Compute an alignment delta from recorded council votes for this candidate.
-    Returns None if the candidate has no matching recorded ("yes"/"no") votes —
-    distinct from a neutral score, since absence of data must stay absence of data.
+    Compute a weighted alignment position from recorded council votes.
+
+    Each vote contributes sign(±1) × its weight (votes.json `weight`;
+    contested fiscal votes default to 3, consensus votes like budget
+    adoptions carry ~1 so they lend baseline alignment credit without
+    drowning contested signals). The result is normalized by the total
+    weight the candidate actually voted on, so the score reflects the
+    *proportion* of their record that aligns rather than saturating at
+    the extremes after a few votes — someone who opposed the majority on
+    every DC question but supported the budget lands low, not at zero.
+
+    Returns None if the candidate has no matching recorded ("yes"/"no")
+    votes — absence of data must stay absence of data.
     """
     matches = []
     for vote in votes:
@@ -126,7 +136,8 @@ def score_from_votes(candidate_id: str, votes: list[dict]) -> Optional[dict]:
     if not matches:
         return None
 
-    delta = 0
+    delta = 0.0
+    weight_sum = 0.0
     notes_parts = []
     for vote, cast in matches:
         direction = vote.get("fiscal_alignment_direction")
@@ -135,11 +146,20 @@ def score_from_votes(candidate_id: str, votes: list[dict]) -> Optional[dict]:
         elif direction == "yes_vote_is_aligned":
             sign = 1 if cast == "yes" else -1
         else:
-            sign = 0
-        delta += sign * VOTE_WEIGHT
+            continue
+        weight = vote.get("weight", DEFAULT_VOTE_WEIGHT)
+        delta += sign * weight
+        weight_sum += weight
         notes_parts.append(f'Voted {cast.upper()} on "{vote.get("title")}" ({vote.get("date")}).')
 
-    return {"delta": delta, "notes": " ".join(notes_parts), "n_votes": len(matches)}
+    if weight_sum == 0:
+        return None
+
+    return {
+        "position": delta / weight_sum,  # -1.0 (fully misaligned) .. +1.0 (fully aligned)
+        "notes": " ".join(notes_parts),
+        "n_votes": len(matches),
+    }
 
 
 def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[list[dict]] = None) -> dict:
@@ -168,10 +188,11 @@ def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[
         updated["last_news_date"] = latest_date
 
     if vote_result is not None:
-        # Voting record is ground truth: it dominates. News delta only nudges
-        # within it, and is deliberately down-weighted (integer division) so a
+        # Voting record is ground truth: it dominates. The normalized position
+        # (-1..+1) maps onto the 0-10 scale around the neutral baseline of 5;
+        # news delta only nudges within it, deliberately down-weighted so a
         # handful of keyword hits can't override a documented vote.
-        new_score = clamp(5 + vote_result["delta"] + news_delta // 3)
+        new_score = clamp(round(5 + 5 * vote_result["position"]) + news_delta // 3)
         updated["fiscal_alignment_score"] = new_score
         updated["fiscal_alignment_label"] = label_from_score(new_score)
         updated["fiscal_alignment_basis"] = "voting_record"

@@ -587,6 +587,81 @@
     .align-col-names .challenger { color: var(--text-muted); }
     .align-col-names .none { color: var(--text-dim); font-style: italic; font-size: 11px; }
 
+    /* ============================================================
+       COUNCIL VOTING RECORD
+    ============================================================ */
+    .vr-meeting {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 6px;
+      background: var(--bg-card);
+    }
+
+    .vr-meeting > summary {
+      cursor: pointer;
+      padding: 9px 14px;
+      font-size: 12px;
+      list-style-position: inside;
+    }
+
+    .vr-meeting > summary:hover { background: rgba(255,255,255,0.02); }
+
+    .vr-meeting-body { padding: 4px 14px 12px; }
+
+    .vr-motion {
+      border-top: 1px solid rgba(51,65,85,0.4);
+      padding: 10px 0;
+      font-size: 12px;
+    }
+
+    .vr-motion.vr-recorded {
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-left: -10px;
+    }
+
+    .vr-motion-head {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+
+    .vr-item { font-weight: 700; color: #f1f5f9; font-size: 12px; }
+
+    .vr-tag {
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 1px 6px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .vr-tag.vr-carried  { color: var(--green); border-color: var(--green-dim); }
+    .vr-tag.vr-defeated { color: var(--red); border-color: #7f1d1d; }
+    .vr-tag.vr-rc       { color: var(--accent); border-color: var(--accent); }
+    .vr-tag.vr-staff    { color: var(--lime); border-color: #365314; }
+    .vr-tag.vr-scored   { color: var(--yellow); border-color: #713f12; }
+
+    .vr-mover { color: var(--text-dim); font-size: 11px; margin-bottom: 4px; }
+
+    .vr-text { color: var(--text-muted); line-height: 1.55; }
+    .vr-text summary { cursor: pointer; }
+    .vr-text summary:hover { color: var(--text); }
+    .vr-text > div { margin-top: 6px; }
+
+    .vr-votes {
+      margin-top: 6px;
+      font-size: 11px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
     .badge {
       font-size: 10px;
       font-weight: 600;
@@ -921,6 +996,24 @@
       <div class="align-columns" id="alignment-columns"></div>
     </div>
 
+    <!-- Council Voting Record -->
+    <div class="alignment-overview">
+      <div class="section-title">
+        Council Voting Record
+        <span class="badge" id="voting-record-badge">&hellip;</span>
+      </div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:12px;line-height:1.6">
+        Every substantive motion of this council since its November 2022 inauguration, from the official minutes.
+        Routine procedural motions (adopting minutes, receiving reports, recesses) are excluded unless they went to a
+        recorded vote; deferrals, reconsiderations and chair-ruling challenges are kept. &ldquo;Staff-recommended&rdquo;
+        is inferred from whether the motion adopts a Commissioner&rsquo;s report or Committee of the Whole recommendation.
+        Motions marked <span style="color:var(--accent)">&#9878; scored</span> feed the fiscal alignment scores above.
+      </div>
+      <div id="voting-record">
+        <div class="loading-spinner"><div class="spinner"></div> Loading voting record…</div>
+      </div>
+    </div>
+
     <!-- Recent Registrations -->
     <div class="alignment-overview">
       <div class="section-title">
@@ -985,6 +1078,8 @@
     metadata: {},
     seats: [],
     councilStatus: {},
+    votingRecord: {},
+    scoredVotes: [],
   };
 
   // ============================================================
@@ -1002,12 +1097,14 @@
   }
 
   async function loadData() {
-    const [candidates, news, metadata, seats, councilStatus] = await Promise.all([
+    const [candidates, news, metadata, seats, councilStatus, votingRecord, votes] = await Promise.all([
       fetchJSON('data/candidates.json'),
       fetchJSON('data/news.json'),
       fetchJSON('data/metadata.json'),
       fetchJSON('data/seats.json'),
       fetchJSON('data/council_status.json'),
+      fetchJSON('data/voting_record.json'),
+      fetchJSON('data/votes.json'),
     ]);
 
     state.candidates    = candidates || [];
@@ -1015,6 +1112,8 @@
     state.metadata      = metadata || {};
     state.seats          = Array.isArray(seats) ? seats : [];
     state.councilStatus = councilStatus || {};
+    state.votingRecord  = votingRecord || {};
+    state.scoredVotes   = (votes || {}).votes || [];
 
     render();
   }
@@ -1399,6 +1498,92 @@
     el.innerHTML = `<div class="chamber-groups">${blocks}${chairBlock}</div>`;
   }
 
+  // ============================================================
+  // RENDER: COUNCIL VOTING RECORD
+  // ============================================================
+  function renderVotingRecord() {
+    const el = document.getElementById('voting-record');
+    const badge = document.getElementById('voting-record-badge');
+    if (!el) return;
+
+    const meetings = (state.votingRecord.meetings || []).slice().reverse();
+    if (!meetings.length) {
+      el.innerHTML = `<div class="empty-state">Voting record not loaded yet.</div>`;
+      return;
+    }
+
+    const totalMotions = meetings.reduce((n, m) => n + m.motions.length, 0);
+    const totalRecorded = meetings.reduce((n, m) => n + m.motions.filter(x => x.vote_type === 'recorded').length, 0);
+    if (badge) badge.textContent = `${totalMotions} motions · ${totalRecorded} recorded votes · ${meetings.length} meetings`;
+
+    // Match scored votes (votes.json) to record motions via date + snippet
+    function scoredVoteFor(meetingDate, motion) {
+      return state.scoredVotes.find(v =>
+        v.date === meetingDate && v.match_snippet && motion.text.includes(v.match_snippet));
+    }
+
+    el.innerHTML = meetings.map(mtg => {
+      const recordedN = mtg.motions.filter(m => m.vote_type === 'recorded').length;
+      const motionsHtml = mtg.motions.map(m => {
+        const scored = scoredVoteFor(mtg.date, m);
+        const dispClass = /defeated/i.test(m.disposition) ? 'vr-defeated' : 'vr-carried';
+        const dispText = m.disposition === 'Recorded' ? 'Carried' : m.disposition;
+
+        let staffHtml = '';
+        if (m.staff_recommended === true) staffHtml = `<span class="vr-tag vr-staff" title="Inferred: motion adopts a staff report or Committee of the Whole recommendation">staff-recommended</span>`;
+        else if (m.staff_recommended === false) staffHtml = `<span class="vr-tag" title="Inferred: member-moved motion or amendment, not a staff recommendation">member motion</span>`;
+
+        let voteHtml;
+        if (m.vote_type === 'recorded' && m.recorded_vote) {
+          const rv = m.recorded_vote;
+          const line = (label, arr, color) => arr && arr.length
+            ? `<div><strong style="color:${color}">${label} (${arr.length}):</strong> ${arr.map(escapeHtml).join(', ')}</div>` : '';
+          voteHtml = `<div class="vr-votes">
+            ${line('For', rv.for, 'var(--green)')}
+            ${line('Against', rv.against, 'var(--red)')}
+            ${line('Absent', rv.absent, 'var(--text-dim)')}
+            ${line('Conflict declared', rv.conflict, 'var(--yellow)')}
+          </div>`;
+        } else {
+          voteHtml = `<div class="vr-votes" style="color:var(--text-dim);font-style:italic">Passed by voice vote — no individual breakdown recorded.</div>`;
+        }
+
+        const scoredHtml = scored
+          ? `<span class="vr-tag vr-scored" title="${escapeHtml('Feeds fiscal alignment scores (weight ' + (scored.weight ?? 3) + '): ' + scored.description)}">&#9878; scored &middot; w${scored.weight ?? 3}</span>`
+          : '';
+
+        const text = m.text || '';
+        const textHtml = text.length > 220
+          ? `<details class="vr-text"><summary>${escapeHtml(text.slice(0, 220))}&hellip;</summary><div>${escapeHtml(text)}</div></details>`
+          : `<div class="vr-text">${escapeHtml(text)}</div>`;
+
+        return `
+          <div class="vr-motion${m.vote_type === 'recorded' ? ' vr-recorded' : ''}">
+            <div class="vr-motion-head">
+              ${m.item ? `<span class="vr-item">${escapeHtml(m.item)}</span>` : ''}
+              <span class="vr-tag ${dispClass}">${escapeHtml(dispText)}</span>
+              ${m.vote_type === 'recorded' ? '<span class="vr-tag vr-rc">recorded vote</span>' : ''}
+              ${staffHtml}${scoredHtml}
+            </div>
+            <div class="vr-mover">Moved by ${escapeHtml(m.mover)}, seconded by ${escapeHtml(m.seconder)}</div>
+            ${textHtml}
+            ${voteHtml}
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <details class="vr-meeting">
+          <summary>
+            <strong>${escapeHtml(mtg.date)}</strong> &mdash; ${escapeHtml(mtg.meeting)}
+            <span style="color:var(--text-dim)">&middot; ${mtg.motions.length} motion${mtg.motions.length !== 1 ? 's' : ''}${recordedN ? ` &middot; ${recordedN} recorded vote${recordedN !== 1 ? 's' : ''}` : ''}</span>
+            <a href="${escapeHtml(mtg.url)}" target="_blank" rel="noopener" style="font-size:10px;margin-left:6px">minutes</a>
+          </summary>
+          <div class="vr-meeting-body">${motionsHtml}</div>
+        </details>
+      `;
+    }).join('');
+  }
 
   // ============================================================
   // MAIN RENDER
@@ -1409,6 +1594,7 @@
     renderChamber();
     renderAlert();
     renderAlignmentOverview();
+    renderVotingRecord();
     renderRecentRegistrations();
   }
 
