@@ -1,9 +1,10 @@
 {
-  "computed_at": "2026-07-07T14:14:37.049598+00:00",
+  "computed_at": "2026-07-07T14:13:36.380646+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
-    "chair_excluded": "Eric Jolliffe (appointed, not counted)",
+    "total_voting_members": 22,
+    "chair_note": "Eric Jolliffe (appointed voting member; continues automatically, cannot file)",
     "threshold_fraction": 0.75,
     "threshold_count": 16,
     "confirmed_filed_count": 16,
