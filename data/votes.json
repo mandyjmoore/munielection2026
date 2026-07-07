@@ -354,9 +354,14 @@
           "seat_id": "vaughan-regional-councillor-4",
           "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
           "vote": "absent"
+        },
+        {
+          "seat_id": null,
+          "candidate_id": "york-region-chair-eric-jolliffe",
+          "vote": "yes"
         }
       ],
-      "verification_notes": "Transcribed 2026-07-06 from the official April 3, 2025 Special Council meeting minutes. For (12) incl. Chair Jolliffe (appointed, excluded from results). Carried.",
+      "verification_notes": "Transcribed 2026-07-06 from the official April 3, 2025 Special Council meeting minutes. For (12) incl. Chair Jolliffe (appointed voting member, scored). Carried.",
       "weight": 3,
       "match_snippet": "defer development charges payable on all"
     },
@@ -474,9 +479,14 @@
           "seat_id": "markham-regional-councillor-3",
           "candidate_id": "markham-regional-councillor-3-joe-li",
           "vote": "absent"
+        },
+        {
+          "seat_id": null,
+          "candidate_id": "york-region-chair-eric-jolliffe",
+          "vote": "no"
         }
       ],
-      "verification_notes": "Transcribed 2026-07-06 from the official June 26, 2025 Regional Council minutes. Against (11) incl. Chair Jolliffe (appointed, excluded). Ambiguous procedural reconsideration votes from the same meeting were deliberately NOT scored — members voted “reconsider” with opposite intents.",
+      "verification_notes": "Transcribed 2026-07-06 from the official June 26, 2025 Regional Council minutes. Against (11) incl. Chair Jolliffe (appointed voting member, scored). Ambiguous procedural reconsideration votes from the same meeting were deliberately NOT scored — members voted “reconsider” with opposite intents.",
       "weight": 3,
       "match_snippet": "overrule the Chair"
     },
@@ -594,9 +604,14 @@
           "seat_id": "aurora-mayor",
           "candidate_id": "aurora-mayor-tom-mrakas",
           "vote": "absent"
+        },
+        {
+          "seat_id": null,
+          "candidate_id": "york-region-chair-eric-jolliffe",
+          "vote": "yes"
         }
       ],
-      "verification_notes": "Transcribed 2026-07-06 from the official September 25, 2025 Regional Council minutes (item L.7 ASE Funding). For (17) incl. Chair Jolliffe (appointed, excluded).",
+      "verification_notes": "Transcribed 2026-07-06 from the official September 25, 2025 Regional Council minutes (item L.7 ASE Funding). For (17) incl. Chair Jolliffe (appointed voting member, scored).",
       "weight": 3,
       "match_snippet": "fully reimburse York Region"
     },
@@ -726,6 +741,11 @@
           "seat_id": "vaughan-regional-councillor-3",
           "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
           "vote": "absent"
+        },
+        {
+          "seat_id": null,
+          "candidate_id": "york-region-chair-eric-jolliffe",
+          "vote": "no"
         }
       ],
       "verification_notes": "Transcribed 2026-07-06 from the official May 21, 2026 Regional Council minutes (item I.2.4, 'Motion to Amend #2 - Capping DC rates at prevailing rate at occupancy'). Recorded vote as published: For: Del Duca, DiPaola, Ferri, Li (4). Against: G. Chan, Davison, Jolliffe, Jones, Lovatt, Mrakas, Pellegrini, Quirk, Racco, Scarpitti, Taylor, Vegh, West (13). Absent: M. Chan, Hackson, Ho, Jackson, Rosati (5).",
