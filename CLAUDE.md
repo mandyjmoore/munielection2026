@@ -10,7 +10,7 @@ An automated election intelligence dashboard for the York Region 2026 municipal 
 
 ## The Three Core Requirements (in priority order)
 1. **Candidate registration detection is the main function.** The owner's words: "Otherwise I'd just build an Excel file and update it myself." The scraper pulls each municipal clerk's official registered-candidates page every 2 hours. New filings must be visible at a glance.
-2. **Lame-duck status at a glance.** Under Municipal Act s.275, York Regional Council becomes "lame duck" (restricted from major decisions: senior staff changes, $50k+ unbudgeted spending, asset sales) if fewer than **16 of its 21 elected members** (9 Mayors + 12 Regional Councillors; the appointed Chair is excluded) file for re-election by nomination day (**Aug 21, 2026, 2 p.m.**). Same 3/4 rule computed per municipal council as a secondary metric.
+2. **Lame-duck status at a glance.** Under Municipal Act s.275, York Regional Council becomes "lame duck" (restricted from major decisions: senior staff changes, $50k+ unbudgeted spending, asset sales) if fewer than 3/4 of its members continue to the new council. **Council has 22 voting members** (9 Mayors + 12 Regional Councillors + the appointed Chair, per owner): 3/4 of 22 = 16.5 → 17 must continue; the appointed Chair continues automatically (not on the ballot, cannot file), so **16 elected re-election filings** satisfy the requirement by nomination day (**Aug 21, 2026, 2 p.m.**). The banner displays filings out of 22 with the percentage.
 3. **Fiscal alignment weighted toward actual voting record** (DCs and reserves especially), not just news keywords — see Scoring below.
 
 ## Design Philosophy (learned the hard way)

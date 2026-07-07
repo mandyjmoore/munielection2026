@@ -1020,6 +1020,7 @@
     <div class="lameduck-banner status-unknown" id="lameduck-banner">
       <div class="lameduck-stat">
         <div class="lameduck-value" id="lameduck-fraction">—</div>
+        <div class="lameduck-label" id="lameduck-pct" style="color:var(--text);font-weight:700"></div>
         <div class="lameduck-label">Incumbents Registered</div>
       </div>
       <div class="lameduck-body">
@@ -1300,9 +1301,14 @@
     }
 
     banner.className = 'lameduck-banner status-' + rc.status;
-    setText('lameduck-fraction', `${rc.confirmed_filed_count}/${rc.total_current_elected_members}`);
+    // Council has 22 voting members (21 elected + the appointed Chair, who
+    // continues automatically and cannot file) — the fraction reads out of 22.
+    const totalVoting = rc.total_voting_members || rc.total_current_elected_members + 1;
+    const pct = Math.round((rc.confirmed_filed_count / totalVoting) * 100);
+    setText('lameduck-fraction', `${rc.confirmed_filed_count}/${totalVoting}`);
+    setText('lameduck-pct', `${pct}%`);
     setText('lameduck-basis',
-      `${rc.confirmed_filed_count}/${rc.total_current_elected_members} incumbents registered. ` +
+      `${rc.confirmed_filed_count}/${totalVoting} incumbents registered. ` +
       `${rc.threshold_count} required to avoid lame duck session.`);
   }
 

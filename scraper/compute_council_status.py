@@ -113,7 +113,13 @@ def compute_regional_status(seats, candidates, nomination_day_passed=False):
 
     return {
         "total_current_elected_members": REGIONAL_COUNCIL_SIZE,
-        "chair_excluded": "Eric Jolliffe (appointed, not counted)",
+        # Council has 22 voting members: 21 elected + the appointed Chair.
+        # 3/4 of 22 = 16.5 -> 17 members must continue to avoid lame duck;
+        # the appointed Chair continues automatically (not on the ballot),
+        # so 16 elected re-election filings satisfy the requirement. The
+        # dashboard displays x/22; the threshold on elected filings stays 16.
+        "total_voting_members": REGIONAL_COUNCIL_SIZE + 1,
+        "chair_note": "Eric Jolliffe (appointed voting member; continues automatically, cannot file)",
         "threshold_fraction": REGIONAL_THRESHOLD_FRACTION,
         "threshold_count": REGIONAL_THRESHOLD_COUNT,
         "confirmed_filed_count": len(confirmed),
