@@ -17,13 +17,17 @@ import math
 logger = logging.getLogger(__name__)
 
 # York Regional Council's elected roster is fixed public record for this term
-# (9 Mayors + 12 Regional Councillors; the Chair is appointed, not counted).
+# (9 Mayors + 12 Regional Councillors), plus the appointed Chair for 22
+# voting members in total. Owner decision (2026-07-07): the 3/4 requirement
+# applies to all 22 voting members — ceil(22 x 0.75) = 17 — and since the
+# appointed Chair cannot file, 17 of the 21 elected members must register.
 # Hardcoded with an assertion rather than derived at runtime, since a bad
 # edit to seats.json should fail loudly rather than silently change the
 # lame-duck threshold that drives this whole feature.
-REGIONAL_COUNCIL_SIZE = 21
+REGIONAL_COUNCIL_SIZE = 21          # elected members (can file)
+TOTAL_VOTING_MEMBERS = 22           # elected + appointed Chair
 REGIONAL_THRESHOLD_FRACTION = 0.75
-REGIONAL_THRESHOLD_COUNT = math.ceil(REGIONAL_COUNCIL_SIZE * REGIONAL_THRESHOLD_FRACTION)  # 16
+REGIONAL_THRESHOLD_COUNT = math.ceil(TOTAL_VOTING_MEMBERS * REGIONAL_THRESHOLD_FRACTION)  # 17
 
 
 def _candidates_by_id(candidates):
@@ -113,13 +117,8 @@ def compute_regional_status(seats, candidates, nomination_day_passed=False):
 
     return {
         "total_current_elected_members": REGIONAL_COUNCIL_SIZE,
-        # Council has 22 voting members: 21 elected + the appointed Chair.
-        # 3/4 of 22 = 16.5 -> 17 members must continue to avoid lame duck;
-        # the appointed Chair continues automatically (not on the ballot),
-        # so 16 elected re-election filings satisfy the requirement. The
-        # dashboard displays x/22; the threshold on elected filings stays 16.
-        "total_voting_members": REGIONAL_COUNCIL_SIZE + 1,
-        "chair_note": "Eric Jolliffe (appointed voting member; continues automatically, cannot file)",
+        "total_voting_members": TOTAL_VOTING_MEMBERS,
+        "chair_note": "Eric Jolliffe (appointed voting member; counted in the 22 but cannot file)",
         "threshold_fraction": REGIONAL_THRESHOLD_FRACTION,
         "threshold_count": REGIONAL_THRESHOLD_COUNT,
         "confirmed_filed_count": len(confirmed),
