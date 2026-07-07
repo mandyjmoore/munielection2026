@@ -1,5 +1,5 @@
 {
-  "_readme": "Human-verified facts that automated scraping cannot reach (primarily Vaughan, whose site blocks all automated clients). Applied by scraper/main.py AFTER the candidate fetch on every run, so they always win and survive scraper changes. Each override needs provenance: who verified it, when, and against what source.",
+  "_readme": "Human-verified facts that automated scraping cannot reach (primarily Vaughan, whose site blocks all automated clients). Applied by scraper/main.py AFTER the candidate fetch on every run, so they always win and survive scraper changes. Each override needs provenance: who verified it, when, and against what source. Entries with \"new_candidate\": true INSERT a candidate that no scraper can see (e.g. Vaughan at-large challengers) — their \"fields\" must be a complete candidate record; entries without it PATCH an existing candidate by candidate_id.",
   "overrides": [
     {
       "candidate_id": "vaughan-mayor-steven-del-duca",
@@ -17,40 +17,110 @@
       "fields": {
         "filed_for_reelection": "confirmed",
         "registered": true,
+        "registration_date": "May 6, 2026",
         "filing_source": "https://www.vaughan.ca/council/elections/candidates"
       },
-      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
-      "verified_on": "2026-07-06"
+      "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension; filing date now captured",
+      "verified_on": "2026-07-07"
     },
     {
       "candidate_id": "vaughan-regional-councillor-2-mario-ferri",
       "fields": {
         "filed_for_reelection": "confirmed",
         "registered": true,
+        "registration_date": "May 20, 2026",
         "filing_source": "https://www.vaughan.ca/council/elections/candidates"
       },
-      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
-      "verified_on": "2026-07-06"
+      "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension; filing date now captured",
+      "verified_on": "2026-07-07"
     },
     {
       "candidate_id": "vaughan-regional-councillor-3-gino-rosati",
       "fields": {
         "filed_for_reelection": "confirmed",
         "registered": true,
+        "registration_date": "May 11, 2026",
         "filing_source": "https://www.vaughan.ca/council/elections/candidates"
       },
-      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
-      "verified_on": "2026-07-06"
+      "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension; filing date now captured",
+      "verified_on": "2026-07-07"
     },
     {
       "candidate_id": "vaughan-regional-councillor-4-mario-g-racco",
       "fields": {
         "filed_for_reelection": "confirmed",
         "registered": true,
+        "registration_date": "May 6, 2026",
         "filing_source": "https://www.vaughan.ca/council/elections/candidates"
       },
-      "verified_by": "owner (listed on Vaughan's official Candidates page; filing date not relayed)",
-      "verified_on": "2026-07-06"
+      "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension; filing date now captured",
+      "verified_on": "2026-07-07"
+    },
+    {
+      "candidate_id": "vaughan-regional-at-large-fitz-roy-gordon",
+      "new_candidate": true,
+      "fields": {
+        "id": "vaughan-regional-at-large-fitz-roy-gordon",
+        "seat_id": "vaughan-regional-at-large",
+        "name": "Fitz-Roy Gordon",
+        "municipality": "Vaughan",
+        "office": "Regional Councillor",
+        "ward": null,
+        "status": "challenger",
+        "at_large_pool": true,
+        "filed_for_reelection": null,
+        "registered": true,
+        "registration_date": "June 1, 2026",
+        "filing_source": "https://www.vaughan.ca/council/elections/candidates",
+        "fiscal_alignment_score": 5,
+        "fiscal_alignment_label": "neutral",
+        "fiscal_alignment_basis": "unscored",
+        "fiscal_notes": "Not scored — no Regional Council voting record (challenger).",
+        "news_mentions": 0,
+        "last_news_date": null,
+        "likely_to_run_again": null,
+        "likely_to_win": {
+          "label": "insufficient_data",
+          "basis": ["At-large race for 4 seats — multi-winner outlook is not modelled"],
+          "confidence": "low"
+        },
+        "source": "manual"
+      },
+      "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension — one of two at-large challengers competing with the four incumbents for the four Local and Regional Councillor seats",
+      "verified_on": "2026-07-07"
+    },
+    {
+      "candidate_id": "vaughan-regional-at-large-alex-nascimben",
+      "new_candidate": true,
+      "fields": {
+        "id": "vaughan-regional-at-large-alex-nascimben",
+        "seat_id": "vaughan-regional-at-large",
+        "name": "Alex Nascimben",
+        "municipality": "Vaughan",
+        "office": "Regional Councillor",
+        "ward": null,
+        "status": "challenger",
+        "at_large_pool": true,
+        "filed_for_reelection": null,
+        "registered": true,
+        "registration_date": "June 15, 2026",
+        "filing_source": "https://www.vaughan.ca/council/elections/candidates",
+        "fiscal_alignment_score": 5,
+        "fiscal_alignment_label": "neutral",
+        "fiscal_alignment_basis": "unscored",
+        "fiscal_notes": "Not scored — no Regional Council voting record (challenger).",
+        "news_mentions": 0,
+        "last_news_date": null,
+        "likely_to_run_again": null,
+        "likely_to_win": {
+          "label": "insufficient_data",
+          "basis": ["At-large race for 4 seats — multi-winner outlook is not modelled"],
+          "confidence": "low"
+        },
+        "source": "manual"
+      },
+      "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension — one of two at-large challengers competing with the four incumbents for the four Local and Regional Councillor seats",
+      "verified_on": "2026-07-07"
     }
   ]
 }
