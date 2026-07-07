@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-07T13:41:09.604512+00:00",
+  "last_updated": "2026-07-07T13:49:45.823393+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -26,12 +26,12 @@
     "note": "Provincially appointed — not on ballot"
   },
   "scraper_version": "1.0.0",
-  "candidate_count": 31,
-  "news_count": 368,
-  "new_registrations_24h": 21,
+  "candidate_count": 32,
+  "news_count": 370,
+  "new_registrations_24h": 5,
   "data_confidence": {
     "candidates_confirmed_filed": 26,
-    "candidates_unknown_filing_status": 5,
+    "candidates_unknown_filing_status": 6,
     "seats_total": 21,
     "candidate_scraper_enabled": true,
     "scrape_coverage": {

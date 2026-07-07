@@ -167,9 +167,22 @@ def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[
     Re-score a candidate. Voting-record signal (if any) is primary; news-keyword
     signal is secondary/minor when a voting record exists, and the sole signal
     otherwise. `fiscal_alignment_basis` always records which path was used.
+
+    Alignment scores apply only to sitting members of Regional Council
+    (incumbents and the appointed Chair) — challengers have no council voting
+    record, so they stay unscored (owner decision, 2026-07-07).
     """
     votes = votes or []
     relevant_articles = find_relevant_articles(candidate["name"], news_articles)
+
+    if candidate.get("status") not in ("incumbent", "appointed"):
+        updated = dict(candidate)
+        updated["news_mentions"] = len(relevant_articles)
+        updated["fiscal_alignment_score"] = 5
+        updated["fiscal_alignment_label"] = "neutral"
+        updated["fiscal_alignment_basis"] = "unscored"
+        updated["fiscal_notes"] = "Not scored — no Regional Council voting record (challenger)."
+        return updated
 
     news_delta = 0
     latest_date = None

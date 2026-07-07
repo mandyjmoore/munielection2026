@@ -1298,7 +1298,10 @@
   // RENDER: ALIGNMENT OVERVIEW
   // ============================================================
   function renderAlignmentOverview() {
-    const candidates = regionalCandidates();
+    // Alignment applies only to sitting members of Regional Council — the 21
+    // elected incumbents plus the appointed Chair, who votes. Challengers
+    // have no council voting record and are not scored.
+    const candidates = state.candidates.filter(c => c.status === 'incumbent' || c.status === 'appointed');
     const counts = {
       strongly_aligned: 0,
       aligned: 0,
@@ -1315,7 +1318,7 @@
 
     const total = candidates.length || 1;
     const badge = document.getElementById('alignment-total-badge');
-    if (badge) badge.textContent = `${candidates.length} candidate${candidates.length !== 1 ? 's' : ''}`;
+    if (badge) badge.textContent = `${candidates.length} sitting members`;
 
     const stack = document.getElementById('alignment-stack');
     const columns = document.getElementById('alignment-columns');
@@ -1331,20 +1334,18 @@
         title="${ALIGN_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct.toFixed(0)}%)">${count}</div>`;
     }).join('');
 
-    // Names under each category, incumbents first then challengers,
-    // each sorted by score (most extreme first within their category).
+    // Names under each category, sorted by score (most extreme first).
     columns.innerHTML = order.map(key => {
       const group = candidates
         .filter(c => (c.fiscal_alignment_label || 'neutral') === key)
         .sort((a, b) =>
-          (a.status === 'incumbent' ? 0 : 1) - (b.status === 'incumbent' ? 0 : 1)
-          || (b.fiscal_alignment_score ?? 5) - (a.fiscal_alignment_score ?? 5)
+          (b.fiscal_alignment_score ?? 5) - (a.fiscal_alignment_score ?? 5)
           || a.name.localeCompare(b.name));
       const names = group.length
         ? group.map(c => {
             const tip = escapeHtml(c.fiscal_notes || `${c.fiscal_alignment_score ?? 5}/10`);
-            const cls = c.status === 'incumbent' ? '' : ' class="challenger"';
-            return `<div${cls} title="${tip}">${escapeHtml(c.name)} <span class="muni">${escapeHtml(c.municipality)}${c.status !== 'incumbent' ? ' · challenger' : ''}</span></div>`;
+            const suffix = c.status === 'appointed' ? ' · Chair (appointed)' : '';
+            return `<div title="${tip}">${escapeHtml(c.name)} <span class="muni">${escapeHtml(c.municipality)}${suffix}</span></div>`;
           }).join('')
         : `<div class="none">None</div>`;
       return `
@@ -1464,14 +1465,21 @@
     }
 
     const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
+    const chairRec = state.candidates.find(c => c.status === 'appointed');
+    const chairPill = chairRec && chairRec.fiscal_alignment_basis !== 'unscored'
+      ? `<span class="score-pill score-${chairRec.fiscal_alignment_label}" title="${escapeHtml(chairRec.fiscal_notes || '')}">${chairRec.fiscal_alignment_score}/10</span>`
+      : '';
     const chairBlock = `
       <div class="muni-block no-grow" style="--muni:#94a3b8">
         <div class="muni-block-header"><span class="mdot"></span>York Region <span class="seat-count">&middot; Regional Chair</span></div>
         <div class="muni-block-tiles">
           <div class="chair-card chair-appointed">
             <div class="chair-seat-label">Regional Chair</div>
-            <div class="chair-incumbent">${escapeHtml(chairName)}</div>
-            <div class="chair-status" style="color:var(--accent)">Appointed &mdash; not on ballot</div>
+            <div class="chair-name-row">
+              <div class="chair-incumbent">${escapeHtml(chairName)}</div>
+              ${chairPill}
+            </div>
+            <div class="chair-status" style="color:var(--accent)">Appointed &mdash; not on ballot &middot; votes on Council</div>
           </div>
         </div>
       </div>
