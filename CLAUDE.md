@@ -5,7 +5,7 @@ An automated election intelligence dashboard for the York Region 2026 municipal 
 
 **Owner:** Mandy Moore (mandyjmoore@gmail.com)
 **Repo:** mandyjmoore/munielection2026
-**Live URL:** https://mandyjmoore.github.io/munielection2026
+**Live URL:** https://yrmuni2026.wordi.ca (custom domain on the owner's wordi.ca; the old https://mandyjmoore.github.io/munielection2026 now 301-redirects here. Domain is pinned by the root `CNAME` file + the Pages API)
 **Local clone:** iCloud Drive `Projects/York Region Municipal Election Dashboard` (keep local + GitHub in sync — standing rule)
 
 ## The Three Core Requirements (in priority order)
