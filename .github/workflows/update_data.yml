@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   update:
@@ -23,8 +24,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r scraper/requirements.txt
 
+      - name: Snapshot candidate data before scrape
+        run: cp data/candidates.json /tmp/candidates_before.json
+
       - name: Run scraper
         run: python scraper/main.py
+
+      - name: Detect new registrations
+        id: detect
+        run: |
+          SUMMARY=$(python scraper/detect_new_registrations.py \
+            /tmp/candidates_before.json data/candidates.json /tmp/issue_body.md)
+          if [ -n "$SUMMARY" ]; then
+            echo "summary=$SUMMARY" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Commit and push updated data
         run: |
@@ -33,3 +46,14 @@ jobs:
           git add data/
           git diff --staged --quiet || git commit -m "Auto-update: election data $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
+
+      - name: Open issue for new registration(s)
+        if: steps.detect.outputs.summary != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: ${{ steps.detect.outputs.summary }}
+        run: |
+          gh label create new-registration --color 1f883d \
+            --description "Auto: a candidate newly filed" 2>/dev/null || true
+          gh issue create --title "🗳️ $TITLE" \
+            --body-file /tmp/issue_body.md --label new-registration
