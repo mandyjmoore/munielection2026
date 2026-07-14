@@ -583,12 +583,20 @@ def reconcile_scraped_candidates(
             existing.setdefault("first_seen_at", rc["scraped_at"])
             continue
 
-        # New challenger. Assign to a matched seat if one exists (multi-seat
-        # races like at-large regional councillor or 2-per-ward councils get
-        # assigned round-robin across the tied seats so each seat_id shows a
-        # reasonable spread rather than piling every challenger onto one).
+        # New challenger. Multi-seat Regional Councillor races (Markham 4,
+        # Vaughan 4, Richmond Hill 2) are elected at-large — top-N vote-getters
+        # win, so a challenger contests the whole pool, not any one incumbent's
+        # numbered seat. Pool them under a synthetic <muni>-regional-at-large
+        # id (the dashboard renders these under the municipality block, not on
+        # a tile). Single-seat RC races (Georgina, Newmarket) are genuine
+        # head-to-heads and keep a direct seat assignment, as do any other
+        # multi-seat offices (round-robin spread).
         seat_id = None
-        if matched_seats:
+        at_large_pool = False
+        if rc["office"] == "Regional Councillor" and len(matched_seats) > 1:
+            seat_id = f"{slugify(rc['municipality'])}-regional-at-large"
+            at_large_pool = True
+        elif matched_seats:
             idx = seat_taken_by_challenger.get(
                 f"{rc['municipality']}|{rc['office']}|{rc['ward']}", 0
             ) % len(matched_seats)
@@ -598,6 +606,7 @@ def reconcile_scraped_candidates(
         updated[cid] = {
             "id": cid,
             "seat_id": seat_id,
+            "at_large_pool": at_large_pool,
             "name": rc["name"],
             "municipality": rc["municipality"],
             "office": rc["office"],
