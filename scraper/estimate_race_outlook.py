@@ -101,13 +101,31 @@ def estimate_likely_to_win(
     as_of: str,
 ) -> dict:
     # At-large challengers compete against the incumbents across all of a
-    # municipality's regional seats, not for one numbered slot. The single-seat
-    # heuristics below (and their "open seat — no incumbent" branch) would
-    # misread that, so decline to guess a multi-winner outcome.
+    # municipality's regional seats, not for one numbered slot, so the
+    # single-seat heuristics below (and their "open seat — no incumbent"
+    # branch) would misread them. Grade them on the same ordinal evidence a
+    # single-seat challenger gets — news visibility against sitting
+    # incumbents — with the multi-winner structure stated in the basis
+    # (owner request 2026-07-14; supersedes the earlier "not modelled" stance).
     if candidate.get("at_large_pool"):
+        incumbents_in_pool = [
+            c for c in all_candidates
+            if c.get("status") == "incumbent"
+            and c.get("municipality") == candidate.get("municipality")
+            and c.get("office") == candidate.get("office")
+        ]
+        own_mentions = len(find_relevant_articles(candidate["name"], news_articles))
+        race = f"At-large race — challenging {len(incumbents_in_pool)} incumbents for {len(incumbents_in_pool)} seats"
+        if own_mentions >= 3:
+            return {
+                "label": "competitive",
+                "basis": [race, f"{own_mentions} news mention(s) — meaningful visibility"],
+                "confidence": "low",
+                "as_of": as_of,
+            }
         return {
-            "label": "insufficient_data",
-            "basis": ["At-large race for multiple seats — multi-winner outlook is not modelled"],
+            "label": "long_shot",
+            "basis": [race, f"{own_mentions} news mention(s) — limited visibility"],
             "confidence": "low",
             "as_of": as_of,
         }

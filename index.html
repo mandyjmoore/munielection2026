@@ -446,11 +446,32 @@
       font-size: 11px;
       line-height: 1.5;
     }
-    .atlarge-cand { color: var(--text); white-space: nowrap; }
+    .atlarge-cand { color: var(--text); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
     .atlarge-cand.not-filed { color: var(--text-dim); }
     .atlarge-cand .al-meta { color: var(--text-dim); }
     .atlarge-pool.atlarge-empty { background: transparent; border-color: var(--border); }
     .atlarge-pool .none { color: var(--text-dim); font-style: italic; }
+
+    /* RC tiles + their at-large pool share one column beside the Mayor tile,
+       so the pool lines up under the councillors it belongs to */
+    .rc-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1 1 400px;
+      min-width: 0;
+    }
+    .rc-tiles { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rc-group .atlarge-pool { margin-top: 0; }
+
+    .chair-challengers-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
 
     /* ============================================================
        MAIN CONTENT AREA
@@ -1515,6 +1536,15 @@
     'Whitchurch-Stouffville': '#f43f5e',
   };
 
+  // Ordinal win-outlook badge (estimate, never a fact) — shared by the seat
+  // tiles and the at-large challenger pools.
+  function winBadge(c) {
+    const w = c && c.likely_to_win;
+    if (!w || !w.label || w.label === 'insufficient_data') return '';
+    const tip = escapeHtml('Estimate, not fact — ' + (w.basis || []).join('; '));
+    return `<span class="badge badge-estimate est-${w.label}" title="${tip}">${escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
+  }
+
   function chairCard(seat) {
     if (!seat) return '';
     const cands = regionalCandidates().filter(c => c.seat_id === seat.id);
@@ -1532,13 +1562,6 @@
       const label = c.fiscal_alignment_label || 'neutral';
       const tip = escapeHtml((c.fiscal_notes || `Fiscal alignment: ${label}`) + ' — click for vote history');
       return `<span class="score-pill score-${label} score-clickable${mini ? ' mini' : ''}" data-cid="${escapeHtml(c.id)}" role="button" tabindex="0" title="${tip}">${c.fiscal_alignment_score ?? 5}/10</span>`;
-    }
-
-    function winBadge(c) {
-      const w = c && c.likely_to_win;
-      if (!w || !w.label || w.label === 'insufficient_data') return '';
-      const tip = escapeHtml('Estimate, not fact — ' + (w.basis || []).join('; '));
-      return `<span class="badge badge-estimate est-${w.label}" title="${tip}">${escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
     }
 
     let statusClass = 'unknown';
@@ -1569,7 +1592,7 @@
            s.municipality === seat.municipality && s.office === 'Regional Councillor').length > 1;
 
     const challengerHtml = challengers.length
-      ? challengers.map(ch => {
+      ? `<div class="chair-challengers-label">Challengers</div>` + challengers.map(ch => {
           const d = parseFiledDate(ch);
           const bits = [
             isFiled(ch) ? `&#9679; ${escapeHtml(ch.name)}` : `&#9675; ${escapeHtml(ch.name)}`,
@@ -1624,7 +1647,7 @@
       const meta = filed
         ? (d ? ` &middot; ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '')
         : ' &middot; likely';
-      return `<span class="atlarge-cand${filed ? '' : ' not-filed'}">${dot} ${escapeHtml(ch.name)}<span class="al-meta">${meta}</span></span>`;
+      return `<span class="atlarge-cand${filed ? '' : ' not-filed'}">${dot} ${escapeHtml(ch.name)}<span class="al-meta">${meta}</span>${winBadge(ch)}</span>`;
     }).join('');
     const n = regionalSeatCount || pool.length;
     return `
@@ -1676,8 +1699,21 @@
       return `${lineBreak}
         <div class="muni-block${noGrow}" style="--muni:${color}">
           <div class="muni-block-header"><span class="mdot"></span>${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
-          <div class="muni-block-tiles">${seats.map(chairCard).join('')}</div>
-          ${atLargePoolCard(muni, seats.filter(s => s.office === 'Regional Councillor').length)}
+          ${(() => {
+            const rcSeats = seats.filter(s => s.office === 'Regional Councillor');
+            const poolHtml = atLargePoolCard(muni, rcSeats.length);
+            if (!poolHtml) return `<div class="muni-block-tiles">${seats.map(chairCard).join('')}</div>`;
+            // Pool present: group the RC tiles + pool in one column so the
+            // pool sits under the at-large councillors, not under the Mayor.
+            const mayorSeats = seats.filter(s => s.office === 'Mayor');
+            return `<div class="muni-block-tiles">
+              ${mayorSeats.map(chairCard).join('')}
+              <div class="rc-group">
+                <div class="rc-tiles">${rcSeats.map(chairCard).join('')}</div>
+                ${poolHtml}
+              </div>
+            </div>`;
+          })()}
         </div>
       `;
     }).join('');
