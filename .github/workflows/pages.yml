@@ -10,6 +10,7 @@ on:
       - 'CNAME'
       - 'favicon*'
       - 'apple-touch-icon.png'
+      - 'safari-pinned-tab.svg'
   workflow_dispatch:
 
 permissions:
