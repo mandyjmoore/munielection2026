@@ -16,6 +16,8 @@ An automated election intelligence dashboard for the York Region 2026 municipal 
 ## Design Philosophy (learned the hard way)
 Distinguish visibly between **confirmed** (official clerk filing, documented recorded vote), **inferred** (news keywords, incumbency heuristics), and **unknown**. Never let absence of data become a plausible-looking fabricated value. Predecessor failure: a generic scraper fallback once recorded 330 nav-menu links ("Report A Problem", "Food Safety") as candidates. All estimates (likely-to-run-again, likely-to-win) are ordinal labels with visible `basis` reasons and dashed-border styling — never percentages, never solid badges.
 
+**Visual style (owner rule, 2026-07-14): light mode only, Apple sensibility** — #f5f5f7 canvas, white cards, hairline borders, near-black text, Apple-blue #0071e3 accent, SF system font, text-safe muted status colors on light tinted fills, frosted sticky header. "Think Apple, not video games and PCs." Don't reintroduce dark backgrounds or neon accents.
+
 ## Zero Manual Updates (with honest exceptions)
 GitHub Action scrapes every 2 hours and commits; dashboard auto-refreshes every 30 minutes. Exceptions that are deliberately manual:
 - `data/votes.json` — hand-curated scored votes (each fiscally classified with direction + weight; `match_snippet` links it to its motion in the voting record)
