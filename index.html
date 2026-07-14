@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f5f7" />
   <title>York Region 2026 Municipal Election Dashboard</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
@@ -18,29 +19,31 @@
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Light palette, Apple-flavored: #f5f5f7 canvas, white cards, hairline
+       borders, near-black text, restrained text-safe system-color tones. */
     :root {
-      --bg:         #0f172a;
-      --bg-card:    #1e293b;
-      --bg-card2:   #0f1e35;
-      --border:     #334155;
-      --border-subtle: #1e3a5f;
-      --text:       #e2e8f0;
-      --text-muted: #94a3b8;
-      --text-dim:   #64748b;
-      --accent:     #3b82f6;
-      --accent-hover: #2563eb;
+      --bg:         #f5f5f7;
+      --bg-card:    #ffffff;
+      --bg-card2:   #fafafa;
+      --border:     #e2e2e7;
+      --border-subtle: #ececf1;
+      --text:       #1d1d1f;
+      --text-muted: #6e6e73;
+      --text-dim:   #86868b;
+      --accent:     #0071e3;
+      --accent-hover: #0060c0;
 
-      --green:      #22c55e;
-      --green-dim:  #15803d;
-      --green-bg:   #052e16;
-      --lime:       #84cc16;
-      --lime-bg:    #1a2e05;
-      --yellow:     #eab308;
-      --yellow-bg:  #2d2500;
-      --orange:     #f97316;
-      --orange-bg:  #2d1500;
-      --red:        #ef4444;
-      --red-bg:     #2d0a0a;
+      --green:      #248a3d;
+      --green-dim:  #a7dcb4;   /* light border companion to --green text */
+      --green-bg:   #e8f7ec;
+      --lime:       #4d7c0f;
+      --lime-bg:    #f2f8e3;
+      --yellow:     #a16207;
+      --yellow-bg:  #fdf4dc;
+      --orange:     #c2410c;
+      --orange-bg:  #fdeee2;
+      --red:        #dc2626;
+      --red-bg:     #fdebea;
 
       --radius:     8px;
       --radius-lg:  12px;
@@ -49,7 +52,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -72,7 +75,9 @@
        HEADER
     ============================================================ */
     .site-header {
-      background: linear-gradient(135deg, #0f172a 0%, #0c1f3a 50%, #0f172a 100%);
+      background: rgba(255, 255, 255, 0.82);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid var(--border);
       padding: 24px 0 20px;
       position: sticky;
@@ -91,7 +96,7 @@
     .header-title h1 {
       font-size: clamp(18px, 3vw, 26px);
       font-weight: 800;
-      color: #f1f5f9;
+      color: var(--text);
       letter-spacing: -0.5px;
     }
 
@@ -144,7 +149,7 @@
        ALERT BANNER
     ============================================================ */
     .alert-banner {
-      background: linear-gradient(90deg, #1c2d1c, #0f3f1f);
+      background: linear-gradient(90deg, #e8f7ec, #def3e5);
       border: 1px solid var(--green-dim);
       border-radius: var(--radius);
       padding: 10px 16px;
@@ -176,9 +181,9 @@
       flex-wrap: wrap;
     }
 
-    .lameduck-banner.status-on_track    { background: linear-gradient(90deg, #0f1e14, #0f2a1a); border-color: var(--green-dim); }
-    .lameduck-banner.status-at_risk     { background: linear-gradient(90deg, #241d05, #2d2500); border-color: #713f12; }
-    .lameduck-banner.status-lame_duck_confirmed { background: linear-gradient(90deg, #2d0a0a, #3a0d0d); border-color: #7f1d1d; }
+    .lameduck-banner.status-on_track    { background: linear-gradient(90deg, #eaf7ee, #dff3e6); border-color: var(--green-dim); }
+    .lameduck-banner.status-at_risk     { background: linear-gradient(90deg, #fdf4dc, #faecc8); border-color: #ecd9a8; }
+    .lameduck-banner.status-lame_duck_confirmed { background: linear-gradient(90deg, #fdebea, #fbdcda); border-color: #f2b8b4; }
     .lameduck-banner.status-unknown     { background: var(--bg-card); border-color: var(--border); }
 
     .lameduck-stat {
@@ -240,7 +245,7 @@
     .lameduck-muni-card.status-at_risk { border-left-color: var(--yellow); }
     .lameduck-muni-card.status-lame_duck_confirmed { border-left-color: var(--red); }
 
-    .lameduck-muni-card .muni-name { font-weight: 700; color: #f1f5f9; margin-bottom: 2px; }
+    .lameduck-muni-card .muni-name { font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .lameduck-muni-card .muni-count { color: var(--text-muted); font-size: 11px; }
 
     /* ============================================================
@@ -394,7 +399,7 @@
 
     .chair-incumbent {
       font-weight: 700;
-      color: #f1f5f9;
+      color: var(--text);
       font-size: 12px;
       line-height: 1.3;
       margin: 2px 0;
@@ -515,7 +520,7 @@
     .stat-card .stat-value {
       font-size: 32px;
       font-weight: 800;
-      color: #f1f5f9;
+      color: var(--text);
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -547,7 +552,7 @@
     .section-title {
       font-size: 15px;
       font-weight: 700;
-      color: #f1f5f9;
+      color: var(--text);
       margin-bottom: 14px;
       display: flex;
       align-items: center;
@@ -578,7 +583,7 @@
       justify-content: center;
       font-size: 11px;
       font-weight: 700;
-      color: #0f172a;
+      color: #fff;
       min-width: 0;
       transition: width 0.6s ease;
     }
@@ -622,7 +627,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(2, 6, 23, 0.75);
+      background: rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -664,7 +669,7 @@
       margin-bottom: 6px;
     }
 
-    .mm-name { font-size: 17px; font-weight: 800; color: #f1f5f9; }
+    .mm-name { font-size: 17px; font-weight: 800; color: var(--text); }
     .mm-sub { font-size: 11px; color: var(--text-muted); }
 
     .mm-summary {
@@ -677,7 +682,7 @@
 
     .mm-row {
       padding: 9px 0;
-      border-bottom: 1px solid rgba(51,65,85,0.4);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       font-size: 12px;
     }
 
@@ -710,12 +715,12 @@
       list-style-position: inside;
     }
 
-    .vr-meeting > summary:hover { background: rgba(255,255,255,0.02); }
+    .vr-meeting > summary:hover { background: rgba(0,0,0,0.03); }
 
     .vr-meeting-body { padding: 4px 14px 12px; }
 
     .vr-motion {
-      border-top: 1px solid rgba(51,65,85,0.4);
+      border-top: 1px solid rgba(0,0,0,0.08);
       padding: 10px 0;
       font-size: 12px;
     }
@@ -734,7 +739,7 @@
       margin-bottom: 3px;
     }
 
-    .vr-item { font-weight: 700; color: #f1f5f9; font-size: 12px; }
+    .vr-item { font-weight: 700; color: var(--text); font-size: 12px; }
 
     .vr-tag {
       font-size: 9px;
@@ -749,10 +754,10 @@
     }
 
     .vr-tag.vr-carried  { color: var(--green); border-color: var(--green-dim); }
-    .vr-tag.vr-defeated { color: var(--red); border-color: #7f1d1d; }
+    .vr-tag.vr-defeated { color: var(--red); border-color: #f2b8b4; }
     .vr-tag.vr-rc       { color: var(--accent); border-color: var(--accent); }
-    .vr-tag.vr-staff    { color: var(--lime); border-color: #365314; }
-    .vr-tag.vr-scored   { color: var(--yellow); border-color: #713f12; }
+    .vr-tag.vr-staff    { color: var(--lime); border-color: #cfe3a8; }
+    .vr-tag.vr-scored   { color: var(--yellow); border-color: #ecd9a8; }
 
     .vr-mover { color: var(--text-dim); font-size: 11px; margin-bottom: 4px; }
 
@@ -775,9 +780,9 @@
       border-radius: 99px;
     }
 
-    .badge-incumbent { background: #1e3a5f; color: #60a5fa; }
-    .badge-challenger { background: #1a2e1a; color: #86efac; }
-    .badge-unknown { background: #1e1e1e; color: #64748b; }
+    .badge-incumbent { background: #e8f1fd; color: #0b63c5; }
+    .badge-challenger { background: var(--green-bg); color: var(--green); }
+    .badge-unknown { background: #f0f0f2; color: var(--text-dim); }
 
     /* Heuristic/estimated fields (likely_to_run_again, likely_to_win) get a
        visually distinct treatment — dashed border, no solid fill — so they
@@ -800,15 +805,15 @@
       border-radius: 99px;
     }
 
-    .score-strongly_aligned    { background: #052e16; color: var(--green); border: 1px solid var(--green-dim); }
-    .score-aligned             { background: #1a2e05; color: var(--lime); border: 1px solid #365314; }
-    .score-neutral             { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #713f12; }
-    .score-misaligned          { background: var(--orange-bg); color: var(--orange); border: 1px solid #7c2d12; }
-    .score-strongly_misaligned { background: var(--red-bg); color: var(--red); border: 1px solid #7f1d1d; }
+    .score-strongly_aligned    { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-dim); }
+    .score-aligned             { background: var(--lime-bg); color: var(--lime); border: 1px solid #cfe3a8; }
+    .score-neutral             { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #ecd9a8; }
+    .score-misaligned          { background: var(--orange-bg); color: var(--orange); border: 1px solid #f3cdb2; }
+    .score-strongly_misaligned { background: var(--red-bg); color: var(--red); border: 1px solid #f2b8b4; }
 
     /* Clickable score pills (chamber tiles + modal) open the member's vote history */
     .score-pill.score-clickable { cursor: pointer; }
-    .score-pill.score-clickable:hover { filter: brightness(1.25); }
+    .score-pill.score-clickable:hover { filter: brightness(0.94); }
 
     /* ============================================================
        FISCAL SCORE LEGEND (Council Chamber header)
@@ -876,7 +881,7 @@
       flex: 1;
       font-size: 13px;
       font-weight: 600;
-      color: #f1f5f9;
+      color: var(--text);
       line-height: 1.4;
     }
 
@@ -911,9 +916,9 @@
 
     .dc-tag {
       font-size: 10px;
-      background: rgba(249,115,22,0.1);
+      background: rgba(194,65,12,0.07);
       color: var(--orange);
-      border: 1px solid rgba(249,115,22,0.3);
+      border: 1px solid rgba(194,65,12,0.25);
       padding: 1px 6px;
       border-radius: 99px;
     }
@@ -942,7 +947,7 @@
     .nom-item .nom-value {
       font-size: 15px;
       font-weight: 700;
-      color: #f1f5f9;
+      color: var(--text);
     }
 
     .nom-item .nom-label {
@@ -1205,11 +1210,11 @@
   const REFRESH_MS    = 30 * 60 * 1000; // 30 minutes
 
   const ALIGN_COLORS = {
-    strongly_aligned:    '#22c55e',
-    aligned:             '#84cc16',
-    neutral:             '#eab308',
-    misaligned:          '#f97316',
-    strongly_misaligned: '#ef4444',
+    strongly_aligned:    '#248a3d',
+    aligned:             '#4d7c0f',
+    neutral:             '#a16207',
+    misaligned:          '#c2410c',
+    strongly_misaligned: '#dc2626',
   };
 
   const ALIGN_LABELS = {
@@ -1782,7 +1787,7 @@
       if (r.scored && (r.cast === 'for' || r.cast === 'against')) {
         const yes = r.cast === 'for';
         const aligned = (r.scored.fiscal_alignment_direction === 'yes_vote_is_aligned') === yes;
-        alignHtml = `<span class="vr-tag" style="color:${aligned ? 'var(--green)' : 'var(--red)'};border-color:${aligned ? 'var(--green-dim)' : '#7f1d1d'}">${aligned ? 'aligned' : 'misaligned'} &middot; w${r.scored.weight ?? 3}</span>`;
+        alignHtml = `<span class="vr-tag" style="color:${aligned ? 'var(--green)' : 'var(--red)'};border-color:${aligned ? 'var(--green-dim)' : '#f2b8b4'}">${aligned ? 'aligned' : 'misaligned'} &middot; w${r.scored.weight ?? 3}</span>`;
       }
       return `
         <div class="mm-row">
