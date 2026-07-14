@@ -8,6 +8,8 @@ on:
       - 'index.html'
       - 'data/**'
       - 'CNAME'
+      - 'favicon*'
+      - 'apple-touch-icon.png'
   workflow_dispatch:
 
 permissions:
