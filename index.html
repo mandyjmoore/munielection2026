@@ -449,6 +449,8 @@
     .atlarge-cand { color: var(--text); white-space: nowrap; }
     .atlarge-cand.not-filed { color: var(--text-dim); }
     .atlarge-cand .al-meta { color: var(--text-dim); }
+    .atlarge-pool.atlarge-empty { background: transparent; border-color: var(--border); }
+    .atlarge-pool .none { color: var(--text-dim); font-style: italic; }
 
     /* ============================================================
        MAIN CONTENT AREA
@@ -1557,6 +1559,15 @@
       }
     }
 
+    // Multi-seat RC races are at-large: challengers live in the block-level
+    // pool below, so a per-tile "No challengers" would be misleading there.
+    // Omit the section on those tiles (any legacy tile-pinned challenger
+    // still renders defensively); the pool card states the challenger
+    // situation once for the whole block.
+    const pooledAtLarge = seat.office === 'Regional Councillor'
+      && regionalSeats().filter(s =>
+           s.municipality === seat.municipality && s.office === 'Regional Councillor').length > 1;
+
     const challengerHtml = challengers.length
       ? challengers.map(ch => {
           const d = parseFiledDate(ch);
@@ -1568,7 +1579,7 @@
             <span>${bits}</span>${scorePill(ch, true)}${winBadge(ch)}
           </div>`;
         }).join('')
-      : `<div class="none">No challengers</div>`;
+      : (pooledAtLarge ? '' : `<div class="none">No challengers</div>`);
 
     return `
       <div class="chair-card chair-${statusClass}">
@@ -1580,7 +1591,7 @@
         <div class="chair-status st-${statusClass}" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
           <span>${statusHtml}</span>${winBadge(inc)}
         </div>
-        <div class="chair-challengers">${challengerHtml}</div>
+        ${challengerHtml ? `<div class="chair-challengers">${challengerHtml}</div>` : ''}
       </div>
     `;
   }
@@ -1596,7 +1607,16 @@
         if (da && db) return da - db;
         return (a.name || '').localeCompare(b.name || '');
       });
-    if (!pool.length) return '';
+    if (!pool.length) {
+      // Multi-seat blocks say "none yet" once here, since their tiles no
+      // longer carry per-tile challenger lines. Single-seat munis keep the
+      // per-tile treatment and need no pool card.
+      return regionalSeatCount > 1
+        ? `<div class="atlarge-pool atlarge-empty" title="Regional councillors here are elected at-large (city-wide); challengers run against all ${regionalSeatCount} incumbents at once.">
+             <div class="atlarge-pool-list"><span class="none">No at-large challengers registered yet &middot; ${regionalSeatCount} seats elected city-wide</span></div>
+           </div>`
+        : '';
+    }
     const items = pool.map(ch => {
       const d = parseFiledDate(ch);
       const filed = isFiled(ch);
