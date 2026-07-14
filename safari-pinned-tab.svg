@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Monochrome silhouette for Safari pinned tabs (rel="mask-icon"):
+       single black shape; Safari recolors it via the link's color attr -->
+  <path d="M25.5 2.5 41 5.8a3 3 0 0 1 2.3 3.6L40.6 22H50a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V28a6 6 0 0 1 6-6h7.8l1.4-17a3 3 0 0 1 2.3-2.5zM45 30H19a2.25 2.25 0 0 0 0 4.5h26A2.25 2.25 0 0 0 45 30z"/>
+</svg>
