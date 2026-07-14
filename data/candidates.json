@@ -971,12 +971,13 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "long_shot",
       "basis": [
-        "At-large race for multiple seats — multi-winner outlook is not modelled"
+        "At-large race — challenging 2 incumbents for 2 seats",
+        "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-14T21:06:27.057122+00:00"
+      "as_of": "2026-07-14T21:22:09.761721+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-07-14T17:08:37.120938+00:00",
@@ -1003,12 +1004,13 @@
     "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "competitive",
       "basis": [
-        "At-large race for multiple seats — multi-winner outlook is not modelled"
+        "At-large race — challenging 4 incumbents for 4 seats",
+        "4 news mention(s) — meaningful visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-14T21:06:27.057122+00:00"
+      "as_of": "2026-07-14T21:22:09.761721+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-07-14T17:08:35.932245+00:00",
@@ -1066,12 +1068,13 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "long_shot",
       "basis": [
-        "At-large race for multiple seats — multi-winner outlook is not modelled"
+        "At-large race — challenging 4 incumbents for 4 seats",
+        "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-14T21:06:27.057122+00:00"
+      "as_of": "2026-07-14T21:22:09.761721+00:00"
     },
     "source": "manual"
   },
@@ -1096,12 +1099,13 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "insufficient_data",
+      "label": "long_shot",
       "basis": [
-        "At-large race for multiple seats — multi-winner outlook is not modelled"
+        "At-large race — challenging 4 incumbents for 4 seats",
+        "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-07-14T21:06:27.057122+00:00"
+      "as_of": "2026-07-14T21:22:09.761721+00:00"
     },
     "source": "manual"
   }
