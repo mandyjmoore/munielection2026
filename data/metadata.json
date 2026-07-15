@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-15T04:45:26.120003+00:00",
+  "last_updated": "2026-07-15T07:55:12.016643+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -27,7 +27,7 @@
   },
   "scraper_version": "1.0.0",
   "candidate_count": 34,
-  "news_count": 396,
+  "news_count": 390,
   "new_registrations_24h": 0,
   "data_confidence": {
     "candidates_confirmed_filed": 26,
