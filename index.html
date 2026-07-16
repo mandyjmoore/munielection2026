@@ -1207,7 +1207,7 @@
       <div class="section-title">Council Seats</div>
       <div class="fiscal-legend">
         <span class="fl-intro">Fiscal score</span>
-        <span>= alignment with YR Finance (&ldquo;growth pays for growth&rdquo;), higher = more aligned:</span>
+        <span>= alignment with YR fiscal strategy, higher = more aligned:</span>
         <span class="fl-scale">
           <span class="score-pill score-strongly_misaligned fl-chip"><span class="fl-num">0&ndash;1</span> Strongly misaligned</span>
           <span class="score-pill score-misaligned fl-chip"><span class="fl-num">2&ndash;3</span> Misaligned</span>
@@ -1698,7 +1698,7 @@
     compEl.innerHTML = `
       <div class="outlook-headline">
         If current estimates hold, <strong>${projected} of 22</strong> voting seats look settled:
-        <strong>${alignedN} aligned</strong> with YR Finance, <strong>${buckets.neutral} neutral</strong>,
+        <strong>${alignedN} aligned</strong> with YR fiscal strategy, <strong>${buckets.neutral} neutral</strong>,
         <strong>${misN} misaligned</strong> &mdash; and <strong>${buckets.uncertain} uncertain</strong>
         (unfiled incumbents, contested races, and the appointed Chair).
       </div>
@@ -1731,7 +1731,15 @@
   function winBadge(c) {
     const w = c && c.likely_to_win;
     if (!w || !w.label || w.label === 'insufficient_data') return '';
-    const tip = escapeHtml('Estimate, not fact — ' + (w.basis || []).join('; '));
+    const method =
+      'HOW THIS IS ESTIMATED (ordinal guess from filings + news visibility — no polling exists, so never a probability):\n' +
+      '• A filed incumbent starts "favored".\n' +
+      '• They drop to "competitive" once any filed challenger has meaningful news visibility (3+ mentions in the tracked feed).\n' +
+      '• A challenger facing an incumbent is a "long shot" until their own coverage reaches that same bar, which makes them "competitive".\n' +
+      '• A race with no incumbent is "competitive" for everyone; a lone candidate after nominations close is "acclaimed".\n' +
+      '• At-large multi-seat races grade challengers on the same visibility evidence, against all incumbents at once.';
+    const specific = 'WHY ' + (c.name || 'THIS CANDIDATE').toUpperCase() + ' IS "' + w.label.replace(/_/g, ' ').toUpperCase() + '": ' + (w.basis || []).join('; ');
+    const tip = escapeHtml('Estimate, not fact.\n\n' + method + '\n\n' + specific);
     return `<span class="badge badge-estimate est-${w.label}" title="${tip}">${escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
   }
 
