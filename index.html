@@ -846,13 +846,6 @@
     /* ============================================================
        POST-ELECTION OUTLOOK (everything here is an estimate)
     ============================================================ */
-    .outlook-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 900px) { .outlook-grid { grid-template-columns: 1fr; } }
-
     .outlook-headline {
       font-size: 13px;
       color: var(--text);
@@ -878,48 +871,6 @@
       line-height: 1.6;
     }
 
-    .chair-outlook-card {
-      border: 1px dashed var(--border);
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      background: var(--bg-card2);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-    .chair-outlook-card .co-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .chair-outlook-card .co-headline { color: var(--text); margin-bottom: 8px; }
-    .chair-outlook-card .co-signal {
-      display: flex;
-      gap: 7px;
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-    .chair-outlook-card .co-signal .co-mark { flex-shrink: 0; font-weight: 700; }
-    .chair-outlook-card .co-mark.confirmed { color: var(--green); }
-    .chair-outlook-card .co-mark.inferred { color: var(--yellow); }
-    .chair-outlook-card .co-mark.rumor { color: var(--text-dim); }
-    .chair-outlook-card .co-fiscal {
-      margin-top: 8px;
-      padding: 8px 10px;
-      border-radius: var(--radius);
-      background: var(--orange-bg);
-      border: 1px solid #f3cdb2;
-      color: var(--orange);
-      font-size: 11px;
-    }
-    .chair-outlook-card .co-meta {
-      margin-top: 8px;
-      font-size: 10px;
-      color: var(--text-dim);
-    }
 
     /* ============================================================
        NEWS SECTION
@@ -1194,11 +1145,8 @@
         Post-Election Outlook
         <span class="badge badge-estimate" style="font-size:9px">estimates, not predictions</span>
       </div>
-      <div class="outlook-grid">
-        <div id="outlook-composition">
-          <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
-        </div>
-        <div id="outlook-chair"></div>
+      <div id="outlook-composition">
+        <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
       </div>
     </div>
 
@@ -1328,7 +1276,6 @@
     councilStatus: {},
     votingRecord: {},
     scoredVotes: [],
-    chairOutlook: null,
   };
 
   // ============================================================
@@ -1346,7 +1293,7 @@
   }
 
   async function loadData() {
-    const [candidates, news, metadata, seats, councilStatus, votingRecord, votes, chairOutlook] = await Promise.all([
+    const [candidates, news, metadata, seats, councilStatus, votingRecord, votes] = await Promise.all([
       fetchJSON('data/candidates.json'),
       fetchJSON('data/news.json'),
       fetchJSON('data/metadata.json'),
@@ -1354,7 +1301,6 @@
       fetchJSON('data/council_status.json'),
       fetchJSON('data/voting_record.json'),
       fetchJSON('data/votes.json'),
-      fetchJSON('data/chair_outlook.json'),
     ]);
 
     state.candidates    = candidates || [];
@@ -1364,7 +1310,6 @@
     state.councilStatus = councilStatus || {};
     state.votingRecord  = votingRecord || {};
     state.scoredVotes   = (votes || {}).votes || [];
-    state.chairOutlook  = chairOutlook;
 
     render();
   }
@@ -1658,7 +1603,6 @@
 
   function renderOutlook() {
     const compEl = document.getElementById('outlook-composition');
-    const chairEl = document.getElementById('outlook-chair');
     if (!compEl) return;
     const seats = regionalSeats();
     if (!seats.length) { compEl.innerHTML = '<div class="empty-state">Seat data not loaded.</div>'; return; }
@@ -1681,7 +1625,7 @@
     }
     // The appointed Chair is the 22nd voting member — 2026-30 appointee unknown.
     buckets.uncertain++;
-    uncertain.push(`<span class="u-name">Regional Chair</span> (2026&ndash;30 appointee unknown &mdash; see assessment)`);
+    uncertain.push(`<span class="u-name">Regional Chair</span> (2026&ndash;30 appointee not yet named &mdash; provincial appointment)`);
 
     const alignedN = buckets.strongly_aligned + buckets.aligned;
     const misN = buckets.misaligned + buckets.strongly_misaligned;
@@ -1707,23 +1651,6 @@
       <div class="outlook-note">Method: a seat counts toward the projection only when a <em>filed</em> incumbent carries a favourable ordinal estimate (&ldquo;favored&rdquo;/&ldquo;acclaimed&rdquo; likely, &ldquo;competitive&rdquo; lean &mdash; leans are included); its colour is that member&rsquo;s current fiscal-alignment bucket. Everything else stays grey. Ordinal, low-confidence estimates &mdash; not predictions.</div>
     `;
 
-    if (!chairEl) return;
-    const co = state.chairOutlook;
-    if (!co || !co.assessment) { chairEl.innerHTML = ''; return; }
-    const MARKS = { confirmed: ['&#10003;', 'confirmed'], inferred: ['&#8776;', 'inferred'], rumor: ['&#9675;', 'rumor'] };
-    const signals = (co.signals || []).map(s => {
-      const [m, cls] = MARKS[s.type] || ['&middot;', 'rumor'];
-      return `<div class="co-signal"><span class="co-mark ${cls}" title="${cls}">${m}</span><span>${escapeHtml(s.finding)} <span style="color:var(--text-dim)">&mdash; ${escapeHtml(s.source)}</span></span></div>`;
-    }).join('');
-    chairEl.innerHTML = `
-      <div class="chair-outlook-card">
-        <div class="co-title">Regional Chair 2026&ndash;30 <span class="badge badge-estimate" style="font-size:9px">speculative</span></div>
-        <div class="co-headline">${escapeHtml(co.assessment.headline)}</div>
-        ${signals}
-        <div class="co-fiscal">&#9888;&#65039; ${escapeHtml(co.assessment.fiscal_implication)}</div>
-        <div class="co-meta">Provincially appointed &middot; term ${escapeHtml(co.term)} &middot; applications closed ${escapeHtml((co.process || {}).application_window_closed || '')} &middot; last reviewed ${escapeHtml(co.last_reviewed)}<br>&#10003; confirmed &nbsp;&#8776; inferred &nbsp;&#9675; rumor/chatter</div>
-      </div>
-    `;
   }
 
   // Ordinal win-outlook badge (estimate, never a fact) — shared by the seat
