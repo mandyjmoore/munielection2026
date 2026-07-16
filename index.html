@@ -38,8 +38,8 @@
       --green-bg:   #e8f7ec;
       --lime:       #4d7c0f;
       --lime-bg:    #f2f8e3;
-      --yellow:     #a16207;
-      --yellow-bg:  #fdf4dc;
+      --yellow:     #ca8a04;   /* golden — yellowest tone that stays readable as text on light fills */
+      --yellow-bg:  #fef9c3;
       --orange:     #c2410c;
       --orange-bg:  #fdeee2;
       --red:        #dc2626;
@@ -588,6 +588,11 @@
       transition: width 0.6s ease;
     }
 
+    /* True-yellow segments need dark text — white washes out */
+    .align-stack .seg.seg-neutral {
+      color: #4a3f00;
+    }
+
     .align-columns {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -807,7 +812,7 @@
 
     .score-strongly_aligned    { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-dim); }
     .score-aligned             { background: var(--lime-bg); color: var(--lime); border: 1px solid #cfe3a8; }
-    .score-neutral             { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #ecd9a8; }
+    .score-neutral             { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #ecdf7e; }
     .score-misaligned          { background: var(--orange-bg); color: var(--orange); border: 1px solid #f3cdb2; }
     .score-strongly_misaligned { background: var(--red-bg); color: var(--red); border: 1px solid #f2b8b4; }
 
@@ -1220,12 +1225,21 @@
   const NOM_CLOSE     = new Date('2026-08-21T23:59:59-05:00');
   const REFRESH_MS    = 30 * 60 * 1000; // 30 minutes
 
+  // Bar-segment fills. Neutral is true yellow here (a fill can afford it);
+  // its segments get dark text via .seg-neutral since white would wash out.
   const ALIGN_COLORS = {
     strongly_aligned:    '#248a3d',
     aligned:             '#4d7c0f',
-    neutral:             '#a16207',
+    neutral:             '#eab308',
     misaligned:          '#c2410c',
     strongly_misaligned: '#dc2626',
+  };
+
+  // Column-header text colours — same hues, but neutral drops to golden
+  // (#ca8a04) because true yellow is unreadable as text on white.
+  const ALIGN_TEXT_COLORS = {
+    ...ALIGN_COLORS,
+    neutral: '#ca8a04',
   };
 
   const ALIGN_LABELS = {
@@ -1499,7 +1513,7 @@
       const count = counts[key];
       if (!count) return '';
       const pct = (count / total) * 100;
-      return `<div class="seg" style="width:${pct}%;background:${ALIGN_COLORS[key]}"
+      return `<div class="seg${key === 'neutral' ? ' seg-neutral' : ''}" style="width:${pct}%;background:${ALIGN_COLORS[key]}"
         title="${ALIGN_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct.toFixed(0)}%)">${count}</div>`;
     }).join('');
 
@@ -1517,7 +1531,7 @@
           }).join('')
         : `<div class="none">None</div>`;
       return `
-        <div class="align-col" style="--col:${ALIGN_COLORS[key]}">
+        <div class="align-col" style="--col:${ALIGN_TEXT_COLORS[key]}">
           <div class="align-col-header">${ALIGN_LABELS[key]} <span class="count">(${counts[key]})</span></div>
           <div class="align-col-names">${names}</div>
         </div>
@@ -1580,6 +1594,7 @@
 
     const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned', 'uncertain'];
     const COLORS = { ...ALIGN_COLORS, uncertain: '#98989f' };
+    const TEXT_COLORS = { ...ALIGN_TEXT_COLORS, uncertain: '#98989f' };
     const LABELS = { ...ALIGN_LABELS, uncertain: 'Uncertain' };
     const groups = Object.fromEntries(order.map(k => [k, []]));
 
@@ -1611,7 +1626,7 @@
     const bar = order.map(k => {
       const n = groups[k].length;
       if (!n) return '';
-      return `<div class="seg" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
+      return `<div class="seg${k === 'neutral' ? ' seg-neutral' : ''}" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
     }).join('');
 
     // Same bar + name-columns pattern as the Current Council section below,
@@ -1629,7 +1644,7 @@
           }).join('')
         : `<div class="none">None</div>`;
       return `
-        <div class="align-col" style="--col:${COLORS[k]}">
+        <div class="align-col" style="--col:${TEXT_COLORS[k]}">
           <div class="align-col-header">${LABELS[k]} <span class="count">(${groups[k].length})</span></div>
           <div class="align-col-names">${names}</div>
         </div>`;
