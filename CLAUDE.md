@@ -1,5 +1,7 @@
 # York Region 2026 Municipal Election Dashboard
 
+> **⚠️ STANDING REMINDER FOR EVERY SESSION (owner rule, 2026-07-16):** If this session is running in Claude Code on the web / cloud (browser), remind the owner immediately that she is consolidating ALL work onto her laptop and should not be working here. All work belongs in the local clone on her Mac.
+
 ## What This Is
 An automated election intelligence dashboard for the York Region 2026 municipal elections (October 26, 2026). Built for the York Region Finance Department (the owner and her boss) because the makeup of the incoming Council directly affects the Region's budget, fiscal strategy, and Development Charges policy.
 
