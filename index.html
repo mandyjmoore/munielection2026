@@ -844,35 +844,6 @@
     .fiscal-legend .fl-hint { flex-basis: 100%; font-size: 10px; opacity: 0.85; }
 
     /* ============================================================
-       POST-ELECTION OUTLOOK (everything here is an estimate)
-    ============================================================ */
-    .outlook-headline {
-      font-size: 13px;
-      color: var(--text);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .outlook-headline strong { font-weight: 700; }
-
-    .outlook-uncertain-list {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 10px;
-      line-height: 1.7;
-    }
-    .outlook-uncertain-list .u-name { color: var(--text); font-weight: 600; }
-
-    .outlook-note {
-      font-size: 10px;
-      color: var(--text-dim);
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px dashed var(--border);
-      line-height: 1.6;
-    }
-
-
-    /* ============================================================
        NEWS SECTION
     ============================================================ */
     .news-section {
@@ -1143,7 +1114,7 @@
     <div class="alignment-overview" id="outlook-panel">
       <div class="section-title">
         Post-Election Outlook
-        <span class="badge badge-estimate" style="font-size:9px">estimates, not predictions</span>
+        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Unfiled incumbents, contested races and the not-yet-named Chair appointee stay grey Uncertain, with the reason in parentheses. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
       </div>
       <div id="outlook-composition">
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
@@ -1175,7 +1146,7 @@
     <!-- Fiscal Alignment Overview -->
     <div class="alignment-overview">
       <div class="section-title">
-        Fiscal Alignment Overview
+        Current Council &mdash; Fiscal Alignment
         <span class="badge" id="alignment-total-badge">0 candidates</span>
       </div>
       <div class="align-stack" id="alignment-stack">
@@ -1607,49 +1578,64 @@
     const seats = regionalSeats();
     if (!seats.length) { compEl.innerHTML = '<div class="empty-state">Seat data not loaded.</div>'; return; }
 
-    const buckets = { strongly_aligned: 0, aligned: 0, neutral: 0, misaligned: 0, strongly_misaligned: 0, uncertain: 0 };
-    const uncertain = [];
-    let projected = 0;
-    for (const seat of seats) {
-      const p = seatProjection(seat);
-      if (p.status === 'uncertain') {
-        buckets.uncertain++;
-        const seatShort = seat.office === 'Mayor' ? 'Mayor' : 'RC';
-        const who = p.inc ? `${p.inc.name} ${p.why}` : (p.why || 'open');
-        uncertain.push(`<span class="u-name">${escapeHtml(seat.municipality)} ${seatShort}</span> (${escapeHtml(who)})`);
-      } else {
-        projected++;
-        const label = p.inc.fiscal_alignment_label || 'neutral';
-        buckets[label] = (buckets[label] || 0) + 1;
-      }
-    }
-    // The appointed Chair is the 22nd voting member — 2026-30 appointee unknown.
-    buckets.uncertain++;
-    uncertain.push(`<span class="u-name">Regional Chair</span> (2026&ndash;30 appointee not yet named &mdash; provincial appointment)`);
-
-    const alignedN = buckets.strongly_aligned + buckets.aligned;
-    const misN = buckets.misaligned + buckets.strongly_misaligned;
     const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned', 'uncertain'];
     const COLORS = { ...ALIGN_COLORS, uncertain: '#98989f' };
     const LABELS = { ...ALIGN_LABELS, uncertain: 'Uncertain' };
+    const groups = Object.fromEntries(order.map(k => [k, []]));
+
+    for (const seat of seats) {
+      const p = seatProjection(seat);
+      if (p.status === 'uncertain') {
+        groups.uncertain.push({
+          cid: p.inc ? p.inc.id : null,
+          name: p.inc ? p.inc.name : `${seat.municipality} ${seat.office}`,
+          muni: seat.municipality,
+          reason: p.why,
+          score: null,
+        });
+      } else {
+        const label = p.inc.fiscal_alignment_label || 'neutral';
+        (groups[label] || groups.neutral).push({
+          cid: p.inc.id,
+          name: p.inc.name,
+          muni: seat.municipality,
+          reason: p.status === 'lean' ? 'competitive race' : null,
+          score: p.inc.fiscal_alignment_score ?? 5,
+        });
+      }
+    }
+    // The appointed Chair is the 22nd voting member — 2026-30 appointee unknown.
+    groups.uncertain.push({ cid: null, name: 'Regional Chair', muni: 'York Region', reason: 'appointee not yet named — provincial appointment', score: null });
+
     const total = 22;
     const bar = order.map(k => {
-      const n = buckets[k];
+      const n = groups[k].length;
       if (!n) return '';
       return `<div class="seg" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
     }).join('');
 
-    compEl.innerHTML = `
-      <div class="outlook-headline">
-        If current estimates hold, <strong>${projected} of 22</strong> voting seats look settled:
-        <strong>${alignedN} aligned</strong> with YR fiscal strategy, <strong>${buckets.neutral} neutral</strong>,
-        <strong>${misN} misaligned</strong> &mdash; and <strong>${buckets.uncertain} uncertain</strong>
-        (unfiled incumbents, contested races, and the appointed Chair).
-      </div>
-      <div class="align-stack">${bar}</div>
-      <div class="outlook-uncertain-list"><strong>Uncertain:</strong> ${uncertain.join(' &middot; ')}</div>
-      <div class="outlook-note">Method: a seat counts toward the projection only when a <em>filed</em> incumbent carries a favourable ordinal estimate (&ldquo;favored&rdquo;/&ldquo;acclaimed&rdquo; likely, &ldquo;competitive&rdquo; lean &mdash; leans are included); its colour is that member&rsquo;s current fiscal-alignment bucket. Everything else stays grey. Ordinal, low-confidence estimates &mdash; not predictions.</div>
-    `;
+    // Same bar + name-columns pattern as the Current Council section below,
+    // so the two read as siblings; reasons ride along in parentheses.
+    const columns = order.map(k => {
+      const list = groups[k].slice().sort((a, b) =>
+        (b.score ?? -1) - (a.score ?? -1) || a.name.localeCompare(b.name));
+      const names = list.length
+        ? list.map(m => {
+            const reason = m.reason ? ` <span class="muni">(${escapeHtml(m.reason)})</span>` : '';
+            const inner = `${escapeHtml(m.name)}${reason} <span class="muni">${escapeHtml(m.muni)}</span>`;
+            return m.cid
+              ? `<div class="member-link" data-cid="${escapeHtml(m.cid)}" title="Click for this member's full recorded-vote history">${inner}</div>`
+              : `<div>${inner}</div>`;
+          }).join('')
+        : `<div class="none">None</div>`;
+      return `
+        <div class="align-col" style="--col:${COLORS[k]}">
+          <div class="align-col-header">${LABELS[k]} <span class="count">(${groups[k].length})</span></div>
+          <div class="align-col-names">${names}</div>
+        </div>`;
+    }).join('');
+
+    compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-columns">${columns}</div>`;
 
   }
 
@@ -2048,6 +2034,14 @@
     const alignCols = document.getElementById('alignment-columns');
     if (alignCols) {
       alignCols.addEventListener('click', e => {
+        const link = e.target.closest('.member-link');
+        if (link) openMemberModal(link.dataset.cid);
+      });
+    }
+    // Outlook columns use the same member links
+    const outlookComp = document.getElementById('outlook-composition');
+    if (outlookComp) {
+      outlookComp.addEventListener('click', e => {
         const link = e.target.closest('.member-link');
         if (link) openMemberModal(link.dataset.cid);
       });
