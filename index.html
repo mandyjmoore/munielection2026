@@ -619,26 +619,21 @@
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
     /* Maps each name column to its bar segment at a glance: the header swatch
-       repeats the segment's exact fill, and a leader line runs from the
-       segment's centre down to the column's centre (drawAlignLinks). */
+       repeats the segment's exact fill, and the column itself is centred
+       under its segment's midpoint, staggered onto lower rows to avoid
+       overlap (layoutAlignColumns). Narrow screens keep the plain grid. */
     .align-col-header .swatch {
       width: 10px;
       height: 10px;
       border-radius: 3px;
       flex-shrink: 0;
     }
-    .align-links {
+    .align-columns.staggered {
       display: block;
-      width: 100%;
-      height: 26px;
+      position: relative;
+      margin-top: 8px;
     }
-    .align-links + .align-columns { margin-top: 0; }
-    @media (max-width: 640px) {
-      /* Columns wrap to multiple rows on small screens — lines would point
-         at the wrong row, so the swatches carry the mapping there */
-      .align-links { display: none; }
-      .align-links + .align-columns { margin-top: 14px; }
-    }
+    .align-columns.staggered .align-col { position: absolute; }
 
     .align-col-names {
       font-size: 12px;
@@ -1181,7 +1176,6 @@
       <div class="align-stack" id="alignment-stack">
         <div class="loading-spinner"><div class="spinner"></div> Loading alignment data…</div>
       </div>
-      <svg class="align-links" aria-hidden="true"></svg>
       <div class="align-columns" id="alignment-columns"></div>
     </div>
 
@@ -1555,7 +1549,7 @@
         </div>
       `;
     }).join('');
-    drawAlignLinks(stack.closest('.alignment-overview'));
+    layoutAlignColumns(stack.closest('.alignment-overview'));
   }
 
   // ============================================================
@@ -1585,31 +1579,58 @@
     'Whitchurch-Stouffville': '#f43f5e',
   };
 
-  // Leader lines: a thin curve from each bar segment's centre down to its
-  // name column's centre, drawn into the .align-links SVG that sits between
-  // the bar and the columns. Always visible — no hover needed. Redrawn on
-  // every render and on window resize (column centres move as the grid
-  // reflows).
-  function drawAlignLinks(rootEl) {
+  // Timeline-style stagger: each name column is centred under its bar
+  // segment's midpoint; when a column would overlap its left neighbour it
+  // drops to the next row. Runs after every render and on resize. Narrow
+  // screens (or unmeasured layouts) fall back to the plain grid.
+  function layoutAlignColumns(rootEl) {
     if (!rootEl) return;
-    const svg = rootEl.querySelector('.align-links');
-    if (!svg || !svg.clientWidth) return;   // hidden (mobile) or not laid out yet
-    const W = svg.clientWidth;
-    const H = 26;
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    const sRect = svg.getBoundingClientRect();
-    let paths = '';
-    for (const seg of rootEl.querySelectorAll('.seg[data-key]')) {
-      const col = rootEl.querySelector(`.align-col[data-key="${seg.dataset.key}"]`);
-      if (!col) continue;
-      const r1 = seg.getBoundingClientRect();
-      const r2 = col.getBoundingClientRect();
-      const x1 = r1.left + r1.width / 2 - sRect.left;
-      const x2 = r2.left + r2.width / 2 - sRect.left;
-      const color = seg.style.background || '#98989f';
-      paths += `<path d="M ${x1.toFixed(1)} 0 C ${x1.toFixed(1)} ${H * 0.6}, ${x2.toFixed(1)} ${H * 0.4}, ${x2.toFixed(1)} ${H}" fill="none" stroke="${color}" stroke-width="1.5" opacity="0.8"/>`;
+    const wrap = rootEl.querySelector('.align-columns');
+    const stack = rootEl.querySelector('.align-stack');
+    if (!wrap || !stack) return;
+    const W = wrap.clientWidth || 0;
+    if (W < 640) {
+      wrap.classList.remove('staggered');
+      for (const c of wrap.querySelectorAll('.align-col')) c.style.cssText = c.style.getPropertyValue('--col') ? `--col:${c.style.getPropertyValue('--col')}` : '';
+      wrap.style.height = '';
+      return;
     }
-    svg.innerHTML = paths;
+    wrap.classList.add('staggered');
+    const wrapRect = wrap.getBoundingClientRect();
+    const COLW = 220, GAPX = 16, GAPY = 14;
+    const items = [];
+    for (const seg of rootEl.querySelectorAll('.seg[data-key]')) {
+      const col = wrap.querySelector(`.align-col[data-key="${seg.dataset.key}"]`);
+      if (!col) continue;
+      const r = seg.getBoundingClientRect();
+      items.push({ col, cx: r.left + r.width / 2 - wrapRect.left });
+    }
+    if (!items.length) return;
+    items.sort((a, b) => a.cx - b.cx);
+    for (const it of items) {
+      it.col.style.width = COLW + 'px';
+      it.left = Math.max(0, Math.min(it.cx - COLW / 2, W - COLW));
+    }
+    // Greedy row assignment, left to right
+    const rows = [];
+    for (const it of items) {
+      let row = rows.find(r => it.left >= r.right + GAPX);
+      if (!row) { row = { right: -Infinity, items: [] }; rows.push(row); }
+      row.items.push(it);
+      row.right = it.left + COLW;
+      it.rowIdx = rows.indexOf(row);
+    }
+    // Stack rows by measured height (widths are set, so heights are real)
+    let y = 0;
+    for (const row of rows) {
+      row.y = y;
+      y += Math.max(...row.items.map(it => it.col.offsetHeight)) + GAPY;
+    }
+    for (const it of items) {
+      it.col.style.left = it.left + 'px';
+      it.col.style.top = rows[it.rowIdx].y + 'px';
+    }
+    wrap.style.height = (y - GAPY) + 'px';
   }
 
   // ============================================================
@@ -1695,8 +1716,8 @@
         </div>`;
     }).join('');
 
-    compEl.innerHTML = `<div class="align-stack">${bar}</div><svg class="align-links" aria-hidden="true"></svg><div class="align-columns">${columns}</div>`;
-    drawAlignLinks(compEl);
+    compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-columns">${columns}</div>`;
+    layoutAlignColumns(compEl);
 
   }
 
@@ -2108,19 +2129,19 @@
       });
     }
 
-    // Leader lines are drawn from measured positions — redraw when the
-    // layout moves (resize) and once fonts have settled.
-    function redrawAllAlignLinks() {
-      drawAlignLinks(document.getElementById('outlook-composition'));
+    // Column positions are measured — re-lay them out when the layout moves
+    // (resize) and once fonts have settled.
+    function relayoutAlignColumns() {
+      layoutAlignColumns(document.getElementById('outlook-composition'));
       const st = document.getElementById('alignment-stack');
-      if (st) drawAlignLinks(st.closest('.alignment-overview'));
+      if (st) layoutAlignColumns(st.closest('.alignment-overview'));
     }
-    let linkResizeTimer;
+    let alignResizeTimer;
     window.addEventListener('resize', () => {
-      clearTimeout(linkResizeTimer);
-      linkResizeTimer = setTimeout(redrawAllAlignLinks, 150);
+      clearTimeout(alignResizeTimer);
+      alignResizeTimer = setTimeout(relayoutAlignColumns, 150);
     });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(redrawAllAlignLinks);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayoutAlignColumns);
     // Chamber-tile score pills open the same member vote-history modal
     const chamberEl = document.getElementById('chamber');
     if (chamberEl) {
