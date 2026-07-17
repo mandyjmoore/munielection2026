@@ -1611,26 +1611,25 @@
       it.col.style.width = COLW + 'px';
       it.left = Math.max(0, Math.min(it.cx - COLW / 2, W - COLW));
     }
-    // Greedy row assignment, left to right
-    const rows = [];
+    // Per-column packing: each column takes the highest position where it
+    // doesn't collide with an already-placed column. Only columns that
+    // horizontally overlap constrain each other, so a short column tucks in
+    // right under its neighbour instead of dropping below the tallest list
+    // on the page (which stranded Neutral in empty space).
+    const placed = [];
     for (const it of items) {
-      let row = rows.find(r => it.left >= r.right + GAPX);
-      if (!row) { row = { right: -Infinity, items: [] }; rows.push(row); }
-      row.items.push(it);
-      row.right = it.left + COLW;
-      it.rowIdx = rows.indexOf(row);
+      const l = it.left, r = l + COLW;
+      const h = it.col.offsetHeight;
+      const overlapping = placed.filter(p => l < p.right + GAPX && r > p.left - GAPX);
+      const candidates = [0, ...overlapping.map(p => p.bottom + GAPY)].sort((a, b) => a - b);
+      let top = candidates.find(t =>
+        overlapping.every(p => t + h + GAPY <= p.top || t >= p.bottom + GAPY));
+      if (top === undefined) top = Math.max(...overlapping.map(p => p.bottom)) + GAPY;
+      it.col.style.left = l + 'px';
+      it.col.style.top = top + 'px';
+      placed.push({ left: l, right: r, top, bottom: top + h });
     }
-    // Stack rows by measured height (widths are set, so heights are real)
-    let y = 0;
-    for (const row of rows) {
-      row.y = y;
-      y += Math.max(...row.items.map(it => it.col.offsetHeight)) + GAPY;
-    }
-    for (const it of items) {
-      it.col.style.left = it.left + 'px';
-      it.col.style.top = rows[it.rowIdx].y + 'px';
-    }
-    wrap.style.height = (y - GAPY) + 'px';
+    wrap.style.height = Math.max(...placed.map(p => p.bottom)) + 'px';
   }
 
   // ============================================================
