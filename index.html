@@ -611,22 +611,34 @@
       padding-bottom: 6px;
       margin-bottom: 6px;
       border-bottom: 2px solid var(--col, var(--border));
-      color: var(--col, var(--text-muted));
+      /* Dark text — the swatch and coloured underline carry the colour
+         coding, so the label doesn't have to (fixes unreadable yellow) */
+      color: var(--text);
     }
 
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
-    /* Maps each name column to its bar segment: the header swatch repeats the
-       segment's exact fill, and hovering either side spotlights its partner */
+    /* Maps each name column to its bar segment at a glance: the header swatch
+       repeats the segment's exact fill, and a leader line runs from the
+       segment's centre down to the column's centre (drawAlignLinks). */
     .align-col-header .swatch {
       width: 10px;
       height: 10px;
       border-radius: 3px;
       flex-shrink: 0;
     }
-    .align-stack .seg, .align-col { transition: opacity 0.15s ease; }
-    .map-hover .seg:not(.hl) { opacity: 0.35; }
-    .map-hover .align-col:not(.hl) { opacity: 0.35; }
+    .align-links {
+      display: block;
+      width: 100%;
+      height: 26px;
+    }
+    .align-links + .align-columns { margin-top: 0; }
+    @media (max-width: 640px) {
+      /* Columns wrap to multiple rows on small screens — lines would point
+         at the wrong row, so the swatches carry the mapping there */
+      .align-links { display: none; }
+      .align-links + .align-columns { margin-top: 14px; }
+    }
 
     .align-col-names {
       font-size: 12px;
@@ -1169,6 +1181,7 @@
       <div class="align-stack" id="alignment-stack">
         <div class="loading-spinner"><div class="spinner"></div> Loading alignment data…</div>
       </div>
+      <svg class="align-links" aria-hidden="true"></svg>
       <div class="align-columns" id="alignment-columns"></div>
     </div>
 
@@ -1245,13 +1258,6 @@
     neutral:             '#eab308',
     misaligned:          '#c2410c',
     strongly_misaligned: '#dc2626',
-  };
-
-  // Column-header text colours — same hues, but neutral drops to golden
-  // (#ca8a04) because true yellow is unreadable as text on white.
-  const ALIGN_TEXT_COLORS = {
-    ...ALIGN_COLORS,
-    neutral: '#ca8a04',
   };
 
   const ALIGN_LABELS = {
@@ -1543,13 +1549,13 @@
           }).join('')
         : `<div class="none">None</div>`;
       return `
-        <div class="align-col" data-key="${key}" style="--col:${ALIGN_TEXT_COLORS[key]}">
+        <div class="align-col" data-key="${key}" style="--col:${ALIGN_COLORS[key]}">
           <div class="align-col-header"><span class="swatch" style="background:${ALIGN_COLORS[key]}"></span>${ALIGN_LABELS[key]} <span class="count">(${counts[key]})</span></div>
           <div class="align-col-names">${names}</div>
         </div>
       `;
     }).join('');
-    wireAlignHover(stack.closest('.alignment-overview'));
+    drawAlignLinks(stack.closest('.alignment-overview'));
   }
 
   // ============================================================
@@ -1579,27 +1585,31 @@
     'Whitchurch-Stouffville': '#f43f5e',
   };
 
-  // Hovering a bar segment spotlights its name column, and vice versa —
-  // elements are rebuilt on every render, so listeners never duplicate.
-  function wireAlignHover(rootEl) {
+  // Leader lines: a thin curve from each bar segment's centre down to its
+  // name column's centre, drawn into the .align-links SVG that sits between
+  // the bar and the columns. Always visible — no hover needed. Redrawn on
+  // every render and on window resize (column centres move as the grid
+  // reflows).
+  function drawAlignLinks(rootEl) {
     if (!rootEl) return;
-    const segs = [...rootEl.querySelectorAll('.seg[data-key]')];
-    const cols = [...rootEl.querySelectorAll('.align-col[data-key]')];
-    const colByKey = Object.fromEntries(cols.map(c => [c.dataset.key, c]));
-    const segByKey = Object.fromEntries(segs.map(s => [s.dataset.key, s]));
-    const pair = el => el.classList.contains('seg') ? colByKey[el.dataset.key] : segByKey[el.dataset.key];
-    for (const el of [...segs, ...cols]) {
-      el.addEventListener('mouseenter', () => {
-        rootEl.classList.add('map-hover');
-        el.classList.add('hl');
-        pair(el)?.classList.add('hl');
-      });
-      el.addEventListener('mouseleave', () => {
-        rootEl.classList.remove('map-hover');
-        el.classList.remove('hl');
-        pair(el)?.classList.remove('hl');
-      });
+    const svg = rootEl.querySelector('.align-links');
+    if (!svg || !svg.clientWidth) return;   // hidden (mobile) or not laid out yet
+    const W = svg.clientWidth;
+    const H = 26;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const sRect = svg.getBoundingClientRect();
+    let paths = '';
+    for (const seg of rootEl.querySelectorAll('.seg[data-key]')) {
+      const col = rootEl.querySelector(`.align-col[data-key="${seg.dataset.key}"]`);
+      if (!col) continue;
+      const r1 = seg.getBoundingClientRect();
+      const r2 = col.getBoundingClientRect();
+      const x1 = r1.left + r1.width / 2 - sRect.left;
+      const x2 = r2.left + r2.width / 2 - sRect.left;
+      const color = seg.style.background || '#98989f';
+      paths += `<path d="M ${x1.toFixed(1)} 0 C ${x1.toFixed(1)} ${H * 0.6}, ${x2.toFixed(1)} ${H * 0.4}, ${x2.toFixed(1)} ${H}" fill="none" stroke="${color}" stroke-width="1.5" opacity="0.8"/>`;
     }
+    svg.innerHTML = paths;
   }
 
   // ============================================================
@@ -1630,7 +1640,6 @@
 
     const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned', 'uncertain'];
     const COLORS = { ...ALIGN_COLORS, uncertain: '#98989f' };
-    const TEXT_COLORS = { ...ALIGN_TEXT_COLORS, uncertain: '#98989f' };
     const LABELS = { ...ALIGN_LABELS, uncertain: 'Uncertain' };
     const groups = Object.fromEntries(order.map(k => [k, []]));
 
@@ -1680,14 +1689,14 @@
           }).join('')
         : `<div class="none">None</div>`;
       return `
-        <div class="align-col" data-key="${k}" style="--col:${TEXT_COLORS[k]}">
+        <div class="align-col" data-key="${k}" style="--col:${COLORS[k]}">
           <div class="align-col-header"><span class="swatch" style="background:${COLORS[k]}"></span>${LABELS[k]} <span class="count">(${groups[k].length})</span></div>
           <div class="align-col-names">${names}</div>
         </div>`;
     }).join('');
 
-    compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-columns">${columns}</div>`;
-    wireAlignHover(compEl);
+    compEl.innerHTML = `<div class="align-stack">${bar}</div><svg class="align-links" aria-hidden="true"></svg><div class="align-columns">${columns}</div>`;
+    drawAlignLinks(compEl);
 
   }
 
@@ -2098,6 +2107,20 @@
         if (link) openMemberModal(link.dataset.cid);
       });
     }
+
+    // Leader lines are drawn from measured positions — redraw when the
+    // layout moves (resize) and once fonts have settled.
+    function redrawAllAlignLinks() {
+      drawAlignLinks(document.getElementById('outlook-composition'));
+      const st = document.getElementById('alignment-stack');
+      if (st) drawAlignLinks(st.closest('.alignment-overview'));
+    }
+    let linkResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(linkResizeTimer);
+      linkResizeTimer = setTimeout(redrawAllAlignLinks, 150);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(redrawAllAlignLinks);
     // Chamber-tile score pills open the same member vote-history modal
     const chamberEl = document.getElementById('chamber');
     if (chamberEl) {
