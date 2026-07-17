@@ -616,6 +616,18 @@
 
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
+    /* Maps each name column to its bar segment: the header swatch repeats the
+       segment's exact fill, and hovering either side spotlights its partner */
+    .align-col-header .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .align-stack .seg, .align-col { transition: opacity 0.15s ease; }
+    .map-hover .seg:not(.hl) { opacity: 0.35; }
+    .map-hover .align-col:not(.hl) { opacity: 0.35; }
+
     .align-col-names {
       font-size: 12px;
       line-height: 1.8;
@@ -1513,7 +1525,7 @@
       const count = counts[key];
       if (!count) return '';
       const pct = (count / total) * 100;
-      return `<div class="seg${key === 'neutral' ? ' seg-neutral' : ''}" style="width:${pct}%;background:${ALIGN_COLORS[key]}"
+      return `<div class="seg${key === 'neutral' ? ' seg-neutral' : ''}" data-key="${key}" style="width:${pct}%;background:${ALIGN_COLORS[key]}"
         title="${ALIGN_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct.toFixed(0)}%)">${count}</div>`;
     }).join('');
 
@@ -1531,12 +1543,13 @@
           }).join('')
         : `<div class="none">None</div>`;
       return `
-        <div class="align-col" style="--col:${ALIGN_TEXT_COLORS[key]}">
-          <div class="align-col-header">${ALIGN_LABELS[key]} <span class="count">(${counts[key]})</span></div>
+        <div class="align-col" data-key="${key}" style="--col:${ALIGN_TEXT_COLORS[key]}">
+          <div class="align-col-header"><span class="swatch" style="background:${ALIGN_COLORS[key]}"></span>${ALIGN_LABELS[key]} <span class="count">(${counts[key]})</span></div>
           <div class="align-col-names">${names}</div>
         </div>
       `;
     }).join('');
+    wireAlignHover(stack.closest('.alignment-overview'));
   }
 
   // ============================================================
@@ -1565,6 +1578,29 @@
     'King':                   '#84cc16',
     'Whitchurch-Stouffville': '#f43f5e',
   };
+
+  // Hovering a bar segment spotlights its name column, and vice versa —
+  // elements are rebuilt on every render, so listeners never duplicate.
+  function wireAlignHover(rootEl) {
+    if (!rootEl) return;
+    const segs = [...rootEl.querySelectorAll('.seg[data-key]')];
+    const cols = [...rootEl.querySelectorAll('.align-col[data-key]')];
+    const colByKey = Object.fromEntries(cols.map(c => [c.dataset.key, c]));
+    const segByKey = Object.fromEntries(segs.map(s => [s.dataset.key, s]));
+    const pair = el => el.classList.contains('seg') ? colByKey[el.dataset.key] : segByKey[el.dataset.key];
+    for (const el of [...segs, ...cols]) {
+      el.addEventListener('mouseenter', () => {
+        rootEl.classList.add('map-hover');
+        el.classList.add('hl');
+        pair(el)?.classList.add('hl');
+      });
+      el.addEventListener('mouseleave', () => {
+        rootEl.classList.remove('map-hover');
+        el.classList.remove('hl');
+        pair(el)?.classList.remove('hl');
+      });
+    }
+  }
 
   // ============================================================
   // RENDER: POST-ELECTION OUTLOOK (estimates only)
@@ -1626,7 +1662,7 @@
     const bar = order.map(k => {
       const n = groups[k].length;
       if (!n) return '';
-      return `<div class="seg${k === 'neutral' ? ' seg-neutral' : ''}" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
+      return `<div class="seg${k === 'neutral' ? ' seg-neutral' : ''}" data-key="${k}" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
     }).join('');
 
     // Same bar + name-columns pattern as the Current Council section below,
@@ -1644,13 +1680,14 @@
           }).join('')
         : `<div class="none">None</div>`;
       return `
-        <div class="align-col" style="--col:${TEXT_COLORS[k]}">
-          <div class="align-col-header">${LABELS[k]} <span class="count">(${groups[k].length})</span></div>
+        <div class="align-col" data-key="${k}" style="--col:${TEXT_COLORS[k]}">
+          <div class="align-col-header"><span class="swatch" style="background:${COLORS[k]}"></span>${LABELS[k]} <span class="count">(${groups[k].length})</span></div>
           <div class="align-col-names">${names}</div>
         </div>`;
     }).join('');
 
     compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-columns">${columns}</div>`;
+    wireAlignHover(compEl);
 
   }
 
