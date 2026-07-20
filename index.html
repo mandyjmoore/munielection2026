@@ -1597,37 +1597,53 @@
     }
     wrap.classList.add('staggered');
     const wrapRect = wrap.getBoundingClientRect();
-    const COLW = 220, GAPX = 16, GAPY = 14;
+    const COLW = 220, GAPX = 16, GAPY = 10;
     const items = [];
     for (const seg of rootEl.querySelectorAll('.seg[data-key]')) {
       const col = wrap.querySelector(`.align-col[data-key="${seg.dataset.key}"]`);
       if (!col) continue;
       const r = seg.getBoundingClientRect();
-      items.push({ col, cx: r.left + r.width / 2 - wrapRect.left });
+      items.push({ col, segL: r.left - wrapRect.left, segR: r.right - wrapRect.left });
     }
     if (!items.length) return;
-    items.sort((a, b) => a.cx - b.cx);
-    for (const it of items) {
-      it.col.style.width = COLW + 'px';
-      it.left = Math.max(0, Math.min(it.cx - COLW / 2, W - COLW));
-    }
-    // Per-column packing: each column takes the highest position where it
-    // doesn't collide with an already-placed column. Only columns that
-    // horizontally overlap constrain each other, so a short column tucks in
-    // right under its neighbour instead of dropping below the tallest list
-    // on the page (which stranded Neutral in empty space).
+    items.sort((a, b) => (a.segL + a.segR) - (b.segL + b.segR));
+    for (const it of items) it.col.style.width = COLW + 'px';
+
+    // Per-column packing with horizontal give: a column may sit anywhere
+    // under its OWN segment (that's what preserves the mapping), so wide
+    // segments slide their column sideways to stay on the top row instead of
+    // being chained downward by a near-miss overlap. Narrow segments (too
+    // small to contain a column) stay centred. Among feasible spots we take
+    // the highest row, and within it the position closest to segment centre.
     const placed = [];
     for (const it of items) {
-      const l = it.left, r = l + COLW;
       const h = it.col.offsetHeight;
-      const overlapping = placed.filter(p => l < p.right + GAPX && r > p.left - GAPX);
-      const candidates = [0, ...overlapping.map(p => p.bottom + GAPY)].sort((a, b) => a - b);
-      let top = candidates.find(t =>
-        overlapping.every(p => t + h + GAPY <= p.top || t >= p.bottom + GAPY));
-      if (top === undefined) top = Math.max(...overlapping.map(p => p.bottom)) + GAPY;
-      it.col.style.left = l + 'px';
-      it.col.style.top = top + 'px';
-      placed.push({ left: l, right: r, top, bottom: top + h });
+      const ideal = Math.max(0, Math.min((it.segL + it.segR) / 2 - COLW / 2, W - COLW));
+      let minL = Math.max(0, it.segL), maxL = Math.min(W, it.segR) - COLW;
+      if (maxL < minL) minL = maxL = ideal;
+      const yCands = [0, ...placed.map(p => p.bottom + GAPY)].sort((a, b) => a - b);
+      let bestY, bestL;
+      for (const y of yCands) {
+        const blockers = placed.filter(p => y < p.bottom + GAPY && y + h + GAPY > p.top);
+        const lCands = [Math.max(minL, Math.min(ideal, maxL)),
+                        ...blockers.flatMap(p => [p.right + GAPX, p.left - GAPX - COLW])]
+          .filter(l => l >= minL && l <= maxL);
+        const feasible = lCands.filter(l =>
+          blockers.every(p => l + COLW + GAPX <= p.left || l >= p.right + GAPX));
+        if (feasible.length) {
+          bestL = feasible.reduce((a, b) => Math.abs(a - ideal) <= Math.abs(b - ideal) ? a : b);
+          bestY = y;
+          break;
+        }
+      }
+      if (bestY === undefined) {
+        bestL = Math.max(minL, Math.min(ideal, maxL));
+        const overl = placed.filter(p => bestL < p.right + GAPX && bestL + COLW > p.left - GAPX);
+        bestY = overl.length ? Math.max(...overl.map(p => p.bottom)) + GAPY : 0;
+      }
+      it.col.style.left = bestL + 'px';
+      it.col.style.top = bestY + 'px';
+      placed.push({ left: bestL, right: bestL + COLW, top: bestY, bottom: bestY + h });
     }
     wrap.style.height = Math.max(...placed.map(p => p.bottom)) + 'px';
   }
