@@ -1710,22 +1710,38 @@
     svg.style.height = totalH + 'px';
     svg.innerHTML = items.map((it, i) => {
       const p = placed[i];
-      const lo = Math.max(it.segL, p.left) + 8;
-      const hi = Math.min(it.segR, p.right) - 8;
-      let x = Math.max(lo, Math.min((it.segL + it.segR) / 2, hi)) || (p.left + COLW / 2);
-      // A long drop passing other columns must not hug their text or emerge
-      // from beneath a box — keep 12px clear of any column it passes,
-      // nudging toward the middle of the gap when needed.
+      const stroke = `stroke="${it.color}" stroke-width="1.5" stroke-opacity="0.55" stroke-linecap="round" stroke-linejoin="round"`;
+      const y2 = (TOPGAP + p.top + 3).toFixed(1);
+      // A drop passing other columns must not hug their text or tunnel
+      // behind a box — keep 12px clear of every column it passes.
       const CLEAR = 12;
       const passes = placed.filter((q, j) => j !== i && q.top < p.top);
       const tooClose = v => passes.some(q => v > q.left - CLEAR && v < q.right + CLEAR);
+      const lo = Math.max(it.segL, p.left) + 8;
+      const hi = Math.min(it.segR, p.right) - 8;
+      let x = Math.max(lo, Math.min((it.segL + it.segR) / 2, hi)) || (p.left + COLW / 2);
       if (tooClose(x)) {
         const cands = passes.flatMap(q => [q.left - CLEAR, q.right + CLEAR])
           .filter(c => c >= lo && c <= hi && !tooClose(c));
-        if (cands.length) x = cands.reduce((a, b) => Math.abs(a - x) <= Math.abs(b - x) ? a : b);
+        if (cands.length) {
+          x = cands.reduce((a, b) => Math.abs(a - x) <= Math.abs(b - x) ? a : b);
+        } else {
+          // No straight path exists (another column fully covers this
+          // segment): elbow — drop from the segment into the gap under the
+          // bar, jog sideways to clear air, then drop to the column.
+          const xs = Math.max(it.segL + 4, Math.min((it.segL + it.segR) / 2, it.segR - 4));
+          const loL = p.left + 8, hiL = p.right - 8;
+          const landings = [Math.max(loL, Math.min(xs, hiL)),
+                            ...passes.flatMap(q => [q.left - CLEAR, q.right + CLEAR])]
+            .filter(c => c >= loL && c <= hiL && !tooClose(c));
+          if (landings.length) {
+            const xl = landings.reduce((a, b) => Math.abs(a - xs) <= Math.abs(b - xs) ? a : b);
+            const yJog = (TOPGAP / 2).toFixed(1);
+            return `<path d="M ${xs.toFixed(1)} 0 L ${xs.toFixed(1)} ${yJog} L ${xl.toFixed(1)} ${yJog} L ${xl.toFixed(1)} ${y2}" fill="none" ${stroke}/>`;
+          }
+        }
       }
-      const y2 = (TOPGAP + p.top + 3).toFixed(1);
-      return `<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${y2}" stroke="${it.color}" stroke-width="1.5" stroke-opacity="0.55" stroke-linecap="round"/>`;
+      return `<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${y2}" ${stroke}/>`;
     }).join('');
   }
 
