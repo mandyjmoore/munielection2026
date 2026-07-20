@@ -1712,9 +1712,20 @@
       const p = placed[i];
       const lo = Math.max(it.segL, p.left) + 8;
       const hi = Math.min(it.segR, p.right) - 8;
-      const x = (Math.max(lo, Math.min((it.segL + it.segR) / 2, hi)) || (p.left + COLW / 2)).toFixed(1);
+      let x = Math.max(lo, Math.min((it.segL + it.segR) / 2, hi)) || (p.left + COLW / 2);
+      // A long drop passing other columns must not hug their text or emerge
+      // from beneath a box — keep 12px clear of any column it passes,
+      // nudging toward the middle of the gap when needed.
+      const CLEAR = 12;
+      const passes = placed.filter((q, j) => j !== i && q.top < p.top);
+      const tooClose = v => passes.some(q => v > q.left - CLEAR && v < q.right + CLEAR);
+      if (tooClose(x)) {
+        const cands = passes.flatMap(q => [q.left - CLEAR, q.right + CLEAR])
+          .filter(c => c >= lo && c <= hi && !tooClose(c));
+        if (cands.length) x = cands.reduce((a, b) => Math.abs(a - x) <= Math.abs(b - x) ? a : b);
+      }
       const y2 = (TOPGAP + p.top + 3).toFixed(1);
-      return `<line x1="${x}" y1="0" x2="${x}" y2="${y2}" stroke="${it.color}" stroke-width="2"/>`;
+      return `<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${y2}" stroke="${it.color}" stroke-width="1.5" stroke-opacity="0.55" stroke-linecap="round"/>`;
     }).join('');
   }
 
