@@ -197,6 +197,16 @@
       line-height: 1;
     }
 
+    /* The percentage is the headline number — 75% is the s.275 lame-duck
+       threshold, so it gets near-equal billing with the seat fraction */
+    .lameduck-stat .lameduck-pct {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      margin-top: 2px;
+    }
+
     .lameduck-stat .lameduck-label {
       font-size: 10px;
       color: var(--text-muted);
@@ -1144,7 +1154,7 @@
     <div class="lameduck-banner status-unknown" id="lameduck-banner">
       <div class="lameduck-stat">
         <div class="lameduck-value" id="lameduck-fraction">—</div>
-        <div class="lameduck-label" id="lameduck-pct" style="color:var(--text);font-weight:700"></div>
+        <div class="lameduck-pct" id="lameduck-pct"></div>
         <div class="lameduck-label">Incumbents Registered</div>
         <div class="lameduck-label" style="font-size:9px;text-transform:none;letter-spacing:0.3px">75% to avoid lame duck</div>
       </div>
