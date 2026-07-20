@@ -880,12 +880,16 @@
     /* ============================================================
        FISCAL SCORE LEGEND (Council Chamber header)
     ============================================================ */
+    /* Lives at the inside-bottom of the Post-Election Outlook card, so
+       "alignment" is defined at first use (it's this tool's own concept) */
     .fiscal-legend {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 6px 10px;
-      margin: -4px 0 16px;
+      margin: 16px 0 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
       font-size: 11px;
       color: var(--text-dim);
       line-height: 1.5;
@@ -1181,11 +1185,6 @@
       <div id="outlook-composition">
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
       </div>
-    </div>
-
-    <!-- Council Chamber -->
-    <div id="view-chamber">
-      <div class="section-title">Council Seat Races</div>
       <div class="fiscal-legend">
         <span class="fl-intro">Fiscal score</span>
         <span>= alignment with YR fiscal strategy, higher = more aligned:</span>
@@ -1198,6 +1197,11 @@
         </span>
         <span class="fl-hint">Tap or click any score to see that member&rsquo;s full recorded-vote history. Sitting members only; challengers are unscored.</span>
       </div>
+    </div>
+
+    <!-- Council Chamber -->
+    <div id="view-chamber">
+      <div class="section-title">Council Seat Races</div>
       <div class="chamber-wrap">
         <div class="chamber" id="chamber">
           <!-- chairs injected by JS -->
