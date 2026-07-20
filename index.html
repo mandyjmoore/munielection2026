@@ -2308,5 +2308,13 @@
 })();
 </script>
 
+<!-- GoatCounter analytics (visit timing + uniques, no cookies). The path
+     callback records hostname + path so each wordi.ca subdomain shows
+     separately in the shared "wordi" dashboard. Skips localhost by default,
+     so local testing never pollutes the stats. -->
+<script>
+  window.goatcounter = { path: function(p) { return location.host + p; } };
+</script>
+<script data-goatcounter="https://wordi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
