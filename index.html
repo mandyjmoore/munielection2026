@@ -626,12 +626,20 @@
       margin-bottom: 7px;
     }
 
-    .align-ruler { display: flex; margin-top: 5px; }
-    .align-ruler .rseg {
-      height: 3px;
-      border-radius: 2px;
-      /* shrink around centre so the dashes read as separate pointers */
-      transform: scaleX(0.96);
+    /* Vertical connectors: one line per column, dropping from the bar edge
+       to the column's top line at the segment's centre. Drawn behind the
+       columns (which are opaque), so a drop can never cut through a
+       neighbouring list. */
+    .align-drops {
+      position: absolute;
+      left: 0;
+      top: -8px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .align-columns.staggered .align-col {
+      z-index: 1;
+      background: var(--bg-card);
     }
 
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
@@ -1194,7 +1202,6 @@
       <div class="align-stack" id="alignment-stack">
         <div class="loading-spinner"><div class="spinner"></div> Loading alignment data…</div>
       </div>
-      <div class="align-ruler" id="alignment-ruler"></div>
       <div class="align-columns" id="alignment-columns"></div>
     </div>
 
@@ -1548,12 +1555,6 @@
         title="${ALIGN_LABELS[key]}: ${count} candidate${count !== 1 ? 's' : ''} (${pct.toFixed(0)}%)">${count}</div>`;
     }).join('');
 
-    const rulerEl = document.getElementById('alignment-ruler');
-    if (rulerEl) rulerEl.innerHTML = order.map(key => {
-      const count = counts[key];
-      if (!count) return '';
-      return `<div class="rseg" style="width:${(count / total) * 100}%;background:${ALIGN_COLORS[key]}"></div>`;
-    }).join('');
 
     // Names under each category, sorted by score (most extreme first).
     columns.innerHTML = order.map(key => {
@@ -1617,6 +1618,7 @@
     const W = wrap.clientWidth || 0;
     if (W < 640) {
       wrap.classList.remove('staggered');
+      wrap.querySelector('.align-drops')?.remove();
       for (const c of wrap.querySelectorAll('.align-col')) c.style.cssText = c.style.getPropertyValue('--col') ? `--col:${c.style.getPropertyValue('--col')}` : '';
       wrap.style.height = '';
       return;
@@ -1629,7 +1631,7 @@
       const col = wrap.querySelector(`.align-col[data-key="${seg.dataset.key}"]`);
       if (!col) continue;
       const r = seg.getBoundingClientRect();
-      items.push({ col, segL: r.left - wrapRect.left, segR: r.right - wrapRect.left });
+      items.push({ col, segL: r.left - wrapRect.left, segR: r.right - wrapRect.left, color: seg.style.background || '#98989f' });
     }
     if (!items.length) return;
     items.sort((a, b) => (a.segL + a.segR) - (b.segL + b.segR));
@@ -1672,6 +1674,32 @@
       placed.push({ left: bestL, right: bestL + COLW, top: bestY, bottom: bestY + h });
     }
     wrap.style.height = Math.max(...placed.map(p => p.bottom)) + 'px';
+
+    // Vertical drop-lines: from the bar's underside straight down to each
+    // column's coloured top line, at the segment's centre (clamped onto the
+    // part of the column that sits under the segment). Behind the opaque
+    // columns, so no line crosses a neighbouring list.
+    let svg = wrap.querySelector('.align-drops');
+    if (!svg) {
+      svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('class', 'align-drops');
+      svg.setAttribute('aria-hidden', 'true');
+      wrap.prepend(svg);
+    }
+    const TOPGAP = 8;  // .staggered margin-top — the run-up from the bar
+    const totalH = Math.max(...placed.map(p => p.bottom)) + TOPGAP;
+    svg.setAttribute('viewBox', `0 0 ${W} ${totalH}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    svg.style.width = W + 'px';
+    svg.style.height = totalH + 'px';
+    svg.innerHTML = items.map((it, i) => {
+      const p = placed[i];
+      const lo = Math.max(it.segL, p.left) + 8;
+      const hi = Math.min(it.segR, p.right) - 8;
+      const x = (Math.max(lo, Math.min((it.segL + it.segR) / 2, hi)) || (p.left + COLW / 2)).toFixed(1);
+      const y2 = (TOPGAP + p.top + 3).toFixed(1);
+      return `<line x1="${x}" y1="0" x2="${x}" y2="${y2}" stroke="${it.color}" stroke-width="2"/>`;
+    }).join('');
   }
 
   // ============================================================
@@ -1735,11 +1763,6 @@
       if (!n) return '';
       return `<div class="seg${k === 'neutral' ? ' seg-neutral' : ''}" data-key="${k}" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
     }).join('');
-    const ruler = order.map(k => {
-      const n = groups[k].length;
-      if (!n) return '';
-      return `<div class="rseg" style="width:${(n / total * 100)}%;background:${COLORS[k]}"></div>`;
-    }).join('');
 
     // Same bar + name-columns pattern as the Current Council section below,
     // so the two read as siblings; reasons ride along in parentheses.
@@ -1762,7 +1785,7 @@
         </div>`;
     }).join('');
 
-    compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-ruler">${ruler}</div><div class="align-columns">${columns}</div>`;
+    compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-columns">${columns}</div>`;
     layoutAlignColumns(compEl);
 
   }
