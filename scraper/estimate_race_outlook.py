@@ -107,6 +107,45 @@ def _is_filed(candidate: dict) -> bool:
     return bool(candidate.get("registered")) or candidate.get("filed_for_reelection") == "confirmed"
 
 
+def _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of):
+    """Multi-seat at-large arithmetic the news heuristic can't see: when the
+    filed field is no larger than the number of seats, every filed candidate
+    is (after nominations close) elected by acclamation under the Municipal
+    Elections Act — no vote is held for the office. Before the close, the
+    same arithmetic means everyone filed is on track for acclamation."""
+    muni = candidate.get("municipality")
+    office = candidate.get("office")
+    incumbents = [
+        c for c in all_candidates
+        if c.get("status") == "incumbent"
+        and c.get("municipality") == muni and c.get("office") == office
+    ]
+    seats_n = len(incumbents)  # every seat has a roster incumbent
+    if seats_n < 2:
+        return None
+    filed_field = [
+        c for c in all_candidates
+        if c.get("municipality") == muni and c.get("office") == office
+        and (c.get("status") == "incumbent" or c.get("at_large_pool"))
+        and _is_filed(c)
+    ]
+    if len(filed_field) > seats_n:
+        return None
+    if nomination_day_passed:
+        return {
+            "label": "acclaimed",
+            "basis": [f"Nominations closed with {len(filed_field)} candidates for {seats_n} at-large seats — every filed candidate is elected by acclamation (Municipal Elections Act)"],
+            "confidence": "high",
+            "as_of": as_of,
+        }
+    return {
+        "label": "favored",
+        "basis": [f"{len(filed_field)} candidates filed for {seats_n} at-large seats so far — on track for acclamation if the field holds to nomination day"],
+        "confidence": "low",
+        "as_of": as_of,
+    }
+
+
 def estimate_likely_to_win(
     candidate: dict,
     all_candidates: list[dict],
@@ -122,6 +161,9 @@ def estimate_likely_to_win(
     # incumbents — with the multi-winner structure stated in the basis
     # (owner request 2026-07-14; supersedes the earlier "not modelled" stance).
     if candidate.get("at_large_pool"):
+        acclaim = _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of)
+        if acclaim and _is_filed(candidate):
+            return acclaim
         incumbents_in_pool = [
             c for c in all_candidates
             if c.get("status") == "incumbent"
@@ -160,6 +202,12 @@ def estimate_likely_to_win(
             and c["id"] != candidate["id"]
             and _is_filed(c)
         ]
+        # Field ≤ seats beats challenger-visibility grading: a filed at-large
+        # incumbent in that situation is acclaimed (or on track to be).
+        if _is_filed(candidate):
+            acclaim = _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of)
+            if acclaim:
+                return acclaim
 
     if not _is_filed(candidate) and not other_filed:
         return {
