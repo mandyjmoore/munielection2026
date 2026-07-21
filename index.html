@@ -855,10 +855,21 @@
       color: var(--text-muted);
     }
 
-    .badge-estimate.est-favored, .badge-estimate.est-likely { border-color: var(--lime); color: var(--lime); }
-    .badge-estimate.est-acclaimed { border-color: var(--green); color: var(--green); }
-    .badge-estimate.est-competitive, .badge-estimate.est-uncertain { border-color: var(--yellow); color: var(--yellow); }
-    .badge-estimate.est-long_shot, .badge-estimate.est-unlikely { border-color: var(--orange); color: var(--orange); }
+    /* Race-outlook estimates: dashed inline text (the page's estimate
+       register, like "est: uncertain") — deliberately NOT a chip, so a
+       speculation never carries the same visual authority as the measured
+       alignment chips. */
+    .win-est {
+      font-size: 10px;
+      font-weight: 600;
+      border-bottom: 1px dashed currentColor;
+      cursor: help;
+      white-space: nowrap;
+    }
+    .win-est.est-favored    { color: var(--lime); }
+    .win-est.est-acclaimed  { color: var(--green); }
+    .win-est.est-competitive { color: var(--yellow); }
+    .win-est.est-long_shot  { color: var(--orange); }
 
     .score-pill {
       font-size: 10px;
@@ -1922,6 +1933,16 @@
 
   // Ordinal win-outlook badge (estimate, never a fact) — shared by the seat
   // tiles and the at-large challenger pools.
+  // Election-explicit wording, so the estimate can't be read as anything but
+  // race odds. Rendered as dashed inline text (the page's estimate register),
+  // deliberately a different species from the solid alignment chips.
+  const WIN_TEXT = {
+    favored: 'favored to win',
+    acclaimed: 'acclaimed',
+    competitive: 'competitive race',
+    long_shot: 'long shot',
+  };
+
   function winBadge(c) {
     const w = c && c.likely_to_win;
     if (!w || !w.label || w.label === 'insufficient_data') return '';
@@ -1934,7 +1955,7 @@
       '• At-large multi-seat races grade challengers on the same visibility evidence, against all incumbents at once.';
     const specific = 'WHY ' + (c.name || 'THIS CANDIDATE').toUpperCase() + ' IS "' + w.label.replace(/_/g, ' ').toUpperCase() + '": ' + (w.basis || []).join('; ');
     const tip = escapeHtml('Estimate, not fact.\n\n' + method + '\n\n' + specific);
-    return `<span class="badge badge-estimate est-${w.label}" title="${tip}">${escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
+    return `<span class="win-est est-${w.label}" title="${tip}">${WIN_TEXT[w.label] || escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
   }
 
   function chairCard(seat) {
