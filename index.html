@@ -865,7 +865,69 @@
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 99px;
+      white-space: nowrap;
     }
+
+    /* Self-labeling capsule: "FISCAL 6/10" can't be misread as a win chance */
+    .score-pill .sp-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      opacity: 0.75;
+      margin-right: 3px;
+    }
+    .score-pill.mini .sp-label { font-size: 7px; margin-right: 2px; }
+
+    /* ============================================================
+       FEEDBACK BUTTON + FORM
+    ============================================================ */
+    .feedback-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      font-family: inherit;
+      padding: 5px 12px;
+      border-radius: 99px;
+      cursor: pointer;
+    }
+    .feedback-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .fb-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 12px 0 4px;
+    }
+    .fb-label span { font-weight: 400; color: var(--text-dim); }
+    .fb-input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+    }
+    .fb-input:focus { outline: none; border-color: var(--accent); }
+    .fb-row { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+    .fb-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 99px;
+      cursor: pointer;
+    }
+    .fb-submit:hover { background: var(--accent-hover); }
+    .fb-submit:disabled { opacity: 0.5; cursor: default; }
+    .fb-status { font-size: 12px; color: var(--text-dim); }
 
     .score-strongly_aligned    { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-dim); }
     .score-aligned             { background: var(--lime-bg); color: var(--lime); border: 1px solid #cfe3a8; }
@@ -1134,6 +1196,7 @@
         <div class="subtitle">Tracking 9 municipalities &bull; October 26, 2026 &bull; Fiscal alignment monitor</div>
       </div>
       <div class="header-meta">
+        <button class="feedback-btn" id="feedback-open" type="button">Submit Feedback</button>
         <div class="last-updated">
           <div><strong>Last Updated</strong></div>
           <div id="last-updated-time">Loading…</div>
@@ -1258,6 +1321,26 @@
   <div class="modal-box">
     <button class="modal-close" id="member-modal-close" aria-label="Close">&times;</button>
     <div id="member-modal-body"></div>
+  </div>
+</div>
+
+<!-- Feedback modal -->
+<div id="feedback-modal" class="modal-overlay hidden">
+  <div class="modal-box" style="max-width:480px">
+    <button class="modal-close" id="feedback-close" aria-label="Close">&times;</button>
+    <div class="mm-name">Submit Feedback</div>
+    <div class="mm-sub" style="margin-bottom:4px">Suggestions, corrections, requests &mdash; anonymous unless you add your name.</div>
+    <form id="feedback-form">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <label class="fb-label" for="fb-name">Name <span>(optional &mdash; leave blank to stay anonymous)</span></label>
+      <input class="fb-input" type="text" id="fb-name" name="name" placeholder="Anonymous">
+      <label class="fb-label" for="fb-message">Feedback</label>
+      <textarea class="fb-input" id="fb-message" name="message" rows="5" required placeholder="What&rsquo;s working, what&rsquo;s confusing, what&rsquo;s missing&hellip;"></textarea>
+      <div class="fb-row">
+        <button type="submit" class="fb-submit" id="feedback-submit">Send</button>
+        <span class="fb-status" id="feedback-status"></span>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -1866,7 +1949,7 @@
       if (!c || c.fiscal_alignment_basis === 'unscored') return '';
       const label = c.fiscal_alignment_label || 'neutral';
       const tip = escapeHtml((c.fiscal_notes || `Fiscal alignment: ${label}`) + ' — click for vote history');
-      return `<span class="score-pill score-${label} score-clickable${mini ? ' mini' : ''}" data-cid="${escapeHtml(c.id)}" role="button" tabindex="0" title="${tip}">${c.fiscal_alignment_score ?? 5}/10</span>`;
+      return `<span class="score-pill score-${label} score-clickable${mini ? ' mini' : ''}" data-cid="${escapeHtml(c.id)}" role="button" tabindex="0" title="${tip}"><span class="sp-label">FISCAL</span>${c.fiscal_alignment_score ?? 5}/10</span>`;
     }
 
     let statusClass = 'unknown';
@@ -1973,7 +2056,7 @@
     const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
     const chairRec = state.candidates.find(c => c.status === 'appointed');
     const chairPill = chairRec && chairRec.fiscal_alignment_basis !== 'unscored'
-      ? `<span class="score-pill score-${chairRec.fiscal_alignment_label} score-clickable" data-cid="${escapeHtml(chairRec.id)}" role="button" tabindex="0" title="${escapeHtml((chairRec.fiscal_notes || '') + ' — click for vote history')}">${chairRec.fiscal_alignment_score}/10</span>`
+      ? `<span class="score-pill score-${chairRec.fiscal_alignment_label} score-clickable" data-cid="${escapeHtml(chairRec.id)}" role="button" tabindex="0" title="${escapeHtml((chairRec.fiscal_notes || '') + ' — click for vote history')}"><span class="sp-label">FISCAL</span>${chairRec.fiscal_alignment_score}/10</span>`
       : '';
     const chairBlock = `
       <div class="muni-block no-grow" style="--muni:#94a3b8">
@@ -2108,7 +2191,7 @@
           <div class="mm-name">${escapeHtml(member.name)}</div>
           <div class="mm-sub">${escapeHtml(member.municipality)} &middot; ${escapeHtml(member.office)}${member.status === 'appointed' ? ' (appointed)' : ''}</div>
         </div>
-        <span class="score-pill score-${member.fiscal_alignment_label}" title="${escapeHtml(member.fiscal_notes || '')}">${member.fiscal_alignment_score}/10</span>
+        <span class="score-pill score-${member.fiscal_alignment_label}" title="${escapeHtml(member.fiscal_notes || '')}"><span class="sp-label">FISCAL</span>${member.fiscal_alignment_score}/10</span>
       </div>
       <div class="mm-summary">Cast a vote in ${voted} of the council&rsquo;s ${rows.length} recorded votes during their tenure. Voice votes have no individual attribution and are not shown.</div>
       ${rowsHtml}
@@ -2272,6 +2355,55 @@
       modal.addEventListener('click', e => { if (e.target === modal) closeMemberModal(); });
       document.getElementById('member-modal-close').addEventListener('click', closeMemberModal);
       document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMemberModal(); });
+    }
+
+    // Feedback form — posts to FormSubmit (no backend on a static page);
+    // anonymous unless a name is given. Falls back to a mailto link if the
+    // service is unreachable.
+    const FEEDBACK_ENDPOINT = 'https://formsubmit.co/ajax/dashboard@yrmuni2026.wordi.ca';
+    const fbModal = document.getElementById('feedback-modal');
+    const fbForm = document.getElementById('feedback-form');
+    if (fbModal && fbForm) {
+      const fbStatus = document.getElementById('feedback-status');
+      const fbClose = () => fbModal.classList.add('hidden');
+      document.getElementById('feedback-open').addEventListener('click', () => {
+        fbModal.classList.remove('hidden');
+        document.getElementById('fb-message').focus();
+      });
+      document.getElementById('feedback-close').addEventListener('click', fbClose);
+      fbModal.addEventListener('click', e => { if (e.target === fbModal) fbClose(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') fbClose(); });
+      fbForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = document.getElementById('feedback-submit');
+        const name = document.getElementById('fb-name').value.trim() || 'Anonymous';
+        const message = document.getElementById('fb-message').value.trim();
+        if (!message) return;
+        btn.disabled = true;
+        fbStatus.textContent = 'Sending…';
+        try {
+          const resp = await fetch(FEEDBACK_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name,
+              message,
+              _subject: 'YR Election Dashboard feedback',
+              _template: 'table',
+              _captcha: 'false',
+              _honey: fbForm._honey.value,
+            }),
+          });
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          fbStatus.textContent = 'Thanks — sent.';
+          fbForm.reset();
+          setTimeout(() => { fbClose(); fbStatus.textContent = ''; }, 1400);
+        } catch (err) {
+          fbStatus.innerHTML = 'Couldn&rsquo;t send — <a href="mailto:dashboard@yrmuni2026.wordi.ca?subject=YR%20Dashboard%20feedback">email instead</a>.';
+        } finally {
+          btn.disabled = false;
+        }
+      });
     }
 
     // Load data
