@@ -675,19 +675,6 @@
       opacity: 0.65;
       z-index: 2;
     }
-    /* Supportive-extent line: same ink as the tick, along the bar's bottom
-       edge, spanning only the aligned-family mass — the visible gap to the
-       tick IS the shortfall */
-    .align-support-fill {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 3px;
-      background: var(--text);
-      opacity: 0.65;
-      z-index: 2;
-      border-radius: 0 2px 0 0;
-    }
 
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
@@ -2045,20 +2032,20 @@
         </div>`;
     }).join('');
 
-    // Two-thirds benchmark, counted conservatively (owner decision
-    // 2026-07-22): only the aligned family — registered aligned + assessed
-    // likely-to-run aligned — counts as "likely supportive". Neutral is the
-    // absence of a measured lean, not a reliable vote, so it never pads the
-    // count. The dark line along the bar's bottom shows how far the
-    // supportive mass reaches toward the 15-seat tick.
+    // Supportive-group divider (owner design, 2026-07-22): ONE black
+    // vertical line at the aligned-family boundary — left of it is the
+    // counted "likely supportive" group (strongly aligned + aligned,
+    // registered or assessed likely to run); the yellow neutral seats sit
+    // visibly outside it (neutral = no measured lean, not a reliable vote).
+    // The ⅔ arithmetic lives in the caption on the line, not in a second
+    // marker.
     const supportive = groups.strongly_aligned.length + groups.aligned.length + groups.likely_aligned.length;
     const shortfall = 15 - supportive;
-    const THRESH_PCT = (15 / 22 * 100).toFixed(2);
     const SUPPORT_PCT = (supportive / 22 * 100).toFixed(2);
-    const threshTitle = `Two-thirds benchmark: 15 of 22 voting seats. Likely supportive today: ${supportive} (strongly aligned + aligned, registered or assessed likely to run) — ${shortfall > 0 ? shortfall + ' short of' : 'meets'} the benchmark. Neutral and unknown seats are deliberately not counted: neutral means no measured lean, not a reliable vote.`;
+    const threshTitle = `Everything left of this line is the likely-supportive group: ${supportive} seats (strongly aligned + aligned, registered or assessed likely to run). Two-thirds of the 22 voting seats is 15 — currently ${shortfall > 0 ? shortfall + ' short' : 'met'}. Neutral and unknown seats are deliberately not counted: neutral means no measured lean, not a reliable vote.`;
     compEl.innerHTML = `
-      <div class="align-thresh-row"><span class="align-thresh-label" style="left:${THRESH_PCT}%" title="${threshTitle}">&#8532; &middot; 15 seats &mdash; likely supportive: ${supportive}${shortfall > 0 ? ` (&minus;${shortfall})` : ' &#10003;'}</span></div>
-      <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${THRESH_PCT}%" title="${threshTitle}"></span><span class="align-support-fill" style="width:${SUPPORT_PCT}%" title="${threshTitle}"></span></div>
+      <div class="align-thresh-row"><span class="align-thresh-label" style="left:${SUPPORT_PCT}%" title="${threshTitle}">Likely supportive: ${supportive} &middot; &#8532; = 15${shortfall > 0 ? ` (&minus;${shortfall})` : ' &#10003;'}</span></div>
+      <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${SUPPORT_PCT}%" title="${threshTitle}"></span></div>
       <div class="align-columns">${columns}</div>`;
     layoutAlignColumns(compEl);
 
