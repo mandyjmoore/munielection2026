@@ -138,6 +138,8 @@ def score_from_votes(candidate_id: str, votes: list[dict]) -> Optional[dict]:
 
     delta = 0.0
     weight_sum = 0.0
+    contested_delta = 0.0
+    contested_voted = 0.0
     notes_parts = []
     for vote, cast in matches:
         direction = vote.get("fiscal_alignment_direction")
@@ -150,13 +152,34 @@ def score_from_votes(candidate_id: str, votes: list[dict]) -> Optional[dict]:
         weight = vote.get("weight", DEFAULT_VOTE_WEIGHT)
         delta += sign * weight
         weight_sum += weight
+        if weight > 1:
+            contested_delta += sign * weight
+            contested_voted += weight
         notes_parts.append(f'Voted {cast.upper()} on "{vote.get("title")}" ({vote.get("date")}).')
 
     if weight_sum == 0:
         return None
 
+    # Contested-vote participation: which contested votes (weight > 1, with
+    # member results) did this member NOT cast a yes/no in? Absence is honest
+    # missing data, but the *extent* of it must be visible — a thin record
+    # padded by unanimous consensus votes must not read as a measured lean.
+    contested_available = 0.0
+    missed_contested = []
+    voted_ids = {v.get("id") for v, _ in matches}
+    for vote in votes:
+        if not vote.get("results") or vote.get("weight", DEFAULT_VOTE_WEIGHT) <= 1:
+            continue
+        contested_available += vote.get("weight", DEFAULT_VOTE_WEIGHT)
+        if vote.get("id") not in voted_ids:
+            missed_contested.append(f'{vote.get("title")} ({vote.get("date")})')
+
     return {
         "position": delta / weight_sum,  # -1.0 (fully misaligned) .. +1.0 (fully aligned)
+        "contested_position": (contested_delta / contested_voted) if contested_voted else None,
+        "contested_voted": contested_voted,
+        "contested_available": contested_available,
+        "missed_contested": missed_contested,
         "notes": " ".join(notes_parts),
         "n_votes": len(matches),
     }
@@ -206,12 +229,37 @@ def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[
         # news delta only nudges within it, deliberately down-weighted so a
         # handful of keyword hits can't override a documented vote.
         new_score = clamp(round(5 + 5 * vote_result["position"]) + news_delta // 3)
-        updated["fiscal_alignment_score"] = new_score
-        updated["fiscal_alignment_label"] = label_from_score(new_score)
-        updated["fiscal_alignment_basis"] = "voting_record"
+        new_label = label_from_score(new_score)
         notes = vote_result["notes"]
         if relevant_articles:
             notes += f" Plus {len(relevant_articles)} news article(s) as minor secondary signal."
+
+        # D (owner decision 2026-07-22): contested participation is always
+        # stated, so a thin record is visible wherever the notes surface.
+        cav, cvw = vote_result["contested_available"], vote_result["contested_voted"]
+        if cav:
+            notes += f" Contested-vote participation: {int(cvw)} of {int(cav)} weight"
+            if vote_result["missed_contested"]:
+                notes += " — did not vote on: " + "; ".join(vote_result["missed_contested"])
+            notes += "."
+
+        # A (owner decision 2026-07-22): thin-record guard. A member who
+        # missed a substantial share of the contested votes cannot earn a
+        # non-neutral label from consensus credit alone — if their contested
+        # votes alone read neutral (or don't exist), the label stays neutral.
+        if cav and cvw / cav < 0.75 and new_label != "neutral":
+            c_pos = vote_result["contested_position"]
+            c_label = label_from_score(clamp(round(5 + 5 * c_pos))) if c_pos is not None else "neutral"
+            if c_label == "neutral":
+                new_score = 5
+                new_label = "neutral"
+                notes = ("Thin contested record — non-neutral label withheld: contested votes "
+                         "alone read neutral, and consensus-vote credit is not sufficient "
+                         "evidence at this participation level. ") + notes
+
+        updated["fiscal_alignment_score"] = new_score
+        updated["fiscal_alignment_label"] = new_label
+        updated["fiscal_alignment_basis"] = "voting_record"
         updated["fiscal_notes"] = notes
 
     elif relevant_articles:

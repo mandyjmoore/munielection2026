@@ -1982,32 +1982,24 @@
     // The appointed Chair is the 22nd voting member — 2026-30 appointee unknown.
     groups.uncertain.push({ cid: null, name: 'Regional Chair', muni: 'York Region', reason: 'appointee not yet named — provincial appointment', score: null });
 
-    // Acclamation-track at-large pools: when a municipality's filed field is
-    // no larger than its seat count, each filed challenger claims one seat
-    // whose incumbent isn't returning — outcome known (or on track), but a
-    // challenger has no voting record, so alignment stays honestly unscored.
-    for (const muni of [...new Set(state.candidates.filter(c => c.at_large_pool && isFiled(c)).map(c => c.municipality))]) {
-      const rcSeats = seats.filter(s => s.municipality === muni && s.office === 'Regional Councillor');
-      if (rcSeats.length < 2) continue;
-      const chs = state.candidates.filter(c => c.at_large_pool && c.municipality === muni && isFiled(c));
-      const filedInc = rcSeats.filter(s => {
-        const inc = state.candidates.find(c => c.id === s.incumbent_candidate_id);
-        return inc && isFiled(inc) && inc.filed_for_reelection !== 'declined';
-      }).length;
-      if (filedInc + chs.length > rcSeats.length) continue;  // genuinely contested — leave as graded
-      for (const ch of chs) {
-        const idx = groups.uncertain.findIndex(e => e.muni === muni && e.office === 'Regional Councillor');
-        if (idx === -1) break;
-        groups.uncertain.splice(idx, 1);
-        groups.unscored_reg.push({
-          cid: null,
-          name: ch.name,
-          muni,
-          reason: (ch.likely_to_win || {}).label === 'acclaimed' ? 'acclaimed — no voting record yet' : 'on track for acclamation — no voting record yet',
-          alignLabel: null,
-          score: null,
-        });
-      }
+    // ACTUAL acclamation only (owner correction 2026-07-22): a challenger
+    // claims a seat in the projection only once the estimator says
+    // "acclaimed" — i.e., nominations have closed with field ≤ seats. Before
+    // the deadline the field can still grow (the unfiled incumbent may file),
+    // so the incumbent's seat stays honestly in Outcome unknown; the
+    // "on track for acclamation" estimate lives on the tiles, not here.
+    for (const ch of state.candidates.filter(c => c.at_large_pool && isFiled(c) && (c.likely_to_win || {}).label === 'acclaimed')) {
+      const idx = groups.uncertain.findIndex(e => e.muni === ch.municipality && e.office === 'Regional Councillor');
+      if (idx === -1) continue;
+      groups.uncertain.splice(idx, 1);
+      groups.unscored_reg.push({
+        cid: null,
+        name: ch.name,
+        muni: ch.municipality,
+        reason: 'acclaimed — no voting record yet',
+        alignLabel: null,
+        score: null,
+      });
     }
 
     const total = 22;
@@ -2020,6 +2012,7 @@
     // Same bar + name-columns pattern as the Current Council section below,
     // so the two read as siblings; reasons ride along in parentheses.
     const columns = order.map(k => {
+      if (!groups[k].length) return '';   // empty tiers stay invisible
       const list = groups[k].slice().sort((a, b) =>
         (b.score ?? -1) - (a.score ?? -1) || a.name.localeCompare(b.name));
       const names = list.length
