@@ -647,6 +647,35 @@
       background: var(--bg-card);
     }
 
+    /* Two-thirds benchmark on the outlook bar: label row above, dark tick
+       through the bar at 15/22 of its width */
+    .align-thresh-row {
+      position: relative;
+      height: 15px;
+      font-size: 9px;
+      color: var(--text-muted);
+    }
+    .align-thresh-label {
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: help;
+    }
+    .align-stack { position: relative; }
+    .align-thresh-tick {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--text);
+      opacity: 0.65;
+      z-index: 2;
+    }
+
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
     /* Maps each name column to its bar segment at a glance: the header swatch
@@ -1802,12 +1831,39 @@
     svg.innerHTML = items.map((it, i) => {
       const p = placed[i];
       const stroke = `stroke="${it.color}" stroke-width="1.5" stroke-opacity="0.55" stroke-linecap="round" stroke-linejoin="round"`;
-      const y2 = (TOPGAP + p.top + 3).toFixed(1);
+      const yEnd = TOPGAP + p.top + 3;
       // A drop passing other columns must not hug their text or tunnel
       // behind a box — keep 12px clear of every column it passes.
       const CLEAR = 12;
       const passes = placed.filter((q, j) => j !== i && q.top < p.top);
       const tooClose = v => passes.some(q => v > q.left - CLEAR && v < q.right + CLEAR);
+      // Vertical run with white-space gaps wherever it crosses the level of
+      // another column's coloured top line nearby — flush contact between a
+      // drop and someone else's horizontal line read as a connection.
+      const vSegs = (xv, yStart) => {
+        const gaps = [];
+        for (let j = 0; j < placed.length; j++) {
+          if (j === i) continue;
+          const q = placed[j];
+          const qy = TOPGAP + q.top;
+          if (qy <= yStart + 4 || qy >= yEnd - 2) continue;
+          if (xv > q.left - 30 && xv < q.right + 30) gaps.push([qy - 5, qy + 9]);
+        }
+        gaps.sort((a, b) => a[0] - b[0]);
+        const merged = [];
+        for (const g of gaps) {
+          const last = merged[merged.length - 1];
+          if (last && g[0] <= last[1]) last[1] = Math.max(last[1], g[1]);
+          else merged.push([...g]);
+        }
+        let out = '', yc = yStart;
+        for (const [a, b] of merged) {
+          if (a > yc) out += `<line x1="${xv.toFixed(1)}" y1="${yc.toFixed(1)}" x2="${xv.toFixed(1)}" y2="${a.toFixed(1)}" ${stroke}/>`;
+          yc = Math.max(yc, b);
+        }
+        if (yc < yEnd) out += `<line x1="${xv.toFixed(1)}" y1="${yc.toFixed(1)}" x2="${xv.toFixed(1)}" y2="${yEnd.toFixed(1)}" ${stroke}/>`;
+        return out;
+      };
       const lo = Math.max(it.segL, p.left) + 8;
       const hi = Math.min(it.segR, p.right) - 8;
       let x = Math.max(lo, Math.min((it.segL + it.segR) / 2, hi)) || (p.left + COLW / 2);
@@ -1827,12 +1883,14 @@
             .filter(c => c >= loL && c <= hiL && !tooClose(c));
           if (landings.length) {
             const xl = landings.reduce((a, b) => Math.abs(a - xs) <= Math.abs(b - xs) ? a : b);
-            const yJog = (TOPGAP / 2).toFixed(1);
-            return `<path d="M ${xs.toFixed(1)} 0 L ${xs.toFixed(1)} ${yJog} L ${xl.toFixed(1)} ${yJog} L ${xl.toFixed(1)} ${y2}" fill="none" ${stroke}/>`;
+            const yJog = TOPGAP / 2;
+            return `<line x1="${xs.toFixed(1)}" y1="0" x2="${xs.toFixed(1)}" y2="${yJog.toFixed(1)}" ${stroke}/>`
+                 + `<line x1="${xs.toFixed(1)}" y1="${yJog.toFixed(1)}" x2="${xl.toFixed(1)}" y2="${yJog.toFixed(1)}" ${stroke}/>`
+                 + vSegs(xl, yJog);
           }
         }
       }
-      return `<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${y2}" ${stroke}/>`;
+      return vSegs(x, 0);
     }).join('');
   }
 
@@ -1981,7 +2039,13 @@
         </div>`;
     }).join('');
 
-    compEl.innerHTML = `<div class="align-stack">${bar}</div><div class="align-columns">${columns}</div>`;
+    // Two-thirds benchmark: 15 of the 22 voting seats.
+    const THRESH_PCT = (15 / 22 * 100).toFixed(2);
+    const threshTitle = 'Two-thirds benchmark: 15 of 22 voting seats — how the aligned side of the likely next council measures against a decisive majority';
+    compEl.innerHTML = `
+      <div class="align-thresh-row"><span class="align-thresh-label" style="left:${THRESH_PCT}%" title="${threshTitle}">&#8532; &middot; 15 seats</span></div>
+      <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${THRESH_PCT}%" title="${threshTitle}"></span></div>
+      <div class="align-columns">${columns}</div>`;
     layoutAlignColumns(compEl);
 
   }
