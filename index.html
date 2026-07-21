@@ -1875,6 +1875,9 @@
     // "Outcome unknown", not "Uncertain": what's unknown is whether the seat
     // returns this member — their fiscal alignment is measured and shown.
     const LABELS = { ...ALIGN_LABELS, likely_aligned: 'Aligned · likely to run', uncertain: 'Outcome unknown' };
+    // Projected buckets state their participation status too, congruent with
+    // "Aligned · likely to run": every column reads <alignment> · <status>.
+    for (const k of Object.keys(ALIGN_LABELS)) LABELS[k] = `${ALIGN_LABELS[k]} · registered`;
     const groups = Object.fromEntries(order.map(k => [k, []]));
 
     for (const seat of seats) {
