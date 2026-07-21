@@ -908,6 +908,9 @@
     /* ============================================================
        FEEDBACK BUTTON + FORM
     ============================================================ */
+    .feedback-wrap { display: flex; align-items: center; gap: 9px; }
+    .feedback-hint { font-size: 11px; color: var(--text-dim); }
+
     .feedback-btn {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -1223,7 +1226,10 @@
         <div class="subtitle">Tracking 9 municipalities &bull; October 26, 2026 &bull; Fiscal alignment monitor</div>
       </div>
       <div class="header-meta">
-        <button class="feedback-btn" id="feedback-open" type="button">Submit Feedback</button>
+        <div class="feedback-wrap">
+          <span class="feedback-hint">Have feedback on the content or tool?</span>
+          <button class="feedback-btn" id="feedback-open" type="button">Submit Feedback</button>
+        </div>
         <div class="last-updated">
           <div><strong>Last Updated</strong></div>
           <div id="last-updated-time">Loading…</div>
