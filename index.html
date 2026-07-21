@@ -1988,12 +1988,9 @@
         statusClass = 'filed';
         const d = parseFiledDate(inc);
         statusHtml = '&#10003; Filed' + (d ? ` ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '');
-      } else {
-        const est = inc.likely_to_run_again;
-        if (est && est.label && est.label !== 'insufficient_data') {
-          statusHtml += ` &middot; <span style="border-bottom:1px dashed var(--text-dim)" title="${escapeHtml('Estimate — ' + (est.basis || []).join('; '))}">est: ${escapeHtml(est.label)}</span>`;
-        }
       }
+      // Unfiled incumbents show just "Not registered" — no run-again
+      // estimate (owner call, 2026-07-21; matches the unfiled mayors).
     }
 
     // Multi-seat RC races are at-large: challengers live in the block-level
