@@ -665,7 +665,18 @@
       white-space: nowrap;
       cursor: help;
     }
+    /* Where we are (solid, dark) vs. where we need to be (dashed, muted) */
+    .align-thresh-label.lbl-now { color: var(--text); }
+    .align-thresh-label.lbl-target { color: var(--text-dim); }
+    .align-gap-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .align-gap-note strong { color: var(--text); font-weight: 700; }
     .align-stack { position: relative; }
+    /* Where we are: solid black divider at the aligned-family boundary */
     .align-thresh-tick {
       position: absolute;
       top: 0;
@@ -673,6 +684,16 @@
       width: 2px;
       background: var(--text);
       opacity: 0.65;
+      z-index: 3;
+    }
+    /* Where we need to be: fixed ⅔ benchmark, dashed so it never reads as a
+       measurement of the current field */
+    .align-target-tick {
+      position: absolute;
+      top: -3px;
+      bottom: -3px;
+      width: 0;
+      border-left: 2px dashed var(--text-muted);
       z-index: 2;
     }
 
@@ -2042,10 +2063,18 @@
     const supportive = groups.strongly_aligned.length + groups.aligned.length + groups.likely_aligned.length;
     const shortfall = 15 - supportive;
     const SUPPORT_PCT = (supportive / 22 * 100).toFixed(2);
-    const threshTitle = `Everything left of this line is the likely-supportive group: ${supportive} seats (strongly aligned + aligned, registered or assessed likely to run). Two-thirds of the 22 voting seats is 15 — currently ${shortfall > 0 ? shortfall + ' short' : 'met'}. Neutral and unknown seats are deliberately not counted: neutral means no measured lean, not a reliable vote.`;
+    const TARGET_PCT = (15 / 22 * 100).toFixed(2);
+    const nowTitle = `WHERE WE ARE — everything left of this solid line is the likely-supportive group: ${supportive} of 22 seats (strongly aligned + aligned, whether registered or assessed likely to run). Neutral, misaligned and unknown seats are deliberately excluded: neutral means no measured lean, not a reliable vote.`;
+    const targetTitle = `WHERE WE NEED TO BE — 15 of 22 seats is the two-thirds mark: the margin needed to carry a vote against a provincially-appointed chair using Strong Chair Powers. Fixed benchmark; it does not move.`;
     compEl.innerHTML = `
-      <div class="align-thresh-row"><span class="align-thresh-label" style="left:${SUPPORT_PCT}%" title="${threshTitle}">Likely supportive: ${supportive} &middot; &#8532; = 15${shortfall > 0 ? ` (&minus;${shortfall})` : ' &#10003;'}</span></div>
-      <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${SUPPORT_PCT}%" title="${threshTitle}"></span></div>
+      <div class="align-thresh-row">
+        <span class="align-thresh-label lbl-now" style="left:${SUPPORT_PCT}%" title="${nowTitle}">Aligned now: ${supportive}</span>
+        <span class="align-thresh-label lbl-target" style="left:${TARGET_PCT}%" title="${targetTitle}">&#8532; needed: 15</span>
+      </div>
+      <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${SUPPORT_PCT}%" title="${nowTitle}"></span><span class="align-target-tick" style="left:${TARGET_PCT}%" title="${targetTitle}"></span></div>
+      <div class="align-gap-note">${shortfall > 0
+        ? `<strong>${shortfall} seat${shortfall !== 1 ? 's' : ''} short</strong> of the two-thirds margin needed to outvote a strong chair`
+        : `<strong>At or above</strong> the two-thirds margin needed to outvote a strong chair`}</div>
       <div class="align-columns">${columns}</div>`;
     layoutAlignColumns(compEl);
 
