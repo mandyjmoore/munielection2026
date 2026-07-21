@@ -41,6 +41,16 @@ RETIREMENT_KEYWORDS = [
 ]
 
 
+def _owner_run_override(candidate: dict, as_of: str) -> Optional[dict]:
+    """Editorial assessments (set via manual_overrides.json as
+    likely_to_run_again_override) beat the news heuristics — recorded assessments outrank headline keywords. Returned verbatim with a
+    fresh as_of so the override survives every 2-hour re-estimate."""
+    ov = candidate.get("likely_to_run_again_override")
+    if not ov or not ov.get("label"):
+        return None
+    return {**ov, "as_of": as_of}
+
+
 def estimate_likely_to_run_again(
     candidate: dict, news_articles: list[dict], as_of: str
 ) -> Optional[dict]:
@@ -49,6 +59,10 @@ def estimate_likely_to_run_again(
         return None
     if candidate.get("filed_for_reelection") in ("confirmed", "declined"):
         return None  # moot — a known filing status (either way) supersedes this estimate
+
+    override = _owner_run_override(candidate, as_of)
+    if override:
+        return override
 
     articles = find_relevant_articles(candidate["name"], news_articles)
     hits = []

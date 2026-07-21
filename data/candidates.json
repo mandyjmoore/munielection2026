@@ -52,10 +52,10 @@
     "likely_to_run_again": {
       "label": "insufficient_data",
       "basis": [
-        "No news coverage found mentioning this candidate."
+        "No clear public signal either way"
       ],
       "confidence": "low",
-      "as_of": "2026-07-21T15:30:04.783581+00:00"
+      "as_of": "2026-07-21T00:00:00+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -183,12 +183,13 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": {
-      "label": "insufficient_data",
+      "label": "likely",
       "basis": [
-        "No news coverage found mentioning this candidate."
+        "Assessed likely to run (2026-07-21)"
       ],
-      "confidence": "low",
-      "as_of": "2026-07-21T15:30:04.783581+00:00"
+      "confidence": "medium",
+      "source": "editorial",
+      "as_of": "2026-07-21T00:00:00+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -199,7 +200,15 @@
       "as_of": "2026-07-21T15:30:04.783581+00:00"
     },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "likely_to_run_again_override": {
+      "label": "likely",
+      "basis": [
+        "Assessed likely to run (2026-07-21)"
+      ],
+      "confidence": "medium",
+      "source": "editorial"
+    }
   },
   {
     "id": "markham-regional-councillor-1-michael-chan",
@@ -357,12 +366,13 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": {
-      "label": "insufficient_data",
+      "label": "likely",
       "basis": [
-        "No news coverage found mentioning this candidate."
+        "Assessed likely to run (2026-07-21)"
       ],
-      "confidence": "low",
-      "as_of": "2026-07-21T15:30:04.783581+00:00"
+      "confidence": "medium",
+      "source": "editorial",
+      "as_of": "2026-07-21T00:00:00+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -373,7 +383,15 @@
       "as_of": "2026-07-21T15:30:04.783581+00:00"
     },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "likely_to_run_again_override": {
+      "label": "likely",
+      "basis": [
+        "Assessed likely to run (2026-07-21)"
+      ],
+      "confidence": "medium",
+      "source": "editorial"
+    }
   },
   {
     "id": "newmarket-regional-councillor-1-tom-vegh",

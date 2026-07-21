@@ -343,13 +343,6 @@
       gap: 7px;
     }
 
-    .muni-block-header .mdot {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--muni, var(--text-dim));
-      flex-shrink: 0;
-    }
-
     .muni-block-header .seat-count {
       font-weight: 500;
       color: var(--text-dim);
@@ -1251,7 +1244,7 @@
     <div class="alignment-overview" id="outlook-panel">
       <div class="section-title">
         Post-Election Outlook
-        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Unfiled incumbents, contested races and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; their measured fiscal alignment (where it exists) is shown as a chip beside their name. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
+        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Aligned members who haven't filed but are assessed likely to run (editorial assessment; recorded in manual_overrides) form the light-green 'Aligned · likely to run' tier. Remaining unfiled incumbents, contested races and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; measured fiscal alignment (where it exists) is shown as a chip beside the name. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
       </div>
       <div id="outlook-composition">
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
@@ -1860,6 +1853,11 @@
       if (w === 'competitive') return { status: 'lean', inc };
       return { status: 'uncertain', inc, why: 'contested' };
     }
+    // Not filed yet, but assessed likely to run (editorial assessment via
+    // manual_overrides beats the news heuristic) — a softer projection tier.
+    const runEst = (inc && inc.likely_to_run_again) || {};
+    if (runEst.label === 'likely') return { status: 'likely_run', inc, why: 'not yet filed' };
+    if (runEst.label === 'unlikely') return { status: 'uncertain', inc, why: 'has not filed — unlikely to run' };
     return { status: 'uncertain', inc, why: 'has not filed' };
   }
 
@@ -1869,15 +1867,31 @@
     const seats = regionalSeats();
     if (!seats.length) { compEl.innerHTML = '<div class="empty-state">Seat data not loaded.</div>'; return; }
 
-    const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned', 'uncertain'];
-    const COLORS = { ...ALIGN_COLORS, uncertain: '#98989f' };
+    // likely_aligned: the light-green tier — aligned members who haven't
+    // filed but are assessed likely to run. Softer than a projection, far
+    // more informative than grey (owner call, 2026-07-21).
+    const order = ['strongly_aligned', 'aligned', 'likely_aligned', 'neutral', 'misaligned', 'strongly_misaligned', 'uncertain'];
+    const COLORS = { ...ALIGN_COLORS, likely_aligned: '#a7dcb4', uncertain: '#98989f' };
     // "Outcome unknown", not "Uncertain": what's unknown is whether the seat
     // returns this member — their fiscal alignment is measured and shown.
-    const LABELS = { ...ALIGN_LABELS, uncertain: 'Outcome unknown' };
+    const LABELS = { ...ALIGN_LABELS, likely_aligned: 'Aligned · likely to run', uncertain: 'Outcome unknown' };
     const groups = Object.fromEntries(order.map(k => [k, []]));
 
     for (const seat of seats) {
       const p = seatProjection(seat);
+      if (p.status === 'likely_run') {
+        const aLabel = p.inc.fiscal_alignment_label || 'neutral';
+        const target = (aLabel === 'aligned' || aLabel === 'strongly_aligned') ? groups.likely_aligned : groups.uncertain;
+        target.push({
+          cid: p.inc.id,
+          name: p.inc.name,
+          muni: seat.municipality,
+          reason: p.why,
+          alignLabel: aLabel,
+          score: p.inc.fiscal_alignment_score ?? 5,
+        });
+        continue;
+      }
       if (p.status === 'uncertain') {
         groups.uncertain.push({
           cid: p.inc ? p.inc.id : null,
@@ -1907,7 +1921,7 @@
     const bar = order.map(k => {
       const n = groups[k].length;
       if (!n) return '';
-      return `<div class="seg${k === 'neutral' ? ' seg-neutral' : ''}" data-key="${k}" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
+      return `<div class="seg${(k === 'neutral' || k === 'likely_aligned') ? ' seg-neutral' : ''}" data-key="${k}" style="width:${(n / total * 100)}%;background:${COLORS[k]}" title="${LABELS[k]}: ${n} of ${total} voting seats">${n}</div>`;
     }).join('');
 
     // Same bar + name-columns pattern as the Current Council section below,
@@ -2089,7 +2103,7 @@
       : '';
     const chairBlock = `
       <div class="muni-block no-grow" style="--muni:#94a3b8">
-        <div class="muni-block-header"><span class="mdot"></span>York Region <span class="seat-count">&middot; Regional Chair</span></div>
+        <div class="muni-block-header">York Region <span class="seat-count">&middot; Regional Chair</span></div>
         <div class="muni-block-tiles">
           <div class="chair-card chair-appointed">
             <div class="chair-seat-label">Regional Chair</div>
@@ -2115,7 +2129,7 @@
       const lineBreak = muni === 'Whitchurch-Stouffville' ? '<div class="chamber-break"></div>' : '';
       return `${lineBreak}
         <div class="muni-block${noGrow}" style="--muni:${color}">
-          <div class="muni-block-header"><span class="mdot"></span>${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
+          <div class="muni-block-header">${escapeHtml(muni)} <span class="seat-count">&middot; ${seats.length} seat${seats.length !== 1 ? 's' : ''}</span></div>
           ${(() => {
             const rcSeats = seats.filter(s => s.office === 'Regional Councillor');
             const poolHtml = atLargePoolCard(muni, rcSeats.length);

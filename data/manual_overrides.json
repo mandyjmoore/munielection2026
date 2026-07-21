@@ -81,7 +81,9 @@
         "likely_to_run_again": null,
         "likely_to_win": {
           "label": "insufficient_data",
-          "basis": ["At-large race for 4 seats — multi-winner outlook is not modelled"],
+          "basis": [
+            "At-large race for 4 seats — multi-winner outlook is not modelled"
+          ],
           "confidence": "low"
         },
         "source": "manual"
@@ -114,13 +116,45 @@
         "likely_to_run_again": null,
         "likely_to_win": {
           "label": "insufficient_data",
-          "basis": ["At-large race for 4 seats — multi-winner outlook is not modelled"],
+          "basis": [
+            "At-large race for 4 seats — multi-winner outlook is not modelled"
+          ],
           "confidence": "low"
         },
         "source": "manual"
       },
       "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension — one of two at-large challengers competing with the four incumbents for the four Local and Regional Councillor seats",
       "verified_on": "2026-07-07"
+    },
+    {
+      "candidate_id": "markham-mayor-frank-scarpitti",
+      "fields": {
+        "likely_to_run_again_override": {
+          "label": "likely",
+          "basis": [
+            "Assessed likely to run (2026-07-21)"
+          ],
+          "confidence": "medium",
+          "source": "editorial"
+        }
+      },
+      "verified_by": "editorial assessment, 2026-07-21",
+      "verified_on": "2026-07-21"
+    },
+    {
+      "candidate_id": "newmarket-mayor-john-taylor",
+      "fields": {
+        "likely_to_run_again_override": {
+          "label": "likely",
+          "basis": [
+            "Assessed likely to run (2026-07-21)"
+          ],
+          "confidence": "medium",
+          "source": "editorial"
+        }
+      },
+      "verified_by": "editorial assessment, 2026-07-21",
+      "verified_on": "2026-07-21"
     }
   ]
 }
