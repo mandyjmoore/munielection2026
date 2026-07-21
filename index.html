@@ -868,42 +868,6 @@
       white-space: nowrap;
     }
 
-    /* Alignment gauge: a dot on the red→green spectrum (same ramp and order
-       as the legend chips) — position-on-a-scale reads as alignment, which a
-       bare number capsule couldn't. No per-item label needed. */
-    .score-gauge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .score-gauge .sg-track {
-      position: relative;
-      width: 34px;
-      height: 5px;
-      border-radius: 99px;
-      background: linear-gradient(90deg, #dc2626, #c2410c 25%, #eab308 50%, #4d7c0f 72%, #248a3d);
-    }
-    .score-gauge .sg-dot {
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--text);
-      border: 1.5px solid #fff;
-      box-shadow: 0 0 0 0.5px rgba(0,0,0,0.2);
-    }
-    .score-gauge .sg-num { font-size: 10px; font-weight: 700; }
-    .score-gauge.score-strongly_aligned .sg-num    { color: var(--green); }
-    .score-gauge.score-aligned .sg-num             { color: var(--lime); }
-    .score-gauge.score-neutral .sg-num             { color: var(--yellow); }
-    .score-gauge.score-misaligned .sg-num          { color: var(--orange); }
-    .score-gauge.score-strongly_misaligned .sg-num { color: var(--red); }
-    .score-gauge.score-clickable { cursor: pointer; }
-    .score-gauge.score-clickable:hover .sg-num { text-decoration: underline; }
 
     /* ============================================================
        FEEDBACK BUTTON + FORM
@@ -1282,9 +1246,8 @@
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
       </div>
       <div class="fiscal-legend">
-        <span class="fl-intro">Fiscal score</span>
-        <span class="score-gauge" aria-hidden="true"><span class="sg-track"><span class="sg-dot" style="left:60%"></span></span></span>
-        <span>= alignment with YR fiscal strategy, higher = more aligned:</span>
+        <span class="fl-intro">Fiscal alignment</span>
+        <span>= alignment with YR fiscal strategy, from each member&rsquo;s scored voting record (0&ndash;10):</span>
         <span class="fl-scale">
           <span class="score-pill score-strongly_misaligned fl-chip"><span class="fl-num">0&ndash;1</span> Strongly misaligned</span>
           <span class="score-pill score-misaligned fl-chip"><span class="fl-num">2&ndash;3</span> Misaligned</span>
@@ -1412,6 +1375,13 @@
     misaligned:          '#c2410c',
     strongly_misaligned: '#dc2626',
   };
+
+  // Sentence-case bucket word, matching the legend chips exactly — the tile
+  // chips are the same object as the legend, so the legend defines them.
+  function alignWord(label) {
+    const s = (label || 'neutral').replace(/_/g, ' ');
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
 
   const ALIGN_LABELS = {
     strongly_aligned:    'Strongly Aligned',
@@ -1982,9 +1952,9 @@
     function scorePill(c, mini) {
       if (!c || c.fiscal_alignment_basis === 'unscored') return '';
       const label = c.fiscal_alignment_label || 'neutral';
-      const tip = escapeHtml((c.fiscal_notes || `Fiscal alignment: ${label}`) + ' — click for vote history');
       const s = Math.max(0, Math.min(10, c.fiscal_alignment_score ?? 5));
-      return `<span class="score-gauge score-${label} score-clickable" data-cid="${escapeHtml(c.id)}" role="button" tabindex="0" title="${tip}"><span class="sg-track"><span class="sg-dot" style="left:${s * 10}%"></span></span><span class="sg-num">${s}/10</span></span>`;
+      const tip = escapeHtml(`${s}/10 — ` + (c.fiscal_notes || `fiscal alignment: ${label}`) + ' — click for vote history');
+      return `<span class="score-pill score-${label} score-clickable" data-cid="${escapeHtml(c.id)}" role="button" tabindex="0" title="${tip}">${alignWord(label)}</span>`;
     }
 
     let statusClass = 'unknown';
@@ -2091,7 +2061,7 @@
     const chairName = (state.metadata.regional_chair || {}).name || 'Regional Chair';
     const chairRec = state.candidates.find(c => c.status === 'appointed');
     const chairPill = chairRec && chairRec.fiscal_alignment_basis !== 'unscored'
-      ? `<span class="score-gauge score-${chairRec.fiscal_alignment_label} score-clickable" data-cid="${escapeHtml(chairRec.id)}" role="button" tabindex="0" title="${escapeHtml((chairRec.fiscal_notes || '') + ' — click for vote history')}"><span class="sg-track"><span class="sg-dot" style="left:${Math.max(0, Math.min(10, chairRec.fiscal_alignment_score)) * 10}%"></span></span><span class="sg-num">${chairRec.fiscal_alignment_score}/10</span></span>`
+      ? `<span class="score-pill score-${chairRec.fiscal_alignment_label} score-clickable" data-cid="${escapeHtml(chairRec.id)}" role="button" tabindex="0" title="${escapeHtml(`${chairRec.fiscal_alignment_score}/10 — ` + (chairRec.fiscal_notes || '') + ' — click for vote history')}">${alignWord(chairRec.fiscal_alignment_label)}</span>`
       : '';
     const chairBlock = `
       <div class="muni-block no-grow" style="--muni:#94a3b8">
@@ -2226,7 +2196,7 @@
           <div class="mm-name">${escapeHtml(member.name)}</div>
           <div class="mm-sub">${escapeHtml(member.municipality)} &middot; ${escapeHtml(member.office)}${member.status === 'appointed' ? ' (appointed)' : ''}</div>
         </div>
-        <span class="score-gauge score-${member.fiscal_alignment_label}" title="${escapeHtml(member.fiscal_notes || '')}"><span class="sg-track"><span class="sg-dot" style="left:${Math.max(0, Math.min(10, member.fiscal_alignment_score)) * 10}%"></span></span><span class="sg-num">${member.fiscal_alignment_score}/10</span></span>
+        <span class="score-pill score-${member.fiscal_alignment_label}" title="${escapeHtml(member.fiscal_notes || '')}">${alignWord(member.fiscal_alignment_label)} &middot; ${member.fiscal_alignment_score}/10</span>
       </div>
       <div class="mm-summary">Cast a vote in ${voted} of the council&rsquo;s ${rows.length} recorded votes during their tenure. Voice votes have no individual attribution and are not shown.</div>
       ${rowsHtml}
