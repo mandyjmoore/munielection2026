@@ -1251,7 +1251,7 @@
     <div class="alignment-overview" id="outlook-panel">
       <div class="section-title">
         Post-Election Outlook
-        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Unfiled incumbents, contested races and the not-yet-named Chair appointee stay grey Uncertain, with the reason in parentheses. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
+        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Unfiled incumbents, contested races and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; their measured fiscal alignment (where it exists) is shown as a chip beside their name. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
       </div>
       <div id="outlook-composition">
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
@@ -1871,7 +1871,9 @@
 
     const order = ['strongly_aligned', 'aligned', 'neutral', 'misaligned', 'strongly_misaligned', 'uncertain'];
     const COLORS = { ...ALIGN_COLORS, uncertain: '#98989f' };
-    const LABELS = { ...ALIGN_LABELS, uncertain: 'Uncertain' };
+    // "Outcome unknown", not "Uncertain": what's unknown is whether the seat
+    // returns this member — their fiscal alignment is measured and shown.
+    const LABELS = { ...ALIGN_LABELS, uncertain: 'Outcome unknown' };
     const groups = Object.fromEntries(order.map(k => [k, []]));
 
     for (const seat of seats) {
@@ -1882,7 +1884,10 @@
           name: p.inc ? p.inc.name : `${seat.municipality} ${seat.office}`,
           muni: seat.municipality,
           reason: p.why,
-          score: null,
+          // The member's alignment is measured even when the seat outcome
+          // isn't — carry it into the column as a chip.
+          alignLabel: p.inc ? (p.inc.fiscal_alignment_label || 'neutral') : null,
+          score: p.inc ? (p.inc.fiscal_alignment_score ?? 5) : null,
         });
       } else {
         const label = p.inc.fiscal_alignment_label || 'neutral';
@@ -1912,8 +1917,9 @@
         (b.score ?? -1) - (a.score ?? -1) || a.name.localeCompare(b.name));
       const names = list.length
         ? list.map(m => {
+            const chip = m.alignLabel ? ` <span class="score-pill score-${m.alignLabel} mini">${alignWord(m.alignLabel)}</span>` : '';
             const reason = m.reason ? ` <span class="muni">(${escapeHtml(m.reason)})</span>` : '';
-            const inner = `${escapeHtml(m.name)}${reason} <span class="muni">${escapeHtml(m.muni)}</span>`;
+            const inner = `${escapeHtml(m.name)}${chip}${reason} <span class="muni">${escapeHtml(m.muni)}</span>`;
             return m.cid
               ? `<div class="member-link" data-cid="${escapeHtml(m.cid)}" title="Click for this member's full recorded-vote history">${inner}</div>`
               : `<div>${inner}</div>`;
