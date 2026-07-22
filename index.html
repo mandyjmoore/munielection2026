@@ -2532,8 +2532,8 @@
     // Feedback form — posts to FormSubmit (no backend on a static page);
     // anonymous unless a name is given. The endpoint must always be a
     // FormSubmit privacy alias, never a raw email address — this file is
-    // served publicly. null = temporarily offline (alias pending).
-    const FEEDBACK_ENDPOINT = null;
+    // served publicly. (Set to null to take the form offline.)
+    const FEEDBACK_ENDPOINT = 'https://formsubmit.co/ajax/ad35dde5b4c607c1a3821057dbbc6f8e';
     const fbModal = document.getElementById('feedback-modal');
     const fbForm = document.getElementById('feedback-form');
     if (fbModal && fbForm) {
