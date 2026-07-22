@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# Sensitive research — never commit (public repo)
+research/
