@@ -41,9 +41,10 @@ RETIREMENT_KEYWORDS = [
 ]
 
 
-def _owner_run_override(candidate: dict, as_of: str) -> Optional[dict]:
-    """Editorial assessments (set via manual_overrides.json as
-    likely_to_run_again_override) beat the news heuristics — recorded assessments outrank headline keywords. Returned verbatim with a
+def _assessment_override(candidate: dict, as_of: str) -> Optional[dict]:
+    """Editorial overrides (set via manual_overrides.json as
+    likely_to_run_again_override) beat the news heuristics — recorded
+    assessments outrank headline keywords. Returned verbatim with a
     fresh as_of so the override survives every 2-hour re-estimate."""
     ov = candidate.get("likely_to_run_again_override")
     if not ov or not ov.get("label"):
@@ -60,7 +61,7 @@ def estimate_likely_to_run_again(
     if candidate.get("filed_for_reelection") in ("confirmed", "declined"):
         return None  # moot — a known filing status (either way) supersedes this estimate
 
-    override = _owner_run_override(candidate, as_of)
+    override = _assessment_override(candidate, as_of)
     if override:
         return override
 
@@ -159,7 +160,7 @@ def estimate_likely_to_win(
     # branch) would misread them. Grade them on the same ordinal evidence a
     # single-seat challenger gets — news visibility against sitting
     # incumbents — with the multi-winner structure stated in the basis
-    # (owner request 2026-07-14; supersedes the earlier "not modelled" stance).
+    # (2026-07-14 decision; supersedes the earlier "not modelled" stance).
     if candidate.get("at_large_pool"):
         acclaim = _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of)
         if acclaim and _is_filed(candidate):

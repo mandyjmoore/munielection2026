@@ -319,7 +319,7 @@
     .muni-block {
       border: 1px solid var(--border);
       /* Neutral grey bracket — the municipality is identified by its name;
-         per-muni rainbow colouring read as unserious (owner, 2026-07-19) */
+         per-muni rainbow colouring read as unserious (2026-07-19) */
       border-left: 3px solid #d2d2d7;
       border-radius: var(--radius-lg);
       padding: 10px 12px 12px;
@@ -1294,7 +1294,7 @@
     <div class="alignment-overview" id="outlook-panel">
       <div class="section-title">
         Post-Election Outlook
-        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Aligned members who haven't filed but are assessed likely to run (editorial assessment; recorded in manual_overrides) form the light-green 'Aligned · likely to run' tier. In at-large races where the filed field is no larger than the seat count, filed candidates are acclaimed (or on track to be) under the Municipal Elections Act — a challenger winning that way appears as dark-grey 'Registered · alignment unscored', because they have no voting record to score. Remaining unfiled incumbents, contested races and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; measured fiscal alignment (where it exists) is shown as a chip beside the name. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
+        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Aligned members who haven't filed but are assessed likely to run (editorial assessment, recorded with provenance) form the light-green 'Aligned · likely to run' tier. In at-large races where the filed field is no larger than the seat count, filed candidates are acclaimed (or on track to be) under the Municipal Elections Act — a challenger winning that way appears as dark-grey 'Registered · alignment unscored', because they have no voting record to score. Remaining unfiled incumbents, contested races and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; measured fiscal alignment (where it exists) is shown as a chip beside the name. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
       </div>
       <div id="outlook-composition">
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
@@ -1932,7 +1932,7 @@
       if (w === 'competitive') return { status: 'lean', inc };
       return { status: 'uncertain', inc, why: 'contested' };
     }
-    // Not filed yet, but assessed likely to run (editorial assessment via
+    // Not filed yet, but assessed likely to run (editorial override via
     // manual_overrides beats the news heuristic) — a softer projection tier.
     const runEst = (inc && inc.likely_to_run_again) || {};
     if (runEst.label === 'likely') return { status: 'likely_run', inc, why: 'not yet filed' };
@@ -1948,7 +1948,7 @@
 
     // likely_aligned: the light-green tier — aligned members who haven't
     // filed but are assessed likely to run. Softer than a projection, far
-    // more informative than grey (owner call, 2026-07-21).
+    // more informative than grey (2026-07-21 decision).
     // unscored_reg: outcome effectively known (acclamation arithmetic), but
     // the winner is a challenger with no voting record — alignment honestly
     // unassessed, so a distinct dark-grey tier, never dumped into Neutral.
@@ -2003,7 +2003,7 @@
     // The appointed Chair is the 22nd voting member — 2026-30 appointee unknown.
     groups.uncertain.push({ cid: null, name: 'Regional Chair', muni: 'York Region', reason: 'appointee not yet named — provincial appointment', score: null });
 
-    // ACTUAL acclamation only (owner correction 2026-07-22): a challenger
+    // ACTUAL acclamation only (2026-07-22 decision): a challenger
     // claims a seat in the projection only once the estimator says
     // "acclaimed" — i.e., nominations have closed with field ≤ seats. Before
     // the deadline the field can still grow (the unfiled incumbent may file),
@@ -2053,7 +2053,7 @@
         </div>`;
     }).join('');
 
-    // Supportive-group divider (owner design, 2026-07-22): ONE black
+    // Supportive-group divider (2026-07-22 design): ONE black
     // vertical line at the aligned-family boundary — left of it is the
     // counted "likely supportive" group (strongly aligned + aligned,
     // registered or assessed likely to run); the yellow neutral seats sit
@@ -2073,8 +2073,8 @@
       </div>
       <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${SUPPORT_PCT}%" title="${nowTitle}"></span><span class="align-target-tick" style="left:${TARGET_PCT}%" title="${targetTitle}"></span></div>
       <div class="align-gap-note">${shortfall > 0
-        ? `<strong>${shortfall} seat${shortfall !== 1 ? 's' : ''} short</strong> of the two-thirds margin needed to outvote a strong chair`
-        : `<strong>At or above</strong> the two-thirds margin needed to outvote a strong chair`}</div>
+        ? `<strong>${shortfall} seat${shortfall !== 1 ? 's' : ''} short</strong> of the &#8532; benchmark — 15 of 22 seats`
+        : `<strong>At or above</strong> the &#8532; benchmark — 15 of 22 seats`}</div>
       <div class="align-columns">${columns}</div>`;
     layoutAlignColumns(compEl);
 
@@ -2139,7 +2139,7 @@
         statusHtml = '&#10003; Filed' + (d ? ` ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '');
       }
       // Unfiled incumbents show just "Not registered" — no run-again
-      // estimate (owner call, 2026-07-21; matches the unfiled mayors).
+      // estimate (2026-07-21 decision; matches the unfiled mayors).
     }
 
     // Multi-seat RC races are at-large: challengers live in the block-level
@@ -2530,9 +2530,10 @@
     }
 
     // Feedback form — posts to FormSubmit (no backend on a static page);
-    // anonymous unless a name is given. Falls back to a mailto link if the
-    // service is unreachable.
-    const FEEDBACK_ENDPOINT = 'https://formsubmit.co/ajax/dashboard@yrmuni2026.wordi.ca';
+    // anonymous unless a name is given. The endpoint must always be a
+    // FormSubmit privacy alias, never a raw email address — this file is
+    // served publicly. null = temporarily offline (alias pending).
+    const FEEDBACK_ENDPOINT = null;
     const fbModal = document.getElementById('feedback-modal');
     const fbForm = document.getElementById('feedback-form');
     if (fbModal && fbForm) {
@@ -2551,6 +2552,10 @@
         const name = document.getElementById('fb-name').value.trim() || 'Anonymous';
         const message = document.getElementById('fb-message').value.trim();
         if (!message) return;
+        if (!FEEDBACK_ENDPOINT) {
+          fbStatus.textContent = 'Feedback is temporarily offline — please check back soon.';
+          return;
+        }
         btn.disabled = true;
         fbStatus.textContent = 'Sending…';
         try {
@@ -2571,7 +2576,7 @@
           fbForm.reset();
           setTimeout(() => { fbClose(); fbStatus.textContent = ''; }, 1400);
         } catch (err) {
-          fbStatus.innerHTML = 'Couldn&rsquo;t send — <a href="mailto:dashboard@yrmuni2026.wordi.ca?subject=YR%20Dashboard%20feedback">email instead</a>.';
+          fbStatus.textContent = 'Couldn’t send — please try again later.';
         } finally {
           btn.disabled = false;
         }

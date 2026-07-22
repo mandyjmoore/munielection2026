@@ -6,7 +6,7 @@ selling assets over $50k, or approving non-budgeted expenditures over $50k —
 if fewer than three-quarters of its *current* elected members have been
 nominated for re-election (to any office, any municipality) as of nomination
 day. This module computes that status for York Regional Council (only — local
-municipal councils are out of scope for this dashboard by owner decision).
+municipal councils are out of scope for this dashboard by decision).
 
 Pure function: no network calls. Depends only on seats.json + candidates.json.
 """
@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 # York Regional Council's elected roster is fixed public record for this term
 # (9 Mayors + 12 Regional Councillors), plus the appointed Chair for 22
-# voting members in total. Owner decision (2026-07-07): the 3/4 requirement
+# voting members in total. Maintainer decision (2026-07-07): the 3/4 requirement
 # applies to all 22 voting members — ceil(22 x 0.75) = 17 — and since the
 # appointed Chair cannot file, 17 of the 21 elected members must register.
 # Hardcoded with an assertion rather than derived at runtime, since a bad
@@ -133,7 +133,7 @@ def compute_regional_status(seats, candidates, nomination_day_passed=False):
 
 def compute_council_status(seats, candidates, now_iso, nomination_day, nomination_day_passed=False):
     # Regional Council only. Per-municipality lame-duck status was removed
-    # with the ward-councillor data (owner decision, 2026-07-06) — local
+    # with the ward-councillor data (decision, 2026-07-06) — local
     # council rosters are no longer tracked, so the s.275 math can only be
     # computed for the 21-member Regional Council.
     logger.info("Computing regional lame-duck status")

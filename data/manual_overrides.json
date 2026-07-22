@@ -1,5 +1,5 @@
 {
-  "_readme": "Human-verified facts that automated scraping cannot reach (primarily Vaughan, whose site blocks all automated clients). Applied by scraper/main.py AFTER the candidate fetch on every run, so they always win and survive scraper changes. Each override needs provenance: who verified it, when, and against what source. Entries with \"new_candidate\": true INSERT a candidate that no scraper can see (e.g. Vaughan at-large challengers) — their \"fields\" must be a complete candidate record; entries without it PATCH an existing candidate by candidate_id.",
+  "_readme": "Human-verified facts that automated scraping cannot reach (primarily Vaughan, whose site blocks all automated clients). Applied by scraper/main.py AFTER the candidate fetch on every run, so they always win and survive scraper changes. Each override needs provenance: how it was verified, when, and against what source. Entries with \"new_candidate\": true INSERT a candidate that no scraper can see (e.g. Vaughan at-large challengers) — their \"fields\" must be a complete candidate record; entries without it PATCH an existing candidate by candidate_id.",
   "overrides": [
     {
       "candidate_id": "vaughan-mayor-steven-del-duca",
@@ -9,7 +9,7 @@
         "registration_date": "May 1, 2026",
         "filing_source": "https://www.vaughan.ca/council/elections/candidates"
       },
-      "verified_by": "verified against Vaughan's official Candidates page; news coverage of his campaign launch on nomination-opening day, e.g. westernstandard.news 2026-05-01 'Del Duca enters 2026 Vaughan mayoral race'",
+      "verified_by": "verified against Vaughan's official Candidates page; news coverage of the campaign launch on nomination-opening day (westernstandard.news 2026-05-01)",
       "verified_on": "2026-07-06"
     },
     {

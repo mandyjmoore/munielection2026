@@ -5,7 +5,7 @@ Compares the candidates.json from *before* a scraper run against the one
 *after* it, and reports candidates whose filing status just flipped to
 registered — either a brand-new filed candidate or a sitting member who has
 now filed. Used by the update_data workflow to open a GitHub Issue (which
-emails the owner) when a new registration appears.
+emails the maintainer) when a new registration appears.
 
 Usage:
     python detect_new_registrations.py <before.json> <after.json> <body_out.md>

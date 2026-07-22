@@ -193,7 +193,7 @@ def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[
 
     Alignment scores apply only to sitting members of Regional Council
     (incumbents and the appointed Chair) — challengers have no council voting
-    record, so they stay unscored (owner decision, 2026-07-07).
+    record, so they stay unscored (2026-07-07 decision).
     """
     votes = votes or []
     relevant_articles = find_relevant_articles(candidate["name"], news_articles)
@@ -234,7 +234,7 @@ def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[
         if relevant_articles:
             notes += f" Plus {len(relevant_articles)} news article(s) as minor secondary signal."
 
-        # D (owner decision 2026-07-22): contested participation is always
+        # D (2026-07-22 decision): contested participation is always
         # stated, so a thin record is visible wherever the notes surface.
         cav, cvw = vote_result["contested_available"], vote_result["contested_voted"]
         if cav:
@@ -243,7 +243,7 @@ def score_candidate(candidate: dict, news_articles: list[dict], votes: Optional[
                 notes += " — did not vote on: " + "; ".join(vote_result["missed_contested"])
             notes += "."
 
-        # A (owner decision 2026-07-22): thin-record guard. A member who
+        # A (2026-07-22 decision): thin-record guard. A member who
         # missed a substantial share of the contested votes cannot earn a
         # non-neutral label from consensus credit alone — if their contested
         # votes alone read neutral (or don't exist), the label stays neutral.
