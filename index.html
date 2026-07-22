@@ -691,8 +691,10 @@
     }
     /* Where we are (estimated): solid, dark */
     .align-dot.dot-now { background: var(--text); }
-    /* Where we need to be: hollow — a fixed target, never a measurement */
-    .align-dot.dot-target { background: #fff; border: 2px solid var(--text-muted); }
+    /* Where we need to be: hollow — a fixed target, never a measurement.
+       Deliberately no tooltip, so no help cursor either. */
+    .align-dot.dot-target { background: #fff; border: 2px solid var(--text-muted); cursor: default; }
+    .align-thresh-label.lbl-target { cursor: default; }
 
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
@@ -2061,15 +2063,17 @@
     const SUPPORT_PCT = (supportive / 22 * 100).toFixed(2);
     const TARGET_PCT = (15 / 22 * 100).toFixed(2);
     const nowTitle = `ESTIMATED ALIGNED — this point marks the estimated aligned group, counted from the left of the bar: ${supportive} of 22 seats (strongly aligned + aligned, whether registered or assessed likely to run). Neutral, misaligned and unknown seats are deliberately excluded: neutral means no measured lean, not a reliable vote.`;
-    const targetTitle = `WHERE WE NEED TO BE — 15 of 22 seats is the two-thirds mark: the margin needed to carry a vote against a provincially-appointed chair using Strong Chair Powers. Fixed benchmark; it does not move.`;
+    // The 2/3 marker carries NO tooltip (maintainer decision 2026-07-22):
+    // any rationale for the 15-seat benchmark stays off the public page
+    // entirely — the marker is just a fraction on the scale.
     compEl.innerHTML = `
       <div class="align-thresh-row">
         <span class="align-thresh-label lbl-now" style="left:${SUPPORT_PCT}%" title="${nowTitle}">Estimated aligned: ${supportive}</span>
-        <span class="align-thresh-label lbl-target" style="left:${TARGET_PCT}%" title="${targetTitle}">&#8532;: 15</span>
+        <span class="align-thresh-label lbl-target" style="left:${TARGET_PCT}%">&#8532;: 15</span>
       </div>
       <div class="align-dot-row">
         <span class="align-dot dot-now" style="left:${SUPPORT_PCT}%" title="${nowTitle}"></span>
-        <span class="align-dot dot-target" style="left:${TARGET_PCT}%" title="${targetTitle}"></span>
+        <span class="align-dot dot-target" style="left:${TARGET_PCT}%"></span>
       </div>
       <div class="align-stack">${bar}</div>
       <div class="align-gap-note">${shortfall > 0
