@@ -885,8 +885,6 @@
       border-radius: 99px;
     }
 
-    .badge-incumbent { background: #e8f1fd; color: #0b63c5; }
-    .badge-challenger { background: var(--green-bg); color: var(--green); }
     .badge-unknown { background: #f0f0f2; color: var(--text-dim); }
 
     /* Heuristic/estimated fields (likely_to_run_again, likely_to_win) get a
@@ -1022,83 +1020,6 @@
     /* ============================================================
        NEWS SECTION
     ============================================================ */
-    .news-section {
-      margin-bottom: 20px;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .news-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      transition: border-color 0.15s;
-    }
-
-    .news-item:hover { border-color: var(--accent); }
-
-    .news-item.dc-story {
-      border-left: 3px solid var(--orange);
-    }
-
-    .news-item-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .news-item-title {
-      flex: 1;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    .news-item-title a { color: inherit; }
-    .news-item-title a:hover { color: var(--accent); text-decoration: none; }
-
-    .news-item-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .news-date {
-      font-size: 11px;
-      color: var(--text-dim);
-    }
-
-    .news-muni-tags {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-
-    .muni-tag {
-      font-size: 10px;
-      background: var(--border-subtle);
-      color: var(--text-muted);
-      padding: 1px 6px;
-      border-radius: 99px;
-    }
-
-    .dc-tag {
-      font-size: 10px;
-      background: rgba(194,65,12,0.07);
-      color: var(--orange);
-      border: 1px solid rgba(194,65,12,0.25);
-      padding: 1px 6px;
-      border-radius: 99px;
-    }
-
     /* ============================================================
        NOMINATION STATUS
     ============================================================ */
@@ -1211,6 +1132,38 @@
     /* ============================================================
        RESPONSIVE
     ============================================================ */
+    /* Collapsible voting-record section */
+    .vr-toggle { cursor: pointer; user-select: none; }
+    .vr-arrow {
+      display: inline-block;
+      width: 14px;
+      color: var(--text-muted);
+      transition: transform 0.15s ease;
+      transform-origin: 45% 50%;
+    }
+    .vr-toggle[aria-expanded="true"] .vr-arrow { transform: rotate(90deg); }
+    #voting-record-body.collapsed { display: none; }
+
+    /* ---- Print: the three main sections, one page each ---- */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; }
+      .site-header { position: static; box-shadow: none; backdrop-filter: none; }
+      .feedback-wrap, #print-btn, .alert-banner, #voting-record-section,
+      .modal-overlay, #next-refresh { display: none !important; }
+      /* Page 1: status banner + Post-Election Outlook. Page 2: Council
+         Seat Races. Page 3: Current Council — Fiscal Alignment. The
+         voting record never prints. */
+      #outlook-panel, #view-chamber { break-after: page; page-break-after: always; }
+      .chamber-wrap { overflow: visible; }
+      /* The stagger-packed name columns are positioned in px for the
+         screen width — at print width they'd land in the wrong places, so
+         fall back to plain flowing columns and drop the connector lines. */
+      .align-columns.staggered { height: auto !important; }
+      .align-columns.staggered .align-col { position: static !important; width: auto !important; }
+      .align-drops { display: none !important; }
+    }
+
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
       .header-meta { width: 100%; justify-content: space-between; }
@@ -1244,6 +1197,7 @@
         <div class="subtitle">Tracking 9 municipalities &bull; October 26, 2026 &bull; Fiscal alignment monitor</div>
       </div>
       <div class="header-meta">
+        <button class="feedback-btn" id="print-btn" type="button" title="Print the dashboard — one section per page">Print</button>
         <div class="feedback-wrap">
           <span class="feedback-hint">Have feedback on the content or tool?</span>
           <button class="feedback-btn" id="feedback-open" type="button">Submit Feedback</button>
@@ -1335,12 +1289,14 @@
       <div class="align-columns" id="alignment-columns"></div>
     </div>
 
-    <!-- Council Voting Record -->
-    <div class="alignment-overview">
-      <div class="section-title">
+    <!-- Council Voting Record (collapsible — the arrow toggles the whole section) -->
+    <div class="alignment-overview" id="voting-record-section">
+      <div class="section-title vr-toggle" id="voting-record-toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="voting-record-body">
+        <span class="vr-arrow">&#9656;</span>
         Council Voting Record
         <span class="badge" id="voting-record-badge">&hellip;</span>
       </div>
+      <div id="voting-record-body" class="collapsed">
       <div style="font-size:11px;color:var(--text-dim);margin-bottom:12px;line-height:1.6">
         Every substantive motion of this council since its November 2022 inauguration, from the official minutes.
         Routine procedural motions (adopting minutes, receiving reports, recesses) are excluded unless they went to a
@@ -1351,16 +1307,6 @@
       <div id="voting-record">
         <div class="loading-spinner"><div class="spinner"></div> Loading voting record…</div>
       </div>
-    </div>
-
-    <!-- Recent Registrations -->
-    <div class="alignment-overview">
-      <div class="section-title">
-        Recent Candidate Registrations
-        <span class="badge" id="recent-reg-badge">0</span>
-      </div>
-      <div class="news-grid" id="recent-registrations">
-        <div class="loading-spinner"><div class="spinner"></div> Loading registrations…</div>
       </div>
     </div>
 
@@ -1594,7 +1540,7 @@
     if (!banner) return;
     if (recent.length > 0) {
       banner.classList.remove('hidden');
-      if (text) text.textContent = `${recent.length} candidate${recent.length > 1 ? 's' : ''} filed in the last 7 days — see Recent Candidate Registrations below.`;
+      if (text) text.textContent = `${recent.length} candidate${recent.length > 1 ? 's' : ''} filed in the last 7 days.`;
     } else {
       banner.classList.add('hidden');
     }
@@ -1622,49 +1568,6 @@
     const pct = Math.round((rc.confirmed_filed_count / totalVoting) * 100);
     setText('lameduck-fraction', `${rc.confirmed_filed_count}/${totalVoting}`);
     setText('lameduck-pct', `${pct}%`);
-  }
-
-  // ============================================================
-  // RENDER: RECENT REGISTRATIONS
-  // ============================================================
-  function renderRecentRegistrations() {
-    const container = document.getElementById('recent-registrations');
-    const badge = document.getElementById('recent-reg-badge');
-    if (!container) return;
-
-    const filed = regionalCandidates()
-      .map(c => ({ c, d: parseFiledDate(c) }))
-      .filter(x => isFiled(x.c) && x.d)
-      .sort((a, b) => b.d - a.d)
-      .slice(0, 15);
-
-    if (badge) badge.textContent = `latest ${filed.length}`;
-
-    if (!filed.length) {
-      container.innerHTML = `<div class="empty-state">No registrations detected yet. Nomination period: May 1 – Aug 21, 2026.</div>`;
-      return;
-    }
-
-    container.innerHTML = filed.map(({ c, d }) => {
-      const seatLabel = c.ward ? `${c.office}, Ward ${escapeHtml(c.ward)}` : c.office;
-      const statusBadge = c.status === 'incumbent'
-        ? `<span class="badge badge-incumbent">Incumbent</span>`
-        : `<span class="badge badge-challenger">Challenger</span>`;
-      const src = c.filing_source
-        ? ` <a href="${escapeHtml(c.filing_source)}" target="_blank" rel="noopener" style="font-size:10px">clerk page</a>`
-        : '';
-      return `
-        <div class="news-item">
-          <div class="news-item-header">
-            <div class="news-item-title">${escapeHtml(c.name)} <span style="font-weight:400;color:var(--text-muted)">— ${escapeHtml(seatLabel)}, ${escapeHtml(c.municipality)}</span></div>
-            ${statusBadge}
-          </div>
-          <div class="news-item-meta">
-            <span class="news-date">Filed ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}</span>${src}
-          </div>
-        </div>
-      `;
-    }).join('');
   }
 
   function setText(id, val) {
@@ -2472,7 +2375,6 @@
     renderAlert();
     renderAlignmentOverview();
     renderVotingRecord();
-    renderRecentRegistrations();
   }
 
   // ============================================================
@@ -2527,6 +2429,27 @@
         if (pill) { e.preventDefault(); openMemberModal(pill.dataset.cid); }
       });
     }
+    // Voting record: the arrow in the section title collapses/expands the
+    // whole section (collapsed by default — the per-meeting entries inside
+    // are their own collapsibles).
+    const vrToggle = document.getElementById('voting-record-toggle');
+    if (vrToggle) {
+      const vrBody = document.getElementById('voting-record-body');
+      const vrSet = open => {
+        vrToggle.setAttribute('aria-expanded', String(open));
+        vrBody.classList.toggle('collapsed', !open);
+      };
+      vrToggle.addEventListener('click', () => vrSet(vrToggle.getAttribute('aria-expanded') !== 'true'));
+      vrToggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); vrToggle.click(); }
+      });
+    }
+
+    // Print — the @media print stylesheet lays out the three main sections
+    // one per page and drops the voting record entirely.
+    const printBtn = document.getElementById('print-btn');
+    if (printBtn) printBtn.addEventListener('click', () => window.print());
+
     const modal = document.getElementById('member-modal');
     if (modal) {
       modal.addEventListener('click', e => { if (e.target === modal) closeMemberModal(); });
