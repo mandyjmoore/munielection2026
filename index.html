@@ -667,9 +667,10 @@
       white-space: nowrap;
       cursor: help;
     }
-    /* Where we are (solid, dark) vs. where we need to be (dashed, muted) */
-    .align-thresh-label.lbl-now { color: var(--text); }
-    .align-thresh-label.lbl-target { color: var(--text-dim); }
+    /* Both dot labels share the same weight and colour; the dots alone
+       (solid vs. hollow) distinguish measurement from fixed target */
+    .align-thresh-label.lbl-now,
+    .align-thresh-label.lbl-target { color: var(--text); }
     .align-gap-note {
       margin-top: 6px;
       font-size: 11px;
