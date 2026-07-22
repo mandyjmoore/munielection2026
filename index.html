@@ -647,8 +647,10 @@
       background: var(--bg-card);
     }
 
-    /* Two-thirds benchmark on the outlook bar: label row above, dark tick
-       through the bar at 15/22 of its width */
+    /* Benchmark points above the outlook bar: label row on top, then a dot
+       row just above the bar. The dots are static reference points on the
+       0–22 scale, NOT dividers between segments — a segment can span
+       either point. */
     .align-thresh-row {
       position: relative;
       height: 15px;
@@ -676,26 +678,21 @@
     }
     .align-gap-note strong { color: var(--text); font-weight: 700; }
     .align-stack { position: relative; }
-    /* Where we are: solid black divider at the aligned-family boundary */
-    .align-thresh-tick {
+    .align-dot-row { position: relative; height: 12px; }
+    .align-dot {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--text);
-      opacity: 0.65;
-      z-index: 3;
+      bottom: 2px;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      cursor: help;
     }
-    /* Where we need to be: fixed ⅔ benchmark, dashed so it never reads as a
-       measurement of the current field */
-    .align-target-tick {
-      position: absolute;
-      top: -3px;
-      bottom: -3px;
-      width: 0;
-      border-left: 2px dashed var(--text-muted);
-      z-index: 2;
-    }
+    /* Where we are (estimated): solid, dark */
+    .align-dot.dot-now { background: var(--text); }
+    /* Where we need to be: hollow — a fixed target, never a measurement */
+    .align-dot.dot-target { background: #fff; border: 2px solid var(--text-muted); }
 
     .align-col-header .count { color: var(--text-dim); font-weight: 500; }
 
@@ -2053,25 +2050,28 @@
         </div>`;
     }).join('');
 
-    // Supportive-group divider (2026-07-22 design): ONE black
-    // vertical line at the aligned-family boundary — left of it is the
-    // counted "likely supportive" group (strongly aligned + aligned,
-    // registered or assessed likely to run); the yellow neutral seats sit
-    // visibly outside it (neutral = no measured lean, not a reliable vote).
-    // The ⅔ arithmetic lives in the caption on the line, not in a second
-    // marker.
+    // Benchmark points (2026-07-22 design): two dots ABOVE the bar — a
+    // solid dot at the estimated-aligned count (strongly aligned + aligned,
+    // registered or assessed likely to run; neutral = no measured lean, not
+    // a reliable vote) and a hollow dot at the fixed ⅔ target. They are
+    // static points on the 0–22 scale, not dividers between segments — a
+    // segment can span either point.
     const supportive = groups.strongly_aligned.length + groups.aligned.length + groups.likely_aligned.length;
     const shortfall = 15 - supportive;
     const SUPPORT_PCT = (supportive / 22 * 100).toFixed(2);
     const TARGET_PCT = (15 / 22 * 100).toFixed(2);
-    const nowTitle = `WHERE WE ARE — everything left of this solid line is the likely-supportive group: ${supportive} of 22 seats (strongly aligned + aligned, whether registered or assessed likely to run). Neutral, misaligned and unknown seats are deliberately excluded: neutral means no measured lean, not a reliable vote.`;
+    const nowTitle = `ESTIMATED ALIGNED — this point marks the estimated aligned group, counted from the left of the bar: ${supportive} of 22 seats (strongly aligned + aligned, whether registered or assessed likely to run). Neutral, misaligned and unknown seats are deliberately excluded: neutral means no measured lean, not a reliable vote.`;
     const targetTitle = `WHERE WE NEED TO BE — 15 of 22 seats is the two-thirds mark: the margin needed to carry a vote against a provincially-appointed chair using Strong Chair Powers. Fixed benchmark; it does not move.`;
     compEl.innerHTML = `
       <div class="align-thresh-row">
-        <span class="align-thresh-label lbl-now" style="left:${SUPPORT_PCT}%" title="${nowTitle}">Aligned now: ${supportive}</span>
+        <span class="align-thresh-label lbl-now" style="left:${SUPPORT_PCT}%" title="${nowTitle}">Estimated aligned: ${supportive}</span>
         <span class="align-thresh-label lbl-target" style="left:${TARGET_PCT}%" title="${targetTitle}">&#8532; needed: 15</span>
       </div>
-      <div class="align-stack">${bar}<span class="align-thresh-tick" style="left:${SUPPORT_PCT}%" title="${nowTitle}"></span><span class="align-target-tick" style="left:${TARGET_PCT}%" title="${targetTitle}"></span></div>
+      <div class="align-dot-row">
+        <span class="align-dot dot-now" style="left:${SUPPORT_PCT}%" title="${nowTitle}"></span>
+        <span class="align-dot dot-target" style="left:${TARGET_PCT}%" title="${targetTitle}"></span>
+      </div>
+      <div class="align-stack">${bar}</div>
       <div class="align-gap-note">${shortfall > 0
         ? `<strong>${shortfall} seat${shortfall !== 1 ? 's' : ''} short</strong> of the &#8532; benchmark — 15 of 22 seats`
         : `<strong>At or above</strong> the &#8532; benchmark — 15 of 22 seats`}</div>
