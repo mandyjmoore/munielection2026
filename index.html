@@ -1144,15 +1144,15 @@
     .vr-toggle[aria-expanded="true"] .vr-arrow { transform: rotate(90deg); }
     #voting-record-body.collapsed { display: none; }
 
-    /* ---- Print: LANDSCAPE, the three main sections one FITTED page each.
-       Page 1: header + status banner + Post-Election Outlook. Page 2:
-       Council Seat Races. Page 3: Current Council — Fiscal Alignment.
-       The voting record never prints. JS adds .printing to <body> before
-       printing (button click or Cmd+P via beforeprint), measures each
-       section at print width and zoom-scales it to fit its page — which
-       is why these rules live on body.printing, not inside @media print:
-       they must also apply during the on-screen measurement pass. ---- */
-    @page { size: letter landscape; margin: 10mm; }
+    /* ---- Print: the Print button builds a dedicated print document in a
+       hidden iframe (see openPrintView) — three FIXED-SIZE sheets, one per
+       main section, each section transform-scaled to exactly fit its
+       sheet, so nothing can break across pages. Chromium gets true
+       landscape sheets via @page size (set in the iframe); Safari ignores
+       @page size entirely, so there the sheets are portrait with the
+       content rotated 90° — the printout reads landscape without touching
+       the dialog. The body.printing rules below style the iframe's body
+       (and Cmd+P on the main page as a basic fallback). ---- */
     @media print {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
@@ -2452,52 +2452,100 @@
       });
     }
 
-    // Print — landscape, each of the three main sections zoom-scaled to
-    // fit exactly one page. body.printing applies the print layout (also
-    // on screen, briefly, so the measurements below are honest); zoom is
-    // used rather than transform because zoom participates in layout, so
-    // the page breaks land where the scaled content actually ends.
-    const PRINT_W = 980;  // letter landscape minus 10mm margins, ~96dpi
-    const PRINT_H = 720;
-    const PRINT_SECTION_IDS = ['outlook-panel', 'view-chamber', 'alignment-section'];
-    let printPrepped = false;
-    function prepPrint() {
-      if (printPrepped) return;
-      printPrepped = true;
-      document.body.classList.add('printing');
-      // Page 1 shares its page with the header + lame-duck banner.
-      const fixedH =
-        (document.querySelector('.site-header')?.getBoundingClientRect().height || 0) +
-        (document.getElementById('lameduck-banner')?.getBoundingClientRect().height || 0);
-      const budgets = [Math.max(300, PRINT_H - fixedH - 24), PRINT_H, PRINT_H];
-      PRINT_SECTION_IDS.forEach((id, i) => {
-        const s = document.getElementById(id);
-        if (!s) return;
-        s.style.zoom = '';
-        s.style.width = '';
-        let z = 1;
-        for (let pass = 0; pass < 4; pass++) {
-          const h = s.getBoundingClientRect().height;   // rendered (zoomed) height
-          if (!h || h <= budgets[i] + 2) break;
-          z = Math.max(0.35, z * (budgets[i] / h));
-          s.style.zoom = z;
-          s.style.width = (PRINT_W / z) + 'px';         // refill the page width
+    // Print — builds a standalone print document in a hidden iframe:
+    // three fixed-size sheets (page 1: header + status banner + Outlook;
+    // page 2: Seat Races; page 3: Current Council alignment), each
+    // section cloned in and transform-scaled to exactly fit its sheet.
+    // Fixed sheets make pagination deterministic — a section physically
+    // cannot break across pages. Chromium prints true landscape sheets
+    // (@page size); Safari ignores @page size, so it gets portrait
+    // sheets with the content rotated 90° — landscape output with no
+    // print-dialog changes needed.
+    const SHEET_W = 1000, SHEET_H = 760;  // landscape content px (fits letter minus 6mm margins)
+    const PRINT_LAYOUT_W = 980;           // width the cloned sections are laid out at
+    let printFrame = null;
+    function openPrintView(andPrint = true) {
+      if (printFrame) { printFrame.remove(); printFrame = null; }
+      const safari = /apple/i.test(navigator.vendor || '');
+      const f = document.createElement('iframe');
+      printFrame = f;
+      // Offscreen but laid out at full size, so measurements are real.
+      f.style.cssText = 'position:fixed;left:-12000px;top:0;width:1050px;height:820px;border:0;';
+      document.body.appendChild(f);
+      const pd = f.contentDocument;
+      pd.open();
+      pd.write('<!doctype html><html><head><meta charset="utf-8"><title>YR 2026 Election Dashboard</title></head><body class="printing"></body></html>');
+      pd.close();
+      const st = pd.createElement('style');
+      st.textContent =
+        Array.from(document.querySelectorAll('style')).map(s => s.textContent).join('\n') + `
+        @page { size: letter ${safari ? 'portrait' : 'landscape'}; margin: 6mm; }
+        html, body { background: #fff !important; margin: 0; padding: 0; }
+        .sheet {
+          width: ${safari ? SHEET_H : SHEET_W}px;
+          height: ${safari ? SHEET_W : SHEET_H}px;
+          overflow: hidden;
+          position: relative;
+          break-after: page; page-break-after: always;
         }
-      });
+        .sheet:last-child { break-after: auto; page-break-after: auto; }
+        .rot {
+          position: absolute; top: 0; left: 0;
+          width: ${SHEET_W}px; height: ${SHEET_H}px;
+          ${safari ? `transform: rotate(90deg) translateY(-${SHEET_H}px); transform-origin: top left;` : ''}
+        }
+        .fit { width: ${PRINT_LAYOUT_W}px; transform-origin: top left; }
+        .site-header { position: static !important; box-shadow: none !important; }
+      `;
+      pd.head.appendChild(st);
+      const PAGES = [
+        ['__header__', 'lameduck-banner', 'outlook-panel'],
+        ['view-chamber'],
+        ['alignment-section'],
+      ];
+      for (const ids of PAGES) {
+        const sheet = pd.createElement('div'); sheet.className = 'sheet';
+        const rot = pd.createElement('div'); rot.className = 'rot';
+        const fit = pd.createElement('div'); fit.className = 'fit';
+        for (const id of ids) {
+          const src = id === '__header__' ? document.querySelector('.site-header') : document.getElementById(id);
+          if (src) fit.appendChild(pd.importNode(src, true));
+        }
+        rot.appendChild(fit); sheet.appendChild(rot); pd.body.appendChild(sheet);
+      }
+      // Let the iframe lay the clones out, then scale each page to its
+      // sheet — trying several layout widths and keeping whichever fills
+      // the sheet best (wider layout → shorter content → larger print).
+      setTimeout(() => {
+        pd.querySelectorAll('.fit').forEach(fit => {
+          let best = { s: 0, w: PRINT_LAYOUT_W };
+          for (const w of [980, 1150, 1320, 1500, 1700]) {
+            fit.style.width = w + 'px';
+            fit.style.transform = '';
+            const h = fit.scrollHeight;
+            const s = Math.min(SHEET_W / w, h ? SHEET_H / h : 1);
+            if (s > best.s) best = { s, w };
+          }
+          fit.style.width = best.w + 'px';
+          fit.style.transform = `scale(${best.s})`;
+        });
+        if (!andPrint) return;
+        const w = f.contentWindow;
+        w.addEventListener('afterprint', () => setTimeout(() => {
+          f.remove();
+          if (printFrame === f) printFrame = null;
+        }, 300));
+        w.focus();
+        try { w.print(); } catch (e) { /* jsdom etc. */ }
+      }, 60);
     }
-    function unprepPrint() {
-      printPrepped = false;
-      document.body.classList.remove('printing');
-      PRINT_SECTION_IDS.forEach(id => {
-        const s = document.getElementById(id);
-        if (s) { s.style.zoom = ''; s.style.width = ''; }
-      });
-      relayoutAlignColumns();
-    }
-    window.addEventListener('beforeprint', prepPrint);
-    window.addEventListener('afterprint', unprepPrint);
     const printBtn = document.getElementById('print-btn');
-    if (printBtn) printBtn.addEventListener('click', () => { prepPrint(); window.print(); });
+    if (printBtn) printBtn.addEventListener('click', () => openPrintView());
+    window.__openPrintView = openPrintView; // testing hook (no dialog with andPrint=false)
+    // Cmd+P on the main page (not the button) still gets the basic
+    // cleanup: hide chrome, voting record, and flow the name columns.
+    window.addEventListener('beforeprint', () => document.body.classList.add('printing'));
+    window.addEventListener('afterprint', () => { document.body.classList.remove('printing'); relayoutAlignColumns(); });
 
     const modal = document.getElementById('member-modal');
     if (modal) {
