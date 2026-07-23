@@ -1144,25 +1144,32 @@
     .vr-toggle[aria-expanded="true"] .vr-arrow { transform: rotate(90deg); }
     #voting-record-body.collapsed { display: none; }
 
-    /* ---- Print: the three main sections, one page each ---- */
+    /* ---- Print: LANDSCAPE, the three main sections one FITTED page each.
+       Page 1: header + status banner + Post-Election Outlook. Page 2:
+       Council Seat Races. Page 3: Current Council — Fiscal Alignment.
+       The voting record never prints. JS adds .printing to <body> before
+       printing (button click or Cmd+P via beforeprint), measures each
+       section at print width and zoom-scales it to fit its page — which
+       is why these rules live on body.printing, not inside @media print:
+       they must also apply during the on-screen measurement pass. ---- */
+    @page { size: letter landscape; margin: 10mm; }
     @media print {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      body { background: #fff; }
-      .site-header { position: static; box-shadow: none; backdrop-filter: none; }
-      .feedback-wrap, #print-btn, .alert-banner, #voting-record-section,
-      .modal-overlay, #next-refresh { display: none !important; }
-      /* Page 1: status banner + Post-Election Outlook. Page 2: Council
-         Seat Races. Page 3: Current Council — Fiscal Alignment. The
-         voting record never prints. */
-      #outlook-panel, #view-chamber { break-after: page; page-break-after: always; }
-      .chamber-wrap { overflow: visible; }
-      /* The stagger-packed name columns are positioned in px for the
-         screen width — at print width they'd land in the wrong places, so
-         fall back to plain flowing columns and drop the connector lines. */
-      .align-columns.staggered { height: auto !important; }
-      .align-columns.staggered .align-col { position: static !important; width: auto !important; }
-      .align-drops { display: none !important; }
     }
+    body.printing { background: #fff; }
+    body.printing .container { max-width: 980px; }
+    body.printing .site-header { position: static; box-shadow: none; backdrop-filter: none; }
+    body.printing .feedback-wrap, body.printing #print-btn, body.printing .alert-banner,
+    body.printing #voting-record-section, body.printing .modal-overlay,
+    body.printing #next-refresh { display: none !important; }
+    body.printing #outlook-panel, body.printing #view-chamber { break-after: page; page-break-after: always; }
+    body.printing .chamber-wrap { overflow: visible; padding-bottom: 0; }
+    /* The stagger-packed name columns are positioned in px for the screen
+       width — at print width they'd land in the wrong places, so fall
+       back to plain flowing columns and drop the connector lines. */
+    body.printing .align-columns.staggered { height: auto !important; }
+    body.printing .align-columns.staggered .align-col { position: static !important; width: auto !important; }
+    body.printing .align-drops { display: none !important; }
 
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
@@ -1278,7 +1285,7 @@
     </div>
 
     <!-- Fiscal Alignment Overview -->
-    <div class="alignment-overview">
+    <div class="alignment-overview" id="alignment-section">
       <div class="section-title">
         Current Council &mdash; Fiscal Alignment
         <span class="badge" id="alignment-total-badge">0 candidates</span>
@@ -2445,10 +2452,52 @@
       });
     }
 
-    // Print — the @media print stylesheet lays out the three main sections
-    // one per page and drops the voting record entirely.
+    // Print — landscape, each of the three main sections zoom-scaled to
+    // fit exactly one page. body.printing applies the print layout (also
+    // on screen, briefly, so the measurements below are honest); zoom is
+    // used rather than transform because zoom participates in layout, so
+    // the page breaks land where the scaled content actually ends.
+    const PRINT_W = 980;  // letter landscape minus 10mm margins, ~96dpi
+    const PRINT_H = 720;
+    const PRINT_SECTION_IDS = ['outlook-panel', 'view-chamber', 'alignment-section'];
+    let printPrepped = false;
+    function prepPrint() {
+      if (printPrepped) return;
+      printPrepped = true;
+      document.body.classList.add('printing');
+      // Page 1 shares its page with the header + lame-duck banner.
+      const fixedH =
+        (document.querySelector('.site-header')?.getBoundingClientRect().height || 0) +
+        (document.getElementById('lameduck-banner')?.getBoundingClientRect().height || 0);
+      const budgets = [Math.max(300, PRINT_H - fixedH - 24), PRINT_H, PRINT_H];
+      PRINT_SECTION_IDS.forEach((id, i) => {
+        const s = document.getElementById(id);
+        if (!s) return;
+        s.style.zoom = '';
+        s.style.width = '';
+        let z = 1;
+        for (let pass = 0; pass < 4; pass++) {
+          const h = s.getBoundingClientRect().height;   // rendered (zoomed) height
+          if (!h || h <= budgets[i] + 2) break;
+          z = Math.max(0.35, z * (budgets[i] / h));
+          s.style.zoom = z;
+          s.style.width = (PRINT_W / z) + 'px';         // refill the page width
+        }
+      });
+    }
+    function unprepPrint() {
+      printPrepped = false;
+      document.body.classList.remove('printing');
+      PRINT_SECTION_IDS.forEach(id => {
+        const s = document.getElementById(id);
+        if (s) { s.style.zoom = ''; s.style.width = ''; }
+      });
+      relayoutAlignColumns();
+    }
+    window.addEventListener('beforeprint', prepPrint);
+    window.addEventListener('afterprint', unprepPrint);
     const printBtn = document.getElementById('print-btn');
-    if (printBtn) printBtn.addEventListener('click', () => window.print());
+    if (printBtn) printBtn.addEventListener('click', () => { prepPrint(); window.print(); });
 
     const modal = document.getElementById('member-modal');
     if (modal) {
