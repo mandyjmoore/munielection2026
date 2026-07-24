@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-07-24T13:47:27.097206+00:00",
+  "computed_at": "2026-07-24T15:26:32.996192+00:00",
   "nomination_day": "2026-08-21",
   "regional_council": {
     "total_current_elected_members": 21,
@@ -7,12 +7,12 @@
     "chair_note": "Eric Jolliffe (appointed voting member; counted in the 22 but cannot file)",
     "threshold_fraction": 0.75,
     "threshold_count": 17,
-    "confirmed_filed_count": 16,
+    "confirmed_filed_count": 17,
     "declined_count": 0,
     "not_yet_filed_count": 0,
-    "unknown_count": 5,
-    "status": "at_risk",
-    "status_basis": "16 of 21 current members confirmed filing so far (0 declined, 5 still unknown). Threshold is 17 of 21 — outcome is not yet decided.",
+    "unknown_count": 4,
+    "status": "on_track",
+    "status_basis": "17 of 21 current members have confirmed re-election filings — already meets the 17-of-21 threshold.",
     "members": [
       {
         "seat_id": "aurora-mayor",
@@ -89,7 +89,7 @@
         "name": "John Taylor",
         "municipality": "Newmarket",
         "office": "Mayor",
-        "filed_for_reelection": "unknown"
+        "filed_for_reelection": "confirmed"
       },
       {
         "seat_id": "newmarket-regional-councillor-1",
