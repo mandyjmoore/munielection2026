@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write   # to dispatch the Pages deploy after a data push
 
 jobs:
   update:
@@ -40,12 +41,29 @@ jobs:
           fi
 
       - name: Commit and push updated data
+        id: push
         run: |
           git config user.name "election-bot"
           git config user.email "actions@github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "Auto-update: election data $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
+          if git diff --staged --quiet; then
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Auto-update: election data $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Pushes made with GITHUB_TOKEN do NOT trigger other workflows
+      # (GitHub's anti-recursion rule), so the on-push trigger in
+      # pages.yml never fires for the bot's commits — the site would
+      # serve stale data forever. workflow_dispatch is exempt from that
+      # rule, so dispatch the deploy explicitly.
+      - name: Deploy the site with the fresh data
+        if: steps.push.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --ref main
 
       - name: Open issue for new registration(s)
         if: steps.detect.outputs.summary != ''

@@ -42,3 +42,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      # The Pages deploy API fails transiently ~1 in 3 times; one retry
+      # keeps unattended (bot-dispatched) deploys from leaving the site
+      # stale until the next 2-hour cycle.
+      - name: Retry deploy once on transient failure
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
