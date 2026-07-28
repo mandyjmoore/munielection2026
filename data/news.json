@@ -1,5 +1,16 @@
 [
   {
+    "id": "65b7598bc190abef",
+    "title": "York Region highway closures for planned roadwork on July 28 - YorkRegion.com",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOc2xNMWZYQzN2bVdsak5ZbHU3c29yVHpXU3poTF9tR2hlT1pWbmJBVjZEeWRVLVA3M1E1NGJnd1FCYWFJa2FuRTNzaTF4UVI2QUZ4cExvcEs0am83amw5cmZ2RjVodmpHQVpjeEQwdk9weHBNSENHOXhEb1ozOFBBNmJrZDljLVlzWFY4U1JkQ2JXSWJxcE9iOHFCRlZIQVlQUmVSbms5djl4aDFZUGJlRktLSXVTWGtkeXVEVTIxa0VqYmRBMlp5eE10T3oxaTNvaGNpSTdYb0k0QQ?oc=5",
+    "summary": "York Region highway closures for planned roadwork on July 28&nbsp;&nbsp;YorkRegion.com",
+    "published_at": "2026-07-28T10:01:38+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-07-28T10:36:26.495637+00:00"
+  },
+  {
     "id": "b86b765bcfef8a2c",
     "title": "John Taylor announces bid for 3rd term as Newmarket mayor in municipal election - YorkRegion.com",
     "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNQnVadjVpSWdyTDBnajF6cW9sNzZDWG1vTzVleUtVWW9PcGh3dUNpUldZQUJ5NEpTQkRCd0dsU2JPSWZmaHNGSlpXX0dXajhrVW9TYk1vZkRrUi1sVFU5eGJGMElka05WTDUxU2t1ZG8zRnl3WjlEeG05YU1DRGo0WkdDNkJ5UHhnVjlLb0ljaFZQdDI3U01SWDRsZUw1UGliWVpCbkVjRzhiZlBvY3lkWjc2SHNSNVZBdVBJXzVlV1FFYmV4dTZtaHBMbHo4MThlYXJBcW9kbE9qZkYtMTFWY0YxYmc2LVpjRk5wQ01BWG1YLVU?oc=5",
@@ -61,6 +72,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-27T14:36:51.238438+00:00"
+  },
+  {
+    "id": "f47ceb1c1ea68306",
+    "title": "Doug Ford expected to call three byelections for September - Toronto Star",
+    "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNNE54UG4xZHVQVEZFY3VNeGdFaXRLV0pqYVRYVGZfd0REMHlPQTRMcHF4TlRHaExHdXN2c3JZbEEzeTVkeFFaRGV4N3VQaEtObE12U0pYZ2RYZGhZX045NTBPam1XOVRKV3E0QTNCa0Z5aFNyMUNSeDJfVUZVTzNnbWJuYVRZX3lHOXp5YVc2cjZ0NVppZWd1eERMZGpURUhFLVFjenFnTlhnMVlfQ01YTjJIdmRmY1BDcGlvVmRabmc2Y0NmZkVEM0dvMm9aUWpNbHF6TGdoSHFpV3JNYk51ZmZPNjNUR2s?oc=5",
+    "summary": "Doug Ford expected to call three byelections for September&nbsp;&nbsp;Toronto Star",
+    "published_at": "2026-07-23T18:15:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Georgina"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-28T10:36:27.657928+00:00"
   },
   {
     "id": "6a3b8c8f7533bdbf",
@@ -5490,147 +5514,5 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-11T10:57:56.404931+00:00"
-  },
-  {
-    "id": "6e8829ab8184ab12",
-    "title": "TRREB Statement on Vaughan’s Reduction of Development Charges - TRREB",
-    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPVFl6YjNxMHRfSXAxcDc2OHp0OE0tZW5HT3pKRlBkSDdrdktocmVqVzQ3NGQwZDIyR0dLTUE1ekZFek5xSV93Q2ZVbkdlUjhwRkNfQ2ZabXJzN0NUaHlkdnluUWUtZTVoMk5PbDRGbnhNTEFxLV9qek9MeDl6MUxMdkRiVmg?oc=5",
-    "summary": "TRREB Statement on Vaughan’s Reduction of Development Charges&nbsp;&nbsp;TRREB",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "Vaughan"
-    ],
-    "dc_related": true,
-    "fetched_at": "2026-06-05T19:59:46.270377+00:00"
-  },
-  {
-    "id": "69daae37daa1558d",
-    "title": "YRP Lay Human Trafficking, Child Luring Charges Against Whitchurch-Stouffville Man - Bullet Point News Stouffville",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE56UXNUeTlNeEpPOTNlejVmX1dFcFV4eThZN3dlMng5ME1aUzFqNG5SbGhIRUJkV1diNkx4Q2haRm1oajFPNUM4eXRnaTdFYWE5ODVYMXBrSWwxU0VZT0kyNFdkamM1ZWJaME1kTFkxdDNNRzZBTWt3MFRCOHNYY0k?oc=5",
-    "summary": "YRP Lay Human Trafficking, Child Luring Charges Against Whitchurch-Stouffville Man&nbsp;&nbsp;Bullet Point News Stouffville",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "King",
-      "Whitchurch-Stouffville"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-05T19:59:46.270495+00:00"
-  },
-  {
-    "id": "3b9b373e5e7dcec3",
-    "title": "City of Markham Launches Fully Funded Advanced On-site Health Screening Program for Firefighters - City of Markham",
-    "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNS21qUnhBaWtPUWNPaXZOODlEM3R1am9BYzlMUUVQMDVRbDNDOWwyLW1lV01nOUxGVUtVWHVDa1Y1aFdEZEJRTUlMbHRod1hJRmpUM3hBSEwtZ25fR1ZMNU96YktnR3Bnb1UwTlpkMzV2UkhMS1NiTWJaTWpoS25sc2RtcnkxMjBBYkJ2aFUtNFRfNU9HUTJCVG82S2FNelFkdkNlQVZkNXZzUVNTWm44LXJsZ1lJYXF3aXRMaHp1S2NQQXZWd09nV1pYNDFNazd2dEdJX1k5Zmc4aDluOERWRFAwd0g?oc=5",
-    "summary": "City of Markham Launches Fully Funded Advanced On-site Health Screening Program for Firefighters&nbsp;&nbsp;City of Markham",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "election",
-    "municipalities": [
-      "Markham"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-05T19:59:48.569336+00:00"
-  },
-  {
-    "id": "b598337a365d4926",
-    "title": "Missing Peterborough girl found in Whitchurch-Stouffville - YorkRegion.com",
-    "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPVG9ycDlkT2JkSlF3UHViMmlMcUF0WU9oNjFUbmgzTHNNRDJMdnE1enhvZVdUZXV2UjNUTW1idUt3aWFCZkNEQkI1MEpPTGVKY0FkWEJZVG9mMzNaQjJhOGFGdUs2b0hWbHRhbnlmMWxiYXkxYTFCTUtLdzYxVU9ieWVGcXBtbms2STU0NGU3UXg5QmdjMWh3c3lXRE14NFFWNDRpMExsSmU4WDg3RWRJQTNKbTdLS1hONlFFQlVEZGpMUW96LTJZMXFWVlhKY2RCU3ZpUkNuc1pMV1RheXc?oc=5",
-    "summary": "Missing Peterborough girl found in Whitchurch-Stouffville&nbsp;&nbsp;YorkRegion.com",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "Whitchurch-Stouffville"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-07T23:09:49.984239+00:00"
-  },
-  {
-    "id": "481553497499d2ab",
-    "title": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home - CTV News",
-    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQanFGX2ZldXZldGRHdDJJVW92QmRMM1BWUk42SGVyWDB2YnM4S3hQOHBveXNpYTJvWkFMaWFLU3JSN1R5M2dGWTFYX2VocTlJb1hjLUU0ajVXR3AwTzBNbXY5UWRJenZ5ODUtY2p5ZG93NzhDNGxnNmJ5cDl5UE9qOV90UUpJekxISHV1YWFpcVgzMnlCRTJ1dUhFX3VQbzZTMlRueE04ZE55Rno1U0Z6OTlWakFyOVdHLW0xdHNxZThfbXpKdW5HVDR2bFp6UWY0OTZzbFZnUjM2WTM3VlQxN1dqOGZBSkZGb1lZS2ZRS0k5eEk?oc=5",
-    "summary": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home&nbsp;&nbsp;CTV News",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "King"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-08T18:32:09.088336+00:00"
-  },
-  {
-    "id": "3fe92e1bfbf48a7a",
-    "title": "TRREB Statement on Vaughan’s Reduction of Development Charges - Toronto Regional Real Estate Board (TRREB)",
-    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPVFl6YjNxMHRfSXAxcDc2OHp0OE0tZW5HT3pKRlBkSDdrdktocmVqVzQ3NGQwZDIyR0dLTUE1ekZFek5xSV93Q2ZVbkdlUjhwRkNfQ2ZabXJzN0NUaHlkdnluUWUtZTVoMk5PbDRGbnhNTEFxLV9qek9MeDl6MUxMdkRiVmg?oc=5",
-    "summary": "TRREB Statement on Vaughan’s Reduction of Development Charges&nbsp;&nbsp;Toronto Regional Real Estate Board (TRREB)",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "Vaughan"
-    ],
-    "dc_related": true,
-    "fetched_at": "2026-06-09T07:53:39.497114+00:00"
-  },
-  {
-    "id": "bfce23bf4db84dbd",
-    "title": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home - CP24",
-    "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPQ0N5VF8wRTYtbllPRk9BNUU0WnBfQ0w3Z2l4b3lORzJ0MkZwSjRfZldHLUMwZmxDQTVtOXFiMWhnYVNual9ORmpxOHJZbnhqcEFYaTVsb2RWZExJeUlwZ0lDYTJjWUlVOXdrMy1OSjhOZTM2QnBNTjFPZEtwUV9hbzVxMDR0aWRzQmgyem9ZS2NsRTgzU054dHBBVnQ3TjZzd0huaUI2MXNlZjllcDNkQlZZbG1aUlNZX2ZLcmRKMGpGRzBRM20tTXRJQ3VWNkZ5QmRxcm9PZWtCS29FUmJyT0U1U05DZDdrWEE?oc=5",
-    "summary": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home&nbsp;&nbsp;CP24",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "King"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-13T14:11:42.443142+00:00"
-  },
-  {
-    "id": "e4c06003113e2c4b",
-    "title": "Man accused of human trafficking, child sexual abuse offences: York police - Global News",
-    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNUmxBbXk1UU5SSDVLUXROaHU3WEpPdG9KS3I1eVgtREprWWRfUEZFblAtclM3NElBT21ZWF8wYWoxZlY0eU9yWmt2VjhhbHlDa2pfVm9nbDNTTEhNTTdOV0ZrdUtWcXAyOW5YTXFod2pHRVZ3eXZXM3RURExGeUoxU2JlMWN6VUI0TDBQYmZR?oc=5",
-    "summary": "Man accused of human trafficking, child sexual abuse offences: York police&nbsp;&nbsp;Global News",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [
-      "King"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-20T14:25:15.061728+00:00"
-  },
-  {
-    "id": "548cba84e3e5319e",
-    "title": "Reported gas line leak in Georgina prompts shelter-in-place warning on Wednesday morning - YorkRegion.com",
-    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQUldQbldkWFpwelBpbWVZMDREQW1WeGpzTXRYS2NjZkI5azl1QkJEd1R3dWliWDQwdnhUUl9wVG1fT1ZRVm9DM0NXc21vb2NJQ0lfNXZxWV9mRzlHX3BPcllNR2pJNncyS1g4bERHMGtpSEVsbk1YdmU5QTZidlVwWnMwOXRKX3dYd1Q5RTA0XzFFc3NmcjNaaUdTSUdudHFqbk1yZ2ZPYVhwOHNGWW1qZWtJTGx2OVotV0JLbUhPRFRJVVJGYnJmcFl4Slg?oc=5",
-    "summary": "Reported gas line leak in Georgina prompts shelter-in-place warning on Wednesday morning&nbsp;&nbsp;YorkRegion.com",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "election",
-    "municipalities": [
-      "Georgina"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-07-08T10:10:39.392205+00:00"
-  },
-  {
-    "id": "b4050b9f7c216591",
-    "title": "Aurora moves to boost transparency on councillors’ travel, event costs - AuroraToday.ca",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRHN3YjlMYUZ6aVAtaThNUHpfRldQNk8wSW16eFJVM1Y1Yk5BY1NYSXVnS09qaDFuN1JxdHBsVWlZM2V3VXJjWnBPS283YjlXSTZVWWJ3SEw0QThwUm5NX19RYVBuWXdVNk5Ydmd3ZDlWN1pxZjMyRmtfQldBU25MT0ZoLTVOUzBRZlZVZC1XR3hKTzNDS3B6cFpNc3hxQzZaR005eEt4N3hjTWMxX1dYQms3OTJFUQ?oc=5",
-    "summary": "Aurora moves to boost transparency on councillors’ travel, event costs&nbsp;&nbsp;AuroraToday.ca",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "election",
-    "municipalities": [
-      "Aurora"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-07-12T22:40:19.810008+00:00"
-  },
-  {
-    "id": "c1b5da7e2e766b0b",
-    "title": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home - ctvnews.ca",
-    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQanFGX2ZldXZldGRHdDJJVW92QmRMM1BWUk42SGVyWDB2YnM4S3hQOHBveXNpYTJvWkFMaWFLU3JSN1R5M2dGWTFYX2VocTlJb1hjLUU0ajVXR3AwTzBNbXY5UWRJenZ5ODUtY2p5ZG93NzhDNGxnNmJ5cDl5UE9qOV90UUpJekxISHV1YWFpcVgzMnlCRTJ1dUhFX3VQbzZTMlRueE04ZE55Rno1U0Z6OTlWakFyOVdHLW0xdHNxZThfbXpKdW5HVDR2bFp6UWY0OTZzbFZnUjM2WTM3VlQxN1dqOGZBSkZGb1lZS2ZRS0k5eEk?oc=5",
-    "summary": "47-year-old man charged with human trafficking, child sexual abuse after missing girl found in York Region home&nbsp;&nbsp;ctvnews.ca",
-    "published_at": "2026-04-29T07:00:00+00:00",
-    "category": "development_charges",
-    "municipalities": [],
-    "dc_related": false,
-    "fetched_at": "2026-07-26T02:52:22.481418+00:00"
   }
 ]
