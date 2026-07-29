@@ -1,5 +1,18 @@
 [
   {
+    "id": "d981f6c32e40ba6c",
+    "title": "IN CONTEXT: 'The forgotten level' — Why your vote matters in a municipal election - NewmarketToday.ca",
+    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQkVxU1RHX3BpVmJ6ZGdXVjlSYmM2cFdYMkxkZ2FZclZmRDJOSHlaNTgtbTVjemx0RWFQQ1E3LXRMdXpSTlV0Y2ZKUVc2UF9LZzdOeklTQzR6MC1vWFFjbExxSU1YZXR3bEREMzd1aVEwUkJaNEdjdENoZGpPdE5Nd0JjR3RmdmgwQlU4NUV2WmxXcnhGQUlCTkx1T2tlZ19zeXBSZ3pZSFRJMXlweHp1YnVURQ?oc=5",
+    "summary": "IN CONTEXT: 'The forgotten level' — Why your vote matters in a municipal election&nbsp;&nbsp;NewmarketToday.ca",
+    "published_at": "2026-07-29T17:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Aurora"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-29T17:16:17.184101+00:00"
+  },
+  {
     "id": "34687f1826f3de32",
     "title": "'I feel like it is a calling': Challenger joins race for Newmarket Ward 4 councillor - NewmarketToday.ca",
     "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNcHo0YlpDLWt2TlN4X3BkaVVOQlVWQktvVE5yMXZHdjhUbUx3aTdSUzY3NWlnQ2xjdV95T0FLVTQ1dGdxS3UwZ2JVVEs1SmxfX2NjMFU0RnIxYnh4RDc4RXY3WmhQYUtmMDQ5VlVRX3V3MzBIUk5tVW82OFY3RXFTWmpZd1RCa2NSVXNCcTlXZ0lDd0hPakFiYzVvUEwwbkxFc0FtVHhzXy15WE45eDBpUWI0VG42Vzd2S2FDY0dRTnozYkFkSUNieElBdGdCa3JUbWxqSkVJV0J5dkhGWHZHUXdhNA?oc=5",
@@ -1117,6 +1130,17 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-14T11:20:54.061510+00:00"
+  },
+  {
+    "id": "d3c56aa8e2296be0",
+    "title": "York Region backs sewage expansion submission under new federal-provincial housing infrastructure program - ontarioconstructionnews.com",
+    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOQVAzb0Z0SGRvVjV2X2x6cWNYZjltcXo5QVcweEJMTGlhclJvR2NyWDFjUTJCRnAyVHM4bVBZd1lnbEtGQTlPT2o1aTNVNml0c3N0b3drV0FIc3k1SzFxVjI4NFlVS1VmdnBzd1llaEp2SGs2YnA1cDk3dUpjY1RJcWVsQThHOVdHRV9KaUt2NkNsOURjaS1NR0R1TTJaNlhWbXFsdkYwTmNYWGV0T0JxOXRsMkw1QkJqMHBJeEU3Q0stY1V6VjZLX2xfTkw0cHdsNTZWd1Q1V0k?oc=5",
+    "summary": "York Region backs sewage expansion submission under new federal-provincial housing infrastructure program&nbsp;&nbsp;ontarioconstructionnews.com",
+    "published_at": "2026-06-30T07:00:00+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-07-29T17:16:16.742092+00:00"
   },
   {
     "id": "ea5f22413a069894",
@@ -5547,5 +5571,18 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-24T19:26:30.323701+00:00"
+  },
+  {
+    "id": "c4a26f2058fc0476",
+    "title": "'Defining moment': Bradford councillors jump off municipal election's starting blocks - bradfordtoday.ca",
+    "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxORVR4QXpwalRENExzTWtrbE9wenJNUEtyc3RxMmZPVzR3V3hzcDJWN29sRGstbFkxQzdQUlVfQ0FGS1B2ZjVnMGhJcWl0cElfRnkydEdaUU51czFCRnloaDZ2VkxKaFlWQVdDNzZTQllmRkowU2duR1cxQllPUnl3ZkExZUVFM1haY3d0M0dVSWVsVVp0enlzSXRDandRUkZOS2tvU0ZTVjhkY241S1Z6anhxcFpnR2NsSnNncVd3cW9FMzJISVdVaFRXX3VNcGVXTHZBbkdLOG91dGZjdmxrdmRR?oc=5",
+    "summary": "'Defining moment': Bradford councillors jump off municipal election's starting blocks&nbsp;&nbsp;bradfordtoday.ca",
+    "published_at": "2026-05-01T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Vaughan"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-29T17:16:20.471839+00:00"
   }
 ]
