@@ -1,5 +1,16 @@
 [
   {
+    "id": "edcb4701c5180b99",
+    "title": "Here’s a list of what’s open and closed across York Region on the 2026 Civic Holiday - YorkRegion.com",
+    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOOV9nX0ZWNUJMdmducTRwNGZLNmtDMW94SnBFVm1rX0hHZTI0Y096R1dzMkVDeUZYOVF5YXh0M0hwQTd1WXJoTC02LWZsM0d0ZGt3WGZtamFCNVd2VUxZSklaYTVBTEQ3RnFaQ1hSRG5RcEtKMXBHVjlUaFVEa0dsOXE1cVNDU2JfdXRIY1pZNHdjVFdweGdxWDVObjNManNaUDdpajM3SThfVzlaUHRCNlNVUzhsbkFnOVM5eTZvRjc4WEJUNW5XVG4zcw?oc=5",
+    "summary": "Here’s a list of what’s open and closed across York Region on the 2026 Civic Holiday&nbsp;&nbsp;YorkRegion.com",
+    "published_at": "2026-07-30T10:20:00+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-07-30T14:04:12.762259+00:00"
+  },
+  {
     "id": "481e010e971d7b12",
     "title": "Who's running in King Township? Here's who's entered the 2026 municipal election race so far - YorkRegion.com",
     "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOaDBBS0FjeWI0NGt5aDdQQm9UWlEyX01KZ3RMenZEZXlNTW1vcy1tQ1E1NUVKbnFOLTVxR2tIVFYyQl84NjBackhrRk5SWVFiMXNlVWZ3UHB5SU55WTZRVFB2OVVMekYzNnVzS1BSeXk3OURPOUlQVmlHWm83MlZoN2d2bFB1Mm54aHZ5WlU2Y3BQdHhKNzhUa2ZXc1dKNzFLQXVTWjh6WkRveV9tRHFSZktXVkU3dFdyaUEzQUFIWGdmM2N4eVhpeDZnWkpVbldac09qNW9DQ3BqUFNURV9WWGZvanR2SjA5R2Zodg?oc=5",
@@ -77,6 +88,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-28T17:35:52.910285+00:00"
+  },
+  {
+    "id": "886d6508e08f85b7",
+    "title": "Newmarket deputy mayor formally declares run for re-election - NewmarketToday.ca",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMWJZamk4OTF3LXdWd195V3ZjSUZqakQ0X2pYR2phUXpSRTdsaE5zSy15ejhCajJGaTNrbEFYeGUtM1FTSGI5NzFnUWJjd2lrY1E3MEpJc29adUM0YUVXby1OVlk0ak1FbzVYQ1lOb1M3XzhBY2U4cFptTk9nQVE0RGR6X19qQmd3S1VQcHFpOFVzcGV4M0pzNGdSREJnTXBKN2RLcWhyVVQ0aXZvbU5QTjJ2Nkw3WGxxaTlLbHRpY1RmeHhUcWc?oc=5",
+    "summary": "Newmarket deputy mayor formally declares run for re-election&nbsp;&nbsp;NewmarketToday.ca",
+    "published_at": "2026-07-28T15:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Newmarket"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-30T14:04:15.489775+00:00"
   },
   {
     "id": "65b7598bc190abef",
@@ -1467,6 +1491,19 @@
     "municipalities": [],
     "dc_related": false,
     "fetched_at": "2026-07-29T17:16:16.742092+00:00"
+  },
+  {
+    "id": "4f5e6f59b7e2643a",
+    "title": "Meet the candidates running for open seats on Winnipeg council - winnipeg.citynews.ca",
+    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPd05OYm1xTEd3TERScDdYLXI3OU5Fb202ekh5aUNLWUVCQ3RjMk5UUnItSkxuQjhuZWxfUElZNlhGNU9GdDRISnA3aHFQQnoyVG56dGVWUF9QbUNGdUdBNDRxNEJkVmNwUmR3MmVrcFp1bDhreU9aN3ZiNUIzbkNSZjVxU3RSQQ?oc=5",
+    "summary": "Meet the candidates running for open seats on Winnipeg council&nbsp;&nbsp;winnipeg.citynews.ca",
+    "published_at": "2026-06-30T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Georgina"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-30T14:04:13.972483+00:00"
   },
   {
     "id": "ea5f22413a069894",
@@ -5626,18 +5663,5 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-23T03:53:09.043132+00:00"
-  },
-  {
-    "id": "f6d7fe569a26f57c",
-    "title": "Candidate nominations open for 2026 Ontario municipal elections - CHCH",
-    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObnZMX2praVV0U1FjYm01VG5qOTNnMW11NHVkanktU2NxdXZmUmkxbUJHeEZTX09CWFNObWpJd3kzam1BdHZTQlpuci1oTFhRMkx2MzdGcG5xanlQOXFsOW15YU5YYjlwbVZnN2ZVb2VMMS16M1BxdkZrbk9nTDZDSGZGcV9JbXVDZ1JMck1yQUdxVERwS0pXZnFoaw?oc=5",
-    "summary": "Candidate nominations open for 2026 Ontario municipal elections&nbsp;&nbsp;CHCH",
-    "published_at": "2026-05-01T12:14:12+00:00",
-    "category": "election",
-    "municipalities": [
-      "King"
-    ],
-    "dc_related": false,
-    "fetched_at": "2026-06-07T09:19:21.655092+00:00"
   }
 ]
