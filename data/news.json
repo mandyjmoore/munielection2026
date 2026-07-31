@@ -1,5 +1,16 @@
 [
   {
+    "id": "3713df0ba414f145",
+    "title": "Events this weekend in York Region from July 31 to Aug. 2 - YorkRegion.com",
+    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPdlRXZG9ES0FqeUFqVVBkSFBMVUZFRS1zNWpDNk9DWTE3NFVrTk5aaFNrOXVNTXVkc3RoN0VmQWZZNkF2cFppdEVMczBzc0hYclZJR3hsU09samdSMC1YRVVWYW9YNy1wUzB3emhaY1RyM3oxSnpac0FWRHdtTkRadGZwWE9fRlZKVXhKaWk3aFVIaHpGek4tTHg4eXVPWEdXeElDSHdNZHR4c05Oa1Z3UmNPOHJicGJXYXZWNXk0V2ZTSE1NRGVDM2VzVkEtT2dPbGFRR291eDhxNHB5ZTln?oc=5",
+    "summary": "Events this weekend in York Region from July 31 to Aug. 2&nbsp;&nbsp;YorkRegion.com",
+    "published_at": "2026-07-31T01:13:19+00:00",
+    "category": "development_charges",
+    "municipalities": [],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:38.839572+00:00"
+  },
+  {
     "id": "a6735db470688d14",
     "title": "Most Newmarket council seats still without challengers for municipal election - NewmarketToday.ca",
     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOdTJoYUR0OVYzS3JoTjczYVBhWTVMTXI1RGo2YnpLanhIdlRLeTgzeGQ3RE10X1FzWXhfNmM2bTc3R2tCWUxQQkN5ckVQanNvMTZUaXZBTmt6dlRkR0xZQ1llVXBWNU16TnpTRlhvY05FUEptUlI2aFR0MXQydS1sQWRaUWFLM2lWRzR3NjhyaWhlMk9HbVRYbmREUFd6WTFiSE4xVEw1TzBhRmdyRjJRNU9sQ0RVOVRiU1JPblVrbW8zUHRUTjJzblFmYXp6ZURSR19YbTd0MWs0eXdDSGc?oc=5",
@@ -1103,6 +1114,19 @@
     "fetched_at": "2026-07-20T13:53:05.551900+00:00"
   },
   {
+    "id": "73c503a42837cb41",
+    "title": "Dan Seguin announces run for North Bay mayor - baytoday.ca",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPV1JydGcwRW5idEplYVhkdGttNWJxYURSbjJxNHotSFFubTgwT29kNG9IelBZdVgxSnNXVkNHQWN1UEMxWm1KWlpLRXB5YnVSaDU5ZXFSaDdKVHZFZXdrS3puUkxBbXluNTFNaTZEb0lmRFFGVFBlREpWS2s1MTJlbVJvQXNhMlNnMXVYeGZzS1dpeklrWlJncEdTMXd0bFdiWTNOb2VlVHpnZw?oc=5",
+    "summary": "Dan Seguin announces run for North Bay mayor&nbsp;&nbsp;baytoday.ca",
+    "published_at": "2026-07-10T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:40.616077+00:00"
+  },
+  {
     "id": "556e3d065b579222",
     "title": "Di Girolamo, Bonham set sites on Wards 2 and 3 this fall - newspapers-online.com",
     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNVktuNmtyN0pPSm1aVzZSS00xcUxORzNFa0RqWVJzM0lzWkgzU0RmdmY2SC1XMWNOZ2RTOUJWN3pHUnFIR3RYaFhoemdRRjJHdVV4eC1aeGZ3b2FoWXBQRHUteFUzSW5sdFVCMXpyamt0YnpDUHRsQkVjX1lua3Q3VjJSbVlEbC0yTkROTTZZYUZhdE5xZVpVZGNMeTJYLXc?oc=5",
@@ -1220,6 +1244,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-09T02:14:54.657428+00:00"
+  },
+  {
+    "id": "5f350e702482bb29",
+    "title": "Cities across Ontario are hiring thousands of paid election workers. See what your local area is paying and how to apply - insidehalton.com",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSnV6MTZLOTBiRklENTlEQ2dMSjVDbHlHdjBtOW9kN3FtLXpMWWJMLW01MFo1N05Tem9hWUtKUFZrbWRhTC1hM0tQMUdSTkppaHhBQXBHU3FqWms1ZkliblBBZk41RzU4ei02dlRzUVFUYzlHUHdEWXRWY2otZEJkOEdMQ2tvZTV6eExIaDZSSFVBcmstYUJjQ0l0Zk1XSG1yWGpQYUFiS3ZYaVFCYl9IQ1NCRzh0ejRqMzRfUWxKOA?oc=5",
+    "summary": "Cities across Ontario are hiring thousands of paid election workers. See what your local area is paying and how to apply&nbsp;&nbsp;insidehalton.com",
+    "published_at": "2026-07-07T19:09:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Georgina"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:40.108096+00:00"
   },
   {
     "id": "49361d7e6a955d66",
@@ -1685,6 +1722,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-06-27T17:14:31.098570+00:00"
+  },
+  {
+    "id": "daa56ec9565aacf3",
+    "title": "NOTL Votes 2026: Sandra O’Connor makes re-election bid official - niagaranow.com",
+    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQa1pSVm5xdnY2WlhBTFZfeEtVX0VtOExCSzI0bVRuaVlRVTNqODJlWEQyMUNaUWtzNWVQQURBTy0tWGs2UG5pQTM3TkR1dElDTXotUXNrcW1acS1oU1hHdzRiNDBsdmctdkVxcXpXcXEtX3dqd3g4bUhmZlMwTVlEVVd0eEV3anlwNWE2aHcyRzQ1cXo5bEw4bS1OU3o?oc=5",
+    "summary": "NOTL Votes 2026: Sandra O’Connor makes re-election bid official&nbsp;&nbsp;niagaranow.com",
+    "published_at": "2026-06-26T20:15:49+00:00",
+    "category": "election",
+    "municipalities": [
+      "Vaughan"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:42.624070+00:00"
   },
   {
     "id": "9edb3447bde63709",
@@ -3199,6 +3249,32 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-24T19:26:31.177437+00:00"
+  },
+  {
+    "id": "c1a03f8cd792554d",
+    "title": "These Ontario cities are hiring for the municipal election. You could earn from $20 an hour to over $500 per day - insidehalton.com",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNNVRCbVdGQTRFV3RjYlJwbFRXbHY4cERjTEtfb2xjNm1vdXVTYmxmSDhZUXVHQU1KS0dUNXhZMlBNaEtiUFFleEUzQU5sS3RQWEMxSm0wb29Wb01MRFpQNmhBbmVURzFOelk0VWdJRFpTTXhVeVBjVWtLQkNKRmdPelpkaFF4SDgyWkFVV19ydjdIY1d4NjBIMktjNHR6ZlViVXo0N1ZRelF2QktsNHNuY3hUanNYU1JHb2dTOA?oc=5",
+    "summary": "These Ontario cities are hiring for the municipal election. You could earn from $20 an hour to over $500 per day&nbsp;&nbsp;insidehalton.com",
+    "published_at": "2026-06-10T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Vaughan"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:42.623248+00:00"
+  },
+  {
+    "id": "2295832953d43ccc",
+    "title": "Thinking of running for office? Here’s how to get your name on the ballot in NOTL - niagaranow.com",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSG9EbktEdjdIR2hBc1VHUmJTYTUtWlFYbTltQzhueVc5RW5LanZkSmpoM1E3andva1pEeTdQNHIyeXIyQ2I4b29Wb2NXSHl5eGpSSE9GbXhOZ01XaXdQWlA0SEh2YUN2YlZRVjFaZjN2TmJ3djU2UUM4SjdjVlM2NklaMENiNzQ0ZFo4N1FKblllODFQd1hWbW1iZ1p5V3lYekp1aUs0dFR5YVJaZEs1Z2xWOGo?oc=5",
+    "summary": "Thinking of running for office? Here’s how to get your name on the ballot in NOTL&nbsp;&nbsp;niagaranow.com",
+    "published_at": "2026-06-10T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "Vaughan"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:42.624496+00:00"
   },
   {
     "id": "5644e470c9e4f129",
@@ -5039,6 +5115,19 @@
     ],
     "dc_related": false,
     "fetched_at": "2026-07-20T17:30:58.985888+00:00"
+  },
+  {
+    "id": "6ed0182446f618a4",
+    "title": "Online-only voting coming to North Bay’s 2026 municipal election - baytoday.ca",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZ3hZTkVpNF9FSjlaU2E2MXA1NnlkbnpnYWlvS2FXRkVySmRzcHppSVJhU05hTWxnVFk1Y2Y3R2x5UFZpTG5Hbk1DS2JIZFo1UGJrdF94OEN5TGJhZ3VqVEo3elByV2JOSEJnNWt0RFRWOW92ZWZ5NkhHandHR0tEdTB2TmZDX2FtOUw5SWNtaGZaTy1DbjFwZmFTUXhhS1J5YVJqMDcxSVh2aWs?oc=5",
+    "summary": "Online-only voting coming to North Bay’s 2026 municipal election&nbsp;&nbsp;baytoday.ca",
+    "published_at": "2026-05-12T07:00:00+00:00",
+    "category": "election",
+    "municipalities": [
+      "King"
+    ],
+    "dc_related": false,
+    "fetched_at": "2026-07-31T02:53:40.616706+00:00"
   },
   {
     "id": "2ae79e2ba0417f02",
