@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-31T23:01:27.749408+00:00",
+  "last_updated": "2026-08-01T02:52:41.700812+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -27,7 +27,7 @@
   },
   "scraper_version": "1.0.0",
   "candidate_count": 34,
-  "news_count": 494,
+  "news_count": 495,
   "new_registrations_24h": 0,
   "data_confidence": {
     "candidates_confirmed_filed": 28,
@@ -46,5 +46,5 @@
       "Vaughan": "manual_check_required"
     }
   },
-  "new_filings_7d": 2
+  "new_filings_7d": 1
 }
