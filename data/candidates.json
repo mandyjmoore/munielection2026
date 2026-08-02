@@ -19,17 +19,16 @@
     "last_news_date": "2026-05-11T07:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "competitive",
+      "label": "favored",
       "basis": [
         "Incumbent",
-        "2 challenger(s) filed",
-        "Highest challenger news volume: 3 mention(s)"
+        "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.435263+00:00",
+    "scraped_at": "2026-08-02T09:58:08.809084+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -56,7 +55,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -64,7 +63,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -95,10 +94,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:02.966096+00:00",
+    "scraped_at": "2026-08-02T09:58:10.421593+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -127,10 +126,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:02.966096+00:00",
+    "scraped_at": "2026-08-02T09:58:10.421593+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -159,7 +158,7 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-08-02T06:35:04.429506+00:00",
@@ -190,7 +189,7 @@
       ],
       "confidence": "medium",
       "source": "editorial",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -198,7 +197,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null,
@@ -236,7 +235,7 @@
         "7 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -244,7 +243,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -274,10 +273,10 @@
         "4 candidates filed for 4 at-large seats so far — on track for acclamation if the field holds to nomination day"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:01.839912+00:00",
+    "scraped_at": "2026-08-02T09:58:44.144842+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -305,10 +304,10 @@
         "4 candidates filed for 4 at-large seats so far — on track for acclamation if the field holds to nomination day"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:01.839912+00:00",
+    "scraped_at": "2026-08-02T09:58:44.144842+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -336,10 +335,10 @@
         "4 candidates filed for 4 at-large seats so far — on track for acclamation if the field holds to nomination day"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:01.839912+00:00",
+    "scraped_at": "2026-08-02T09:58:44.144842+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -368,7 +367,7 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-08-02T06:35:02.202915+00:00",
@@ -408,7 +407,7 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-08-02T06:35:02.202915+00:00",
@@ -429,8 +428,8 @@
     "fiscal_alignment_score": 8,
     "fiscal_alignment_label": "strongly_aligned",
     "fiscal_alignment_basis": "voting_record",
-    "fiscal_notes": "Voted YES on \"Pandemic Management and Recovery Reserve Fund restructuring (carried 22–0)\" (2023-02-23). Voted YES on \"2025–2026 Regional Budget adoption (carried 21–0 on recorded vote)\" (2024-11-28). Voted YES on \"Immediate DC deferrals for all residential development (carried 12–8)\" (2025-04-03). Voted NO on \"Overrule Chair to allow extending DC deferrals (defeated 8–11)\" (2025-06-26). Voted YES on \"Demand full provincial reimbursement of ASE cancellation costs (carried 17–1)\" (2025-09-25). Voted NO on \"Amendment: cap DC rates at prevailing rate at occupancy (defeated 4–13)\" (2026-05-21). Plus 7 news article(s) as minor secondary signal. Contested-vote participation: 12 of 12 weight.",
-    "news_mentions": 7,
+    "fiscal_notes": "Voted YES on \"Pandemic Management and Recovery Reserve Fund restructuring (carried 22–0)\" (2023-02-23). Voted YES on \"2025–2026 Regional Budget adoption (carried 21–0 on recorded vote)\" (2024-11-28). Voted YES on \"Immediate DC deferrals for all residential development (carried 12–8)\" (2025-04-03). Voted NO on \"Overrule Chair to allow extending DC deferrals (defeated 8–11)\" (2025-06-26). Voted YES on \"Demand full provincial reimbursement of ASE cancellation costs (carried 17–1)\" (2025-09-25). Voted NO on \"Amendment: cap DC rates at prevailing rate at occupancy (defeated 4–13)\" (2026-05-21). Plus 5 news article(s) as minor secondary signal. Contested-vote participation: 12 of 12 weight.",
+    "news_mentions": 5,
     "last_news_date": "2026-07-16T07:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
@@ -440,10 +439,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.038153+00:00",
+    "scraped_at": "2026-08-02T09:58:09.823730+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -472,10 +471,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.038153+00:00",
+    "scraped_at": "2026-08-02T09:58:09.823730+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -504,10 +503,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.038153+00:00",
+    "scraped_at": "2026-08-02T09:58:09.823730+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -536,7 +535,7 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -567,7 +566,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -598,7 +597,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -629,7 +628,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -660,7 +659,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -691,7 +690,7 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-07-31T10:41:26.311818+00:00",
@@ -723,7 +722,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
     "scraped_at": "2026-08-02T06:35:04.429506+00:00",
@@ -755,10 +754,10 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.435263+00:00",
+    "scraped_at": "2026-08-02T09:58:08.809084+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -777,20 +776,20 @@
     "fiscal_alignment_label": "neutral",
     "fiscal_alignment_basis": "unscored",
     "fiscal_notes": "Not scored — no Regional Council voting record (challenger).",
-    "news_mentions": 3,
+    "news_mentions": 0,
     "last_news_date": "2026-05-04T07:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "competitive",
+      "label": "long_shot",
       "basis": [
         "Challenging an incumbent",
-        "3 news mention(s) — meaningful visibility"
+        "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.435263+00:00",
+    "scraped_at": "2026-08-02T09:58:08.809084+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -819,10 +818,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:02.966096+00:00",
+    "scraped_at": "2026-08-02T09:58:10.421593+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -851,10 +850,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:02.966096+00:00",
+    "scraped_at": "2026-08-02T09:58:10.421593+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -883,10 +882,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:09.428990+00:00",
+    "scraped_at": "2026-08-02T09:58:08.328970+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -915,10 +914,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:09.428990+00:00",
+    "scraped_at": "2026-08-02T09:58:08.328970+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -947,10 +946,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.038153+00:00",
+    "scraped_at": "2026-08-02T09:58:09.823730+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -979,10 +978,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:34:10.038153+00:00",
+    "scraped_at": "2026-08-02T09:58:09.823730+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
     "at_large_pool": true
   },
@@ -1011,10 +1010,10 @@
         "4 candidates filed for 4 at-large seats so far — on track for acclamation if the field holds to nomination day"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-02T06:35:01.839912+00:00",
+    "scraped_at": "2026-08-02T09:58:44.144842+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
     "at_large_pool": true
   },
@@ -1043,7 +1042,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1075,7 +1074,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "manual"
   },
@@ -1106,7 +1105,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-02T06:34:02.798438+00:00"
+      "as_of": "2026-08-02T09:58:02.606860+00:00"
     },
     "source": "manual"
   }
