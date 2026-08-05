@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-05T17:38:50.767905+00:00",
+  "last_updated": "2026-08-05T19:36:13.173308+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -26,11 +26,11 @@
     "note": "Provincially appointed — not on ballot"
   },
   "scraper_version": "1.0.0",
-  "candidate_count": 34,
+  "candidate_count": 35,
   "news_count": 483,
-  "new_registrations_24h": 0,
+  "new_registrations_24h": 1,
   "data_confidence": {
-    "candidates_confirmed_filed": 28,
+    "candidates_confirmed_filed": 29,
     "candidates_unknown_filing_status": 6,
     "seats_total": 21,
     "candidate_scraper_enabled": true,
@@ -46,5 +46,5 @@
       "Vaughan": "manual_check_required"
     }
   },
-  "new_filings_7d": 0
+  "new_filings_7d": 1
 }
