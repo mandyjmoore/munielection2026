@@ -1195,6 +1195,99 @@
     .vr-toggle[aria-expanded="true"] .vr-arrow { transform: rotate(90deg); }
     #voting-record-body.collapsed { display: none; }
 
+    /* ============================================================
+       RECORDED-VOTE GRID (votes × members)
+    ============================================================ */
+    .vg-intro {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .vg-wrap { overflow-x: auto; }
+
+    .vg-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 11px;
+    }
+
+    /* Vote label column stays put while the member columns scroll. */
+    .vg-table th.vg-vote, .vg-table td.vg-vote {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--bg-card);
+      text-align: left;
+      min-width: 250px;
+      max-width: 250px;
+      padding: 6px 12px 6px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .vg-table thead th.vg-vote { z-index: 3; }
+
+    .vg-table thead th {
+      position: sticky;
+      top: 0;
+      background: var(--bg-card);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: -0.01em;
+      padding: 0 2px 7px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      vertical-align: bottom;
+    }
+
+    .vg-member { cursor: pointer; }
+    .vg-member:hover { color: var(--accent); text-decoration: underline; }
+
+    .vg-date  { color: var(--text-dim); white-space: nowrap; margin-right: 6px; }
+    .vg-title { color: var(--text); }
+    .vg-scored { color: var(--accent); margin-left: 4px; }
+    .vg-sub    { color: var(--text-dim); font-size: 10px; line-height: 1.4; margin-top: 1px; }
+
+    .vg-cell {
+      width: 46px;
+      min-width: 46px;
+      text-align: center;
+      font-weight: 600;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    /* Recorded votes are measurements, so the cells carry solid tinted
+       fills — the same register as the alignment chips. A blank cell means
+       the member did not sit on Council for that vote; it never means "no
+       vote cast", which is what the dim dash records. */
+    .vg-for      { background: var(--green-bg);  color: var(--green); }
+    .vg-against  { background: var(--red-bg);    color: var(--red); }
+    .vg-absent   { background: #f4f4f6;          color: var(--text-dim); font-weight: 400; }
+    .vg-conflict { background: var(--yellow-bg); color: var(--yellow); }
+    .vg-none     { background: transparent; }
+
+    .vg-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+    .vg-legend .key {
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 4px;
+      margin-right: 5px;
+      padding: 1px 0;
+    }
+
     /* ---- Print: the Print button builds a dedicated print document in a
        hidden iframe (see openPrintView) — three FIXED-SIZE sheets, one per
        main section, each section transform-scaled to exactly fit its
@@ -1212,6 +1305,7 @@
     body.printing .site-header { position: static; box-shadow: none; backdrop-filter: none; }
     body.printing .feedback-wrap, body.printing #print-btn,
     body.printing #voting-record-section, body.printing #challengers-section,
+    body.printing #vote-grid-section,
     body.printing .modal-overlay,
     body.printing #next-refresh { display: none !important; }
     body.printing #outlook-panel, body.printing #view-chamber { break-after: page; page-break-after: always; }
@@ -1377,6 +1471,24 @@
       <div id="voting-record">
         <div class="loading-spinner"><div class="spinner"></div> Loading voting record…</div>
       </div>
+      </div>
+    </div>
+
+    <!-- Recorded-vote grid — every recorded vote (rows) × every sitting member (columns) -->
+    <div class="alignment-overview" id="vote-grid-section">
+      <div class="section-title">
+        Recorded Votes by Member
+        <span class="badge" id="vote-grid-badge">&hellip;</span>
+      </div>
+      <div class="vg-intro">
+        Every recorded vote of this council since its November 2022 inauguration, from the official minutes.
+        A blank cell means the member did not sit on Council for that vote &mdash; it never means a vote was
+        cast and not recorded. Voice votes carry no individual attribution and are not included.
+        Motions marked <span class="vg-scored">&#9878;</span> feed the fiscal alignment scores above.
+        Member names open that member&rsquo;s full vote history.
+      </div>
+      <div id="vote-grid">
+        <div class="loading-spinner"><div class="spinner"></div> Loading vote grid&hellip;</div>
       </div>
     </div>
 
@@ -2459,6 +2571,105 @@
   }
 
   // ============================================================
+  // RENDER: RECORDED-VOTE GRID (votes × members)
+  // ============================================================
+  function renderVoteGrid() {
+    const el = document.getElementById('vote-grid');
+    const badge = document.getElementById('vote-grid-badge');
+    if (!el) return;
+
+    // Columns: sitting members only (the same set that is scored), ordered
+    // by surname — the minutes' own convention, where the two Chans carry a
+    // first initial and nobody else needs one.
+    const surname = s => s.replace(/^[A-Z]\.\s*/, '');
+    const members = state.candidates
+      .filter(c => (c.status === 'incumbent' || c.status === 'appointed') && RECORD_NAMES[c.name])
+      .map(c => ({ cid: c.id, name: c.name, short: RECORD_NAMES[c.name] }))
+      .sort((a, b) => surname(a.short).localeCompare(surname(b.short)) || a.short.localeCompare(b.short));
+
+    // Rows: every recorded vote, newest first (matching the voting record).
+    const rows = [];
+    for (const mtg of (state.votingRecord.meetings || [])) {
+      for (const m of mtg.motions) {
+        if (m.vote_type !== 'recorded' || !m.recorded_vote) continue;
+        rows.push({ date: mtg.date, motion: m, scored: findScoredVote(mtg.date, m) });
+      }
+    }
+    rows.reverse();
+
+    if (badge) badge.textContent = `${rows.length} recorded votes · ${members.length} members`;
+
+    if (!rows.length || !members.length) {
+      el.innerHTML = `<div class="empty-state">Voting record not loaded yet.</div>`;
+      return;
+    }
+
+    const CELL = {
+      for:      ['&#10003;', 'vg-for',      'Voted for'],
+      against:  ['&#10007;', 'vg-against',  'Voted against'],
+      absent:   ['&ndash;',  'vg-absent',   'Absent'],
+      conflict: ['C',        'vg-conflict', 'Conflict declared'],
+    };
+
+    const head = `<tr>
+      <th class="vg-vote">Recorded vote</th>
+      ${members.map(m => `<th class="vg-cell"><span class="vg-member" data-cid="${escapeHtml(m.cid)}" title="${escapeHtml(m.name)} — click for this member's full recorded-vote history">${escapeHtml(m.short)}</span></th>`).join('')}
+    </tr>`;
+
+    const body = rows.map(r => {
+      const rv = r.motion.recorded_vote;
+      const title = r.scored ? r.scored.title
+        : ((r.motion.item || '').replace(/^[A-Z]\.\d+(\.\d+)?\s*/, '') || r.motion.text.slice(0, 90));
+      const disp = r.motion.disposition === 'Recorded' ? 'outcome not parsed' : r.motion.disposition;
+      const tip = `${disp} ${rv.for.length}–${rv.against.length}\n\n${r.motion.text.slice(0, 600)}`;
+
+      const cells = members.map(m => {
+        let cast = null;
+        if (rv.for.includes(m.short)) cast = 'for';
+        else if (rv.against.includes(m.short)) cast = 'against';
+        else if (rv.absent.includes(m.short)) cast = 'absent';
+        else if ((rv.conflict || []).includes(m.short)) cast = 'conflict';
+        // No entry at all = not a member at the time (e.g. the Chair before
+        // his December 2024 appointment). Left blank, never inferred.
+        if (!cast) return `<td class="vg-cell vg-none" title="${escapeHtml(m.short)}: not on Council for this vote"></td>`;
+        const [mark, cls, word] = CELL[cast];
+        return `<td class="vg-cell ${cls}" title="${escapeHtml(m.short)}: ${word}">${mark}</td>`;
+      }).join('');
+
+      // Several motions in a meeting can share one agenda item, so unscored
+      // rows carry the motion's own wording underneath to tell them apart.
+      // Scored votes already have a written title that does that.
+      const subText = r.scored ? '' : r.motion.text.replace(/^That\s+/i, '');
+      const sub = subText
+        ? `<div class="vg-sub">${escapeHtml(subText.slice(0, 64))}${subText.length > 64 ? '&hellip;' : ''}</div>`
+        : '';
+
+      return `<tr>
+        <td class="vg-vote" title="${escapeHtml(tip)}">
+          <span class="vg-date">${escapeHtml(r.date)}</span><span class="vg-title">${escapeHtml(title.slice(0, 70))}</span>${r.scored ? '<span class="vg-scored" title="Feeds the fiscal alignment scores">&#9878;</span>' : ''}
+          ${sub}
+        </td>
+        ${cells}
+      </tr>`;
+    }).join('');
+
+    el.innerHTML = `
+      <div class="vg-wrap">
+        <table class="vg-table">
+          <thead>${head}</thead>
+          <tbody>${body}</tbody>
+        </table>
+      </div>
+      <div class="vg-legend">
+        <span><span class="key vg-for">&#10003;</span>For</span>
+        <span><span class="key vg-against">&#10007;</span>Against</span>
+        <span><span class="key vg-absent">&ndash;</span>Absent</span>
+        <span><span class="key vg-conflict">C</span>Conflict declared</span>
+        <span><span class="key vg-none" style="border:1px solid var(--border)">&nbsp;</span>Not on Council</span>
+      </div>`;
+  }
+
+  // ============================================================
   // MAIN RENDER
   // ============================================================
   function render() {
@@ -2469,6 +2680,7 @@
     renderChallengers();
     renderAlignmentOverview();
     renderVotingRecord();
+    renderVoteGrid();
   }
 
   // ============================================================
@@ -2493,6 +2705,14 @@
     if (outlookComp) {
       outlookComp.addEventListener('click', e => {
         const link = e.target.closest('.member-link');
+        if (link) openMemberModal(link.dataset.cid);
+      });
+    }
+    // Vote-grid column headers open the same modal
+    const voteGrid = document.getElementById('vote-grid');
+    if (voteGrid) {
+      voteGrid.addEventListener('click', e => {
+        const link = e.target.closest('.vg-member[data-cid]');
         if (link) openMemberModal(link.dataset.cid);
       });
     }
