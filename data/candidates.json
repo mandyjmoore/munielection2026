@@ -25,10 +25,10 @@
         "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:52.607081+00:00",
+    "scraped_at": "2026-08-08T15:38:12.223764+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -55,7 +55,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -63,7 +63,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -94,10 +94,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:42.076580+00:00",
+    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -126,10 +126,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:42.076580+00:00",
+    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -158,10 +158,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:47.971836+00:00",
+    "scraped_at": "2026-08-08T15:38:06.748308+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -189,7 +189,7 @@
       ],
       "confidence": "medium",
       "source": "editorial",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -197,7 +197,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null,
@@ -234,7 +234,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -242,7 +242,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -273,10 +273,10 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -305,10 +305,10 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -337,10 +337,10 @@
         "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -369,10 +369,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:43.726764+00:00",
+    "scraped_at": "2026-08-08T15:38:20.601636+00:00",
     "likely_to_run_again_override": {
       "label": "likely",
       "basis": [
@@ -409,10 +409,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:43.726764+00:00",
+    "scraped_at": "2026-08-08T15:38:20.601636+00:00",
     "first_seen_at": "2026-07-29T17:16:21.324841+00:00"
   },
   {
@@ -441,10 +441,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:46.393671+00:00",
+    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -473,10 +473,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:46.393671+00:00",
+    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -505,10 +505,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:46.393671+00:00",
+    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -537,7 +537,7 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -568,7 +568,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -599,7 +599,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -630,7 +630,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -661,7 +661,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -692,10 +692,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:50.234079+00:00",
+    "scraped_at": "2026-08-08T15:38:22.831724+00:00",
     "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
   },
   {
@@ -724,10 +724,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:47.971836+00:00",
+    "scraped_at": "2026-08-08T15:38:06.748308+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -756,10 +756,10 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:52.607081+00:00",
+    "scraped_at": "2026-08-08T15:38:12.223764+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -788,10 +788,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:52.607081+00:00",
+    "scraped_at": "2026-08-08T15:38:12.223764+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -820,10 +820,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:42.076580+00:00",
+    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -852,10 +852,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:42.076580+00:00",
+    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -878,16 +878,16 @@
     "last_news_date": "2026-05-29T16:22:59+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "long_shot",
+      "label": "competitive_if_open",
       "basis": [
-        "Challenging an incumbent who has not filed yet",
-        "2 news mention(s) — limited visibility"
+        "Incumbent has not filed and is not assessed either way",
+        "2 challengers filed — an open 2-way race if the incumbent does not file by nomination day"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:55.102903+00:00",
+    "scraped_at": "2026-08-08T15:38:16.314521+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -910,16 +910,16 @@
     "last_news_date": "2026-05-11T07:00:00+00:00",
     "likely_to_run_again": null,
     "likely_to_win": {
-      "label": "long_shot",
+      "label": "competitive_if_open",
       "basis": [
-        "Challenging an incumbent who has not filed yet",
-        "2 news mention(s) — limited visibility"
+        "Incumbent has not filed and is not assessed either way",
+        "2 challengers filed — an open 2-way race if the incumbent does not file by nomination day"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:55.102903+00:00",
+    "scraped_at": "2026-08-08T15:38:16.314521+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -948,10 +948,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:46.393671+00:00",
+    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -980,10 +980,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:46.393671+00:00",
+    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
     "at_large_pool": true
   },
@@ -1013,10 +1013,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
     "at_large_pool": true
   },
@@ -1045,7 +1045,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1077,7 +1077,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "manual"
   },
@@ -1108,7 +1108,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "manual"
   },
@@ -1139,10 +1139,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:43.726764+00:00",
+    "scraped_at": "2026-08-08T15:38:20.601636+00:00",
     "first_seen_at": "2026-08-05T19:36:53.465998+00:00"
   },
   {
@@ -1168,14 +1168,14 @@
     "likely_to_win": {
       "label": "long_shot",
       "basis": [
-        "Challenging an incumbent who has not filed yet",
+        "Challenging an incumbent who has not filed yet but is assessed likely to run",
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   },
   {
@@ -1205,10 +1205,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   },
   {
@@ -1238,10 +1238,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:22:32.505448+00:00"
+      "as_of": "2026-08-08T15:37:49.493461+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:22:57.697843+00:00",
+    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
     "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   }
 ]

@@ -275,14 +275,20 @@ def estimate_likely_to_win(
         }
 
     # Candidate is a challenger. A seat is only OPEN when no sitting member is
-    # coming back — the roster has no incumbent, or the incumbent has declined.
-    # An incumbent who simply hasn't filed yet does NOT open the seat
-    # (2026-08-08 fix): nominations run to Aug 21, and reading "no filed
-    # incumbent" as "no incumbent" promoted every lone challenger to
-    # "competitive" on the strength of the incumbent's missing paperwork —
-    # it put a single-issue challenger level with a five-term mayor.
+    # coming back — the roster has no incumbent, the incumbent has declined,
+    # or nominations closed without them filing. An incumbent who simply
+    # hasn't filed YET does NOT open the seat (2026-08-08 fix): nominations
+    # run to Aug 21, and reading "no filed incumbent" as "no incumbent"
+    # promoted every lone challenger to "competitive" on the strength of the
+    # incumbent's missing paperwork — it put a first-time single-issue
+    # challenger level with a five-term mayor.
     seat_incumbent = next((c for c in seat_candidates if c.get("status") == "incumbent"), None)
-    if seat_incumbent is None or seat_incumbent.get("filed_for_reelection") == "declined":
+    seat_is_open = (
+        seat_incumbent is None
+        or seat_incumbent.get("filed_for_reelection") == "declined"
+        or (nomination_day_passed and not _is_filed(seat_incumbent))
+    )
+    if seat_is_open:
         return {
             "label": "competitive",
             "basis": ["Open seat — no incumbent returning", f"{len(seat_candidates)} candidate(s) filed"],
@@ -290,8 +296,47 @@ def estimate_likely_to_win(
             "as_of": as_of,
         }
 
+    # Before nominations close, an unfiled incumbent is the dominant unresolved
+    # variable in the race, and calling their challengers "long shots" asserts
+    # the branch where the incumbent files — the mirror of the bug above. When
+    # the incumbent's return is genuinely unsettled AND enough challengers have
+    # filed that the seat would be a real contest without them, say so
+    # conditionally rather than picking a branch (2026-08-08 decision).
+    #
+    # "Genuinely unsettled" excludes an incumbent already assessed likely to
+    # run: the dashboard must not publish a projection that contradicts its own
+    # recorded editorial assessment. Requiring TWO filed challengers is what
+    # keeps this honest — with only one, the conditional would amount to
+    # "this challenger is acclaimed if the incumbent walks away", a claim the
+    # arithmetic supports but nothing else does.
+    # Read the override directly rather than the computed likely_to_run_again:
+    # estimate_all passes the pre-estimate candidate list here, so the computed
+    # field may be a stale carry-over. "likely" can only ever come from an
+    # editorial override anyway — the news path never emits it.
+    incumbent_assessed_running = (
+        (seat_incumbent.get("likely_to_run_again_override") or {}).get("label") == "likely"
+        or (seat_incumbent.get("likely_to_run_again") or {}).get("label") == "likely"
+    )
+    filed_challengers = [
+        c for c in seat_candidates
+        if c.get("status") != "incumbent" and _is_filed(c)
+    ]
+    if not _is_filed(seat_incumbent) and not incumbent_assessed_running and len(filed_challengers) >= 2:
+        return {
+            "label": "competitive_if_open",
+            "basis": [
+                "Incumbent has not filed and is not assessed either way",
+                f"{len(filed_challengers)} challengers filed — an open {len(filed_challengers)}-way race if the incumbent does not file by nomination day",
+            ],
+            "confidence": "low",
+            "as_of": as_of,
+        }
+
     facing = "Challenging an incumbent" + (
-        " who has not filed yet" if not _is_filed(seat_incumbent) else ""
+        " who has not filed yet but is assessed likely to run"
+        if not _is_filed(seat_incumbent) and incumbent_assessed_running
+        else " who has not filed yet" if not _is_filed(seat_incumbent)
+        else ""
     )
     own_mentions = len(find_relevant_articles(candidate["name"], news_articles))
     if own_mentions >= 3:
