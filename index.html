@@ -193,7 +193,9 @@
     /* Municipality group header — outranks its rows: larger and darker than
        the 13px body text. */
     .ch-group td {
-      padding: 8px 12px 8px 10px;
+      /* No left padding — the municipality name aligns flush with the
+         candidate names below it, not indented past them. */
+      padding: 8px 12px 8px 0;
       background: var(--bg);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
