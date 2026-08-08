@@ -190,6 +190,29 @@
 
     .ch-table tr:last-child td { border-bottom: none; }
 
+    /* Municipality group header — dot colour matches that municipality's
+       block in the Council Chamber grid, so the two sections read together. */
+    .ch-group td {
+      padding: 16px 12px 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .ch-table tbody tr.ch-group:first-child td { padding-top: 10px; }
+
+    .ch-group .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 7px;
+      vertical-align: 1px;
+    }
+
     .ch-name { font-weight: 600; color: var(--text); white-space: nowrap; }
     .ch-seat { color: var(--text-muted); white-space: nowrap; }
     .ch-at-large { color: var(--text-dim); }
@@ -1635,7 +1658,6 @@
     const challengers = regionalCandidates()
       .filter(c => c.status === 'challenger' && isFiled(c))
       .sort((a, b) =>
-        (a.municipality || '').localeCompare(b.municipality || '') ||
         (a.office || '').localeCompare(b.office || '') ||
         (a.name || '').localeCompare(b.name || ''));
 
@@ -1648,9 +1670,9 @@
 
     const bios = (state.challengerBios || {}).bios || {};
 
-    const rows = challengers.map(c => {
+    const row = c => {
       const bio  = bios[c.id] || {};
-      const seat = `${escapeHtml(c.municipality)} &middot; ${escapeHtml(c.office)}${c.at_large_pool ? ' <span class="ch-at-large">(at-large)</span>' : ''}`;
+      const seat = `${escapeHtml(c.office)}${c.at_large_pool ? ' <span class="ch-at-large">(at-large)</span>' : ''}`;
 
       const d = parseFiledDate(c);
       const dateCell = d
@@ -1672,6 +1694,21 @@
         <td class="ch-reg">${dateCell}</td>
         <td class="ch-bio">${bioCell}</td>
       </tr>`;
+    };
+
+    // Grouped by municipality, in the same order as the Council Chamber tiles.
+    // Any municipality not in that list (there shouldn't be one) follows.
+    const municipalities = CHAMBER_MUNI_ORDER
+      .concat([...new Set(challengers.map(c => c.municipality))]
+        .filter(m => !CHAMBER_MUNI_ORDER.includes(m))
+        .sort());
+
+    const rows = municipalities.map(muni => {
+      const group = challengers.filter(c => c.municipality === muni);
+      if (!group.length) return '';
+      const dot = MUNI_COLORS[muni] || 'var(--text-dim)';
+      return `<tr class="ch-group"><td colspan="4"><span class="dot" style="background:${dot}"></span>${escapeHtml(muni)}</td></tr>`
+        + group.map(row).join('');
     }).join('');
 
     body.innerHTML = `
