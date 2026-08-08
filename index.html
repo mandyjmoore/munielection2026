@@ -190,31 +190,21 @@
 
     .ch-table tr:last-child td { border-bottom: none; }
 
-    /* Municipality group header — dot colour matches that municipality's
-       block in the Council Chamber grid, so the two sections read together. */
+    /* Municipality group header — outranks its rows: larger and darker than
+       the 13px body text. */
     .ch-group td {
-      padding: 7px 12px 7px 10px;
+      padding: 8px 12px 8px 10px;
       background: var(--bg);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      font-size: 11px;
+      font-size: 15px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: var(--text-muted);
+      letter-spacing: -0.01em;
+      color: var(--text);
     }
 
     /* A little air under each band before its first candidate row. */
     .ch-table tbody tr.ch-group + tr td { padding-top: 12px; }
-
-    .ch-group .dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-right: 7px;
-      vertical-align: 1px;
-    }
 
     .ch-name { font-weight: 600; color: var(--text); white-space: nowrap; }
     .ch-seat { color: var(--text-muted); white-space: nowrap; }
@@ -1709,8 +1699,7 @@
     const rows = municipalities.map(muni => {
       const group = challengers.filter(c => c.municipality === muni);
       if (!group.length) return '';
-      const dot = MUNI_COLORS[muni] || 'var(--text-dim)';
-      return `<tr class="ch-group"><td colspan="4"><span class="dot" style="background:${dot}"></span>${escapeHtml(muni)}</td></tr>`
+      return `<tr class="ch-group"><td colspan="4">${escapeHtml(muni)}</td></tr>`
         + group.map(row).join('');
     }).join('');
 
