@@ -31,17 +31,24 @@ jobs:
       - name: Run scraper
         run: python scraper/main.py
 
-      - name: Detect new registrations
+      # Roster changes: new filings, withdrawals, and silently-broken scrapers.
+      - name: Detect roster changes
         id: detect
         run: |
           SUMMARY=$(python scraper/detect_new_registrations.py \
-            /tmp/candidates_before.json data/candidates.json /tmp/issue_body.md)
+            /tmp/candidates_before.json data/candidates.json /tmp/issue_body.md \
+            data/metadata.json)
           if [ -n "$SUMMARY" ]; then
             echo "summary=$SUMMARY" >> "$GITHUB_OUTPUT"
           fi
 
+      # The commit subject carries the delta, so `git log --oneline` is a
+      # readable change feed and a quiet run is visibly quiet — no session
+      # needed to find out what happened.
       - name: Commit and push updated data
         id: push
+        env:
+          SUMMARY: ${{ steps.detect.outputs.summary }}
         run: |
           git config user.name "election-bot"
           git config user.email "actions@github.com"
@@ -49,7 +56,12 @@ jobs:
           if git diff --staged --quiet; then
             echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Auto-update: election data $(date -u '+%Y-%m-%d %H:%M UTC')"
+            STAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+            if [ -n "$SUMMARY" ]; then
+              git commit -m "Auto-update: $SUMMARY ($STAMP)"
+            else
+              git commit -m "Auto-update: no roster changes ($STAMP)"
+            fi
             git push
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
@@ -65,13 +77,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run pages.yml --ref main
 
-      - name: Open issue for new registration(s)
+      - name: Open issue for roster change(s)
         if: steps.detect.outputs.summary != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TITLE: ${{ steps.detect.outputs.summary }}
         run: |
           gh label create new-registration --color 1f883d \
-            --description "Auto: a candidate newly filed" 2>/dev/null || true
+            --description "Auto: candidate roster changed" 2>/dev/null || true
           gh issue create --title "🗳️ $TITLE" \
             --body-file /tmp/issue_body.md --label new-registration

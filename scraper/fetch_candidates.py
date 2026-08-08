@@ -495,6 +495,7 @@ def _match_seats(seats: list[dict], municipality: str, office: str, ward: Option
 
 def reconcile_scraped_candidates(
     raw_candidates: list[dict], existing_candidates: list[dict], seats: list[dict],
+    scraped_municipalities: Optional[set[str]] = None,
 ) -> list[dict]:
     """
     Turn raw (name, municipality, office, ward, date_filed) tuples into full
@@ -504,12 +505,20 @@ def reconcile_scraped_candidates(
         a duplicate.
       - No match -> new challenger record, linked to the contested seat_id
         where determinable.
+      - Previously-registered candidate who has VANISHED from a municipality
+        we scraped successfully -> treated as a withdrawal (see below).
+
+    scraped_municipalities is the set that returned candidates this run. Only
+    those are eligible for withdrawal detection: a municipality that failed to
+    fetch, or whose extractor broke and returned nothing, must never be read
+    as "everybody withdrew".
     """
     candidates_by_id = {c["id"]: c for c in existing_candidates}
     incumbent_names_by_seat = _seat_incumbent_names(seats, candidates_by_id)
 
     updated = {c["id"]: dict(c) for c in existing_candidates}
     seat_taken_by_challenger: dict[str, int] = {}
+    seen_ids: set[str] = set()
 
     for rc in raw_candidates:
         matched_seats = _match_seats(seats, rc["municipality"], rc["office"], rc["ward"])
@@ -534,7 +543,12 @@ def reconcile_scraped_candidates(
             existing.setdefault("first_seen_at", rc["scraped_at"])
             if rc["withdrawn"]:
                 existing["fiscal_notes"] = (existing.get("fiscal_notes") or "") + " Filed then withdrew nomination."
+            else:
+                existing.pop("withdrawal_basis", None)
+                existing.pop("withdrawn_detected_at", None)
+            existing.pop("absent_from_source_since", None)
             updated[cid] = existing
+            seen_ids.add(cid)
             continue
 
         if rc["withdrawn"]:
@@ -543,6 +557,7 @@ def reconcile_scraped_candidates(
             continue
 
         cid = make_challenger_id(rc["municipality"], rc["office"], rc["ward"], rc["name"])
+        seen_ids.add(cid)
 
         if cid in updated:
             # Known challenger re-observed on a later scrape: refresh only the
@@ -552,6 +567,14 @@ def reconcile_scraped_candidates(
             existing = updated[cid]
             existing["filing_source"] = rc["filing_source"]
             existing["registered"] = True
+            # Back on the clerk's list: undo any withdrawal we had recorded.
+            # Without this a candidate who was briefly missing (or genuinely
+            # withdrew and re-filed before nomination day) would stay
+            # "declined" while showing as registered — a contradictory record
+            # that the lame-duck count reads on the wrong side.
+            existing["filed_for_reelection"] = "confirmed"
+            existing.pop("withdrawal_basis", None)
+            existing.pop("withdrawn_detected_at", None)
             existing["registration_date"] = rc["date_filed"]
             existing["scraped_at"] = rc["scraped_at"]
             existing.setdefault("first_seen_at", rc["scraped_at"])
@@ -603,7 +626,64 @@ def reconcile_scraped_candidates(
             "first_seen_at": rc["scraped_at"],
         }
 
+    _mark_vanished_as_withdrawn(updated, seen_ids, scraped_municipalities or set())
     return list(updated.values())
+
+
+def _mark_vanished_as_withdrawn(
+    updated: dict[str, dict], seen_ids: set[str], scraped_municipalities: set[str],
+) -> None:
+    """
+    Withdrawal detection. Most clerks do not annotate a withdrawal — they simply
+    delete the candidate from the published list. Reconciliation carries every
+    known record forward and only touches the ones it just scraped, so without
+    this a withdrawn candidate would stay `registered: true` forever. That
+    matters beyond cosmetics: the lame-duck calculation counts confirmed
+    filings against a 17-of-22 threshold, so a missed withdrawal can report the
+    council on the safe side of a statutory line it has actually crossed.
+
+    Two-run confirmation, deliberately: a single absence can be a transient
+    half-rendered page or a name the extractor briefly failed to parse, and
+    silently deleting a real filing is worse than reporting it a couple of
+    hours late. First absence only records `absent_from_source_since`; the
+    second consecutive absence flips the record. Reappearing clears the mark.
+
+    Only municipalities that actually returned candidates this run are
+    eligible — a failed fetch or a broken extractor must never read as
+    "everyone withdrew". Vaughan is therefore never touched here (it has no
+    server-side scrape); its filings come from manual_overrides.json, which
+    main.py applies after this and which always wins.
+    """
+    for cid, cand in updated.items():
+        if cand.get("municipality") not in scraped_municipalities:
+            continue
+        if cid in seen_ids:
+            cand.pop("absent_from_source_since", None)
+            continue
+        if not cand.get("registered"):
+            continue
+
+        first_absent = cand.get("absent_from_source_since")
+        if not first_absent:
+            cand["absent_from_source_since"] = datetime.now(timezone.utc).isoformat()
+            logger.warning(
+                "%s (%s) is registered but absent from %s's list this run — "
+                "flagged; a second consecutive absence will mark it withdrawn.",
+                cand.get("name"), cand.get("office"), cand.get("municipality"),
+            )
+            continue
+
+        logger.error(
+            "WITHDRAWAL DETECTED: %s (%s, %s) has been absent from the clerk's "
+            "published list since %s — marking as withdrawn.",
+            cand.get("name"), cand.get("municipality"), cand.get("office"), first_absent,
+        )
+        cand["registered"] = False
+        cand["filed_for_reelection"] = "declined"
+        cand["withdrawn_detected_at"] = datetime.now(timezone.utc).isoformat()
+        cand["withdrawal_basis"] = (
+            f"Removed from the clerk's published candidate list (first absent {first_absent[:10]})"
+        )
 
 
 def make_challenger_id(municipality: str, office: str, ward: Optional[str], name: str) -> str:
@@ -640,6 +720,9 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
     in metadata.json so the failure is inspectable rather than invisible.
     """
     all_raw = []
+    # Municipalities that actually produced candidates this run — the only ones
+    # eligible for withdrawal detection (see _mark_vanished_as_withdrawn).
+    scraped_ok: set[str] = set()
     SCRAPE_WARNINGS.clear()
     had_filings_before = _municipalities_with_prior_filings(existing_candidates)
 
@@ -701,7 +784,8 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
 
         logger.info("Found %d candidates for %s", len(raw), municipality)
         all_raw.extend(raw)
+        scraped_ok.add(municipality)
 
-    merged = reconcile_scraped_candidates(all_raw, existing_candidates, seats)
+    merged = reconcile_scraped_candidates(all_raw, existing_candidates, seats, scraped_ok)
     logger.info("Total candidates after merge: %d", len(merged))
     return merged
