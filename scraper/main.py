@@ -184,24 +184,12 @@ def main():
     ]
     metadata["new_registrations_24h"] = len(new_registrations)
 
-    # Filings in the last 7 days by the clerk-published date filed — the
-    # real-world "timely" signal, independent of when we happened to scrape.
-    def parse_filed(c):
-        raw = c.get("registration_date")
-        if not raw:
-            return None
-        for fmt in ("%B %d, %Y", "%b %d, %Y", "%Y-%m-%d"):
-            try:
-                return datetime.strptime(raw.strip(), fmt).date()
-            except ValueError:
-                continue
-        return None
-
-    cutoff_7d = (now - timedelta(days=7)).date()
-    metadata["new_filings_7d"] = sum(
-        1 for c in scored_candidates
-        if c.get("registered") and (d := parse_filed(c)) and d >= cutoff_7d
-    )
+    # The "filings in the last 7 days" metric was REMOVED at the maintainer's
+    # direction (2026-08-08) along with the alert banner it fed. It could only
+    # count clerk-published filing dates, and Markham and Whitchurch-Stouffville
+    # publish none — so those municipalities could never appear in it, which
+    # made the number quietly misleading rather than useful. The dashboard's
+    # Summary of Challengers section carries that visibility now.
 
     from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS, SCRAPE_WARNINGS
 

@@ -146,26 +146,66 @@
     }
 
     /* ============================================================
-       ALERT BANNER
+       SUMMARY OF CHALLENGERS
     ============================================================ */
-    .alert-banner {
-      background: linear-gradient(90deg, #e8f7ec, #def3e5);
-      border: 1px solid var(--green-dim);
-      border-radius: var(--radius);
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 12px 0;
+    .challengers-intro {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 14px;
+      max-width: 900px;
+    }
+
+    .challengers-empty {
+      font-size: 13px;
+      color: var(--text-dim);
+      padding: 8px 0;
+    }
+
+    .ch-table-wrap { overflow-x: auto; }
+
+    .ch-table {
+      width: 100%;
+      border-collapse: collapse;
       font-size: 13px;
     }
 
-    .alert-banner .alert-icon {
-      font-size: 16px;
-      flex-shrink: 0;
+    .ch-table th {
+      text-align: left;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-dim);
+      font-weight: 600;
+      padding: 0 12px 8px 0;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
     }
 
-    .alert-banner.hidden { display: none; }
+    .ch-table td {
+      padding: 10px 12px 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+
+    .ch-table tr:last-child td { border-bottom: none; }
+
+    .ch-name { font-weight: 600; color: var(--text); white-space: nowrap; }
+    .ch-seat { color: var(--text-muted); white-space: nowrap; }
+    .ch-at-large { color: var(--text-dim); }
+    .ch-reg  { white-space: nowrap; }
+    .ch-date { color: var(--text-muted); }
+
+    /* Dashed underline = no value published — consistent with the estimate
+       styling elsewhere: never render an absence as if it were a known date. */
+    .ch-nodate {
+      color: var(--text-dim);
+      border-bottom: 1px dashed var(--border);
+      cursor: help;
+    }
+
+    .ch-bio   { color: var(--text-muted); line-height: 1.55; min-width: 260px; }
+    .ch-nobio { color: var(--text-dim); font-style: italic; }
 
     /* ============================================================
        LAME-DUCK COUNCIL STATUS
@@ -911,6 +951,13 @@
     .win-est.est-acclaimed  { color: var(--green); }
     .win-est.est-competitive { color: var(--yellow); }
     .win-est.est-long_shot  { color: var(--orange); }
+    /* Contingent on something not yet settled (the incumbent's filing), so it
+       reads a step quieter than a firm estimate and is allowed to wrap — the
+       "if …" clause is the whole point and must not be clipped. */
+    .win-est.est-competitive_if_open {
+      color: var(--text-muted);
+      white-space: normal;
+    }
 
     .score-pill {
       font-size: 10px;
@@ -1159,8 +1206,9 @@
     body.printing { background: #fff; }
     body.printing .container { max-width: 980px; }
     body.printing .site-header { position: static; box-shadow: none; backdrop-filter: none; }
-    body.printing .feedback-wrap, body.printing #print-btn, body.printing .alert-banner,
-    body.printing #voting-record-section, body.printing .modal-overlay,
+    body.printing .feedback-wrap, body.printing #print-btn,
+    body.printing #voting-record-section, body.printing #challengers-section,
+    body.printing .modal-overlay,
     body.printing #next-refresh { display: none !important; }
     body.printing #outlook-panel, body.printing #view-chamber { break-after: page; page-break-after: always; }
     body.printing .chamber-wrap { overflow: visible; padding-bottom: 0; }
@@ -1217,11 +1265,6 @@
       </div>
     </div>
 
-    <!-- Alert Banner -->
-    <div class="alert-banner hidden" id="alert-banner">
-      <span class="alert-icon">&#128276;</span>
-      <span id="alert-text">New candidate registrations detected in the last 24 hours.</span>
-    </div>
   </div>
 </header>
 
@@ -1281,6 +1324,23 @@
         <div class="chamber" id="chamber">
           <!-- chairs injected by JS -->
         </div>
+      </div>
+    </div>
+
+    <!-- Summary of Challengers — every registered non-incumbent -->
+    <div class="alignment-overview" id="challengers-section">
+      <div class="section-title">
+        Summary of Challengers
+        <span class="badge" id="challengers-badge">0 candidates</span>
+      </div>
+      <div class="challengers-intro">
+        Registered candidates who do not currently hold the Regional Council seat they are contesting.
+        Biographies are factual summaries from public sources &mdash; occupation and past runs for office only,
+        with no party affiliation. Where a municipality does not publish filing dates, the date is left blank
+        rather than estimated.
+      </div>
+      <div id="challengers-body">
+        <div class="loading-spinner"><div class="spinner"></div> Loading challengers&hellip;</div>
       </div>
     </div>
 
@@ -1426,7 +1486,7 @@
   }
 
   async function loadData() {
-    const [candidates, news, metadata, seats, councilStatus, votingRecord, votes] = await Promise.all([
+    const [candidates, news, metadata, seats, councilStatus, votingRecord, votes, challengerBios] = await Promise.all([
       fetchJSON('data/candidates.json'),
       fetchJSON('data/news.json'),
       fetchJSON('data/metadata.json'),
@@ -1434,6 +1494,7 @@
       fetchJSON('data/council_status.json'),
       fetchJSON('data/voting_record.json'),
       fetchJSON('data/votes.json'),
+      fetchJSON('data/challenger_bios.json'),
     ]);
 
     state.candidates    = candidates || [];
@@ -1443,6 +1504,7 @@
     state.councilStatus = councilStatus || {};
     state.votingRecord  = votingRecord || {};
     state.scoredVotes   = (votes || {}).votes || [];
+    state.challengerBios = challengerBios || {};
 
     render();
   }
@@ -1534,24 +1596,13 @@
   // ============================================================
   // RENDER: ALERT BANNER
   // ============================================================
-  function renderAlert() {
-    // Based on the clerk-published date filed, not scrape time — scrape time
-    // resets on every run and once made every candidate look "new" forever.
-    const cutoff = Date.now() - 7 * 86400000;
-    const recent = regionalCandidates().filter(c => {
-      const d = parseFiledDate(c);
-      return isFiled(c) && d && d.getTime() >= cutoff;
-    });
-    const banner = document.getElementById('alert-banner');
-    const text   = document.getElementById('alert-text');
-    if (!banner) return;
-    if (recent.length > 0) {
-      banner.classList.remove('hidden');
-      if (text) text.textContent = `${recent.length} candidate${recent.length > 1 ? 's' : ''} filed in the last 7 days.`;
-    } else {
-      banner.classList.add('hidden');
-    }
-  }
+  // The "filed in the last N days" alert banner was REMOVED at the maintainer's
+  // direction (2026-08-08). It could only ever count clerk-published filing
+  // dates, and Markham and Whitchurch-Stouffville publish none — so a whole
+  // municipality's registrations could never raise it. The Summary of
+  // Challengers section below carries new-candidate visibility instead, without
+  // implying a filing date nobody published. Don't reintroduce a time-window
+  // count unless every municipality publishes dates.
 
   // ============================================================
   // RENDER: LAME-DUCK COUNCIL STATUS
@@ -1585,6 +1636,71 @@
   // ============================================================
   // RENDER: ALIGNMENT OVERVIEW
   // ============================================================
+  // ============================================================
+  // RENDER: SUMMARY OF CHALLENGERS
+  // ============================================================
+  function renderChallengers() {
+    const body  = document.getElementById('challengers-body');
+    const badge = document.getElementById('challengers-badge');
+    if (!body) return;
+
+    // Non-incumbents only. The appointed Chair is neither, and is excluded by
+    // the same test — he holds a seat and cannot file.
+    const challengers = regionalCandidates()
+      .filter(c => c.status === 'challenger' && isFiled(c))
+      .sort((a, b) =>
+        (a.municipality || '').localeCompare(b.municipality || '') ||
+        (a.office || '').localeCompare(b.office || '') ||
+        (a.name || '').localeCompare(b.name || ''));
+
+    if (badge) badge.textContent = `${challengers.length} candidate${challengers.length === 1 ? '' : 's'}`;
+
+    if (!challengers.length) {
+      body.innerHTML = '<div class="challengers-empty">No registered challengers yet.</div>';
+      return;
+    }
+
+    const bios = (state.challengerBios || {}).bios || {};
+
+    const rows = challengers.map(c => {
+      const bio  = bios[c.id] || {};
+      const seat = `${escapeHtml(c.municipality)} &middot; ${escapeHtml(c.office)}${c.at_large_pool ? ' <span class="ch-at-large">(at-large)</span>' : ''}`;
+
+      const d = parseFiledDate(c);
+      const dateCell = d
+        ? `<span class="ch-date">${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}</span>`
+        : `<span class="ch-nodate" title="This municipality does not publish candidate filing dates, so none is shown. It is never estimated.">Not published</span>`;
+
+      // Occupation and past runs are separate facts; show whichever exist.
+      const parts = [];
+      if (bio.occupation) parts.push(escapeHtml(bio.occupation));
+      if (bio.notes)      parts.push(escapeHtml(bio.notes));
+      if (bio.past_runs)  parts.push(escapeHtml(bio.past_runs));
+      const bioCell = parts.length
+        ? parts.join('. ') + '.'
+        : '<span class="ch-nobio">No public biography found</span>';
+
+      return `<tr>
+        <td class="ch-name">${escapeHtml(c.name)}</td>
+        <td class="ch-seat">${seat}</td>
+        <td class="ch-reg">${dateCell}</td>
+        <td class="ch-bio">${bioCell}</td>
+      </tr>`;
+    }).join('');
+
+    body.innerHTML = `
+      <div class="ch-table-wrap">
+        <table class="ch-table">
+          <thead>
+            <tr>
+              <th>Candidate</th><th>Seat contested</th><th>Registered</th><th>Background</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
   function renderAlignmentOverview() {
     // Alignment applies only to sitting members of Regional Council — the 21
     // elected incumbents plus the appointed Chair, who votes. Challengers
@@ -2005,6 +2121,10 @@
     acclaimed: 'acclaimed',
     competitive: 'competitive race',
     long_shot: 'long shot',
+    // Names the contingency instead of picking a branch: while an incumbent's
+    // filing is unresolved, grading their challengers either way asserts an
+    // outcome the data doesn't have (2026-08-08).
+    competitive_if_open: "competitive if incumbent doesn't file",
   };
 
   function winBadge(c) {
@@ -2016,6 +2136,7 @@
       '• They drop to "competitive" once any filed challenger has meaningful news visibility (3+ articles naming them in the tracked feed).\n' +
       '• A challenger facing an incumbent is a "long shot" until their own coverage reaches that same bar, which makes them "competitive".\n' +
       '• A race is "competitive" for everyone only when no incumbent is returning — none on the roster, or the sitting member has declined. An incumbent who has not filed yet does not open the seat.\n' +
+      '• While an incumbent\'s own filing is unresolved and two or more challengers have filed, those challengers read "competitive if incumbent doesn\'t file" rather than being graded as though the incumbent had already decided. It resolves on its own the moment they file, or when nominations close.\n' +
       '• A lone candidate after nominations close is "acclaimed".\n' +
       '• At-large multi-seat races grade challengers on the same visibility evidence, against all incumbents at once.';
     const specific = 'WHY ' + (c.name || 'THIS CANDIDATE').toUpperCase() + ' IS "' + w.label.replace(/_/g, ' ').toUpperCase() + '": ' + (w.basis || []).join('; ');
@@ -2380,7 +2501,7 @@
     renderLameDuckBanner();
     renderOutlook();
     renderChamber();
-    renderAlert();
+    renderChallengers();
     renderAlignmentOverview();
     renderVotingRecord();
   }

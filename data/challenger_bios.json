@@ -1,0 +1,100 @@
+{
+  "_comment": [
+    "Hand-curated, deliberately manual (like votes.json) — the scraper never writes this file.",
+    "Keyed by candidate id from candidates.json. Powers the Summary of Challengers section.",
+    "RULES, per maintainer direction 2026-08-08:",
+    "  - Factual only: job title / occupation and past runs for elected office.",
+    "  - NO party affiliation of any kind, for any candidate, at any level of government.",
+    "    Municipal races in Ontario are non-partisan and the dashboard stays that way.",
+    "  - No characterizations, endorsements, controversies, or qualitative reads — those",
+    "    belong in research/ (git-ignored) per the Public-Repo Policy, if anywhere.",
+    "  - Where no biography could be verified from a public source, leave the fields empty.",
+    "    An empty bio is honest; an invented one is the failure this project guards against.",
+    "  - registration_date is NOT stored here — it comes from candidates.json (clerk-published",
+    "    only). Markham and Whitchurch-Stouffville publish no filing dates, so those stay blank."
+  ],
+  "updated": "2026-08-08",
+  "bios": {
+    "aurora-mayor-john-gallo": {
+      "occupation": "Aurora Ward 5 Councillor; manages a local business",
+      "past_runs": "Has served roughly 14 years on Aurora Town Council",
+      "sources": ["https://johngallo.ca/", "https://www.newmarkettoday.ca/local-news/throw-strong-mayor-powers-to-the-curb-john-gallo-launches-aurora-mayoral-bid-12232696"]
+    },
+    "aurora-mayor-shawn-deane": {
+      "occupation": "",
+      "past_runs": "",
+      "notes": "Regular delegate to Aurora Council on budget and financial matters",
+      "sources": ["https://www.shawndeane.ca/"]
+    },
+    "east-gwillimbury-mayor-brian-johns": {
+      "occupation": "Chief executive of Water Ambassadors Canada and of Rent to Own Canada",
+      "past_runs": "East Gwillimbury Councillor (four years); served as Acting Mayor and Regional Councillor during the mayor's medical leave",
+      "sources": ["https://brianjohns.ca/", "https://www.newmarkettoday.ca/local-news/councillor-brian-johns-stepping-up-as-acting-east-gwillimbury-mayor-7910159"]
+    },
+    "east-gwillimbury-mayor-scott-crone": {
+      "occupation": "East Gwillimbury Ward 3 Councillor; background in the insurance industry; former Board Chair, Alzheimer Society of York Region",
+      "past_runs": "Sitting Ward 3 Councillor",
+      "sources": ["https://www.newmarkettoday.ca/local-news/east-gwillimbury-councillor-scott-crone-announces-candidacy-for-mayor-12060219"]
+    },
+    "georgina-mayor-dale-kerr-genge": {
+      "occupation": "Georgina Ward 4 Councillor; licensed professional engineer (B.Eng and M.Eng, University of Toronto); co-owned a consulting engineering practice until 2017",
+      "past_runs": "Sitting Ward 4 Councillor",
+      "sources": ["https://www.georgina.ca/municipal-government/mayor-and-council/ward-4-dale-genge"]
+    },
+    "georgina-regional-councillor-geoff-fardy": {
+      "occupation": "",
+      "past_runs": "",
+      "sources": []
+    },
+    "king-mayor-stephen-ferritto": {
+      "occupation": "Real estate agent; founder of a vending-machine company started at age 16",
+      "past_runs": "No prior elected office stated",
+      "sources": ["https://ferritto.ca/"]
+    },
+    "markham-mayor-martin-ross": {
+      "occupation": "Hockey coach; founder of the Toronto Professional Hockey School",
+      "past_runs": "First run for elected office",
+      "sources": ["https://martinross4mayor.ca"]
+    },
+    "markham-regional-councillor-joe-tay": {
+      "occupation": "Former Hong Kong broadcaster",
+      "past_runs": "Federal candidate in Don Valley North, 2025",
+      "sources": ["https://www.joetay.ca/", "https://en.wikipedia.org/wiki/Joe_Tay"]
+    },
+    "markham-regional-councillor-kristian-chan": {
+      "occupation": "",
+      "past_runs": "Candidate in the 2025 Markham Ward 7 by-election",
+      "sources": ["https://www.markham.ca/about-city-markham/news/news-releases/certified-candidates-announced-the-2025-markham-ward-7-election"]
+    },
+    "markham-regional-councillor-paul-chiang": {
+      "occupation": "Former York Regional Police officer",
+      "past_runs": "Member of Parliament for Markham—Unionville, 2021–2025",
+      "sources": ["https://paulchiang.ca", "https://en.wikipedia.org/wiki/Paul_Chiang_(politician)"]
+    },
+    "newmarket-regional-councillor-mohsen-alavi": {
+      "occupation": "",
+      "past_runs": "",
+      "sources": []
+    },
+    "richmond-hill-mayor-holo-devnani": {
+      "occupation": "Background in physics and medical physics, finance and condominium law; work in data consulting and condominium governance",
+      "past_runs": "Ran for Mayor of Richmond Hill in 2022",
+      "sources": ["https://torontosocietyofarchitects.ca/wp-content/uploads/2023/04/Holo-Devnani.pdf"]
+    },
+    "richmond-hill-regional-councillor-marco-coletta": {
+      "occupation": "Background in property management",
+      "past_runs": "Ran for Richmond Hill Regional and Local Councillor in 2022",
+      "sources": ["https://www.richmondhill.ca/en/shared-content/resources/documents/2022-Elections-Form-4-Coletta-Marco-Regional-and-Local-Councillor.pdf"]
+    },
+    "vaughan-regional-at-large-alex-nascimben": {
+      "occupation": "",
+      "past_runs": "",
+      "sources": []
+    },
+    "vaughan-regional-at-large-fitz-roy-gordon": {
+      "occupation": "Teacher",
+      "past_runs": "Ran for Vaughan Ward 1 Council in 2018",
+      "sources": ["https://torontocaribbean.com/meet-fitz-roy-gordon-candidate-ward-1-city-of-vaughan/"]
+    }
+  }
+}
