@@ -19,9 +19,8 @@
     "last_news_date": "2026-05-11T07:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:35.625470+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.603662+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:12.523409+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-virginia-hackson",
@@ -47,11 +46,10 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T16:00:16.105644+00:00"
+      "as_of": "2026-08-08T16:09:47.572092+00:00"
     },
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "georgina-mayor-margaret-quirk",
@@ -73,9 +71,8 @@
     "last_news_date": "2026-05-27T07:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:20.253427+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-regional-councillor-1-naomi-davison",
@@ -97,9 +94,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:20.253427+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "king-mayor-steve-pellegrini",
@@ -121,9 +117,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:50.019844+00:00",
-    "first_seen_at": "2026-07-06T13:44:01.110542+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:09.671683+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "markham-mayor-frank-scarpitti",
@@ -150,7 +145,7 @@
       ],
       "confidence": "medium",
       "source": "editorial",
-      "as_of": "2026-08-08T16:00:16.105644+00:00"
+      "as_of": "2026-08-08T16:09:47.572092+00:00"
     },
     "source": "seeded",
     "scraped_at": null,
@@ -161,8 +156,7 @@
       ],
       "confidence": "medium",
       "source": "editorial"
-    },
-    "acclaimed": false
+    }
   },
   {
     "id": "markham-regional-councillor-1-michael-chan",
@@ -188,11 +182,10 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T16:00:16.105644+00:00"
+      "as_of": "2026-08-08T16:09:47.572092+00:00"
     },
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "markham-regional-councillor-2-jim-jones",
@@ -214,9 +207,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
-    "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-regional-councillor-3-joe-li",
@@ -238,9 +230,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
-    "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "markham-regional-councillor-4-alan-ho",
@@ -262,9 +253,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
-    "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
     "id": "newmarket-mayor-john-taylor",
@@ -286,7 +276,7 @@
     "last_news_date": "2026-07-27T19:30:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:37.454609+00:00",
+    "scraped_at": "2026-08-08T16:10:22.343956+00:00",
     "likely_to_run_again_override": {
       "label": "likely",
       "basis": [
@@ -295,8 +285,7 @@
       "confidence": "medium",
       "source": "editorial"
     },
-    "first_seen_at": "2026-07-24T15:26:49.413975+00:00",
-    "acclaimed": false
+    "first_seen_at": "2026-07-24T15:26:49.413975+00:00"
   },
   {
     "id": "newmarket-regional-councillor-1-tom-vegh",
@@ -318,9 +307,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:37.454609+00:00",
-    "first_seen_at": "2026-07-29T17:16:21.324841+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:22.343956+00:00",
+    "first_seen_at": "2026-07-29T17:16:21.324841+00:00"
   },
   {
     "id": "richmond-hill-mayor-david-west",
@@ -342,9 +330,8 @@
     "last_news_date": "2026-07-16T07:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:15.728254+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-1-godwin-chan",
@@ -366,9 +353,8 @@
     "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:15.728254+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-2-joe-dipaola",
@@ -390,9 +376,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:15.728254+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "vaughan-mayor-steven-del-duca",
@@ -414,8 +399,7 @@
     "last_news_date": "2026-07-29T14:30:13+00:00",
     "likely_to_run_again": null,
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "vaughan-regional-councillor-1-linda-d-jackson",
@@ -437,8 +421,7 @@
     "last_news_date": "2026-07-09T10:25:00+00:00",
     "likely_to_run_again": null,
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "vaughan-regional-councillor-2-mario-ferri",
@@ -460,8 +443,7 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "vaughan-regional-councillor-3-gino-rosati",
@@ -483,8 +465,7 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "vaughan-regional-councillor-4-mario-g-racco",
@@ -506,8 +487,7 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "whitchurch-stouffville-mayor-iain-lovatt",
@@ -529,9 +509,8 @@
     "last_news_date": "2026-05-27T07:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:48.321555+00:00",
-    "first_seen_at": "2026-07-06T14:43:37.736441+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:24.876403+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
   },
   {
     "id": "king-mayor-stephen-ferritto",
@@ -553,9 +532,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:50.019844+00:00",
-    "first_seen_at": "2026-07-06T13:44:01.110542+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:09.671683+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
     "id": "aurora-mayor-shawn-deane",
@@ -577,9 +555,8 @@
     "last_news_date": "2026-06-10T18:45:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:35.625470+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.603662+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:12.523409+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "aurora-mayor-john-gallo",
@@ -601,9 +578,8 @@
     "last_news_date": "2026-05-04T07:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:35.625470+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.603662+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:12.523409+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
     "id": "georgina-mayor-dale-kerr-genge",
@@ -625,9 +601,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:20.253427+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "georgina-regional-councillor-geoff-fardy",
@@ -649,9 +624,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:20.253427+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-scott-crone",
@@ -673,9 +647,8 @@
     "last_news_date": "2026-05-29T16:22:59+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:53.059301+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.020297+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:18.273394+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "east-gwillimbury-mayor-brian-johns",
@@ -697,9 +670,8 @@
     "last_news_date": "2026-05-11T07:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:53.059301+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.020297+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:18.273394+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
     "id": "richmond-hill-mayor-holo-devnani",
@@ -721,9 +693,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:15.728254+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
     "id": "richmond-hill-regional-councillor-marco-coletta",
@@ -745,10 +716,9 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
+    "scraped_at": "2026-08-08T16:10:15.728254+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
-    "at_large_pool": true,
-    "acclaimed": false
+    "at_large_pool": true
   },
   {
     "id": "markham-regional-councillor-kristian-chan",
@@ -770,10 +740,9 @@
     "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
-    "at_large_pool": true,
-    "acclaimed": false
+    "at_large_pool": true
   },
   {
     "id": "york-region-chair-eric-jolliffe",
@@ -795,8 +764,7 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "seeded",
-    "scraped_at": null,
-    "acclaimed": false
+    "scraped_at": null
   },
   {
     "id": "vaughan-regional-at-large-fitz-roy-gordon",
@@ -818,8 +786,7 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "source": "manual",
-    "acclaimed": false
+    "source": "manual"
   },
   {
     "id": "vaughan-regional-at-large-alex-nascimben",
@@ -841,8 +808,7 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "source": "manual",
-    "acclaimed": false
+    "source": "manual"
   },
   {
     "id": "newmarket-regional-councillor-mohsen-alavi",
@@ -865,9 +831,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:37.454609+00:00",
-    "first_seen_at": "2026-08-05T19:36:53.465998+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:22.343956+00:00",
+    "first_seen_at": "2026-08-05T19:36:53.465998+00:00"
   },
   {
     "id": "markham-mayor-martin-ross",
@@ -890,9 +855,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
-    "first_seen_at": "2026-08-08T14:10:05.476939+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
+    "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   },
   {
     "id": "markham-regional-councillor-paul-chiang",
@@ -915,9 +879,8 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
-    "first_seen_at": "2026-08-08T14:10:05.476939+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
+    "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   },
   {
     "id": "markham-regional-councillor-joe-tay",
@@ -940,8 +903,7 @@
     "last_news_date": null,
     "likely_to_run_again": null,
     "source": "scraped",
-    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
-    "first_seen_at": "2026-08-08T14:10:05.476939+00:00",
-    "acclaimed": false
+    "scraped_at": "2026-08-08T16:10:07.836049+00:00",
+    "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   }
 ]

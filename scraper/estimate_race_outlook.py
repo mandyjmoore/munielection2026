@@ -1,16 +1,12 @@
 """
-Two per-candidate race fields:
+One per-candidate race field:
 
-  1. likely_to_run_again — for incumbents who haven't yet confirmed a filing.
+  likely_to_run_again — for incumbents who haven't yet confirmed a filing.
      An ordinal label with a visible `basis` array of plain-language reasons,
      never a percentage. The only label that actually drives a display tier
      ("likely") comes exclusively from a dated editorial override in
      manual_overrides.json; the news path can confirm a retirement
      announcement but never manufactures a "likely".
-  2. acclaimed — a plain boolean, and a FACT, not a forecast: nominations
-     closed with no more candidates than seats, so the Municipal Elections
-     Act elects the filed field without a vote.
-
 **There is deliberately no win estimate.** `likely_to_win` (favored /
 competitive / long shot / acclaimed-on-track) was REMOVED 2026-08-08 at the
 maintainer's direction. Ontario municipal races have no public polling and no
@@ -119,55 +115,18 @@ def _is_filed(candidate: dict) -> bool:
     return bool(candidate.get("registered")) or candidate.get("filed_for_reelection") == "confirmed"
 
 
-def _seat_is_acclaimed(candidate: dict, all_candidates: list[dict]) -> bool:
-    """True when this filed candidate has already won under the Municipal
-    Elections Act because nominations closed with no more candidates than
-    seats. This is arithmetic on the certified field, not a forecast — it is
-    the one race outcome the dashboard still reports, and only ever AFTER the
-    nomination deadline (callers gate on that).
-
-    Two shapes: a single-seat race with no other filed candidate, and a
-    multi-seat at-large race whose whole filed field fits the seat count.
-    """
-    if not _is_filed(candidate):
-        return False
-
-    muni = candidate.get("municipality")
-    office = candidate.get("office")
-    incumbents = [
-        c for c in all_candidates
-        if c.get("status") == "incumbent"
-        and c.get("municipality") == muni and c.get("office") == office
-    ]
-    seats_n = len(incumbents)  # every seat has a roster incumbent
-
-    if seats_n >= 2:
-        filed_field = [
-            c for c in all_candidates
-            if c.get("municipality") == muni and c.get("office") == office
-            and (c.get("status") == "incumbent" or c.get("at_large_pool"))
-            and _is_filed(c)
-        ]
-        return len(filed_field) <= seats_n
-
-    seat_id = candidate.get("seat_id")
-    others = [
-        c for c in all_candidates
-        if c.get("seat_id") == seat_id and c["id"] != candidate["id"] and _is_filed(c)
-    ]
-    return not others
-
-
 def estimate_all(
     candidates: list[dict],
     news_articles: list[dict],
     as_of: str,
     nomination_day_passed: bool = False,
 ) -> list[dict]:
-    """Attach likely_to_run_again and, once nominations close, `acclaimed`.
+    """Attach likely_to_run_again.
 
-    `likely_to_win` is deliberately no longer produced, and any value carried
-    over from an earlier run is dropped here so it can't linger in
+    No race outcome is produced — not a win estimate, and not acclamation
+    either. The audience for this dashboard reads a seat with no registered
+    challengers correctly without being told what it means. Values carried
+    over from earlier runs are dropped here so they can't linger in
     candidates.json and quietly keep feeding the page.
     """
     updated = []
@@ -178,9 +137,7 @@ def estimate_all(
             new_candidate["likely_to_run_again"] = estimate_likely_to_run_again(
                 candidate, news_articles, as_of
             )
-            new_candidate["acclaimed"] = bool(
-                nomination_day_passed and _seat_is_acclaimed(candidate, candidates)
-            )
+            new_candidate.pop("acclaimed", None)
             updated.append(new_candidate)
         except Exception as exc:
             logger.error("Error estimating outlook for %s: %s", candidate.get("name"), exc)
