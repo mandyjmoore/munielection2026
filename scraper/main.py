@@ -203,11 +203,9 @@ def main():
         if c.get("registered") and (d := parse_filed(c)) and d >= cutoff_7d
     )
 
-    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS, WAYBACK_FALLBACK
+    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS
 
     def coverage(muni):
-        if muni in WAYBACK_FALLBACK:
-            return "archive_delayed"
         if muni in SCRAPABLE_MUNICIPALITIES:
             return "live"
         return "manual_check_required"

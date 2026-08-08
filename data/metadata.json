@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-08T12:49:40.251296+00:00",
+  "last_updated": "2026-08-08T14:09:42.516191+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -26,11 +26,11 @@
     "note": "Provincially appointed — not on ballot"
   },
   "scraper_version": "1.0.0",
-  "candidate_count": 35,
+  "candidate_count": 38,
   "news_count": 487,
-  "new_registrations_24h": 0,
+  "new_registrations_24h": 3,
   "data_confidence": {
-    "candidates_confirmed_filed": 29,
+    "candidates_confirmed_filed": 32,
     "candidates_unknown_filing_status": 6,
     "seats_total": 21,
     "candidate_scraper_enabled": true,
@@ -42,7 +42,7 @@
       "East Gwillimbury": "live",
       "King": "live",
       "Whitchurch-Stouffville": "live",
-      "Markham": "archive_delayed",
+      "Markham": "live",
       "Vaughan": "manual_check_required"
     }
   },
