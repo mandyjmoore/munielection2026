@@ -203,9 +203,16 @@ def main():
         if c.get("registered") and (d := parse_filed(c)) and d >= cutoff_7d
     )
 
-    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS
+    from fetch_candidates import SCRAPABLE_MUNICIPALITIES, MUNICIPALITY_URLS, SCRAPE_WARNINGS
+
+    # A municipality whose extractor silently stopped yielding candidates is
+    # still "live" by configuration, but the data being served is stale —
+    # say so rather than letting it read as a clean scrape.
+    broken = {w["municipality"] for w in SCRAPE_WARNINGS}
 
     def coverage(muni):
+        if muni in broken:
+            return "stale_scraper_broken"
         if muni in SCRAPABLE_MUNICIPALITIES:
             return "live"
         return "manual_check_required"
@@ -220,7 +227,14 @@ def main():
         "seats_total": len(seats),
         "candidate_scraper_enabled": ENABLE_CANDIDATE_SCRAPE,
         "scrape_coverage": {muni: coverage(muni) for muni in MUNICIPALITY_URLS},
+        "scrape_warnings": list(SCRAPE_WARNINGS),
     }
+    if SCRAPE_WARNINGS:
+        logger.error(
+            "%d municipality/ies stopped yielding candidates this run: %s",
+            len(SCRAPE_WARNINGS),
+            ", ".join(f"{w['municipality']} ({w['reason']})" for w in SCRAPE_WARNINGS),
+        )
 
     # --- Step 7: Save ---
     save_json(CANDIDATES_FILE, scored_candidates)

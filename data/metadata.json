@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-08T14:09:42.516191+00:00",
+  "last_updated": "2026-08-08T14:42:12.684860+00:00",
   "election_date": "2026-10-26",
   "nomination_open": "2026-05-01",
   "nomination_close": "2026-08-21",
@@ -44,7 +44,8 @@
       "Whitchurch-Stouffville": "live",
       "Markham": "live",
       "Vaughan": "manual_check_required"
-    }
+    },
+    "scrape_warnings": []
   },
   "new_filings_7d": 1
 }

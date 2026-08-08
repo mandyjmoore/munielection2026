@@ -22,6 +22,7 @@ import re
 import logging
 from datetime import datetime, timezone
 from typing import Optional
+from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -47,11 +48,20 @@ MUNICIPALITY_URLS = {
     "Richmond Hill": "https://www.richmondhill.ca/en/living-here/election-candidates.aspx",
     "Newmarket": "https://newmarketvotes.ca/candidates/registered-candidates/",
     "Aurora": "https://www.aurora.ca/your-government/elections-2026/candidate-information/",
-    "East Gwillimbury": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    # Also moved hosts (elections.eastgwillimbury.ca -> electionseg.ca, seen
+    # 2026-08-08). That redirect still preserves the path and returns the
+    # full list, so this was pre-emptive: pointing at the canonical address
+    # rather than relying on a redirect that may later degrade the way
+    # Markham's and Whitchurch-Stouffville's did.
+    "East Gwillimbury": "https://www.electionseg.ca/candidates/registered-candidates/",
     "King": "https://www.king.ca/candidates",
     # Candidate names are in the static HTML inside "pod" divs (no tables,
     # no filing dates published) — parsed by scrape_whitchurch_stouffville.
-    "Whitchurch-Stouffville": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    # Moved off stouffvillevotes.ca to townofws.ca (2026-08-08); the old host
+    # 301s the candidate list to a contentless landing page, which the
+    # scraper read as "0 candidates" without complaining. Same failure mode
+    # as Markham's domain change — see the zero-yield guard below.
+    "Whitchurch-Stouffville": "https://townofws.ca/candidates/list-of-candidates/",
     # Markham moved the list onto the City site (2026-08-08). The old
     # electionsmarkham.ca host is dead and was bot-blocked (Reblaze JS
     # challenge), which had forced an archive-snapshot route that went stale
@@ -70,6 +80,11 @@ SCRAPABLE_MUNICIPALITIES = {
     "Georgina", "Richmond Hill", "Newmarket", "Aurora", "East Gwillimbury", "King",
     "Whitchurch-Stouffville", "Markham",
 }
+
+# Populated per-run by fetch_all_candidates: municipalities that used to
+# yield candidates and now yield none. Surfaced in metadata.json so a
+# silently-broken extractor is visible instead of looking like an empty field.
+SCRAPE_WARNINGS: list[dict] = []
 
 # Hard safeguards against the failure mode that produced 330 garbage records:
 # any candidate extracted must have a real office and belong to a known
@@ -147,10 +162,24 @@ def parse_office_ward(heading: str) -> Optional[tuple[str, Optional[str]]]:
 
 
 def fetch_page(url: str, timeout: int = 15) -> Optional[BeautifulSoup]:
-    """Fetch a URL and return a BeautifulSoup object, or None on failure."""
+    """
+    Fetch a URL and return a BeautifulSoup object, or None on failure.
+
+    Also reports cross-host redirects. Twice now (Markham, then
+    Whitchurch-Stouffville) a municipality has moved its election site to a
+    new domain and 301'd the old candidate-list URL to a contentless landing
+    page — an HTTP 200 that yields zero candidates and no error. The
+    redirect is the earliest visible symptom, so it is logged loudly.
+    """
     try:
         resp = requests.get(url, headers=HEADERS, timeout=timeout)
         resp.raise_for_status()
+        if urlparse(resp.url).netloc != urlparse(url).netloc:
+            logger.error(
+                "REDIRECTED OFF-HOST: %s -> %s. The municipality likely moved "
+                "its election site; update MUNICIPALITY_URLS to the new address.",
+                url, resp.url,
+            )
         return BeautifulSoup(resp.text, "lxml")
     except Exception as exc:
         logger.warning("Failed to fetch %s: %s", url, exc)
@@ -585,6 +614,19 @@ def make_challenger_id(municipality: str, office: str, ward: Optional[str], name
     return "-".join(parts)
 
 
+def _municipalities_with_prior_filings(existing_candidates: list[dict]) -> set[str]:
+    """
+    Municipalities that a previous run already found registered candidates
+    for. Used by the zero-yield guard: for these, extracting nothing is a
+    regression, not an empty field.
+    """
+    return {
+        c.get("municipality")
+        for c in existing_candidates
+        if c.get("registered") or c.get("filed_for_reelection") == "confirmed"
+    }
+
+
 def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> list[dict]:
     """
     Main entry point: scrape all verified municipalities, reconcile against
@@ -592,8 +634,27 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
     return the merged candidate list. Unscrapable municipalities (bot-blocked
     or JS-rendered) are left untouched — existing/seeded data for them is
     preserved as-is.
+
+    Populates SCRAPE_WARNINGS with any municipality that silently stopped
+    yielding candidates (see the zero-yield guard below); main.py records it
+    in metadata.json so the failure is inspectable rather than invisible.
     """
     all_raw = []
+    SCRAPE_WARNINGS.clear()
+    had_filings_before = _municipalities_with_prior_filings(existing_candidates)
+
+    def warn(municipality: str, reason: str) -> None:
+        """A scrapable municipality produced nothing this run — say so loudly."""
+        if municipality in had_filings_before:
+            logger.error(
+                "ZERO-YIELD REGRESSION: %s previously had registered candidates but "
+                "produced none this run (%s). Stale data is being served — check "
+                "whether the clerk's page moved or changed structure.",
+                municipality, reason,
+            )
+            SCRAPE_WARNINGS.append({"municipality": municipality, "reason": reason})
+        else:
+            logger.info("%s produced no candidates (%s)", municipality, reason)
 
     for municipality in SCRAPABLE_MUNICIPALITIES:
         url = MUNICIPALITY_URLS[municipality]
@@ -604,9 +665,11 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
 
         if soup is None:
             logger.warning("Skipping %s — page fetch failed", municipality)
+            warn(municipality, "page fetch failed")
             continue
         if not page_looks_like_candidate_list(soup):
             logger.warning("%s page doesn't look like a candidate list — skipping", municipality)
+            warn(municipality, "page no longer looks like a candidate list")
             continue
 
         scraper_fn = SCRAPERS.get(municipality)
@@ -617,6 +680,7 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
             raw = scraper_fn(soup, municipality, source_url)
         except Exception as exc:
             logger.error("Scraper error for %s: %s", municipality, exc)
+            warn(municipality, f"scraper raised {type(exc).__name__}")
             continue
 
         if len(raw) > MAX_CANDIDATES_PER_MUNICIPALITY:
@@ -624,6 +688,15 @@ def fetch_all_candidates(existing_candidates: list[dict], seats: list[dict]) -> 
                 "%s scrape produced %d candidates (cap %d) — treating as a scraper bug, discarding this run's results",
                 municipality, len(raw), MAX_CANDIDATES_PER_MUNICIPALITY,
             )
+            warn(municipality, f"candidate cap exceeded ({len(raw)} > {MAX_CANDIDATES_PER_MUNICIPALITY})")
+            continue
+
+        # The page fetched and parsed, but nothing came out. If this
+        # municipality had registered candidates before, the extractor has
+        # silently broken (the Markham/Whitchurch-Stouffville domain-move
+        # failure mode) and the dashboard is about to serve stale data.
+        if not raw:
+            warn(municipality, "page parsed but extracted 0 candidates")
             continue
 
         logger.info("Found %d candidates for %s", len(raw), municipality)

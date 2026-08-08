@@ -25,10 +25,10 @@
         "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:12.103048+00:00",
+    "scraped_at": "2026-08-08T14:42:30.947495+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -55,7 +55,7 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -63,7 +63,7 @@
         "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -94,10 +94,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:26.625891+00:00",
+    "scraped_at": "2026-08-08T14:42:39.091784+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -126,10 +126,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:26.625891+00:00",
+    "scraped_at": "2026-08-08T14:42:39.091784+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -158,10 +158,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:02.258627+00:00",
+    "scraped_at": "2026-08-08T14:42:37.325644+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -189,7 +189,7 @@
       ],
       "confidence": "medium",
       "source": "editorial",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -197,7 +197,7 @@
         "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null,
@@ -235,7 +235,7 @@
         "5 news article(s) reviewed, none signaling non-candidacy"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "likely_to_win": {
       "label": "insufficient_data",
@@ -243,7 +243,7 @@
         "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -275,10 +275,10 @@
         "Highest challenger news volume: 5 mention(s)"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -308,10 +308,10 @@
         "Highest challenger news volume: 5 mention(s)"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -341,10 +341,10 @@
         "Highest challenger news volume: 5 mention(s)"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
   },
   {
@@ -373,10 +373,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:08.057112+00:00",
+    "scraped_at": "2026-08-08T14:42:25.660983+00:00",
     "likely_to_run_again_override": {
       "label": "likely",
       "basis": [
@@ -413,10 +413,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:08.057112+00:00",
+    "scraped_at": "2026-08-08T14:42:25.660983+00:00",
     "first_seen_at": "2026-07-29T17:16:21.324841+00:00"
   },
   {
@@ -445,10 +445,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:23.551245+00:00",
+    "scraped_at": "2026-08-08T14:42:23.462807+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -477,10 +477,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:23.551245+00:00",
+    "scraped_at": "2026-08-08T14:42:23.462807+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -509,10 +509,10 @@
         "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:23.551245+00:00",
+    "scraped_at": "2026-08-08T14:42:23.462807+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -541,7 +541,7 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -572,7 +572,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -603,7 +603,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -634,7 +634,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -665,7 +665,7 @@
         "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -679,7 +679,7 @@
     "ward": null,
     "status": "incumbent",
     "filed_for_reelection": "confirmed",
-    "filing_source": "https://www.stouffvillevotes.ca/en/candidates/list-of-candidates/",
+    "filing_source": "https://townofws.ca/candidates/list-of-candidates/",
     "registered": true,
     "registration_date": null,
     "fiscal_alignment_score": 10,
@@ -696,10 +696,10 @@
         "No challengers filed yet"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-07-31T10:41:26.311818+00:00",
+    "scraped_at": "2026-08-08T14:42:35.688287+00:00",
     "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
   },
   {
@@ -728,10 +728,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:02.258627+00:00",
+    "scraped_at": "2026-08-08T14:42:37.325644+00:00",
     "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
   },
   {
@@ -760,10 +760,10 @@
         "2 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:12.103048+00:00",
+    "scraped_at": "2026-08-08T14:42:30.947495+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -792,10 +792,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:12.103048+00:00",
+    "scraped_at": "2026-08-08T14:42:30.947495+00:00",
     "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
   },
   {
@@ -824,10 +824,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:26.625891+00:00",
+    "scraped_at": "2026-08-08T14:42:39.091784+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -856,10 +856,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:26.625891+00:00",
+    "scraped_at": "2026-08-08T14:42:39.091784+00:00",
     "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
   },
   {
@@ -871,7 +871,7 @@
     "ward": null,
     "status": "challenger",
     "filed_for_reelection": "confirmed",
-    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "filing_source": "https://www.electionseg.ca/candidates/registered-candidates/",
     "registered": true,
     "registration_date": "May 1, 2026",
     "fiscal_alignment_score": 5,
@@ -888,10 +888,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:18.986732+00:00",
+    "scraped_at": "2026-08-08T14:42:33.422669+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -903,7 +903,7 @@
     "ward": null,
     "status": "challenger",
     "filed_for_reelection": "confirmed",
-    "filing_source": "https://elections.eastgwillimbury.ca/en/candidates/registered-candidates/",
+    "filing_source": "https://www.electionseg.ca/candidates/registered-candidates/",
     "registered": true,
     "registration_date": "May 11, 2026",
     "fiscal_alignment_score": 5,
@@ -920,10 +920,10 @@
         "3 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:18.986732+00:00",
+    "scraped_at": "2026-08-08T14:42:33.422669+00:00",
     "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
   },
   {
@@ -952,10 +952,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:23.551245+00:00",
+    "scraped_at": "2026-08-08T14:42:23.462807+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
   },
   {
@@ -984,10 +984,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:23.551245+00:00",
+    "scraped_at": "2026-08-08T14:42:23.462807+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
     "at_large_pool": true
   },
@@ -1017,10 +1017,10 @@
         "5 news mention(s) — meaningful visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
     "at_large_pool": true
   },
@@ -1049,7 +1049,7 @@
         "No filings recorded yet for this seat."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "seeded",
     "scraped_at": null
@@ -1081,7 +1081,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "manual"
   },
@@ -1112,7 +1112,7 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "manual"
   },
@@ -1143,10 +1143,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:08.057112+00:00",
+    "scraped_at": "2026-08-08T14:42:25.660983+00:00",
     "first_seen_at": "2026-08-05T19:36:53.465998+00:00"
   },
   {
@@ -1176,10 +1176,10 @@
         "2 candidate(s) filed"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   },
   {
@@ -1209,10 +1209,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   },
   {
@@ -1242,10 +1242,10 @@
         "0 news mention(s) — limited visibility"
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T14:09:42.516191+00:00"
+      "as_of": "2026-08-08T14:42:12.684860+00:00"
     },
     "source": "scraped",
-    "scraped_at": "2026-08-08T14:10:05.476939+00:00",
+    "scraped_at": "2026-08-08T14:42:28.351401+00:00",
     "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
   }
 ]
