@@ -2013,9 +2013,10 @@
     const method =
       'HOW THIS IS ESTIMATED (ordinal guess from filings + news visibility — no polling exists, so never a probability):\n' +
       '• A filed incumbent starts "favored".\n' +
-      '• They drop to "competitive" once any filed challenger has meaningful news visibility (3+ mentions in the tracked feed).\n' +
+      '• They drop to "competitive" once any filed challenger has meaningful news visibility (3+ articles naming them in the tracked feed).\n' +
       '• A challenger facing an incumbent is a "long shot" until their own coverage reaches that same bar, which makes them "competitive".\n' +
-      '• A race with no incumbent is "competitive" for everyone; a lone candidate after nominations close is "acclaimed".\n' +
+      '• A race is "competitive" for everyone only when no incumbent is returning — none on the roster, or the sitting member has declined. An incumbent who has not filed yet does not open the seat.\n' +
+      '• A lone candidate after nominations close is "acclaimed".\n' +
       '• At-large multi-seat races grade challengers on the same visibility evidence, against all incumbents at once.';
     const specific = 'WHY ' + (c.name || 'THIS CANDIDATE').toUpperCase() + ' IS "' + w.label.replace(/_/g, ' ').toUpperCase() + '": ' + (w.basis || []).join('; ');
     const tip = escapeHtml('Estimate, not fact.\n\n' + method + '\n\n' + specific);

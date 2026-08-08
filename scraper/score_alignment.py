@@ -58,15 +58,26 @@ MISALIGNED_SIGNALS = [
 ]
 
 def find_relevant_articles(candidate_name: str, news_articles: list[dict]) -> list[dict]:
-    """Find news articles mentioning a candidate by full or last name."""
+    """Find news articles mentioning a candidate by full or last name.
+
+    Matched on word boundaries, not bare substrings (2026-08-08). The old
+    substring test made "Ross" match "across", "Chan" match "change", and
+    "Duca" match "education" — so candidates accumulated mention counts from
+    articles that never named them. Those phantom counts fed the win-outlook
+    visibility threshold and reported uncontested races as competitive.
+    """
     name = candidate_name.lower()
     name_parts = candidate_name.split()
     last_name = name_parts[-1].lower() if name_parts else name
 
+    patterns = [re.compile(rf"\b{re.escape(name)}\b")]
+    if len(last_name) > 3:
+        patterns.append(re.compile(rf"\b{re.escape(last_name)}\b"))
+
     relevant = []
     for article in news_articles:
         text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
-        if name in text or (len(last_name) > 3 and last_name in text):
+        if any(pattern.search(text) for pattern in patterns):
             relevant.append(article)
     return relevant
 

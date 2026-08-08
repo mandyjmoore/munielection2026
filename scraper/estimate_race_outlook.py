@@ -274,27 +274,36 @@ def estimate_likely_to_win(
             "as_of": as_of,
         }
 
-    # Candidate is a challenger, or this is an open seat with no incumbent filed.
-    incumbent_in_race = any(c.get("status") == "incumbent" for c in other_filed)
-    if not incumbent_in_race:
+    # Candidate is a challenger. A seat is only OPEN when no sitting member is
+    # coming back — the roster has no incumbent, or the incumbent has declined.
+    # An incumbent who simply hasn't filed yet does NOT open the seat
+    # (2026-08-08 fix): nominations run to Aug 21, and reading "no filed
+    # incumbent" as "no incumbent" promoted every lone challenger to
+    # "competitive" on the strength of the incumbent's missing paperwork —
+    # it put a single-issue challenger level with a five-term mayor.
+    seat_incumbent = next((c for c in seat_candidates if c.get("status") == "incumbent"), None)
+    if seat_incumbent is None or seat_incumbent.get("filed_for_reelection") == "declined":
         return {
             "label": "competitive",
-            "basis": ["Open seat — no incumbent in the race", f"{len(seat_candidates)} candidate(s) filed"],
+            "basis": ["Open seat — no incumbent returning", f"{len(seat_candidates)} candidate(s) filed"],
             "confidence": "low",
             "as_of": as_of,
         }
 
+    facing = "Challenging an incumbent" + (
+        " who has not filed yet" if not _is_filed(seat_incumbent) else ""
+    )
     own_mentions = len(find_relevant_articles(candidate["name"], news_articles))
     if own_mentions >= 3:
         return {
             "label": "competitive",
-            "basis": ["Challenging an incumbent", f"{own_mentions} news mention(s) — meaningful visibility"],
+            "basis": [facing, f"{own_mentions} news mention(s) — meaningful visibility"],
             "confidence": "low",
             "as_of": as_of,
         }
     return {
         "label": "long_shot",
-        "basis": ["Challenging an incumbent", f"{own_mentions} news mention(s) — limited visibility"],
+        "basis": [facing, f"{own_mentions} news mention(s) — limited visibility"],
         "confidence": "low",
         "as_of": as_of,
     }
