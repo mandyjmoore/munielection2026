@@ -1,16 +1,27 @@
 """
-Heuristic estimates for two questions the dashboard needs an "at a glance"
-answer to, even though neither has a reliable ground-truth source for
-Ontario municipal races (no public polling, no real-time fundraising
-disclosure):
+Two per-candidate race fields:
 
   1. likely_to_run_again — for incumbents who haven't yet confirmed a filing.
-  2. likely_to_win — for any candidate, once a race has at least one filing.
+     An ordinal label with a visible `basis` array of plain-language reasons,
+     never a percentage. The only label that actually drives a display tier
+     ("likely") comes exclusively from a dated editorial override in
+     manual_overrides.json; the news path can confirm a retirement
+     announcement but never manufactures a "likely".
+  2. acclaimed — a plain boolean, and a FACT, not a forecast: nominations
+     closed with no more candidates than seats, so the Municipal Elections
+     Act elects the filed field without a vote.
 
-Both are deliberately small ordinal labels with a visible `basis` array of
-plain-language reasons, never a percentage or a normalized score — with only
-1-2 real signals available per race (incumbency, news volume), a fake-precision
-number would overstate what the data actually supports.
+**There is deliberately no win estimate.** `likely_to_win` (favored /
+competitive / long shot / acclaimed-on-track) was REMOVED 2026-08-08 at the
+maintainer's direction. Ontario municipal races have no public polling and no
+real-time fundraising disclosure, so the only available signal was counting a
+regional news feed for a candidate's name — which turned out to measure
+nothing: substring collisions inflated the counts, and even once corrected,
+no candidate in the region cleared the visibility bar, so the labels were
+being set by structural defaults rather than evidence. The maintainer's own
+read of these races is far better informed than those inputs can support, and
+an unreliable estimate published beside confirmed filings and documented
+voting records devalues both. Do not reintroduce one.
 """
 
 import logging
@@ -108,12 +119,19 @@ def _is_filed(candidate: dict) -> bool:
     return bool(candidate.get("registered")) or candidate.get("filed_for_reelection") == "confirmed"
 
 
-def _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of):
-    """Multi-seat at-large arithmetic the news heuristic can't see: when the
-    filed field is no larger than the number of seats, every filed candidate
-    is (after nominations close) elected by acclamation under the Municipal
-    Elections Act — no vote is held for the office. Before the close, the
-    same arithmetic means everyone filed is on track for acclamation."""
+def _seat_is_acclaimed(candidate: dict, all_candidates: list[dict]) -> bool:
+    """True when this filed candidate has already won under the Municipal
+    Elections Act because nominations closed with no more candidates than
+    seats. This is arithmetic on the certified field, not a forecast — it is
+    the one race outcome the dashboard still reports, and only ever AFTER the
+    nomination deadline (callers gate on that).
+
+    Two shapes: a single-seat race with no other filed candidate, and a
+    multi-seat at-large race whose whole filed field fits the seat count.
+    """
+    if not _is_filed(candidate):
+        return False
+
     muni = candidate.get("municipality")
     office = candidate.get("office")
     incumbents = [
@@ -122,236 +140,22 @@ def _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_o
         and c.get("municipality") == muni and c.get("office") == office
     ]
     seats_n = len(incumbents)  # every seat has a roster incumbent
-    if seats_n < 2:
-        return None
-    filed_field = [
-        c for c in all_candidates
-        if c.get("municipality") == muni and c.get("office") == office
-        and (c.get("status") == "incumbent" or c.get("at_large_pool"))
-        and _is_filed(c)
-    ]
-    if len(filed_field) > seats_n:
-        return None
-    if nomination_day_passed:
-        return {
-            "label": "acclaimed",
-            "basis": [f"Nominations closed with {len(filed_field)} candidates for {seats_n} at-large seats — every filed candidate is elected by acclamation (Municipal Elections Act)"],
-            "confidence": "high",
-            "as_of": as_of,
-        }
-    return {
-        "label": "favored",
-        "basis": [f"{len(filed_field)} candidates filed for {seats_n} at-large seats so far — on track for acclamation if the field holds to nomination day"],
-        "confidence": "low",
-        "as_of": as_of,
-    }
 
-
-def estimate_likely_to_win(
-    candidate: dict,
-    all_candidates: list[dict],
-    news_articles: list[dict],
-    nomination_day_passed: bool,
-    as_of: str,
-) -> dict:
-    # At-large challengers compete against the incumbents across all of a
-    # municipality's regional seats, not for one numbered slot, so the
-    # single-seat heuristics below (and their "open seat — no incumbent"
-    # branch) would misread them. Grade them on the same ordinal evidence a
-    # single-seat challenger gets — news visibility against sitting
-    # incumbents — with the multi-winner structure stated in the basis
-    # (2026-07-14 decision; supersedes the earlier "not modelled" stance).
-    if candidate.get("at_large_pool"):
-        acclaim = _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of)
-        if acclaim and _is_filed(candidate):
-            return acclaim
-        incumbents_in_pool = [
+    if seats_n >= 2:
+        filed_field = [
             c for c in all_candidates
-            if c.get("status") == "incumbent"
-            and c.get("municipality") == candidate.get("municipality")
-            and c.get("office") == candidate.get("office")
-        ]
-        own_mentions = len(find_relevant_articles(candidate["name"], news_articles))
-        race = f"At-large race — challenging {len(incumbents_in_pool)} incumbents for {len(incumbents_in_pool)} seats"
-        if own_mentions >= 3:
-            return {
-                "label": "competitive",
-                "basis": [race, f"{own_mentions} news mention(s) — meaningful visibility"],
-                "confidence": "low",
-                "as_of": as_of,
-            }
-        return {
-            "label": "long_shot",
-            "basis": [race, f"{own_mentions} news mention(s) — limited visibility"],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-
-    seat_id = candidate.get("seat_id")
-    seat_candidates = [c for c in all_candidates if c.get("seat_id") == seat_id]
-    other_filed = [c for c in seat_candidates if c["id"] != candidate["id"] and _is_filed(c)]
-
-    # A regional-councillor incumbent holds a numbered slot, but the race is
-    # at-large: the municipality's at-large challenger pool (a separate pool
-    # seat_id) is running against them too. Fold those challengers in so the
-    # incumbent isn't wrongly reported as "acclaimed" or facing no challengers.
-    if candidate.get("status") == "incumbent" and candidate.get("office") == "Regional Councillor":
-        other_filed = other_filed + [
-            c for c in all_candidates
-            if c.get("at_large_pool")
-            and c.get("municipality") == candidate.get("municipality")
-            and c["id"] != candidate["id"]
+            if c.get("municipality") == muni and c.get("office") == office
+            and (c.get("status") == "incumbent" or c.get("at_large_pool"))
             and _is_filed(c)
         ]
-        # Field ≤ seats beats challenger-visibility grading: a filed at-large
-        # incumbent in that situation is acclaimed (or on track to be).
-        if _is_filed(candidate):
-            acclaim = _at_large_acclamation(candidate, all_candidates, nomination_day_passed, as_of)
-            if acclaim:
-                return acclaim
+        return len(filed_field) <= seats_n
 
-    if not _is_filed(candidate) and not other_filed:
-        return {
-            "label": "insufficient_data",
-            "basis": ["No filings recorded yet for this seat."],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-
-    if nomination_day_passed and _is_filed(candidate) and not other_filed:
-        return {
-            "label": "acclaimed",
-            "basis": ["No other candidates filed for this seat by nomination close."],
-            "confidence": "medium",
-            "as_of": as_of,
-        }
-
-    is_incumbent = candidate.get("status") == "incumbent"
-
-    if is_incumbent and not _is_filed(candidate):
-        # Don't call an incumbent "favored" to win a race they haven't
-        # actually entered — that's a stronger claim than the data supports,
-        # especially once challengers have already filed against the seat.
-        return {
-            "label": "insufficient_data",
-            "basis": ["Incumbent has not yet filed for re-election" + (
-                f" — {len(other_filed)} other candidate(s) already have" if other_filed else ""
-            )],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-
-    if is_incumbent:
-        if not other_filed:
-            return {
-                "label": "favored",
-                "basis": ["Incumbent", "No challengers filed yet"],
-                "confidence": "low",
-                "as_of": as_of,
-            }
-        challenger_mention_counts = [
-            len(find_relevant_articles(c["name"], news_articles)) for c in other_filed
-        ]
-        max_mentions = max(challenger_mention_counts, default=0)
-        if max_mentions >= 3:
-            return {
-                "label": "competitive",
-                "basis": [
-                    "Incumbent",
-                    f"{len(other_filed)} challenger(s) filed",
-                    f"Highest challenger news volume: {max_mentions} mention(s)",
-                ],
-                "confidence": "low",
-                "as_of": as_of,
-            }
-        return {
-            "label": "favored",
-            "basis": [
-                "Incumbent",
-                f"{len(other_filed)} challenger(s) filed with limited news visibility (max {max_mentions} mention(s))",
-            ],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-
-    # Candidate is a challenger. A seat is only OPEN when no sitting member is
-    # coming back — the roster has no incumbent, the incumbent has declined,
-    # or nominations closed without them filing. An incumbent who simply
-    # hasn't filed YET does NOT open the seat (2026-08-08 fix): nominations
-    # run to Aug 21, and reading "no filed incumbent" as "no incumbent"
-    # promoted every lone challenger to "competitive" on the strength of the
-    # incumbent's missing paperwork — it put a first-time single-issue
-    # challenger level with a five-term mayor.
-    seat_incumbent = next((c for c in seat_candidates if c.get("status") == "incumbent"), None)
-    seat_is_open = (
-        seat_incumbent is None
-        or seat_incumbent.get("filed_for_reelection") == "declined"
-        or (nomination_day_passed and not _is_filed(seat_incumbent))
-    )
-    if seat_is_open:
-        return {
-            "label": "competitive",
-            "basis": ["Open seat — no incumbent returning", f"{len(seat_candidates)} candidate(s) filed"],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-
-    # Before nominations close, an unfiled incumbent is the dominant unresolved
-    # variable in the race, and calling their challengers "long shots" asserts
-    # the branch where the incumbent files — the mirror of the bug above. When
-    # the incumbent's return is genuinely unsettled AND enough challengers have
-    # filed that the seat would be a real contest without them, say so
-    # conditionally rather than picking a branch (2026-08-08 decision).
-    #
-    # "Genuinely unsettled" excludes an incumbent already assessed likely to
-    # run: the dashboard must not publish a projection that contradicts its own
-    # recorded editorial assessment. Requiring TWO filed challengers is what
-    # keeps this honest — with only one, the conditional would amount to
-    # "this challenger is acclaimed if the incumbent walks away", a claim the
-    # arithmetic supports but nothing else does.
-    # Read the override directly rather than the computed likely_to_run_again:
-    # estimate_all passes the pre-estimate candidate list here, so the computed
-    # field may be a stale carry-over. "likely" can only ever come from an
-    # editorial override anyway — the news path never emits it.
-    incumbent_assessed_running = (
-        (seat_incumbent.get("likely_to_run_again_override") or {}).get("label") == "likely"
-        or (seat_incumbent.get("likely_to_run_again") or {}).get("label") == "likely"
-    )
-    filed_challengers = [
-        c for c in seat_candidates
-        if c.get("status") != "incumbent" and _is_filed(c)
+    seat_id = candidate.get("seat_id")
+    others = [
+        c for c in all_candidates
+        if c.get("seat_id") == seat_id and c["id"] != candidate["id"] and _is_filed(c)
     ]
-    if not _is_filed(seat_incumbent) and not incumbent_assessed_running and len(filed_challengers) >= 2:
-        return {
-            "label": "competitive_if_open",
-            "basis": [
-                "Incumbent has not filed and is not assessed either way",
-                f"{len(filed_challengers)} challengers filed — an open {len(filed_challengers)}-way race if the incumbent does not file by nomination day",
-            ],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-
-    facing = "Challenging an incumbent" + (
-        " who has not filed yet but is assessed likely to run"
-        if not _is_filed(seat_incumbent) and incumbent_assessed_running
-        else " who has not filed yet" if not _is_filed(seat_incumbent)
-        else ""
-    )
-    own_mentions = len(find_relevant_articles(candidate["name"], news_articles))
-    if own_mentions >= 3:
-        return {
-            "label": "competitive",
-            "basis": [facing, f"{own_mentions} news mention(s) — meaningful visibility"],
-            "confidence": "low",
-            "as_of": as_of,
-        }
-    return {
-        "label": "long_shot",
-        "basis": [facing, f"{own_mentions} news mention(s) — limited visibility"],
-        "confidence": "low",
-        "as_of": as_of,
-    }
+    return not others
 
 
 def estimate_all(
@@ -360,16 +164,22 @@ def estimate_all(
     as_of: str,
     nomination_day_passed: bool = False,
 ) -> list[dict]:
-    """Attach likely_to_run_again and likely_to_win estimates to every candidate."""
+    """Attach likely_to_run_again and, once nominations close, `acclaimed`.
+
+    `likely_to_win` is deliberately no longer produced, and any value carried
+    over from an earlier run is dropped here so it can't linger in
+    candidates.json and quietly keep feeding the page.
+    """
     updated = []
     for candidate in candidates:
         try:
             new_candidate = dict(candidate)
+            new_candidate.pop("likely_to_win", None)
             new_candidate["likely_to_run_again"] = estimate_likely_to_run_again(
                 candidate, news_articles, as_of
             )
-            new_candidate["likely_to_win"] = estimate_likely_to_win(
-                candidate, candidates, news_articles, nomination_day_passed, as_of
+            new_candidate["acclaimed"] = bool(
+                nomination_day_passed and _seat_is_acclaimed(candidate, candidates)
             )
             updated.append(new_candidate)
         except Exception as exc:

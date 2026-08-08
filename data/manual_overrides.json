@@ -79,13 +79,6 @@
         "news_mentions": 0,
         "last_news_date": null,
         "likely_to_run_again": null,
-        "likely_to_win": {
-          "label": "insufficient_data",
-          "basis": [
-            "At-large race for 4 seats — multi-winner outlook is not modelled"
-          ],
-          "confidence": "low"
-        },
         "source": "manual"
       },
       "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension — one of two at-large challengers competing with the four incumbents for the four Local and Regional Councillor seats",
@@ -114,13 +107,6 @@
         "news_mentions": 0,
         "last_news_date": null,
         "likely_to_run_again": null,
-        "likely_to_win": {
-          "label": "insufficient_data",
-          "basis": [
-            "At-large race for 4 seats — multi-winner outlook is not modelled"
-          ],
-          "confidence": "low"
-        },
         "source": "manual"
       },
       "verified_by": "Claude read Vaughan's official Candidates page (Nominated Candidates > Local and Regional Councillor) via the Claude-for-Chrome extension — one of two at-large challengers competing with the four incumbents for the four Local and Regional Councillor seats",

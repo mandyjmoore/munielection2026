@@ -927,37 +927,23 @@
 
     .badge-unknown { background: #f0f0f2; color: var(--text-dim); }
 
-    /* Heuristic/estimated fields (likely_to_run_again, likely_to_win) get a
-       visually distinct treatment — dashed border, no solid fill — so they
-       can never be confused with confirmed facts like incumbent status. */
+    /* Heuristic/estimated fields (likely_to_run_again) get a visually
+       distinct treatment — dashed border, no solid fill — so they can never
+       be confused with confirmed facts like incumbent status. */
     .badge-estimate {
       background: transparent;
       border: 1px dashed var(--text-dim);
       color: var(--text-muted);
     }
 
-    /* Race-outlook estimates: dashed inline text (the page's estimate
-       register, like "est: uncertain") — deliberately NOT a chip, so a
-       speculation never carries the same visual authority as the measured
-       alignment chips. */
-    .win-est {
-      font-size: 10px;
-      font-weight: 600;
-      border-bottom: 1px dashed currentColor;
-      cursor: help;
-      white-space: nowrap;
-    }
-    .win-est.est-favored    { color: var(--lime); }
-    .win-est.est-acclaimed  { color: var(--green); }
-    .win-est.est-competitive { color: var(--yellow); }
-    .win-est.est-long_shot  { color: var(--orange); }
-    /* Contingent on something not yet settled (the incumbent's filing), so it
-       reads a step quieter than a firm estimate and is allowed to wrap — the
-       "if …" clause is the whole point and must not be clipped. */
-    .win-est.est-competitive_if_open {
-      color: var(--text-muted);
-      white-space: normal;
-    }
+    /* The per-candidate race estimates that used to live here (.win-est —
+       "favored to win", "competitive race", "long shot") were REMOVED at the
+       maintainer's direction 2026-08-08: with no polling and only a regional
+       news feed to grade on, they were not reliable enough to publish, and
+       the maintainer's own read of these races is far better informed than
+       anything the inputs could support. Don't reintroduce a win estimate.
+       The page now shows confirmed filings, measured voting records, and
+       acclamation once nominations close — facts only. */
 
     .score-pill {
       font-size: 10px;
@@ -1298,7 +1284,7 @@
     <div class="alignment-overview" id="outlook-panel">
       <div class="section-title">
         Post-Election Outlook
-        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are projected: a seat is coloured only when a FILED incumbent holds a favourable ordinal estimate — favored/acclaimed counts fully, competitive counts as a lean and is marked '(competitive race)'. The colour is that member's current fiscal-alignment bucket. Aligned members who haven't filed but are assessed likely to run (editorial assessment, recorded with provenance) form the light-green 'Aligned · likely to run' tier. In at-large races where the filed field is no larger than the seat count, filed candidates are acclaimed (or on track to be) under the Municipal Elections Act — a challenger winning that way appears as dark-grey 'Registered · alignment unscored', because they have no voting record to score. Remaining unfiled incumbents, contested races and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; measured fiscal alignment (where it exists) is shown as a chip beside the name. Estimates come from filings + news visibility (no polling exists) — ordinal and low-confidence, never probabilities.">estimates, not predictions</span>
+        <span class="badge badge-estimate" style="font-size:9px;cursor:help" title="How seats are grouped: a seat is coloured when its incumbent has REGISTERED — the colour is that member's measured fiscal-alignment bucket, and the column reads '· registered'. Nothing here predicts a winner: per-race win estimates were removed 2026-08-08 because no polling exists and news coverage was not a reliable enough substitute to publish. Aligned members who haven't filed but are assessed likely to run (editorial assessment, recorded with provenance) form the light-green 'Aligned · likely to run' tier. Once nominations close, an at-large field no larger than the seat count is elected by acclamation under the Municipal Elections Act — that is arithmetic, not a forecast, and such a challenger appears as dark-grey 'Registered · alignment unscored', because they have no voting record to score. Unfiled incumbents and the not-yet-named Chair appointee go grey — Outcome unknown — with the reason in parentheses; measured fiscal alignment (where it exists) is shown as a chip beside the name.">registrations, not predictions</span>
       </div>
       <div id="outlook-composition">
         <div class="loading-spinner"><div class="spinner"></div> Computing outlook&hellip;</div>
@@ -1944,20 +1930,17 @@
   // ============================================================
   // RENDER: POST-ELECTION OUTLOOK (estimates only)
   // ============================================================
-  // Projects each seat from filings + the ordinal likely_to_win estimates.
-  // Deliberately coarse: a seat is either projected (filed incumbent with a
-  // favourable estimate), leaning, or honestly "uncertain" — no percentages,
+  // Projects each seat from filings alone. Win estimates were removed
+  // 2026-08-08 — a filed incumbent now lands in their alignment bucket
+  // because they are REGISTERED (which is what the bucket labels say:
+  // "Strongly Aligned · registered"), not because anything predicts they
+  // win. Everything unresolved stays honestly "uncertain" — no percentages,
   // no fabricated precision (see the design philosophy in CLAUDE.md).
   function seatProjection(seat) {
     const inc = state.candidates.find(c => c.id === seat.incumbent_candidate_id);
     if (inc && inc.filed_for_reelection === 'declined')
       return { status: 'uncertain', inc, why: 'not running — open seat' };
-    if (inc && isFiled(inc)) {
-      const w = (inc.likely_to_win || {}).label;
-      if (w === 'favored' || w === 'acclaimed') return { status: 'likely', inc };
-      if (w === 'competitive') return { status: 'lean', inc };
-      return { status: 'uncertain', inc, why: 'contested' };
-    }
+    if (inc && isFiled(inc)) return { status: 'filed', inc };
     // Not filed yet, but assessed likely to run (editorial override via
     // manual_overrides beats the news heuristic) — a softer projection tier.
     const runEst = (inc && inc.likely_to_run_again) || {};
@@ -2021,7 +2004,7 @@
           cid: p.inc.id,
           name: p.inc.name,
           muni: seat.municipality,
-          reason: p.status === 'lean' ? 'competitive race' : null,
+          reason: null,
           score: p.inc.fiscal_alignment_score ?? 5,
         });
       }
@@ -2029,13 +2012,13 @@
     // The appointed Chair is the 22nd voting member — 2026-30 appointee unknown.
     groups.uncertain.push({ cid: null, name: 'Regional Chair', muni: 'York Region', reason: 'appointee not yet named — provincial appointment', score: null });
 
-    // ACTUAL acclamation only (2026-07-22 decision): a challenger
-    // claims a seat in the projection only once the estimator says
-    // "acclaimed" — i.e., nominations have closed with field ≤ seats. Before
-    // the deadline the field can still grow (the unfiled incumbent may file),
-    // so the incumbent's seat stays honestly in Outcome unknown; the
-    // "on track for acclamation" estimate lives on the tiles, not here.
-    for (const ch of state.candidates.filter(c => c.at_large_pool && isFiled(c) && (c.likely_to_win || {}).label === 'acclaimed')) {
+    // ACTUAL acclamation only (2026-07-22 decision): a challenger claims a
+    // seat in the projection once `acclaimed` is set — i.e., nominations have
+    // closed with field ≤ seats, which is arithmetic under the Municipal
+    // Elections Act, not an estimate. Before the deadline the field can still
+    // grow (the unfiled incumbent may file), so the incumbent's seat stays
+    // honestly in Outcome unknown and nothing is claimed either way.
+    for (const ch of state.candidates.filter(c => c.at_large_pool && isFiled(c) && c.acclaimed)) {
       const idx = groups.uncertain.findIndex(e => e.muni === ch.municipality && e.office === 'Regional Councillor');
       if (idx === -1) continue;
       groups.uncertain.splice(idx, 1);
@@ -2116,32 +2099,13 @@
   // Election-explicit wording, so the estimate can't be read as anything but
   // race odds. Rendered as dashed inline text (the page's estimate register),
   // deliberately a different species from the solid alignment chips.
-  const WIN_TEXT = {
-    favored: 'favored to win',
-    acclaimed: 'acclaimed',
-    competitive: 'competitive race',
-    long_shot: 'long shot',
-    // Names the contingency instead of picking a branch: while an incumbent's
-    // filing is unresolved, grading their challengers either way asserts an
-    // outcome the data doesn't have (2026-08-08).
-    competitive_if_open: "competitive if incumbent doesn't file",
-  };
-
-  function winBadge(c) {
-    const w = c && c.likely_to_win;
-    if (!w || !w.label || w.label === 'insufficient_data') return '';
-    const method =
-      'HOW THIS IS ESTIMATED (ordinal guess from filings + news visibility — no polling exists, so never a probability):\n' +
-      '• A filed incumbent starts "favored".\n' +
-      '• They drop to "competitive" once any filed challenger has meaningful news visibility (3+ articles naming them in the tracked feed).\n' +
-      '• A challenger facing an incumbent is a "long shot" until their own coverage reaches that same bar, which makes them "competitive".\n' +
-      '• A race is "competitive" for everyone only when no incumbent is returning — none on the roster, or the sitting member has declined. An incumbent who has not filed yet does not open the seat.\n' +
-      '• While an incumbent\'s own filing is unresolved and two or more challengers have filed, those challengers read "competitive if incumbent doesn\'t file" rather than being graded as though the incumbent had already decided. It resolves on its own the moment they file, or when nominations close.\n' +
-      '• A lone candidate after nominations close is "acclaimed".\n' +
-      '• At-large multi-seat races grade challengers on the same visibility evidence, against all incumbents at once.';
-    const specific = 'WHY ' + (c.name || 'THIS CANDIDATE').toUpperCase() + ' IS "' + w.label.replace(/_/g, ' ').toUpperCase() + '": ' + (w.basis || []).join('; ');
-    const tip = escapeHtml('Estimate, not fact.\n\n' + method + '\n\n' + specific);
-    return `<span class="win-est est-${w.label}" title="${tip}">${WIN_TEXT[w.label] || escapeHtml(w.label.replace(/_/g, ' '))}</span>`;
+  // winBadge() lived here and rendered the per-candidate race estimate.
+  // Removed 2026-08-08 — see the note where .win-est used to be defined.
+  // `acclaimed` is the one outcome still shown, and it is a fact (nominations
+  // closed with field ≤ seats), so it renders in the confirmed register
+  // alongside the filing status, not as an estimate.
+  function acclaimedTag(c) {
+    return c && c.acclaimed ? ' &middot; acclaimed' : '';
   }
 
   function chairCard(seat) {
@@ -2173,7 +2137,8 @@
       } else if (isFiled(inc)) {
         statusClass = 'filed';
         const d = parseFiledDate(inc);
-        statusHtml = '&#10003; Filed' + (d ? ` ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '');
+        statusHtml = '&#10003; ' + (inc.acclaimed ? 'Acclaimed' : 'Filed')
+          + (d ? ` ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '');
       }
       // Unfiled incumbents show just "Not registered" — no run-again
       // estimate (2026-07-21 decision; matches the unfiled mayors).
@@ -2196,7 +2161,7 @@
             isFiled(ch) ? (d ? d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' }) : null) : 'likely',
           ].filter(Boolean).join(' &middot; ');
           return `<div style="${isFiled(ch) ? '' : 'color:var(--text-dim)'};display:flex;align-items:center;gap:5px;flex-wrap:wrap">
-            <span>${bits}</span>${scorePill(ch, true)}${winBadge(ch)}
+            <span>${bits}${acclaimedTag(ch)}</span>${scorePill(ch, true)}
           </div>`;
         }).join('')
       : (pooledAtLarge ? '' : `<div class="none">No challengers</div>`);
@@ -2209,7 +2174,7 @@
           ${scorePill(inc, false)}
         </div>
         <div class="chair-status st-${statusClass}" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-          <span>${statusHtml}</span>${winBadge(inc)}
+          <span>${statusHtml}</span>
         </div>
         ${challengerHtml ? `<div class="chair-challengers">${challengerHtml}</div>` : ''}
       </div>
@@ -2244,7 +2209,7 @@
       const meta = filed
         ? (d ? ` &middot; ${d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : '')
         : ' &middot; likely';
-      return `<span class="atlarge-cand${filed ? '' : ' not-filed'}">${dot} ${escapeHtml(ch.name)}<span class="al-meta">${meta}</span>${winBadge(ch)}</span>`;
+      return `<span class="atlarge-cand${filed ? '' : ' not-filed'}">${dot} ${escapeHtml(ch.name)}<span class="al-meta">${meta}${acclaimedTag(ch)}</span></span>`;
     }).join('');
     const n = regionalSeatCount || pool.length;
     return `

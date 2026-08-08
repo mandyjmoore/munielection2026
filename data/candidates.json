@@ -18,18 +18,10 @@
     "news_mentions": 3,
     "last_news_date": "2026-05-11T07:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "2 challenger(s) filed with limited news visibility (max 2 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:12.223764+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
+    "scraped_at": "2026-08-08T16:00:35.625470+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00",
+    "acclaimed": false
   },
   {
     "id": "east-gwillimbury-mayor-virginia-hackson",
@@ -55,18 +47,11 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
-    "likely_to_win": {
-      "label": "insufficient_data",
-      "basis": [
-        "Incumbent has not yet filed for re-election — 2 other candidate(s) already have"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
+      "as_of": "2026-08-08T16:00:16.105644+00:00"
     },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "georgina-mayor-margaret-quirk",
@@ -87,18 +72,10 @@
     "news_mentions": 2,
     "last_news_date": "2026-05-27T07:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
+    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
+    "acclaimed": false
   },
   {
     "id": "georgina-regional-councillor-1-naomi-davison",
@@ -119,18 +96,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
+    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
+    "acclaimed": false
   },
   {
     "id": "king-mayor-steve-pellegrini",
@@ -151,18 +120,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:06.748308+00:00",
-    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
+    "scraped_at": "2026-08-08T16:00:50.019844+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00",
+    "acclaimed": false
   },
   {
     "id": "markham-mayor-frank-scarpitti",
@@ -189,15 +150,7 @@
       ],
       "confidence": "medium",
       "source": "editorial",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
-    "likely_to_win": {
-      "label": "insufficient_data",
-      "basis": [
-        "Incumbent has not yet filed for re-election — 1 other candidate(s) already have"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
+      "as_of": "2026-08-08T16:00:16.105644+00:00"
     },
     "source": "seeded",
     "scraped_at": null,
@@ -208,7 +161,8 @@
       ],
       "confidence": "medium",
       "source": "editorial"
-    }
+    },
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-1-michael-chan",
@@ -234,18 +188,11 @@
         "No news coverage found mentioning this candidate."
       ],
       "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
-    "likely_to_win": {
-      "label": "insufficient_data",
-      "basis": [
-        "Incumbent has not yet filed for re-election — 3 other candidate(s) already have"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
+      "as_of": "2026-08-08T16:00:16.105644+00:00"
     },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-2-jim-jones",
@@ -266,18 +213,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
-    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-3-joe-li",
@@ -298,18 +237,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
-    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-4-alan-ho",
@@ -330,18 +261,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "3 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
-    "first_seen_at": "2026-07-06T14:50:06.508299+00:00"
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
+    "acclaimed": false
   },
   {
     "id": "newmarket-mayor-john-taylor",
@@ -362,17 +285,8 @@
     "news_mentions": 2,
     "last_news_date": "2026-07-27T19:30:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "No challengers filed yet"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:20.601636+00:00",
+    "scraped_at": "2026-08-08T16:00:37.454609+00:00",
     "likely_to_run_again_override": {
       "label": "likely",
       "basis": [
@@ -381,7 +295,8 @@
       "confidence": "medium",
       "source": "editorial"
     },
-    "first_seen_at": "2026-07-24T15:26:49.413975+00:00"
+    "first_seen_at": "2026-07-24T15:26:49.413975+00:00",
+    "acclaimed": false
   },
   {
     "id": "newmarket-regional-councillor-1-tom-vegh",
@@ -402,18 +317,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:20.601636+00:00",
-    "first_seen_at": "2026-07-29T17:16:21.324841+00:00"
+    "scraped_at": "2026-08-08T16:00:37.454609+00:00",
+    "first_seen_at": "2026-07-29T17:16:21.324841+00:00",
+    "acclaimed": false
   },
   {
     "id": "richmond-hill-mayor-david-west",
@@ -434,18 +341,10 @@
     "news_mentions": 0,
     "last_news_date": "2026-07-16T07:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
+    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
+    "acclaimed": false
   },
   {
     "id": "richmond-hill-regional-councillor-1-godwin-chan",
@@ -466,18 +365,10 @@
     "news_mentions": 0,
     "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
+    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
+    "acclaimed": false
   },
   {
     "id": "richmond-hill-regional-councillor-2-joe-dipaola",
@@ -498,18 +389,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "1 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
+    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
+    "acclaimed": false
   },
   {
     "id": "vaughan-mayor-steven-del-duca",
@@ -530,17 +413,9 @@
     "news_mentions": 0,
     "last_news_date": "2026-07-29T14:30:13+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "No challengers filed yet"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "vaughan-regional-councillor-1-linda-d-jackson",
@@ -561,17 +436,9 @@
     "news_mentions": 1,
     "last_news_date": "2026-07-09T10:25:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "vaughan-regional-councillor-2-mario-ferri",
@@ -592,17 +459,9 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "vaughan-regional-councillor-3-gino-rosati",
@@ -623,17 +482,9 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "vaughan-regional-councillor-4-mario-g-racco",
@@ -654,17 +505,9 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "2 challenger(s) filed with limited news visibility (max 0 mention(s))"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "whitchurch-stouffville-mayor-iain-lovatt",
@@ -685,18 +528,10 @@
     "news_mentions": 3,
     "last_news_date": "2026-05-27T07:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "favored",
-      "basis": [
-        "Incumbent",
-        "No challengers filed yet"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:22.831724+00:00",
-    "first_seen_at": "2026-07-06T14:43:37.736441+00:00"
+    "scraped_at": "2026-08-08T16:00:48.321555+00:00",
+    "first_seen_at": "2026-07-06T14:43:37.736441+00:00",
+    "acclaimed": false
   },
   {
     "id": "king-mayor-stephen-ferritto",
@@ -717,18 +552,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:06.748308+00:00",
-    "first_seen_at": "2026-07-06T13:44:01.110542+00:00"
+    "scraped_at": "2026-08-08T16:00:50.019844+00:00",
+    "first_seen_at": "2026-07-06T13:44:01.110542+00:00",
+    "acclaimed": false
   },
   {
     "id": "aurora-mayor-shawn-deane",
@@ -749,18 +576,10 @@
     "news_mentions": 2,
     "last_news_date": "2026-06-10T18:45:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "2 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:12.223764+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
+    "scraped_at": "2026-08-08T16:00:35.625470+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00",
+    "acclaimed": false
   },
   {
     "id": "aurora-mayor-john-gallo",
@@ -781,18 +600,10 @@
     "news_mentions": 0,
     "last_news_date": "2026-05-04T07:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:12.223764+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.603662+00:00"
+    "scraped_at": "2026-08-08T16:00:35.625470+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.603662+00:00",
+    "acclaimed": false
   },
   {
     "id": "georgina-mayor-dale-kerr-genge",
@@ -813,18 +624,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
+    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
+    "acclaimed": false
   },
   {
     "id": "georgina-regional-councillor-geoff-fardy",
@@ -845,18 +648,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:13.965556+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.717526+00:00"
+    "scraped_at": "2026-08-08T16:00:42.770155+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.717526+00:00",
+    "acclaimed": false
   },
   {
     "id": "east-gwillimbury-mayor-scott-crone",
@@ -877,18 +672,10 @@
     "news_mentions": 2,
     "last_news_date": "2026-05-29T16:22:59+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "competitive_if_open",
-      "basis": [
-        "Incumbent has not filed and is not assessed either way",
-        "2 challengers filed — an open 2-way race if the incumbent does not file by nomination day"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:16.314521+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
+    "scraped_at": "2026-08-08T16:00:53.059301+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00",
+    "acclaimed": false
   },
   {
     "id": "east-gwillimbury-mayor-brian-johns",
@@ -909,18 +696,10 @@
     "news_mentions": 2,
     "last_news_date": "2026-05-11T07:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "competitive_if_open",
-      "basis": [
-        "Incumbent has not filed and is not assessed either way",
-        "2 challengers filed — an open 2-way race if the incumbent does not file by nomination day"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:16.314521+00:00",
-    "first_seen_at": "2026-07-06T13:44:00.020297+00:00"
+    "scraped_at": "2026-08-08T16:00:53.059301+00:00",
+    "first_seen_at": "2026-07-06T13:44:00.020297+00:00",
+    "acclaimed": false
   },
   {
     "id": "richmond-hill-mayor-holo-devnani",
@@ -941,18 +720,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
-    "first_seen_at": "2026-07-06T13:43:59.312552+00:00"
+    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
+    "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
+    "acclaimed": false
   },
   {
     "id": "richmond-hill-regional-councillor-marco-coletta",
@@ -973,19 +744,11 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "At-large race — challenging 2 incumbents for 2 seats",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:18.909310+00:00",
+    "scraped_at": "2026-08-08T16:00:40.790650+00:00",
     "first_seen_at": "2026-07-06T13:43:59.312552+00:00",
-    "at_large_pool": true
+    "at_large_pool": true,
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-kristian-chan",
@@ -1006,19 +769,11 @@
     "news_mentions": 0,
     "last_news_date": "2026-07-03T14:00:00+00:00",
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "At-large race — challenging 4 incumbents for 4 seats",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
     "first_seen_at": "2026-07-06T14:50:06.508299+00:00",
-    "at_large_pool": true
+    "at_large_pool": true,
+    "acclaimed": false
   },
   {
     "id": "york-region-chair-eric-jolliffe",
@@ -1039,16 +794,9 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "insufficient_data",
-      "basis": [
-        "No filings recorded yet for this seat."
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "seeded",
-    "scraped_at": null
+    "scraped_at": null,
+    "acclaimed": false
   },
   {
     "id": "vaughan-regional-at-large-fitz-roy-gordon",
@@ -1070,16 +818,8 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "At-large race — challenging 4 incumbents for 4 seats",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
-    "source": "manual"
+    "source": "manual",
+    "acclaimed": false
   },
   {
     "id": "vaughan-regional-at-large-alex-nascimben",
@@ -1101,16 +841,8 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "At-large race — challenging 4 incumbents for 4 seats",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
-    "source": "manual"
+    "source": "manual",
+    "acclaimed": false
   },
   {
     "id": "newmarket-regional-councillor-mohsen-alavi",
@@ -1132,18 +864,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:20.601636+00:00",
-    "first_seen_at": "2026-08-05T19:36:53.465998+00:00"
+    "scraped_at": "2026-08-08T16:00:37.454609+00:00",
+    "first_seen_at": "2026-08-05T19:36:53.465998+00:00",
+    "acclaimed": false
   },
   {
     "id": "markham-mayor-martin-ross",
@@ -1165,18 +889,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "Challenging an incumbent who has not filed yet but is assessed likely to run",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
-    "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "first_seen_at": "2026-08-08T14:10:05.476939+00:00",
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-paul-chiang",
@@ -1198,18 +914,10 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "At-large race — challenging 4 incumbents for 4 seats",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
-    "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "first_seen_at": "2026-08-08T14:10:05.476939+00:00",
+    "acclaimed": false
   },
   {
     "id": "markham-regional-councillor-joe-tay",
@@ -1231,17 +939,9 @@
     "news_mentions": 0,
     "last_news_date": null,
     "likely_to_run_again": null,
-    "likely_to_win": {
-      "label": "long_shot",
-      "basis": [
-        "At-large race — challenging 4 incumbents for 4 seats",
-        "0 news mention(s) — limited visibility"
-      ],
-      "confidence": "low",
-      "as_of": "2026-08-08T15:37:49.493461+00:00"
-    },
     "source": "scraped",
-    "scraped_at": "2026-08-08T15:38:09.542576+00:00",
-    "first_seen_at": "2026-08-08T14:10:05.476939+00:00"
+    "scraped_at": "2026-08-08T16:00:45.665509+00:00",
+    "first_seen_at": "2026-08-08T14:10:05.476939+00:00",
+    "acclaimed": false
   }
 ]
